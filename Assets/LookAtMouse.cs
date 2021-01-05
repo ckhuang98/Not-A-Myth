@@ -6,21 +6,19 @@ using UnityEngine;
 
 public class LookAtMouse : MonoBehaviour
 {
-    bool gameOver;
 
     public Transform target;
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        gameOver = target.GetComponent<PlayerController>().gameOver;
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameOver = target.GetComponent<PlayerController>().gameOver;
-        if (!gameOver) {
+
+        if (!PlayerController.gameOver) {
         //Vector3 targetDirection = Input.mousePosition - this.transform.position;
 
         //float singleStep = 5 * Time.deltaTime;

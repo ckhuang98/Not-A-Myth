@@ -40,11 +40,11 @@ public class PlayerController : MonoBehaviour {
     public BarScript healthBar;
     public int maxHealth;
     public int currentHealth;
-///////////////////////////////////
+    ///////////////////////////////////
 
     public GameObject slashCollider;
 
-    public bool gameOver = false;
+    public static bool gameOver = false;
     Text gameOverText;
     // Start is called before the first frame update
     void Start() {

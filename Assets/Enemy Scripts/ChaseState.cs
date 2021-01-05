@@ -19,6 +19,11 @@ public class ChaseState : BaseState
     {
         //Debug.Log("Chasing");
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+
+        if (Vector2.Distance(transform.position, target.position) <= 1) {
+            return typeof(AttackState);
+        }  
+        
         return typeof(ChaseState);
     }
 

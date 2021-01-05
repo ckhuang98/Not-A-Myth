@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.Linq;
@@ -6,11 +6,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Reflection;
 
-public abstract class StateMachine : MonoBehaviour
+public class StateMachine : MonoBehaviour
 {
     protected Dictionary<Type, BaseState> availableStates;
-
-    public int a = 18;
 
     public BaseState CurrentState { get; private set; }
     public event Action<BaseState> OnStateChanged;

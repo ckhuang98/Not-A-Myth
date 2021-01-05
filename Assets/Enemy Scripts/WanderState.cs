@@ -6,7 +6,6 @@ using System;
 public class WanderState : BaseState
 {
     private Enemy _enemy;
-    private EnemyTrigger _enemyTrigger;
     private float speed = 3f;
     private Vector2 decisionTime = new Vector2(1, 4);
     internal float decisionTimeCount = 0f;
@@ -15,13 +14,13 @@ public class WanderState : BaseState
     Vector3.up, Vector3.down };
     internal int currMoveDirection;
 
-    public WanderState(Enemy enemy, EnemyTrigger enemyTrigger) : base(enemy.gameObject)
+    public WanderState(Enemy enemy) : base(enemy.gameObject)
     {
         _enemy = enemy;
         decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
         ChooseMoveDirection();
-        _enemyTrigger = enemyTrigger;
     }
+
     public override Type Tick()
     {
         
@@ -38,7 +37,7 @@ public class WanderState : BaseState
             ChooseMoveDirection();
         }
 
-        if (_enemyTrigger.viewInBounds == true)
+        if (_enemy.inBounds == true)
         {
             return typeof(ChaseState);
         }
