@@ -1,0 +1,60 @@
+public Enemyname : MonoBehavior{
+    [variables that needs to be kept track of at the top]
+    health, speed, etc.
+
+    StateMachine stateMachine = new StateMachine();
+
+    Start(){
+        initalize variables as needed;
+        initalize stateMachine;
+    }
+
+    [next we'll keep essential methods, such as spawning shards, or if the game is over.]
+
+    isDead(){
+        if (healthAmount <= 0) {
+                Destroy(this.gameObject);
+                enemyAmount -= 1;
+                spawnShard();
+        }
+    }
+
+    [This is temporary, we might not want to damage player on hit in the future]
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .5)
+        {
+            healthAmount -= collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength();
+            var thisColor = this.GetComponent<Renderer>().material.color;
+            thisColor.a -= .1f;
+            this.GetComponent<Renderer>().material.color = thisColor;
+
+            timer = 0;
+        }
+        /*
+        //check for when players view is overlapping with the enemy
+        if (collider.gameObject.name.Equals("View"))
+        {
+            inBounds = true;
+        }
+        */
+    }
+
+    void spawnShard() {
+        if(UnityEngine.Random.value > .33) {
+            GameObject go = (GameObject)Instantiate(shard);
+            go.transform.position = this.transform.position;
+        }
+    }
+
+    void InitializeStateMachine()
+    {
+        var states = new Dictionary<Type, BaseState>()
+        {
+            { typeof(WanderState), new WanderState(this, enemyTrigger) },
+            { typeof(ChaseState), new ChaseState(this) }
+        };
+
+        stateMachine.SetStates(states);
+    }
+}
