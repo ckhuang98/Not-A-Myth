@@ -71,6 +71,11 @@ public class Enemy : MonoBehaviour
         
     }
 
+
+    //Spawns a chard every 3 enemy deaths for the player to pick up
+    //make a public Game Object "shard" and then you can assign a prefab object to that
+    //In the future, we sohuld probably use tags instead, so that you don't have to 
+    //manually assign the prefab object to the enemy controller script. 
     void spawnShard() {
         if(UnityEngine.Random.value > .33) {
             GameObject go = (GameObject)Instantiate(shard);
