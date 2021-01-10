@@ -7,6 +7,7 @@ using System.Reflection;
 
 public abstract class BaseState
 {
+    //Gets needed values from the enemy game object
     public BaseState(GameObject gameObject)
     {
         this.gameObject = gameObject;

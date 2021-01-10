@@ -10,15 +10,29 @@ public class StateMachine : MonoBehaviour
 {
     protected Dictionary<Type, BaseState> availableStates;
 
+    //Holds the current state the enemy is in
     public BaseState CurrentState { get; private set; }
+    //Triggers an event when the state is changed
     public event Action<BaseState> OnStateChanged;
 
+    /*
+    Purpose: sets all the states available in the enemy script file
+    from the passed dictionary to the state machine's dictionary
+    Recieves: Dictionary containg all states form the enemy.cs file
+    Returns: nothig
+    */
     public void SetStates(Dictionary<Type, BaseState> states)
     {
         availableStates = states;
     }
 
-    // Update is called once per frame
+    /*
+    Purpose: Checks every frame what state the enemy is currently in and 
+    when is should be changed. If no state is set, the first state of 
+    dictionary will be activated. 
+    Recieves: nothing
+    Returns: nothing
+    */
     public void Update()
     {
         if (CurrentState == null)
@@ -36,6 +50,12 @@ public class StateMachine : MonoBehaviour
         }
     }
 
+    /*
+    Purpose: switches the current state of the enemy to whatever is
+    returned by it.
+    Recieves: nothing
+    Returns: nothing
+    */
     private void SwitchToNewState(Type nextState)
     {
         CurrentState = availableStates[nextState];

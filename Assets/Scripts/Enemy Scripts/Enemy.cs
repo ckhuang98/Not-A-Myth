@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     public float timer = 0;
 
     public GameObject shard;
+    //Area of Effect
+    public GameObject AOE;
     
     //Target is the players' current location
     private Transform target;
@@ -90,12 +92,11 @@ public class Enemy : MonoBehaviour
     }
 
     /*
-    Purpose: This function detects the players location and moves the enemy sprite towards
-    the player
-    Recieves: The transform component that belongs to the player.
+    Purpose: Initializes the state machine with all the states attached in
+    the enemy scripts folder.
+    Recieves: Nothing
     Returns: nothing
     */
-
     void InitializeStateMachine()
     {
         var states = new Dictionary<Type, BaseState>()
