@@ -9,6 +9,7 @@ public class ChaseState : BaseState
     //This is the player
     private Transform target;
     public float speed = 3f;
+    private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
     /*
     Purpose: constructor recieves all needed values from enemy class and recieves
@@ -33,10 +34,25 @@ public class ChaseState : BaseState
     {
         //Debug.Log("Chasing");
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        
+        foreach (GameObject __enemy in enemies) {
+            if (__enemy != null) {
+                float currentDistance = Vector3.Distance(transform.position, __enemy.transform.position);
+                if (currentDistance < 2.0f)
+                {
+                Vector3 dist = transform.position - __enemy.transform.position;
+                transform.position += dist * Time.deltaTime;
+                } 
+            }
+        }
+        
+        
 
         if (Vector2.Distance(transform.position, target.position) <= 1) {
             return typeof(AttackState);
-        }  
+        }
+
+          
         
         return typeof(ChaseState);
     }

@@ -12,6 +12,8 @@ public class AttackState : BaseState
     //Area of attack has spawned
     private bool hasSpawned = false;
 
+    private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
     /*
     Purpose: constructor recieves all needed values from enemy class.
     Recieves: the enemy class from the enemy.cs file.
@@ -46,6 +48,8 @@ public class AttackState : BaseState
             return typeof(ChaseState);
         }
 
+        //If the enemy dies the area of effect must be destroyed in case it is
+        //permanently.
         if (_enemy.healthAmount <= 0) {
             GameObject.Destroy(AoE);
         }

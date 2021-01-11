@@ -16,6 +16,8 @@ public class WanderState : BaseState
     Vector3.Normalize(Vector3.down + Vector3.right), Vector3.Normalize(Vector3.down + Vector3.left) };
     internal int currMoveDirection;
 
+    private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
     /*
     Purpose: constructor recieves all needed values from enemy class, sets the
     first time when to change direction, and sets the first direction to move in
@@ -52,6 +54,17 @@ public class WanderState : BaseState
             decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
 
             ChooseMoveDirection();
+        }
+
+        foreach (GameObject __enemy in enemies) {
+            if (__enemy != null) {
+                float currentDistance = Vector3.Distance(transform.position, __enemy.transform.position);
+                if (currentDistance < 2.0f)
+                {
+                Vector3 dist = transform.position - __enemy.transform.position;
+                transform.position += dist * Time.deltaTime;
+                } 
+            }
         }
 
         if (_enemy.inBounds == true)
