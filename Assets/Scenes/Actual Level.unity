@@ -332,9 +332,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &146773359
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -677,7 +679,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -80098,9 +80100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &260372594
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80328,9 +80332,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &348657643
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80558,9 +80564,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &417942624
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80981,9 +80989,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &488167869
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81130,9 +81140,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &493535123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81535,9 +81547,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &556287116
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81940,9 +81954,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &673672251
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82089,9 +82105,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &675799101
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82769,9 +82787,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &831433848
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82918,9 +82938,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &851598450
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -83598,9 +83620,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &959955045
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -83828,9 +83852,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &991288461
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84058,9 +84084,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &1016367651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84301,9 +84329,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &1075110334
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84992,9 +85022,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &1171728820
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -85006,7 +85038,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.049654484, y: 0.7113228}
   m_SpriteTilingProperty:
@@ -85410,9 +85442,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &1189769323
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -86090,9 +86124,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &1351344475
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -86239,9 +86275,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &1364649336
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -86687,9 +86725,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &1570273236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -86930,9 +86970,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &1603354064
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -87995,14 +88037,13 @@ MonoBehaviour:
   rb: {fileID: 1777369716}
   attackPosition: {fileID: 761228107}
   attackAnimation: {fileID: 1709755250}
-  playerAnimator: {fileID: 0}
+  playerAnimator: {fileID: 1777369713}
   attackStrength: 1
   agroRange: 0
   healthBar: {fileID: 776076457}
   maxHealth: 100
   currentHealth: 0
   slashCollider: {fileID: 0}
-  gameOver: 0
 --- !u!50 &1777369716
 Rigidbody2D:
   serializedVersion: 4
@@ -88235,9 +88276,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &1779566169
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -88492,9 +88535,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &1820370180
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -88707,9 +88752,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &1863177962
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -89099,9 +89146,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &1952676756
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -89248,9 +89297,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &1966609414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -89572,9 +89623,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &1982484750
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -89876,9 +89929,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &2038553125
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -90119,9 +90174,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  speed: 3
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  speed: 3
+  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  inBounds: 0
 --- !u!61 &2122878636
 BoxCollider2D:
   m_ObjectHideFlags: 0
