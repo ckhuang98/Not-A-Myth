@@ -20,10 +20,10 @@ public class Enemy : MonoBehaviour
     //Target is the players' current location
     private Transform target;
     public bool inBounds = false;
+    public bool hasCircled = false;
 
     private GameObject[] enemyList;
     public static int enemyAmount;
-
     ////////////////////////////////
 
     StateMachine stateMachine;
@@ -103,6 +103,7 @@ public class Enemy : MonoBehaviour
         {
             { typeof(WanderState), new WanderState(this) },
             { typeof(ChaseState), new ChaseState(this) },
+            { typeof(CircleState), new CircleState(this) },
             { typeof(AttackState), new AttackState(this) }
         };
 

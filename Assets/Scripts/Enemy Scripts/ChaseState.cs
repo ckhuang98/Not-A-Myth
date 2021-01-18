@@ -9,6 +9,7 @@ public class ChaseState : BaseState
     //This is the player
     private Transform target;
     public float speed = 3f;
+    private bool hasCircled = false;
     private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
     /*
@@ -31,10 +32,10 @@ public class ChaseState : BaseState
     enemy gets close, then the type of the attack state is returned
     */
     public override Type Tick()
-    {
-        //Debug.Log("Chasing");
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        
+    { 
+
+        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime); 
+
         foreach (GameObject __enemy in enemies) {
             if (__enemy != null) {
                 float currentDistance = Vector3.Distance(transform.position, __enemy.transform.position);
@@ -45,15 +46,14 @@ public class ChaseState : BaseState
                 } 
             }
         }
-        
-        
-
-        if (Vector2.Distance(transform.position, target.position) <= 1) {
+    
+        if (Vector2.Distance(transform.position, target.position) <= 3 && hasCircled == false) {
+            hasCircled = true;
+            return typeof(CircleState);
+        } else if (Vector2.Distance(transform.position, target.position) <= .5 && hasCircled == true) {
+            hasCircled = false;
             return typeof(AttackState);
         }
-
-          
-        
         return typeof(ChaseState);
     }
 }
