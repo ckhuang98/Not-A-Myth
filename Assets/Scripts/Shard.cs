@@ -17,6 +17,7 @@ public class Shard : MonoBehaviour
         
     }
 
+    public Item item;
 
     //Only able to be picked up by the player
     //When picked up, the shard will call the method on the player "gainStength"
@@ -26,12 +27,22 @@ public class Shard : MonoBehaviour
     //it up once. 
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.name.Equals("Player") && pickedUp == false) {
-            collider.GetComponent<PlayerController>().gainStrength();
-            var shardObject = this.gameObject;
-            shardObject.GetComponent<Renderer>().enabled = false;
-            Destroy(shardObject);
-            pickedUp = true;
+
+            bool wasPickedUp = Inventory.instance.Add(item);
+            if (wasPickedUp)
+            {
+                Debug.Log("Picking up item " + item.name);
+                collider.GetComponent<PlayerController>().gainStrength();
+                var shardObject = this.gameObject;
+                shardObject.GetComponent<Renderer>().enabled = false;
+                Destroy(this.gameObject);
+                pickedUp = true;
+            }
         }
+    }
+
+    void PickUp()
+    {
         
     }
 
