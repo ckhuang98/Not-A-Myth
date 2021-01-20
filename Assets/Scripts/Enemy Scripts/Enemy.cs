@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     //Variables regarding enemy stats
     Rigidbody2D rb;
     public float healthAmount;
-    public float speed = 1;
+    private float speed = 1;
 
     public float timer = 0;
 
@@ -79,10 +79,10 @@ public class Enemy : MonoBehaviour
     //In the future, we sohuld probably use tags instead, so that you don't have to 
     //manually assign the prefab object to the enemy controller script. 
     void spawnShard() {
-        if(UnityEngine.Random.value > .33) {
+        //if(UnityEngine.Random.value > .33) {
             GameObject go = (GameObject)Instantiate(shard);
             go.transform.position = this.transform.position;
-        }
+        //}
     }
 
     void isDead(bool gameOver){

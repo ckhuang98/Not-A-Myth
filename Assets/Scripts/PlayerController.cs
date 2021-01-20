@@ -13,12 +13,17 @@ using System;
 using TMPro;
 
 public class PlayerController : MonoBehaviour {
+
+    [SerializeField] private LayerMask dashLayerMask;
+
     public float speed = 5.0f;
 
     public Rigidbody2D rb;
 
     Vector2 movement;
-    Vector2 lastMoveDirection;
+
+    Vector3 moveDirection;
+    Vector3 lastMoveDirection;
 
     public Text attackPosition;
 
@@ -42,6 +47,8 @@ public class PlayerController : MonoBehaviour {
     public int currentHealth;
     ///////////////////////////////////
 
+    public bool isDashButtonDown = false;
+
     public GameObject slashCollider;
 
     public static bool gameOver = false;
@@ -64,6 +71,8 @@ public class PlayerController : MonoBehaviour {
 
             movementManager();
             if (Input.GetMouseButtonDown(0)) {
+                speed = 0;
+                playerAnimator.SetFloat("Speed", speed);
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 //Debug.Log(mousePosition);
                 Vector3 attackDir = (mousePosition - this.transform.position).normalized;
@@ -72,15 +81,17 @@ public class PlayerController : MonoBehaviour {
                 //Debug.Log(attackDir);
                 attack(attackDir);
             }
-            if(Input.GetKeyDown(KeyCode.X)){
-                TakeDamage(20);
+            if(Input.GetKeyDown(KeyCode.Space)){
+                isDashButtonDown = true;
             }
             timer += Time.deltaTime;
-            if (timer >= .5) {
+            if (timer >= .3) {
+                speed = 5;
                 var colliders = attackAnimation.GetComponents<PolygonCollider2D>();
                 for (int i = 0; i < colliders.Length; i++) {
                     colliders[i].enabled = false;
                 }
+                attackAnimation.SetBool("LeftMouseDown", false);
             }
 
             hitDetection();
@@ -94,11 +105,26 @@ public class PlayerController : MonoBehaviour {
             //PUT IDLE ANIMATION HERE IF POSSIBLE
         }
 
+
+
         
     }
 
     void FixedUpdate() {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+
+        if (isDashButtonDown){
+            float dashAmount = 1f;
+            Vector3 dashPosition = transform.position + lastMoveDirection * dashAmount;
+
+            RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, lastMoveDirection, dashAmount, dashLayerMask);
+            if(raycastHit2D.collider != null){
+                dashPosition = raycastHit2D.point;
+            }
+
+            rb.MovePosition(dashPosition);
+            isDashButtonDown = false;
+        }
     }
 
     void attack(Vector3 attackDir) {
@@ -107,7 +133,8 @@ public class PlayerController : MonoBehaviour {
         //slashCollider.GetComponent<Collider>().enabled = true;
         //attackPosition.transform.position = Input.mousePosition;
         //attackPosition.text = "" + attackDir;
-        attackAnimation.Play("Attacking", -1, 0f);
+        //attackAnimation.Play("Attacking", -1, 0f);
+        attackAnimation.SetBool("LeftMouseDown", true);
     }
 
     public void gainStrength() {
