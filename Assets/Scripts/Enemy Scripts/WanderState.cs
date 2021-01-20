@@ -6,7 +6,7 @@ using System;
 public class WanderState : BaseState
 {
     private Enemy _enemy;
-    private float speed = 3f;
+    private float speed = 1f;
     private Vector2 decisionTime = new Vector2(1, 4);
     internal float decisionTimeCount = 0f;
 

@@ -27,6 +27,6 @@ public class MainMenu : MonoBehaviour
 
     //Assigned to the play button.
     public void playGame(){
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Actual Level");
     }
 }
