@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class Enemy : MonoBehaviour
 {
@@ -28,6 +29,15 @@ public class Enemy : MonoBehaviour
 
     StateMachine stateMachine;
 
+    private float _rayDistance = 3.0f;
+    private int layerMask = 1 << 9;
+    public RaycastHit2D[] castList = new RaycastHit2D[8];
+    public int[] weightList = new int[8];
+    //An array carrying all 8 movement options for the enemy
+    internal Vector3[] moveDirections = new Vector3[] { Vector3.right, Vector3.left,
+    Vector3.up, Vector3.down, Vector3.Normalize(Vector3.up + Vector3.right), Vector3.Normalize(Vector3.up + Vector3.left),
+    Vector3.Normalize(Vector3.down + Vector3.right), Vector3.Normalize(Vector3.down + Vector3.left) };
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +58,7 @@ public class Enemy : MonoBehaviour
     void Update() {
         isDead(PlayerController.gameOver);
         stateMachine.Update();
+        DisplayRays();
     }
 
 
@@ -110,4 +121,20 @@ public class Enemy : MonoBehaviour
         stateMachine.SetStates(states);
     }
 
+    private void DisplayRays()
+    {
+        for (int i = 0; i < moveDirections.Count(); i ++) {
+            var rayColor = Color.green;
+            Debug.DrawRay(transform.position, moveDirections[i] * _rayDistance, rayColor);
+            castList[i] = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), 
+                new Vector2(moveDirections[i].x, moveDirections[i].y), _rayDistance, layerMask);
+            weightList[i] = 0;
+        }
+        for (int i = 0; i < moveDirections.Count(); i ++) {
+            if (castList[i].collider != null) {
+                var rayColor = Color.red;
+                Debug.DrawRay(transform.position, moveDirections[i] * _rayDistance, rayColor);
+            }
+        }
+    }
 }
