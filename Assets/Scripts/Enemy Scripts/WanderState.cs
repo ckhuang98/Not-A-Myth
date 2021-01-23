@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class WanderState : BaseState
 {
@@ -17,6 +18,10 @@ public class WanderState : BaseState
     internal int currMoveDirection;
 
     private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+    private float _rayDistance = 1.0f;
+    private int layerMask = 1 << 9;
+    private RaycastHit2D[] casts = new RaycastHit2D[8];
 
     /*
     Purpose: constructor recieves all needed values from enemy class, sets the
@@ -42,8 +47,8 @@ public class WanderState : BaseState
     */
     public override Type Tick()
     {
-        
         transform.position += moveDirections[currMoveDirection] * Time.deltaTime * speed;
+        IsPathBlocked();
 
         if (decisionTimeCount >= 0)
         {
@@ -69,7 +74,7 @@ public class WanderState : BaseState
 
         if (_enemy.inBounds == true)
         {
-            return typeof(ChaseState);
+            return typeof(WanderState);
         }
  
         return typeof(WanderState);
@@ -85,5 +90,22 @@ public class WanderState : BaseState
         currMoveDirection = Mathf.FloorToInt(UnityEngine.Random.Range(0, moveDirections.Length));
     }
 
-    
+    private bool IsPathBlocked()
+    {
+        for (int i = 0; i < moveDirections.Count(); i ++) {
+            var rayColor = Color.green;
+            Debug.DrawRay(transform.position, moveDirections[i] * _rayDistance, rayColor);
+            casts[i] = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), 
+                new Vector2(moveDirections[i].x, moveDirections[i].y), _rayDistance, layerMask);
+        }
+        for (int i = 0; i < moveDirections.Count(); i ++) {
+            if (casts[i].collider != null) {
+                var rayColor = Color.red;
+                Debug.DrawRay(transform.position, moveDirections[i] * _rayDistance, rayColor);
+                //return true;
+            } 
+        }
+        
+        return false;
+    }
 }
