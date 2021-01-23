@@ -11,10 +11,11 @@ public class WanderState : BaseState
     private Vector2 decisionTime = new Vector2(1, 4);
     internal float decisionTimeCount = 0f;
 
-    internal int currMoveDirection;
+    internal Vector3 currMoveDirection;
 
     private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
+    bool hasMoved = false;
     /*
     Purpose: constructor recieves all needed values from enemy class, sets the
     first time when to change direction, and sets the first direction to move in
@@ -25,7 +26,6 @@ public class WanderState : BaseState
     {
         _enemy = enemy;
         decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
-        ChooseMoveDirection();
     }
 
 
@@ -40,7 +40,7 @@ public class WanderState : BaseState
     public override Type Tick()
     {
         //transform.position += _enemy.moveDirections[currMoveDirection] * Time.deltaTime * speed;
-
+        /*
         if (decisionTimeCount >= 0)
         {
             decisionTimeCount -= Time.deltaTime;
@@ -51,6 +51,8 @@ public class WanderState : BaseState
 
             ChooseMoveDirection();
         }
+        */
+        ChooseMoveDirection();
 
         foreach (GameObject __enemy in enemies) {
             if (__enemy != null) {
@@ -84,6 +86,137 @@ public class WanderState : BaseState
     */
     private void ChooseMoveDirection()
     {
-        currMoveDirection = Mathf.FloorToInt(UnityEngine.Random.Range(0, _enemy.moveDirections.Length));
+        //transform.position += Vector3.up * speed * Time.deltaTime;
+        //currMoveDirection = Mathf.FloorToInt(UnityEngine.Random.Range(0, _enemy.moveDirections.Length));
+        if (hasMoved == false) {
+            var i = Mathf.FloorToInt(UnityEngine.Random.Range(0, _enemy.moveDirections.Length));
+            currMoveDirection = _enemy.moveDirections[i];
+            transform.position += Vector3.up * speed * Time.deltaTime;
+            decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
+            hasMoved = true;
+        }
+
+        if (decisionTimeCount >= 0)
+        {
+            decisionTimeCount -= Time.deltaTime;
+            
+        }
+
+        //int choice = Mathf.FloorToInt(UnityEngine.Random.Range(1, 2));
+        decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
+
+        // DOWN
+        
+        if (currMoveDirection == Vector3.down && decisionTimeCount <= 0f) {
+            var choice = Mathf.FloorToInt(UnityEngine.Random.Range(1, 2));
+            if (choice == 1) {
+                currMoveDirection = Vector3.Normalize(Vector3.left + Vector3.down);
+                transform.position += Vector3.Normalize(Vector3.left + Vector3.down) * speed * Time.deltaTime;
+            }      
+            if (choice == 2) {
+                currMoveDirection = Vector3.Normalize(Vector3.right + Vector3.down);
+                transform.position += Vector3.Normalize(Vector3.right + Vector3.down) * speed * Time.deltaTime;
+            }
+        }
+
+        // LEFT
+        if (currMoveDirection == Vector3.left && decisionTimeCount <= 0f) {
+            var choice = Mathf.FloorToInt(UnityEngine.Random.Range(1, 2));
+            if (choice == 1) {      // left turn (down & left)
+                currMoveDirection = Vector3.Normalize(Vector3.left + Vector3.down);
+                transform.position += Vector3.Normalize(Vector3.left + Vector3.down) * speed * Time.deltaTime;
+            }
+            if (choice == 2) {      // right turn (up & left)
+                currMoveDirection = Vector3.Normalize(Vector3.left + Vector3.up);
+                transform.position += Vector3.Normalize(Vector3.left + Vector3.up) * speed * Time.deltaTime;
+            }
+        }
+
+        // UP
+        if (currMoveDirection == Vector3.up && decisionTimeCount <= 0f) {
+            var choice = Mathf.FloorToInt(UnityEngine.Random.Range(1, 2));
+            if (choice == 1) {      // left turn (up & left)
+                currMoveDirection = Vector3.Normalize(Vector3.up + Vector3.left);
+                transform.position += Vector3.Normalize(Vector3.up + Vector3.left) * speed * Time.deltaTime;
+            }
+            if (choice == 2) {      // right turn (up & right)
+                currMoveDirection = Vector3.Normalize(Vector3.up + Vector3.right);
+                transform.position += Vector3.Normalize(Vector3.up + Vector3.right) * speed * Time.deltaTime;
+            }
+        }
+
+        // RIGHT
+        if (currMoveDirection == Vector3.right && decisionTimeCount <= 0f) {
+            var choice = Mathf.FloorToInt(UnityEngine.Random.Range(1, 2));
+            if (choice == 1) {      // left turn (up & right)
+                currMoveDirection = Vector3.Normalize(Vector3.up + Vector3.right);
+                transform.position += Vector3.Normalize(Vector3.up + Vector3.right) * speed * Time.deltaTime;
+            }
+            if (choice == 2) {      // right turn (down & right)
+                currMoveDirection = Vector3.Normalize(Vector3.down + Vector3.right);
+                transform.position += Vector3.Normalize(Vector3.down + Vector3.right) * speed * Time.deltaTime;
+            }
+        }
+
+        // RIGHT & UP
+        if (currMoveDirection == Vector3.Normalize(Vector3.right + Vector3.up)) {
+            var choice = Mathf.FloorToInt(UnityEngine.Random.Range(1, 2));
+            if (decisionTimeCount <= 0f) {
+                if (choice == 1) {      // left turn (up)
+                    currMoveDirection = Vector3.up;
+                    transform.position += Vector3.up * speed * Time.deltaTime;
+                }
+                if (choice == 2) {      // right turn (right)
+                    currMoveDirection = Vector3.right;
+                    transform.position += Vector3.right * speed * Time.deltaTime;
+                }
+            }
+        }
+
+        // RIGHT & DOWN
+        if (currMoveDirection == Vector3.Normalize(Vector3.right + Vector3.down)) {
+            var choice = Mathf.FloorToInt(UnityEngine.Random.Range(1, 2));
+            if (decisionTimeCount <= 0f) {
+                if (choice == 1) {      // right down turn (down)
+                    currMoveDirection = Vector3.down;
+                    transform.position += Vector3.down * speed * Time.deltaTime;
+                }
+                if (choice == 2) {      // right down turn (right)
+                    currMoveDirection = Vector3.right;
+                    transform.position += Vector3.right * speed * Time.deltaTime;
+                }
+            }
+        }
+
+        // LEFT & UP
+        if (currMoveDirection == Vector3.Normalize(Vector3.up + Vector3.left)) {
+            var choice = Mathf.FloorToInt(UnityEngine.Random.Range(1, 2));
+            if (decisionTimeCount <= 0f) {
+                if (choice == 1) {      // left turn (left)
+                    currMoveDirection = Vector3.left;
+                    transform.position += Vector3.left * speed * Time.deltaTime;
+                }
+                if (choice == 2) {      // right turn (up)
+                    currMoveDirection = Vector3.up;
+                    transform.position += Vector3.left * speed * Time.deltaTime;
+                }    
+            }
+        }
+
+
+        // LEFT & DOWN
+        if (currMoveDirection == Vector3.Normalize(Vector3.left + Vector3.down)) {
+            var choice = Mathf.FloorToInt(UnityEngine.Random.Range(1, 2));
+            if (decisionTimeCount <= 0f) {
+                if (choice == 1) {      // left down turn (down)
+                    currMoveDirection = Vector3.down;
+                    transform.position += Vector3.down * speed * Time.deltaTime;
+                }
+                if (choice == 2) {      // left down turn (left))
+                    currMoveDirection = Vector3.left;
+                    transform.position += Vector3.left * speed * Time.deltaTime;
+                }
+            }
+        }
     }
 }

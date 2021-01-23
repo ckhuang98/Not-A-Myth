@@ -47,7 +47,6 @@ public class ChaseState : BaseState
         }
         
         Debug.Log(angle);
-
         /*
         var delta_x = transform.position.x - target.position.y;
         var delta_y = transform.position.y - target.position.y;
@@ -86,13 +85,41 @@ public class ChaseState : BaseState
 
     private void ChasePlayer(float angle) {
 
+        // LEFT
+        if ((angle > 337.5 && angle < 360) || (angle > 0 && angle < 22.5)) {
+            transform.position += Vector3.left * speed * Time.deltaTime;
+        }
         // DOWN
-        if (angle <= 112.5f && angle >= 67.5) {
-            //transform.position += Vector3.down * Time.deltaTime * speed;
+        if (angle > 67.5 && angle < 112.5) {
+            transform.position += Vector3.down * speed * Time.deltaTime;
+        } 
+        // DOWN RIGHT
+        if (angle > 112.5 && angle < 157.5) {
+            transform.position += Vector3.Normalize(Vector3.right + Vector3.down) * speed * Time.deltaTime;
+        }
+        //DOWN LEFT
+        if (angle > 22.5 && angle < 67.5) {
+            transform.position += Vector3.Normalize(Vector3.left + Vector3.down) * speed * Time.deltaTime;
         }
         
-        else if (angle >= 112.5f && angle >= 157.5) {
-            //transform.position += Vector3.down * Time.deltaTime * speed;
+
+
+
+        // RIGHT
+        if (157.5 < angle && angle < 202.5) {
+            transform.position += Vector3.right * speed * Time.deltaTime;
+        }
+        // RIGHT & UP
+        if (202.5 < angle && angle < 247.5) {
+            transform.position += Vector3.Normalize(Vector3.right + Vector3.up) * speed * Time.deltaTime;
+        }
+        // UP
+        if (247.5 < angle && angle < 292.5) {
+            transform.position += Vector3.up * speed * Time.deltaTime;
+        }
+        // LEFT & UP
+        if (292.5 < angle && angle < 337.5) {
+            transform.position += Vector3.Normalize(Vector3.left + Vector3.up) * speed * Time.deltaTime;
         }
     }
 }
