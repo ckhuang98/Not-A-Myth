@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    // Singleton
+    // Singleton for inventory
     public static Inventory instance;
 
+    //The inventory exists within the GameManager object
+    //and it must be the only instance of inventory at all times
     private void Awake()
     {
         if (instance != null)
@@ -17,13 +19,17 @@ public class Inventory : MonoBehaviour
         instance = this;
     }
 
+    //delegate called for calling subscibed methods when inventory is updated
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
 
+   //The amount of items that can be carried in the inventory
     public int space = 20;
 
+    //The actual List of inventory items
     public List<Item> items = new List<Item>();
 
+    //Add the item to the inventory list if it is not a default item and there is room in the inventory for it
     public bool Add(Item item)
     {
         if (!item.isDefaultItem)
@@ -45,6 +51,7 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
+    //remove the item from inventory list
     public void Remove (Item item)
     {
         items.Remove(item);

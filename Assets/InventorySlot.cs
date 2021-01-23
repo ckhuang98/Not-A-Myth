@@ -8,6 +8,7 @@ public class InventorySlot : MonoBehaviour
 
     Item item;
 
+    //Add item to the inventory slot in the UI
     public void AddItem (Item newItem)
     {
         item = newItem;
@@ -17,6 +18,7 @@ public class InventorySlot : MonoBehaviour
         removeButton.interactable = true;
     }
 
+    //Clear inventory slot in the UI
     public void ClearSlot()
     {
         item = null;
@@ -26,11 +28,13 @@ public class InventorySlot : MonoBehaviour
         removeButton.interactable = false;
     }
 
+    //Click on the X icon to remove item from inventory
     public void OnRemoveButton()
     {
         Inventory.instance.Remove(item);
     }
 
+    //Click on the item in the UI to use it
     public void UseItem()
     {
         if (item != null)
