@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
 
     StateMachine stateMachine;
 
-    private float _rayDistance = 3.0f;
+    private float _rayDistance = 1.0f;
     private int layerMask = 1 << 9;
     public RaycastHit2D[] castList = new RaycastHit2D[8];
     public int[] weightList = new int[8];
