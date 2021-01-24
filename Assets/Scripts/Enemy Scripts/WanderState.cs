@@ -68,10 +68,8 @@ public class WanderState : BaseState
             }
         }
 
-        for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
-            if (_enemy.castList[i].collider != null) {
-                return typeof(ChaseState);
-            } 
+        if (_enemy.inBounds == true) {
+            return typeof(ChaseState);
         }
  
         return typeof(WanderState);
