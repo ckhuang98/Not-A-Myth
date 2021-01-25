@@ -7,6 +7,7 @@ TagManager:
   - Slash
   - Game Over Text
   - Enemy
+  - MainMenu_Instructions
   layers:
   - Default
   - TransparentFX
@@ -41,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Bottom
+    uniqueID: 391944687
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
