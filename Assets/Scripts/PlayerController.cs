@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
     public Rigidbody2D rb;
 
     Vector2 movement;
+    Vector3 attackDir;
 
     Vector3 moveDirection;
     Vector3 lastMoveDirection;
@@ -32,6 +33,11 @@ public class PlayerController : MonoBehaviour {
     public Animator playerAnimator;
 
     float timer = 0f;
+    public int numOfClicks = 0;
+    float lastClickedTime = 0f;
+    float maxComboDelay = 0.9f;
+    bool endOfCombo = false;
+
     float healthTimer = 0f;
     public float attackStrength = 1f;
 
@@ -70,12 +76,20 @@ public class PlayerController : MonoBehaviour {
         if (!gameOver) { 
 
             movementManager();
+            if(Time.time - lastClickedTime > maxComboDelay){
+                numOfClicks = 0;
+            }
             if (Input.GetMouseButtonDown(0)) {
                 speed = 0;
-                playerAnimator.SetFloat("Speed", speed);
+                lastClickedTime = Time.time;
+                numOfClicks++;
+                
+                numOfClicks = Mathf.Clamp(numOfClicks, 0, 3);
+
+
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 //Debug.Log(mousePosition);
-                Vector3 attackDir = (mousePosition - this.transform.position).normalized;
+                attackDir = (mousePosition - this.transform.position).normalized;
                 timer = 0;
                 attackAnimation.enabled = true;
                 //Debug.Log(attackDir);
@@ -85,13 +99,17 @@ public class PlayerController : MonoBehaviour {
                 isDashButtonDown = true;
             }
             timer += Time.deltaTime;
-            if (timer >= .3) {
+            if (timer >= .5) {
                 speed = 5;
                 var colliders = attackAnimation.GetComponents<PolygonCollider2D>();
                 for (int i = 0; i < colliders.Length; i++) {
                     colliders[i].enabled = false;
                 }
                 attackAnimation.SetBool("LeftMouseDown", false);
+
+                playerAnimator.SetBool("Attack1", false);
+                playerAnimator.SetBool("Attack2", false);
+                playerAnimator.SetBool("Attack3", false);
             }
 
             hitDetection();
@@ -113,6 +131,7 @@ public class PlayerController : MonoBehaviour {
     void FixedUpdate() {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
 
+        // Dash movement using raycast so player can't dash through walls.
         if (isDashButtonDown){
             float dashAmount = 1f;
             Vector3 dashPosition = transform.position + lastMoveDirection * dashAmount;
@@ -128,7 +147,34 @@ public class PlayerController : MonoBehaviour {
     }
 
     void attack(Vector3 attackDir) {
-        
+        Debug.Log(attackDir);
+        playerAnimator.SetFloat("attackDirX", attackDir.x);
+        playerAnimator.SetFloat("attackDirY", attackDir.y);
+        if(numOfClicks == 1){
+            playerAnimator.SetBool("Attack1", true);
+        } else if(numOfClicks == 2){
+            playerAnimator.SetBool("Attack2", true);
+            // Debug.Log("Combo2!");
+        } else if(numOfClicks != 2 && numOfClicks < 2){
+            playerAnimator.SetBool("Attack1", false);
+            numOfClicks = 0;
+        } else if(endOfCombo){
+            // Debug.Log("Combo Finised!");
+            playerAnimator.SetBool("Attack1", false);
+            playerAnimator.SetBool("Attack2", false);
+            playerAnimator.SetBool("Attack3", false);
+            numOfClicks = 0;
+            endOfCombo = false;
+        } else if(numOfClicks >= 3){
+            playerAnimator.SetBool("Attack3", true);
+            // Debug.Log("Combo3!");
+            endOfCombo = true;
+        } else if(numOfClicks != 3 && numOfClicks < 3){
+            playerAnimator.SetBool("Attack2", false);
+            numOfClicks = 0;
+        } 
+
+
         var temp = attackDir;
         //slashCollider.GetComponent<Collider>().enabled = true;
         //attackPosition.transform.position = Input.mousePosition;
