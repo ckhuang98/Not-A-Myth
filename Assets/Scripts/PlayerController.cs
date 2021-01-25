@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void attack(Vector3 attackDir) {
-        Debug.Log(attackDir);
+        //Debug.Log(attackDir);
         playerAnimator.SetFloat("attackDirX", attackDir.x);
         playerAnimator.SetFloat("attackDirY", attackDir.y);
         if(numOfClicks == 1){

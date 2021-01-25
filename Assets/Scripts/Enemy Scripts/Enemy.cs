@@ -56,6 +56,9 @@ public class Enemy : MonoBehaviour
     {
         if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .5)
         {
+            Vector2 knockback = rb.transform.position - collider.transform.parent.position;
+            Debug.Log(knockback);
+            rb.AddForce(knockback.normalized * 800f);
             healthAmount -= collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength();
             var thisColor = this.GetComponent<Renderer>().material.color;
             thisColor.a -= .1f;
