@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+//using Pathfinding;
 
 public class AttackState : BaseState
 {
@@ -11,6 +12,8 @@ public class AttackState : BaseState
     private GameObject AoE;
     //Area of attack has spawned
     private bool hasSpawned = false;
+
+    private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
     /*
     Purpose: constructor recieves all needed values from enemy class.
@@ -35,21 +38,44 @@ public class AttackState : BaseState
         if (attackTimeCount >= 0f) {
             attackTimeCount -= Time.deltaTime;
             if (hasSpawned == false) {
-                AoE = GameObject.Instantiate(_enemy.AOE) as GameObject;
-                AoE.transform.position = this.transform.position;
+                InstantiateAoE();
                 hasSpawned = true;
             }
         } else {
             attackTimeCount = .75f;
-            GameObject.Destroy(AoE);
             hasSpawned = false;
             return typeof(ChaseState);
         }
 
-        if (_enemy.healthAmount <= 0) {
-            GameObject.Destroy(AoE);
-        }
-
         return typeof(AttackState);
+    }
+
+    private void InstantiateAoE() {
+        AoE = GameObject.Instantiate(_enemy.AOE) as GameObject;
+        if (_enemy.currMoveDirection == 0) {
+            AoE.transform.position = 
+            new Vector3(this.transform.position.x + 1, this.transform.position.y, this.transform.position.z);
+        } else if (_enemy.currMoveDirection == 1) {
+            AoE.transform.position = 
+            new Vector3(this.transform.position.x - 1, this.transform.position.y, this.transform.position.z);
+        } else if (_enemy.currMoveDirection == 2) {
+            AoE.transform.position = 
+            new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z);
+        } else if (_enemy.currMoveDirection == 3) {
+            AoE.transform.position = 
+            new Vector3(this.transform.position.x, this.transform.position.y - 1, this.transform.position.z);
+        } else if (_enemy.currMoveDirection == 4) {
+            AoE.transform.position = 
+            new Vector3(this.transform.position.x - 1, this.transform.position.y + 1, this.transform.position.z);
+        } else if (_enemy.currMoveDirection == 5) {
+            AoE.transform.position = 
+            new Vector3(this.transform.position.x - 1, this.transform.position.y - 1, this.transform.position.z);
+        } else if (_enemy.currMoveDirection == 6) {
+            AoE.transform.position = 
+            new Vector3(this.transform.position.x + 1, this.transform.position.y + 1, this.transform.position.z);
+        } else if (_enemy.currMoveDirection == 7) {
+            AoE.transform.position = 
+            new Vector3(this.transform.position.x + 1, this.transform.position.y - 1, this.transform.position.z);
+        }
     }
 }

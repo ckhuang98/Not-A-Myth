@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class WanderState : BaseState
 {
@@ -9,13 +10,11 @@ public class WanderState : BaseState
     private float speed = 1f;
     private Vector2 decisionTime = new Vector2(1, 4);
     internal float decisionTimeCount = 0f;
+    private bool choice;
 
-    //An array carrying all 8 movement options for the enemy
-    internal Vector3[] moveDirections = new Vector3[] { Vector3.right, Vector3.left,
-    Vector3.up, Vector3.down, Vector3.Normalize(Vector3.up + Vector3.right), Vector3.Normalize(Vector3.up + Vector3.left),
-    Vector3.Normalize(Vector3.down + Vector3.right), Vector3.Normalize(Vector3.down + Vector3.left) };
-    internal int currMoveDirection;
+    private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
+    bool hasMoved = false;
     /*
     Purpose: constructor recieves all needed values from enemy class, sets the
     first time when to change direction, and sets the first direction to move in
@@ -26,7 +25,7 @@ public class WanderState : BaseState
     {
         _enemy = enemy;
         decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
-        ChooseMoveDirection();
+        _enemy.currMoveDirection = ChooseMoveDirection();
     }
 
 
@@ -40,22 +39,34 @@ public class WanderState : BaseState
     */
     public override Type Tick()
     {
+        transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * Time.deltaTime * speed;
         
-        transform.position += moveDirections[currMoveDirection] * Time.deltaTime * speed;
-
         if (decisionTimeCount >= 0)
         {
             decisionTimeCount -= Time.deltaTime;
             
         } else
         {
+            if (hasMoved == false) {
+                hasMoved = true;
+            }
             decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
+            _enemy.currMoveDirection = ChooseMoveDirection();
+        }
+        
 
-            ChooseMoveDirection();
+        foreach (GameObject __enemy in enemies) {
+            if (__enemy != null) {
+                float currentDistance = Vector3.Distance(transform.position, __enemy.transform.position);
+                if (currentDistance < 2.0f)
+                {
+                Vector3 dist = transform.position - __enemy.transform.position;
+                transform.position += dist * Time.deltaTime;
+                } 
+            }
         }
 
-        if (_enemy.inBounds == true)
-        {
+        if (_enemy.inBounds == true) {
             return typeof(ChaseState);
         }
  
@@ -67,10 +78,119 @@ public class WanderState : BaseState
     Recieves: nothing
     Returns: nothing
     */
-    private void ChooseMoveDirection()
-    {
-        currMoveDirection = Mathf.FloorToInt(UnityEngine.Random.Range(0, moveDirections.Length));
-    }
+    private int ChooseMoveDirection()
+    { 
+        //Random Movement at first call
+        if (hasMoved == false) {
+            return Mathf.FloorToInt(UnityEngine.Random.Range(0, _enemy.moveDirections.Length));
+        } else { 
 
+            // RIGHT
+            if (_enemy.currMoveDirection == 0) {
+                choice = (UnityEngine.Random.value > 0.5f);
+                if (choice == true) {
+                    // Turn right up
+                    return 6;
+                }      
+                else {
+                    // Turn right down
+                    return 7;
+                }
+            }
+
+            // LEFT
+            if (_enemy.currMoveDirection == 1) {
+                choice = (UnityEngine.Random.value > 0.5f);
+                if (choice == true) {
+                    // Turn left up
+                    return 4;
+                }      
+                else {
+                    // Turn left down
+                    return 5;
+                }
+            }
+
+            // UP
+            if (_enemy.currMoveDirection == 2) {
+                choice = (UnityEngine.Random.value > 0.5f);
+                if (choice == true) {
+                    // Turn right up
+                    return 6;
+                }      
+                else {
+                    // Turn left up
+                    return 4;
+                }
+            }
+
+            // DOWN
+            if (_enemy.currMoveDirection == 3) {
+                choice = (UnityEngine.Random.value > 0.5f);
+                if (choice == true) {
+                    // Turn down left
+                    return 5;
+                }      
+                else {
+                    // Turn down right
+                    return 7;
+                }
+            }
+
+            // LEFT UP
+            if (_enemy.currMoveDirection == 4) {
+                choice = (UnityEngine.Random.value > 0.5f);
+                if (choice == true) {
+                    // Turn up
+                    return 2;
+                }      
+                else {
+                    // Turn left
+                    return 1;
+                }
+            }
+
+            // LEFT DOWN
+            if (_enemy.currMoveDirection == 5) {
+                choice = (UnityEngine.Random.value > 0.5f);
+                if (choice == true) {
+                    // Turn left
+                    return 1;
+                }      
+                else {
+                    // Turn down
+                    return 3;
+                }
+            }
+
+            // RIGHT UP
+            if (_enemy.currMoveDirection == 6) {
+                choice = (UnityEngine.Random.value > 0.5f);
+                if (choice == true) {
+                    // Turn right
+                    return 0;
+                }      
+                else {
+                    // Turn up
+                    return 2;
+                }
+            }
+
+            // RIGHT DOWN
+            if (_enemy.currMoveDirection == 7) {
+                choice = (UnityEngine.Random.value > 0.5f);
+                if (choice == true) {
+                    // Turn right
+                    return 0;
+                }      
+                else {
+                    // Turn down
+                    return 3;
+                }
+            }
+        }
+        return 0;
+        
+    }
     
 }
