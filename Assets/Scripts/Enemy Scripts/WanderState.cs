@@ -39,7 +39,7 @@ public class WanderState : BaseState
     */
     public override Type Tick()
     {
-        transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * Time.deltaTime * speed;
+        //transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * Time.deltaTime * speed;
         
         if (decisionTimeCount >= 0)
         {
