@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
     private int layerMask = 1 << 9;
     public RaycastHit2D[] castList = new RaycastHit2D[8];
     public int[] weightList = new int[8];
+    internal int currMoveDirection;
     //An array carrying all 8 movement options for the enemy
     internal Vector3[] moveDirections = new Vector3[] { Vector3.right, Vector3.left, Vector3.up, Vector3.down, 
         Vector3.Normalize(Vector3.left + Vector3.up), Vector3.Normalize(Vector3.left + Vector3.down),

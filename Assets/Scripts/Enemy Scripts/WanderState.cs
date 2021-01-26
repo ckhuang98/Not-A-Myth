@@ -12,8 +12,6 @@ public class WanderState : BaseState
     internal float decisionTimeCount = 0f;
     private bool choice;
 
-    internal int currMoveDirection;
-
     private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
     bool hasMoved = false;
@@ -27,7 +25,7 @@ public class WanderState : BaseState
     {
         _enemy = enemy;
         decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
-        currMoveDirection = ChooseMoveDirection();
+        _enemy.currMoveDirection = ChooseMoveDirection();
     }
 
 
@@ -41,7 +39,7 @@ public class WanderState : BaseState
     */
     public override Type Tick()
     {
-        transform.position += _enemy.moveDirections[currMoveDirection] * Time.deltaTime * speed;
+        transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * Time.deltaTime * speed;
         
         if (decisionTimeCount >= 0)
         {
@@ -53,7 +51,7 @@ public class WanderState : BaseState
                 hasMoved = true;
             }
             decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
-            currMoveDirection = ChooseMoveDirection();
+            _enemy.currMoveDirection = ChooseMoveDirection();
         }
         
 
@@ -88,7 +86,7 @@ public class WanderState : BaseState
         } else { 
 
             // RIGHT
-            if (currMoveDirection == 0) {
+            if (_enemy.currMoveDirection == 0) {
                 choice = (UnityEngine.Random.value > 0.5f);
                 if (choice == true) {
                     // Turn right up
@@ -101,7 +99,7 @@ public class WanderState : BaseState
             }
 
             // LEFT
-            if (currMoveDirection == 1) {
+            if (_enemy.currMoveDirection == 1) {
                 choice = (UnityEngine.Random.value > 0.5f);
                 if (choice == true) {
                     // Turn left up
@@ -114,7 +112,7 @@ public class WanderState : BaseState
             }
 
             // UP
-            if (currMoveDirection == 2) {
+            if (_enemy.currMoveDirection == 2) {
                 choice = (UnityEngine.Random.value > 0.5f);
                 if (choice == true) {
                     // Turn right up
@@ -127,7 +125,7 @@ public class WanderState : BaseState
             }
 
             // DOWN
-            if (currMoveDirection == 3) {
+            if (_enemy.currMoveDirection == 3) {
                 choice = (UnityEngine.Random.value > 0.5f);
                 if (choice == true) {
                     // Turn down left
@@ -140,7 +138,7 @@ public class WanderState : BaseState
             }
 
             // LEFT UP
-            if (currMoveDirection == 4) {
+            if (_enemy.currMoveDirection == 4) {
                 choice = (UnityEngine.Random.value > 0.5f);
                 if (choice == true) {
                     // Turn up
@@ -153,7 +151,7 @@ public class WanderState : BaseState
             }
 
             // LEFT DOWN
-            if (currMoveDirection == 5) {
+            if (_enemy.currMoveDirection == 5) {
                 choice = (UnityEngine.Random.value > 0.5f);
                 if (choice == true) {
                     // Turn left
@@ -166,7 +164,7 @@ public class WanderState : BaseState
             }
 
             // RIGHT UP
-            if (currMoveDirection == 6) {
+            if (_enemy.currMoveDirection == 6) {
                 choice = (UnityEngine.Random.value > 0.5f);
                 if (choice == true) {
                     // Turn right
@@ -179,7 +177,7 @@ public class WanderState : BaseState
             }
 
             // RIGHT DOWN
-            if (currMoveDirection == 7) {
+            if (_enemy.currMoveDirection == 7) {
                 choice = (UnityEngine.Random.value > 0.5f);
                 if (choice == true) {
                     // Turn right
