@@ -33,7 +33,7 @@ public class Shard : MonoBehaviour
             if (wasPickedUp)
             {
                 Debug.Log("Picking up " + item.name);
-                // collider.GetComponent<PlayerController>().gainStrength();
+                collider.GetComponent<PlayerController>().gainStrength();
                 var shardObject = this.gameObject;
                 shardObject.GetComponent<Renderer>().enabled = false;
                 Destroy(this.gameObject);

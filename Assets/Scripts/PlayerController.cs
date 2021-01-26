@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour {
         //attackAnimation.enabled = false;
         currentHealth = maxHealth;
         healthBar.SetMaxValue(maxHealth);
-        // gameOverText = this.GetComponentInChildren<Canvas>().GetComponentInChildren<Text>();
+        gameOverText = this.GetComponentInChildren<Canvas>().GetComponentInChildren<Text>();
         Debug.developerConsoleVisible = true;
         CombatManager.instance.canReceiveInput = true;
         //slashCollider.GetComponent<Collider>().enabled = false;

@@ -27,8 +27,9 @@ public class InventoryUI : MonoBehaviour
     void Update()
     {
         //turn inventory on and off with i key or b key
-        if (Input.GetButtonDown("Inventory"))
+        if (Input.GetKeyDown(KeyCode.I))
         {
+            Debug.Log("Toggling Inventory");
             inventoryUI.SetActive(!inventoryUI.activeSelf);
         }
     }
