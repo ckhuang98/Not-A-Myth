@@ -12,6 +12,7 @@ using Vector3 = UnityEngine.Vector3;
 using Vector2 = UnityEngine.Vector2;
 using System;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour {
 
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour {
     public Rigidbody2D rb;
 
     Vector2 movement;
+    Vector3 attackDir;
 
     Vector3 moveDirection;
     Vector3 lastMoveDirection;
@@ -33,6 +35,10 @@ public class PlayerController : MonoBehaviour {
     public Animator playerAnimator;
 
     float timer = 0f;
+    public int numOfClicks = 0;
+    float lastClickedTime = 0f;
+    public float maxComboDelay = 0.9f;
+
     float healthTimer = 0f;
     public float attackStrength = 1f;
 
@@ -53,6 +59,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject slashCollider;
 
     public static bool gameOver = false;
+    
     Text gameOverText;
     // Start is called before the first frame update
     void Start() {
@@ -61,6 +68,7 @@ public class PlayerController : MonoBehaviour {
         healthBar.SetMaxValue(maxHealth);
         // gameOverText = this.GetComponentInChildren<Canvas>().GetComponentInChildren<Text>();
         Debug.developerConsoleVisible = true;
+        CombatManager.instance.canReceiveInput = true;
         //slashCollider.GetComponent<Collider>().enabled = false;
     }
 
@@ -76,28 +84,46 @@ public class PlayerController : MonoBehaviour {
             //     return;
 
             movementManager();
+            // if(Time.deltaTime - lastClickedTime > maxComboDelay){
+            //     Debug.Log(lastClickedTime);
+            //     numOfClicks = 0;
+            // }
             if (Input.GetMouseButtonDown(0)) {
                 speed = 0;
-                playerAnimator.SetFloat("Speed", speed);
+                // lastClickedTime = Time.deltaTime;
+                // numOfClicks++;
+                // if(numOfClicks == 1){
+                //     playerAnimator.SetBool("Attack1", true);
+                //     attackAnimation.SetBool("Attack1", true);
+                // }
+                // numOfClicks = Mathf.Clamp(numOfClicks, 0, 3);
+
+
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 //Debug.Log(mousePosition);
-                Vector3 attackDir = (mousePosition - this.transform.position).normalized;
+                attackDir = (mousePosition - this.transform.position).normalized;
                 timer = 0;
-                attackAnimation.enabled = true;
+                //attackAnimation.enabled = true;
                 //Debug.Log(attackDir);
+                playerAnimator.SetFloat("attackDirX", attackDir.x);
+                playerAnimator.SetFloat("attackDirY", attackDir.y);
                 attack(attackDir);
             }
             if(Input.GetKeyDown(KeyCode.Space)){
                 isDashButtonDown = true;
             }
             timer += Time.deltaTime;
-            if (timer >= .3) {
+            if (timer >= .5) {
                 speed = 5;
                 var colliders = attackAnimation.GetComponents<PolygonCollider2D>();
                 for (int i = 0; i < colliders.Length; i++) {
                     colliders[i].enabled = false;
                 }
                 attackAnimation.SetBool("LeftMouseDown", false);
+
+                // playerAnimator.SetBool("Attack1", false);
+                // playerAnimator.SetBool("Attack2", false);
+                // playerAnimator.SetBool("Attack3", false);
             }
 
             hitDetection();
@@ -119,6 +145,7 @@ public class PlayerController : MonoBehaviour {
     void FixedUpdate() {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
 
+        // Dash movement using raycast so player can't dash through walls.
         if (isDashButtonDown){
             float dashAmount = 1f;
             Vector3 dashPosition = transform.position + lastMoveDirection * dashAmount;
@@ -134,14 +161,47 @@ public class PlayerController : MonoBehaviour {
     }
 
     void attack(Vector3 attackDir) {
-        
-        var temp = attackDir;
-        //slashCollider.GetComponent<Collider>().enabled = true;
-        //attackPosition.transform.position = Input.mousePosition;
-        //attackPosition.text = "" + attackDir;
+        //Debug.Log(attackDir);
+        // var temp = attackDir;
+        // slashCollider.GetComponent<Collider>().enabled = true;
+        // attackPosition.transform.position = Input.mousePosition;
+        // attackPosition.text = "" + attackDir;
         //attackAnimation.Play("Attacking", -1, 0f);
         attackAnimation.SetBool("LeftMouseDown", true);
     }
+
+    // public void return1(){
+    //     if(numOfClicks >= 2){
+    //         playerAnimator.SetBool("Attack2", true);
+    //         attackAnimation.SetBool("Attack2", true);
+    //         Debug.Log("Combo2!");
+    //     } else {
+    //         playerAnimator.SetBool("Attack1", false);
+    //         attackAnimation.SetBool("Attack1", false);
+    //         numOfClicks = 0;
+    //         Debug.Log(numOfClicks);
+    //     }
+    // }
+    // public void return2(){
+    //     if(numOfClicks >= 3){
+    //         playerAnimator.SetBool("Attack3", true);
+    //         attackAnimation.SetBool("Attack3", true);
+    //     } else{
+    //         playerAnimator.SetBool("Attack2", false);
+    //         attackAnimation.SetBool("Attack2", false);
+    //         numOfClicks = 0;
+    //     }
+    // }
+
+    // public void return3(){
+    //     playerAnimator.SetBool("Attack1", false);
+    //     playerAnimator.SetBool("Attack2", false);
+    //     playerAnimator.SetBool("Attack3", false);
+    //     attackAnimation.SetBool("Attack1", false);
+    //     attackAnimation.SetBool("Attack2", false);
+    //     attackAnimation.SetBool("Attack3", false);
+    //     numOfClicks = 0;
+    // }
 
     public void gainStrength() {
 
