@@ -17,23 +17,28 @@ public class Shard : MonoBehaviour
         
     }
 
+    public Item item; //scirptable object shard
 
     //Only able to be picked up by the player
-    //When picked up, the shard will call the method on the player "gainStength"
+    //When picked up, the shard is added to the player's inventory and
+    //will call the method on the player "gainStength"
     //This allows the player to deal more damage when they pick up a shard
     //The shard destroys itself on pickup, but to make sure, we also check that 
     //the shard has not already been picked up, so that the player can only pick
-    //it up once. 
+    //it up once.
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.name.Equals("Player") && pickedUp == false) {
-            collider.GetComponent<PlayerController>().gainStrength();
-            var shardObject = this.gameObject;
-            shardObject.GetComponent<Renderer>().enabled = false;
-            Destroy(shardObject);
-            pickedUp = true;
+
+            bool wasPickedUp = Inventory.instance.Add(item); //adds shard to player's inventory and returns true if possible.
+            if (wasPickedUp)
+            {
+                Debug.Log("Picking up " + item.name);
+                // collider.GetComponent<PlayerController>().gainStrength();
+                var shardObject = this.gameObject;
+                shardObject.GetComponent<Renderer>().enabled = false;
+                Destroy(this.gameObject);
+                pickedUp = true;
+            }
         }
-        
     }
-
-
 }

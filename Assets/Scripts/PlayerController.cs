@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.EventSystems;
 using Vector3 = UnityEngine.Vector3;
 using Vector2 = UnityEngine.Vector2;
 using System;
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour {
         //attackAnimation.enabled = false;
         currentHealth = maxHealth;
         healthBar.SetMaxValue(maxHealth);
-        gameOverText = this.GetComponentInChildren<Canvas>().GetComponentInChildren<Text>();
+        // gameOverText = this.GetComponentInChildren<Canvas>().GetComponentInChildren<Text>();
         Debug.developerConsoleVisible = true;
         //slashCollider.GetComponent<Collider>().enabled = false;
     }
@@ -67,7 +68,12 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (!gameOver) { 
+        if (!gameOver) {
+
+            // Stop character control when mousing over inventory
+            // TODO: should stop player control, maybe pause the game, when inventory is open
+            // if (EventSystem.current.IsPointerOverGameObject())
+            //     return;
 
             movementManager();
             if (Input.GetMouseButtonDown(0)) {
@@ -222,11 +228,12 @@ public class PlayerController : MonoBehaviour {
 
         if (Enemy.enemyAmount <= 0)
         {
-            gameOverText.text = "You Win!";
-            Color alpha = gameOverText.color;
-            alpha.a = 255f;
-            gameOverText.color = alpha;
-            gameOver = true;
+            // Debug.Log("Game Over");
+            // gameOverText.text = "You Win!";
+            // Color alpha = gameOverText.color;
+            // alpha.a = 255f;
+            // gameOverText.color = alpha;
+            // gameOver = true;
         }
     }
 }
