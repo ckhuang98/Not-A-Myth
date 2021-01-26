@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: 358606af6336db24ea87bc577a811c5c
+guid: 6d7fc8592c09c054890f99bfc0978e99
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3689608611395374410
-    second: Hammer Giant Walk N Spritesheet_0
+      213: -7902744314591302122
+    second: Slash Spritesheet Right1_0
   - first:
-      213: -4769758253273283801
-    second: Hammer Giant Walk N Spritesheet_1
+      213: -8683276773982490523
+    second: Slash Spritesheet Right1_1
   - first:
-      213: 5207228853150624316
-    second: Hammer Giant Walk N Spritesheet_2
+      213: -5820591808952165425
+    second: Slash Spritesheet Right1_2
   - first:
-      213: -7208811288053189281
-    second: Hammer Giant Walk N Spritesheet_3
+      213: 4802309019171550967
+    second: Slash Spritesheet Right1_3
   - first:
-      213: -2347461903302971742
-    second: Hammer Giant Walk N Spritesheet_4
+      213: -1966734678231422933
+    second: Slash Spritesheet Right1_4
   - first:
-      213: -2762297371806427510
-    second: Hammer Giant Walk N Spritesheet_5
+      213: 8704967880076887310
+    second: Slash Spritesheet Right1_5
+  - first:
+      213: 6606747924012332659
+    second: Slash Spritesheet Right1_6
+  - first:
+      213: -6440033179548942280
+    second: Slash Spritesheet Right1_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -63,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,13 +111,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hammer Giant Walk N Spritesheet_0
+      name: Slash Spritesheet Right1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 512
-        height: 654
+        width: 128
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +125,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b27e8d2480ebccc0800000000000000
-      internalID: -3689608611395374410
+      spriteID: 61e2c0a9aefc35290800000000000000
+      internalID: -7902744314591302122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hammer Giant Walk N Spritesheet_1
+      name: Slash Spritesheet Right1_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 560bf50b7cdce7780800000000000000
+      internalID: -8683276773982490523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slash Spritesheet Right1_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcb9bdca69a193fa0800000000000000
+      internalID: -5820591808952165425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slash Spritesheet Right1_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f6ff55fb9a35a240800000000000000
+      internalID: 4802309019171550967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slash Spritesheet Right1_4
       rect:
         serializedVersion: 2
         x: 512
         y: 0
-        width: 512
-        height: 654
+        width: 128
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +209,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7238821d32a6ecdb0800000000000000
-      internalID: -4769758253273283801
+      spriteID: b28e298fa31c4b4e0800000000000000
+      internalID: -1966734678231422933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hammer Giant Walk N Spritesheet_2
+      name: Slash Spritesheet Right1_5
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 640
         y: 0
-        width: 512
-        height: 654
+        width: 128
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +230,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3a25388d0bc34840800000000000000
-      internalID: 5207228853150624316
+      spriteID: e050b218a224ec870800000000000000
+      internalID: 8704967880076887310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hammer Giant Walk N Spritesheet_3
+      name: Slash Spritesheet Right1_6
       rect:
         serializedVersion: 2
-        x: 1536
+        x: 768
         y: 0
-        width: 512
-        height: 654
+        width: 128
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +251,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5573c2d35825fb90800000000000000
-      internalID: -7208811288053189281
+      spriteID: 376fd4b9b32efab50800000000000000
+      internalID: 6606747924012332659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hammer Giant Walk N Spritesheet_4
+      name: Slash Spritesheet Right1_7
       rect:
         serializedVersion: 2
-        x: 2048
+        x: 896
         y: 0
-        width: 512
-        height: 654
+        width: 105
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,29 +272,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ae2dd916d32c6fd0800000000000000
-      internalID: -2347461903302971742
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hammer Giant Walk N Spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 2561
-        y: 0
-        width: 506
-        height: 654
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a869b75fc295aa9d0800000000000000
-      internalID: -2762297371806427510
+      spriteID: 8308147a1f760a6a0800000000000000
+      internalID: -6440033179548942280
       vertices: []
       indices: 
       edges: []

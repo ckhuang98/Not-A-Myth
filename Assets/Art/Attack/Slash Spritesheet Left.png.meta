@@ -1,25 +1,7 @@
 fileFormatVersion: 2
-guid: 358606af6336db24ea87bc577a811c5c
+guid: f27736d6666c27d4f84dc57db70ceb7d
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -3689608611395374410
-    second: Hammer Giant Walk N Spritesheet_0
-  - first:
-      213: -4769758253273283801
-    second: Hammer Giant Walk N Spritesheet_1
-  - first:
-      213: 5207228853150624316
-    second: Hammer Giant Walk N Spritesheet_2
-  - first:
-      213: -7208811288053189281
-    second: Hammer Giant Walk N Spritesheet_3
-  - first:
-      213: -2347461903302971742
-    second: Hammer Giant Walk N Spritesheet_4
-  - first:
-      213: -2762297371806427510
-    second: Hammer Giant Walk N Spritesheet_5
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -63,7 +45,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,127 +87,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hammer Giant Walk N Spritesheet_0
+      name: Slash Spritesheet Left_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 512
-        height: 654
+        width: 126
+        height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b27e8d2480ebccc0800000000000000
-      internalID: -3689608611395374410
+      spriteID: 85d05c720e28b0e10800000000000000
+      internalID: 2164967945133165912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hammer Giant Walk N Spritesheet_1
+      name: Slash Spritesheet Left_1
       rect:
         serializedVersion: 2
-        x: 512
+        x: 126
         y: 0
-        width: 512
-        height: 654
+        width: 126
+        height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7238821d32a6ecdb0800000000000000
-      internalID: -4769758253273283801
+      spriteID: 395c15a091656c9f0800000000000000
+      internalID: -448576447329483373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hammer Giant Walk N Spritesheet_2
+      name: Slash Spritesheet Left_2
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 252
         y: 0
-        width: 512
-        height: 654
+        width: 133
+        height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3a25388d0bc34840800000000000000
-      internalID: 5207228853150624316
+      spriteID: 3476715049c9419b0800000000000000
+      internalID: -5110287517604157629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hammer Giant Walk N Spritesheet_3
+      name: Slash Spritesheet Left_3
       rect:
         serializedVersion: 2
-        x: 1536
+        x: 385
         y: 0
-        width: 512
-        height: 654
+        width: 128
+        height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5573c2d35825fb90800000000000000
-      internalID: -7208811288053189281
+      spriteID: 1e7f872fb8e9d8740800000000000000
+      internalID: 5155951472314742753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hammer Giant Walk N Spritesheet_4
+      name: Slash Spritesheet Left_4
       rect:
         serializedVersion: 2
-        x: 2048
+        x: 513
         y: 0
-        width: 512
-        height: 654
+        width: 128
+        height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ae2dd916d32c6fd0800000000000000
-      internalID: -2347461903302971742
+      spriteID: f3f86e9d3255a3760800000000000000
+      internalID: 7438351347023777599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hammer Giant Walk N Spritesheet_5
+      name: Slash Spritesheet Left_5
       rect:
         serializedVersion: 2
-        x: 2561
+        x: 641
         y: 0
-        width: 506
-        height: 654
+        width: 128
+        height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a869b75fc295aa9d0800000000000000
-      internalID: -2762297371806427510
+      spriteID: b4effd0d3ffec34c0800000000000000
+      internalID: -4306303313212604853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slash Spritesheet Left_6
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 0
+        width: 120
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fbf66ece524c7f80800000000000000
+      internalID: -8107532254216520716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slash Spritesheet Left_7
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 0
+        width: 106
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 122d7813013290740800000000000000
+      internalID: 5118661003940712993
       vertices: []
       indices: 
       edges: []
