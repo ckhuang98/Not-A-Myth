@@ -553,7 +553,7 @@ PrefabInstance:
     - target: {fileID: 313518762221082654, guid: e0ea65fa9871a744db37c34c778d0657,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 313518762221082654, guid: e0ea65fa9871a744db37c34c778d0657,
         type: 3}
@@ -768,7 +768,7 @@ Transform:
   m_Children:
   - {fileID: 304178129}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &304178128
 GameObject:
@@ -10832,7 +10832,7 @@ PrefabInstance:
     - target: {fileID: 313518762221082654, guid: e0ea65fa9871a744db37c34c778d0657,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 313518762221082654, guid: e0ea65fa9871a744db37c34c778d0657,
         type: 3}
@@ -11409,7 +11409,7 @@ PrefabInstance:
     - target: {fileID: 313518762221082654, guid: e0ea65fa9871a744db37c34c778d0657,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 313518762221082654, guid: e0ea65fa9871a744db37c34c778d0657,
         type: 3}
@@ -12319,8 +12319,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -200, y: 170}
-  m_SizeDelta: {x: 354, y: 308}
+  m_AnchoredPosition: {x: -204.81, y: 170}
+  m_SizeDelta: {x: 363.61896, y: 308}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1100598473
 CanvasRenderer:
@@ -12844,7 +12844,7 @@ RectTransform:
   - {fileID: 1995199472}
   - {fileID: 1100598471}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12929,7 +12929,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1389220974
 GameObject:
@@ -14030,7 +14030,7 @@ PrefabInstance:
     - target: {fileID: 1456081115568149905, guid: b4a4a7fa17870474690dd5932745f79d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1456081115568149905, guid: b4a4a7fa17870474690dd5932745f79d,
         type: 3}
@@ -14312,7 +14312,7 @@ PrefabInstance:
     - target: {fileID: 313518762221082654, guid: e0ea65fa9871a744db37c34c778d0657,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 313518762221082654, guid: e0ea65fa9871a744db37c34c778d0657,
         type: 3}
@@ -14472,8 +14472,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1923650966}
+  - component: {fileID: 1923650968}
   - component: {fileID: 1923650965}
+  - component: {fileID: 1923650967}
+  - component: {fileID: 1923650966}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -14495,8 +14497,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   space: 20
   items: []
---- !u!4 &1923650966
-Transform:
+--- !u!114 &1923650966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923650964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Description:
+
+    Game Manager currently only  holds inventory data. Representation
+    of the inventory is displayed in the Inventory Panel on the Canvas.
+
+    In the
+    project menu go to Create -> Inventory -> Item to create a new item scriptable
+    object'
+--- !u!222 &1923650967
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923650964}
+  m_CullTransparentMesh: 0
+--- !u!224 &1923650968
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14507,8 +14557,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1972928660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15042,7 +15097,7 @@ Transform:
   - {fileID: 2071357514}
   - {fileID: 605784013}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2053726260
 PrefabInstance:
@@ -15538,7 +15593,7 @@ Transform:
   - {fileID: 1059025729}
   - {fileID: 1411930381}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2086761133
 BoxCollider2D:
@@ -15585,6 +15640,119 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &2120214681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2120214685}
+  - component: {fileID: 2120214682}
+  - component: {fileID: 2120214684}
+  - component: {fileID: 2120214683}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2120214682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120214681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ce681815ee38d459c975a8aa832b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  sounds:
+  - name: Demo1
+    followingSound: Demo2
+    clip: {fileID: 8300000, guid: 20e3e7b1d2fdea741a5555dc997fb877, type: 3}
+    group: {fileID: 1948652533155611144, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+    volume: 0.5
+    loop: 0
+    source: {fileID: 0}
+  - name: Demo2
+    followingSound: 
+    clip: {fileID: 8300000, guid: e4492807c58c5a44493b631ec562c0fa, type: 3}
+    group: {fileID: 1948652533155611144, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+    volume: 0.5
+    loop: 1
+    source: {fileID: 0}
+--- !u!114 &2120214683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120214681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Description:\nHandle game audio: music and sfx. \nIncrease the Size of
+    the Sounds attribute to add another sound\n\nAttributes of a Sound:\nName: Name
+    of sound finished playing\nClip: Clip of the sound to be played\nGroup: Audio
+    group this sound is a part of\nVolume: Volume of the clip\nLoop: loop this Sound\n\nFollowing
+    Sound (Optional): Name of a sound to be played once the current sound is.\n\tThe
+    purpose of a following sound is for a track to have an intro, and then transition\n\tsmoothly
+    into a looping section. Play intro track -> play looping track"
+--- !u!222 &2120214684
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120214681}
+  m_CullTransparentMesh: 0
+--- !u!224 &2120214685
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120214681}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2568529047172644580
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
     //The actual List of inventory items
     public List<Item> items = new List<Item>();
 
-    //Add the item to the inventory list if it is not a default item and there is room in the inventory for it
+    //Purpose: Add the item to the inventory list if it is not a default item and there is room in the inventory for it
     public bool Add(Item item)
     {
         if (!item.isDefaultItem)
@@ -51,7 +51,7 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    //remove the item from inventory list
+    //Purpose: Remove the item from the inventory list
     public void Remove (Item item)
     {
         items.Remove(item);
