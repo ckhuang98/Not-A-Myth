@@ -24,9 +24,9 @@ public class Item : ScriptableObject
         {
             //Shard - Give strength to the player
             case "Shard":
-                // GameObject player = GameObject.Find("Player");
-                // player.GetComponent<PlayerController>().gainStrength();
-                // Inventory.instance.Remove(this);
+                GameObject player = GameObject.Find("Player");
+                player.GetComponent<PlayerController>().gainStrength();
+                Inventory.instance.Remove(this);
                 break;
         }
     }
