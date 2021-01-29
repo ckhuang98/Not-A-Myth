@@ -25,7 +25,7 @@ public class WanderState : BaseState
     {
         _enemy = enemy;
         decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
-        _enemy.currMoveDirection = ChooseMoveDirection();
+        ChooseMoveDirection();
     }
 
 
@@ -51,7 +51,7 @@ public class WanderState : BaseState
                 hasMoved = true;
             }
             decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
-            _enemy.currMoveDirection = ChooseMoveDirection();
+            ChooseMoveDirection();
         }
         
 
@@ -67,8 +67,43 @@ public class WanderState : BaseState
         }
 
         if (_enemy.inBounds == true) {
-            return typeof(ChaseState);
+            //return typeof(ChaseState);
         }
+
+        for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
+            if (_enemy.castList[i].collider != null) {
+                
+                if (Vector3.Distance(transform.position, _enemy.castList[i].collider.transform.position) >= 1 ) {
+                    Debug.Log("Too Close");
+                    
+                    /*
+                    var about_face = i;
+                    if (about_face >= 4) {
+                        about_face -= 4;
+                    } else if (about_face > 4) {
+                        about_face += 4;
+                    }
+                    */
+                    
+                    var about_face = i;
+                    about_face += 4;
+                    if (about_face >= 8) {
+                        Debug.Log("180!");
+                        about_face = about_face % 8;
+                    }
+
+                    _enemy.weightList[about_face] = 1;
+                    _enemy.currMoveDirection = about_face;
+                    
+                }
+                
+
+                var rayColor = Color.red;
+                Debug.DrawRay(transform.position, _enemy.moveDirections[i] * 1.0f, rayColor);
+            }
+        }
+ 
+
  
         return typeof(WanderState);
     }
@@ -78,119 +113,147 @@ public class WanderState : BaseState
     Recieves: nothing
     Returns: nothing
     */
-    private int ChooseMoveDirection()
+    private void ChooseMoveDirection()
     { 
         //Random Movement at first call
         if (hasMoved == false) {
-            return Mathf.FloorToInt(UnityEngine.Random.Range(0, _enemy.moveDirections.Length));
-        } else { 
+            int index = Mathf.FloorToInt(UnityEngine.Random.Range(0, _enemy.moveDirections.Length));
+            //int index = 0;
+            _enemy.weightList[index] = 1;
+            //return index;
+        } else {
 
-            // RIGHT
-            if (_enemy.currMoveDirection == 0) {
-                choice = (UnityEngine.Random.value > 0.5f);
-                if (choice == true) {
-                    // Turn right up
-                    return 6;
-                }      
-                else {
-                    // Turn right down
-                    return 7;
-                }
+            /*
+            var printArr = "AFTER: [ ";
+            for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
+                printArr += _enemy.weightList[i].ToString() + ", ";
             }
-
-            // LEFT
-            if (_enemy.currMoveDirection == 1) {
-                choice = (UnityEngine.Random.value > 0.5f);
-                if (choice == true) {
-                    // Turn left up
-                    return 4;
-                }      
-                else {
-                    // Turn left down
-                    return 5;
-                }
-            }
+            printArr += " ]";
+            Debug.Log(printArr);
+            */
 
             // UP
-            if (_enemy.currMoveDirection == 2) {
+            if (_enemy.weightList[0] == 1) {
                 choice = (UnityEngine.Random.value > 0.5f);
+                _enemy.weightList[0] = 0;
                 if (choice == true) {
                     // Turn right up
-                    return 6;
+                    _enemy.weightList[1] = 1;
                 }      
                 else {
                     // Turn left up
-                    return 4;
-                }
-            }
-
-            // DOWN
-            if (_enemy.currMoveDirection == 3) {
-                choice = (UnityEngine.Random.value > 0.5f);
-                if (choice == true) {
-                    // Turn down left
-                    return 5;
-                }      
-                else {
-                    // Turn down right
-                    return 7;
-                }
-            }
-
-            // LEFT UP
-            if (_enemy.currMoveDirection == 4) {
-                choice = (UnityEngine.Random.value > 0.5f);
-                if (choice == true) {
-                    // Turn up
-                    return 2;
-                }      
-                else {
-                    // Turn left
-                    return 1;
-                }
-            }
-
-            // LEFT DOWN
-            if (_enemy.currMoveDirection == 5) {
-                choice = (UnityEngine.Random.value > 0.5f);
-                if (choice == true) {
-                    // Turn left
-                    return 1;
-                }      
-                else {
-                    // Turn down
-                    return 3;
+                    _enemy.weightList[7] = 1;
                 }
             }
 
             // RIGHT UP
-            if (_enemy.currMoveDirection == 6) {
+            if (_enemy.weightList[1] == 1) {
                 choice = (UnityEngine.Random.value > 0.5f);
+                _enemy.weightList[1] = 0;
                 if (choice == true) {
-                    // Turn right
-                    return 0;
+                    // Turn up
+                    _enemy.weightList[0] = 1;
                 }      
                 else {
-                    // Turn up
-                    return 2;
+                    // Turn right
+                    _enemy.weightList[2] = 1;
+                }
+            }
+
+            // RIGHT
+            if (_enemy.weightList[2] == 1) {
+                choice = (UnityEngine.Random.value > 0.5f);
+                _enemy.weightList[2] = 0;
+                if (choice == true) {
+                    // Turn right up
+                    _enemy.weightList[1] = 1;
+                }      
+                else {
+                    // Turn right down
+                    _enemy.weightList[3] = 1;
                 }
             }
 
             // RIGHT DOWN
-            if (_enemy.currMoveDirection == 7) {
+            if (_enemy.weightList[3] == 1) {
                 choice = (UnityEngine.Random.value > 0.5f);
+                _enemy.weightList[3] = 0;
                 if (choice == true) {
                     // Turn right
-                    return 0;
+                    _enemy.weightList[2] = 1;
                 }      
                 else {
                     // Turn down
-                    return 3;
+                    _enemy.weightList[4] = 1;
                 }
             }
+
+            // DOWN
+            if (_enemy.weightList[4] == 1) {
+                choice = (UnityEngine.Random.value > 0.5f);
+                _enemy.weightList[4] = 0;
+                if (choice == true) {
+                    // Turn down right
+                    _enemy.weightList[3] = 1;
+                }      
+                else {
+                    // Turn down left
+                    _enemy.weightList[5] = 1;
+                }
+            }
+
+            // LEFT DOWN
+            if (_enemy.weightList[5] == 1) {
+                choice = (UnityEngine.Random.value > 0.5f);
+                _enemy.weightList[5] = 0;
+                if (choice == true) {
+                    // Turn left
+                    _enemy.weightList[6] = 1;
+                }      
+                else {
+                    // Turn down
+                    _enemy.weightList[4] = 1;
+                }
+            }
+
+            // LEFT
+            if (_enemy.weightList[6] == 1) {
+                choice = (UnityEngine.Random.value > 0.5f);
+                _enemy.weightList[6] = 0;
+                if (choice == true) {
+                    // Turn left up
+                    _enemy.weightList[7] = 1;
+                }      
+                else {
+                    // Turn left down
+                    _enemy.weightList[5] = 1;
+                }
+            }
+
+            // LEFT UP
+            if (_enemy.weightList[7] == 1) {
+                choice = (UnityEngine.Random.value > 0.5f);
+                _enemy.weightList[7] = 0;
+                if (choice == true) {
+                    // Turn up
+                    _enemy.weightList[0] = 1;
+                }      
+                else {
+                    // Turn left
+                    _enemy.weightList[6] = 1;
+                }
+            }
+            
         }
-        return 0;
-        
+
+        for (int i = 0; i < _enemy.moveDirections.Count(); i++) {
+            //Debug.Log("in da mf loop");
+            if (_enemy.weightList[i] == 1) {
+                _enemy.currMoveDirection = i;
+                //Debug.Log("weight of " + i + " is == 1!");
+            }
+        }
+        return;
     }
     
 }
