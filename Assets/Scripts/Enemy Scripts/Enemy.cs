@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
 
     StateMachine stateMachine; 
 
-    public float _rayDistance = 1.0f;
+    public float _rayDistance = 5.0f;
     private int layerMask = 1 << 20;
     public RaycastHit2D[] castList = new RaycastHit2D[8];
     public int[] weightList = new int[8];
@@ -143,14 +143,14 @@ public class Enemy : MonoBehaviour
     {
         for (int i = 0; i < moveDirections.Count(); i ++) {
             var rayColor = Color.green;
-            Debug.DrawRay(transform.position, moveDirections[i] * 1.0f, rayColor);
+            Debug.DrawRay(transform.position, moveDirections[i] * 5.0f, rayColor);
             castList[i] = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), 
-                new Vector2(moveDirections[i].x, moveDirections[i].y), 1.0f, layerMask);
+                new Vector2(moveDirections[i].x, moveDirections[i].y), 5.0f, layerMask);
         }
         for (int i = 0; i < moveDirections.Count(); i ++) {
             if (castList[i].collider != null) {
                 var rayColor = Color.red;
-                Debug.DrawRay(transform.position, moveDirections[i] * 1.0f, rayColor);
+                Debug.DrawRay(transform.position, moveDirections[i] * 5.0f, rayColor);
             }
         }
     }

@@ -11,6 +11,7 @@ public class WanderState : BaseState
     private Vector2 decisionTime = new Vector2(1, 4);
     internal float decisionTimeCount = 0f;
     private bool choice;
+    private float thirty = 30f;
 
     private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
@@ -53,7 +54,6 @@ public class WanderState : BaseState
             decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
             ChooseMoveDirection();
         }
-        
 
         foreach (GameObject __enemy in enemies) {
             if (__enemy != null) {
@@ -66,45 +66,11 @@ public class WanderState : BaseState
             }
         }
 
+        WallDetection();
+
         if (_enemy.inBounds == true) {
             //return typeof(ChaseState);
         }
-
-        for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
-            if (_enemy.castList[i].collider != null) {
-                
-                if (Vector3.Distance(transform.position, _enemy.castList[i].collider.transform.position) >= 1 ) {
-                    Debug.Log("Too Close");
-                    
-                    /*
-                    var about_face = i;
-                    if (about_face >= 4) {
-                        about_face -= 4;
-                    } else if (about_face > 4) {
-                        about_face += 4;
-                    }
-                    */
-                    
-                    var about_face = i;
-                    about_face += 4;
-                    if (about_face >= 8) {
-                        Debug.Log("180!");
-                        about_face = about_face % 8;
-                    }
-
-                    _enemy.weightList[about_face] = 1;
-                    _enemy.currMoveDirection = about_face;
-                    
-                }
-                
-
-                var rayColor = Color.red;
-                Debug.DrawRay(transform.position, _enemy.moveDirections[i] * 1.0f, rayColor);
-            }
-        }
- 
-
- 
         return typeof(WanderState);
     }
 
@@ -254,6 +220,35 @@ public class WanderState : BaseState
             }
         }
         return;
+    }
+
+    private void WallDetection() {
+        for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
+            if (_enemy.castList[i].collider != null) {
+                
+                if (_enemy.castList[i].distance <= 1) {                    
+                    var about_face = i;
+                    /*
+                    about_face += 4;
+                    if (about_face >= 8) {
+                        about_face = about_face % 8;
+                    }
+                    */
+                    if (about_face >= 4) {
+                        about_face -= 4;
+                    } else if (about_face < 4) {
+                        about_face += 4;
+                    }
+                    decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
+                    _enemy.weightList[about_face] = 1;
+                    _enemy.currMoveDirection = about_face;
+                }
+            }
+        }
+    }
+
+    private void NPCDetection() {
+        
     }
     
 }
