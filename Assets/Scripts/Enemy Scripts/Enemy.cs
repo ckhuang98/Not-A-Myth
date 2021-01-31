@@ -154,4 +154,10 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+
+    public void resetWeightsToZero() {
+        for (int i = 0; i < moveDirections.Count(); i ++) {
+            weightList[i] = 0;
+        }
+    }
 }

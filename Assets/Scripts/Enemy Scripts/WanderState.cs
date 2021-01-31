@@ -40,6 +40,7 @@ public class WanderState : BaseState
     */
     public override Type Tick()
     {
+        //Debug.Log("Wanderin'");
         transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * Time.deltaTime * speed;
         
         if (decisionTimeCount >= 0)
@@ -69,7 +70,8 @@ public class WanderState : BaseState
         WallDetection();
 
         if (_enemy.inBounds == true) {
-            //return typeof(ChaseState);
+            _enemy.resetWeightsToZero();
+            return typeof(ChaseState);
         }
         return typeof(WanderState);
     }
@@ -84,19 +86,8 @@ public class WanderState : BaseState
         //Random Movement at first call
         if (hasMoved == false) {
             int index = Mathf.FloorToInt(UnityEngine.Random.Range(0, _enemy.moveDirections.Length));
-            //int index = 0;
             _enemy.weightList[index] = 1;
-            //return index;
         } else {
-
-            /*
-            var printArr = "AFTER: [ ";
-            for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
-                printArr += _enemy.weightList[i].ToString() + ", ";
-            }
-            printArr += " ]";
-            Debug.Log(printArr);
-            */
 
             // UP
             if (_enemy.weightList[0] == 1) {
@@ -213,10 +204,8 @@ public class WanderState : BaseState
         }
 
         for (int i = 0; i < _enemy.moveDirections.Count(); i++) {
-            //Debug.Log("in da mf loop");
             if (_enemy.weightList[i] == 1) {
                 _enemy.currMoveDirection = i;
-                //Debug.Log("weight of " + i + " is == 1!");
             }
         }
         return;
@@ -226,20 +215,13 @@ public class WanderState : BaseState
         for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
             if (_enemy.castList[i].collider != null) {
                 
-                if (_enemy.castList[i].distance <= 1) {                    
+                if (_enemy.castList[i].distance <= 1) {          
                     var about_face = i;
-                    /*
-                    about_face += 4;
-                    if (about_face >= 8) {
-                        about_face = about_face % 8;
-                    }
-                    */
                     if (about_face >= 4) {
                         about_face -= 4;
                     } else if (about_face < 4) {
                         about_face += 4;
                     }
-                    decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
                     _enemy.weightList[about_face] = 1;
                     _enemy.currMoveDirection = about_face;
                 }
