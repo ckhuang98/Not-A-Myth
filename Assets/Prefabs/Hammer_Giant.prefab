@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 2148566272188717171}
   - component: {fileID: 2148566272188717168}
   - component: {fileID: 2148566272188717169}
+  - component: {fileID: 610099760}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: Hammer_Giant
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,6 +154,25 @@ MonoBehaviour:
   inBounds: 0
   hasCircled: 0
   weightList: 0000000000000000000000000000000000000000000000000000000000000000
+--- !u!95 &610099760
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2148566272188717183}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 82e3fd78e78ecdd4ab6aa80340667d60, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2148566272820516472
 GameObject:
   m_ObjectHideFlags: 0
