@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimator_TransitionOne_Behavior : StateMachineBehaviour
+public class PlayerAnimator_Combat_Idle_Behavior : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-       CombatManager.instance.canReceiveInput = true;
-    }
+    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (CombatManager.instance.inputReceived){
-           animator.SetTrigger("Attack2");
+       if (CombatManager.instance.inputReceived){
+           Debug.Log("input receieved!");
+           animator.SetTrigger("Attack1");
            CombatManager.instance.InputManager();
            CombatManager.instance.inputReceived = false;
-        }
+       }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

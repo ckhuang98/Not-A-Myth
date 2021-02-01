@@ -17,6 +17,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour {
 
     [SerializeField] private LayerMask dashLayerMask;
+    [SerializeField] private InputActionAsset playerControls;
 
     public float speed = 5.0f;
 

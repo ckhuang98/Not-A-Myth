@@ -7,11 +7,14 @@ public class CombatManager : MonoBehaviour
 {
     public static CombatManager instance;
 
+    public static PlayerController player;
+
     public bool canReceiveInput;
     public bool inputReceived;
 
     private void Awake() {
         instance = this;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     public void Attack(InputAction.CallbackContext context){
