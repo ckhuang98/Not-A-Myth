@@ -2,23 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimator_TransitionTwo_Behavior : StateMachineBehaviour
+public class PlayerAnimator_Attack3_Behavior : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       CombatManager.instance.canReceiveInput = true;
+       CombatManager.player.speed = 0;
+       CombatManager.player.slashAnimation.Play("SlashAnim3", -1, 0f);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-       if (CombatManager.instance.inputReceived){
-           animator.SetTrigger("Attack3");
-           CombatManager.instance.InputManager();
-           CombatManager.instance.inputReceived = false;
-       }
-    }
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
