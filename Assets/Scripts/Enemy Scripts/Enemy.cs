@@ -143,14 +143,14 @@ public class Enemy : MonoBehaviour
     {
         for (int i = 0; i < moveDirections.Count(); i ++) {
             var rayColor = Color.green;
-            Debug.DrawRay(transform.position, moveDirections[i] * 5.0f, rayColor);
+            Debug.DrawRay(transform.position, moveDirections[i] * 3.0f, rayColor);
             castList[i] = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), 
-                new Vector2(moveDirections[i].x, moveDirections[i].y), 5.0f, layerMask);
+                new Vector2(moveDirections[i].x, moveDirections[i].y), 3.0f, layerMask);
         }
         for (int i = 0; i < moveDirections.Count(); i ++) {
             if (castList[i].collider != null) {
                 var rayColor = Color.red;
-                Debug.DrawRay(transform.position, moveDirections[i] * 5.0f, rayColor);
+                Debug.DrawRay(transform.position, moveDirections[i] * 3.0f, rayColor);
             }
         }
     }

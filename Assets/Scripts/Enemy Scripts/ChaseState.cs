@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
-using Tuple;
+//using Tuple;
 
 public class ChaseState : BaseState
 {
@@ -13,8 +13,10 @@ public class ChaseState : BaseState
     public float speed = 3f;
     private bool hasCircled = false;
     private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+    private GameObject walls = GameObject.Find("Walls");
+    private bool choice;
 
-    private (int, int)[] successors = new  NaN
+    //private (int, int)[] successors = new  NaN
 
     /*
     Purpose: constructor recieves all needed values from enemy class and recieves
@@ -39,14 +41,17 @@ public class ChaseState : BaseState
     { 
         _enemy.inBounds = false;
         transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
+        Debug.DrawRay(transform.position, _enemy.moveDirections[_enemy.currMoveDirection] * 3.0f, Color.blue);
         var delta_x = transform.position.x - target.position.x;
         var delta_y = transform.position.y - target.position.y;
         float angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
         if (angle < 0.0f) {
             angle = angle + 360f;
-        }
-        ChasePlayer(angle);
-        WallDetection();       
+        } 
+        LocatePlayer(angle); 
+        WallDetection();
+        FailSafeDirection();  
+        MoveDirection();   
 
         foreach (GameObject __enemy in enemies) {
             if (__enemy != null) {
@@ -58,70 +63,78 @@ public class ChaseState : BaseState
                 } 
             }
         }
+
+        if (Vector3.Distance(transform.position, walls.transform.position) < 2.0f) {
+            Vector3 dist = transform.position - walls.transform.position;
+            transform.position += dist * Time.deltaTime;
+        }
     
         if (Vector2.Distance(transform.position, target.position) <= 1) {
             return typeof(AttackState);
         } 
-        else if (Vector2.Distance(transform.position, target.position) >= 7 ) {
+        else if (Vector2.Distance(transform.position, target.position) >= 20 ) {
+            Debug.Log("Moving to wander state");
             return typeof(WanderState);
         } 
 
         return typeof(ChaseState);
     }
 
-    private void ChasePlayer(float angle) {
+    private void LocatePlayer(float angle) {
         // transform.position += _enemy.moveDirections[i] * speed * Time.deltaTime;
 
-        _enemy.weightList[_enemy.currMoveDirection] = 0;
-
         // UP
-        if (247.5 < angle && angle < 292.5) {
+        if (247.5 < angle && angle < 292.5) {  
+            _enemy.weightList[_enemy.currMoveDirection] = 0;
             _enemy.weightList[0] = 1;
+ 
         }
         // RIGHT & UP
         if (202.5 < angle && angle < 247.5) {
+            _enemy.weightList[_enemy.currMoveDirection] = 0;
             _enemy.weightList[1] = 1;
         }
         // RIGHT
         if (157.5 < angle && angle < 202.5) {
+            _enemy.weightList[_enemy.currMoveDirection] = 0;
             _enemy.weightList[2] = 1;
+    
         }
         // DOWN RIGHT
         if (angle > 112.5 && angle < 157.5) {
+            _enemy.weightList[_enemy.currMoveDirection] = 0;
             _enemy.weightList[3] = 1;
+  
         }
         // DOWN
         if (angle > 67.5 && angle < 112.5) {
-            _enemy.weightList[4] = 1;
+            _enemy.weightList[_enemy.currMoveDirection] = 0;
+                _enemy.weightList[4] = 1; 
         }
         //DOWN LEFT
         if (angle > 22.5 && angle < 67.5) {
-            _enemy.weightList[5] = 1;
+            _enemy.weightList[_enemy.currMoveDirection] = 0;
+           _enemy.weightList[5] = 1;
         }
         // LEFT
         if ((angle > 337.5 && angle < 360) || (angle > 0 && angle < 22.5)) {
+            _enemy.weightList[_enemy.currMoveDirection] = 0;
             _enemy.weightList[6] = 1;
         }
         // LEFT & UP
         if (292.5 < angle && angle < 337.5) {
+            _enemy.weightList[_enemy.currMoveDirection] = 0;
             _enemy.weightList[7] = 1;
         }
-
-        for (int i = 0; i < _enemy.moveDirections.Count(); i++) {
-            //Debug.Log("in da mf loop");
-            if (_enemy.weightList[i] == 1) {
-                _enemy.currMoveDirection = i;
-                //Debug.Log("weight of " + i + " is == 1!");
-            }
-        }
     }
+    
 
     private void WallDetection() {
         // Adjust weight list: -1 for wall, 0 for non-wall
         for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
             //_enemy.weightList[i] = 0;
             if (_enemy.castList[i].collider != null) {
-                if (_enemy.castList[i].distance <= 1) {  
+                if (_enemy.castList[i].distance <= 1.5) {  
                     _enemy.weightList[i] = -1;
                 } else {
                     _enemy.weightList[i] = 0;
@@ -129,6 +142,62 @@ public class ChaseState : BaseState
             }
         }
     }
+
+    private void findNextDirection() {
+        Debug.Log("Stuck Here");
+        for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
+            if (_enemy.weightList[i] == 0) {
+                _enemy.weightList[i] = 1;
+                return;
+            }
+        }
+    }
+
+    private void FailSafeDirection() {
+        if (_enemy.weightList[_enemy.currMoveDirection] == -1) {
+            if (_enemy.currMoveDirection == 7) {
+                choice = false;
+            } else if (_enemy.currMoveDirection == 0) {
+                choice = true;
+            } else {
+                choice = (UnityEngine.Random.value > 0.5f);
+            }
+            if (choice == true) {
+                for (int i = _enemy.currMoveDirection; i < _enemy.moveDirections.Count(); i++) {
+                    if (_enemy.weightList[i] == 0) {
+                        _enemy.weightList[_enemy.currMoveDirection] = 0;
+                        _enemy.weightList[i] = 1;
+                        break;
+                    }
+                }
+            } else if (choice == false) {
+                for (int i = _enemy.currMoveDirection; i >= 0; i--) {
+                    if (_enemy.weightList[i] == 0) {
+                        _enemy.weightList[_enemy.currMoveDirection] = 0;
+                        _enemy.weightList[i] = 1;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+            
+
+    private void MoveDirection() {
+        for (int i = 0; i < _enemy.moveDirections.Count(); i++) {
+            //Debug.Log("in da mf loop");
+            if (_enemy.weightList[i] == 1) {
+                _enemy.currMoveDirection = i;
+                //FailSafeDirection();
+                //Debug.Log("weight of " + i + " is == 1!");
+            }
+        }
+    }
+    /*
+    private void MoveDirection() {
+
+    }
+    */
     /*
     private void getLowestTrueDistance() {
         // For every 0 in weight list, find 'true cost' with BFS
@@ -154,7 +223,7 @@ public class ChaseState : BaseState
 
     | Depth -   an integer representing the number of actions from
                 start state to current state
-    */
+    
     public class Path
     {
         public Path()
@@ -190,7 +259,7 @@ public class ChaseState : BaseState
 
     Calls expand, which will explore Node and update Paths to represent
     the changes in the searching
-    */
+    
     private string[] BFS((int, int) start, (int, int) goal) {
         // paths will be a collection of all currently-exploring paths
         Path[] paths = { };
@@ -284,7 +353,7 @@ public class ChaseState : BaseState
     /*
     Returns a list of paths which are not currently obstructed by any obstacles
     (Weight that is 0)
-    */
+    
     private void successorStates((int, int) state) {
         //A successor state should return (new state, dir. from state->new state, cost from state->new state)
         Path[] successors = {};
@@ -392,5 +461,6 @@ public class ChaseState : BaseState
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
                 */
+                
     
 }
