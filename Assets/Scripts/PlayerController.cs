@@ -45,9 +45,6 @@ public class PlayerController : MonoBehaviour {
     public Animator playerAnimator;
 
     float timer = 0f;
-    public int numOfClicks = 0;
-    float lastClickedTime = 0f;
-    public float maxComboDelay = 0.9f;
     private float fireStacks = 0;
 
     float healthTimer = 0f;
@@ -101,6 +98,7 @@ public class PlayerController : MonoBehaviour {
                 case State.Normal:
 
                     movementManager();
+                    dashManager();
 
                     if (Input.GetMouseButtonDown(0)) {
 
@@ -114,11 +112,6 @@ public class PlayerController : MonoBehaviour {
                         playerAnimator.SetFloat("attackDirY", attackDir.y);
                         //attack(attackDir);
                     }
-                    if(Input.GetKeyDown(KeyCode.Space)){
-                        dashDirection = moveDirection;
-                        dashSpeed = 250f;
-                        state = State.Dashing;
-                    }
                     timer += Time.deltaTime;
                     if (timer >= .5) {
                         var colliders = slashAnimation.GetComponents<PolygonCollider2D>();
@@ -130,16 +123,11 @@ public class PlayerController : MonoBehaviour {
                     hitDetection();
                     ApplyFire();
                     gameIsOver();
-                        break;
+                    break;
 
 
                 case State.Dashing:
-                    float dashSpeedDropMultiplier = 5f;
-                    dashSpeed -= dashSpeed * dashSpeedDropMultiplier * Time.deltaTime;
-                    float dashSpeedMinium = 50f;
-                    if(dashSpeed < dashSpeedMinium){
-                        state = State.Normal;
-                    }
+                    handleDash();
                     break;
         }
         } else {
@@ -162,8 +150,6 @@ public class PlayerController : MonoBehaviour {
                 break;
 
             case State.Dashing:
-                Debug.Log("dash");
-                rb.velocity = dashDirection * dashSpeed;
                 break;
         }
         
@@ -183,21 +169,29 @@ public class PlayerController : MonoBehaviour {
         // }
     }
 
+    private void dashManager(){
+        if(Input.GetKeyDown(KeyCode.Space) && canDash){
+            state = State.Dashing;
+            Debug.Log("Dash");
+            dashSpeed = 15f;
+        }
+    }
+    private void handleDash(){
+        transform.position += lastMoveDirection * dashSpeed * Time.deltaTime;
+        dashSpeed -= dashSpeed * 5f * Time.deltaTime;
+        if(dashSpeed < 2f){
+            canDash = false;
+            StartCoroutine(DashTimer());
+            state = State.Normal;
+            Debug.Log("Normal");
+        }
+    }
+
     private IEnumerator DashTimer()
      {
-         yield return new WaitForSeconds(1f);
+         yield return new WaitForSeconds(0.7f);
          canDash = true;
      }
-
-    // void attack(Vector3 attackDir) {
-    //     //Debug.Log(attackDir);
-    //     // var temp = attackDir;
-    //     // slashCollider.GetComponent<Collider>().enabled = true;
-    //     // attackPosition.transform.position = Input.mousePosition;
-    //     // attackPosition.text = "" + attackDir;
-    //     //slashAnimation.Play("Attacking", -1, 0f);
-    //     slashAnimation.Play("SlashAnim1", -1, 0f);
-    // }
 
     public void gainStrength() {
 
