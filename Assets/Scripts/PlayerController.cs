@@ -19,7 +19,15 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private LayerMask dashLayerMask;
     [SerializeField] private InputActionAsset playerControls;
 
+    private enum State{
+        Normal,
+        Dashing,
+    }
+
+    private State state;
+
     public float speed = 5.0f;
+    public float dashSpeed;
 
     public Rigidbody2D rb;
 
@@ -28,6 +36,7 @@ public class PlayerController : MonoBehaviour {
 
     Vector3 moveDirection;
     Vector3 lastMoveDirection;
+    Vector3 dashDirection;
 
     public Text attackPosition;
 
@@ -58,6 +67,7 @@ public class PlayerController : MonoBehaviour {
     public bool isDashButtonDown = false;
 
     public bool attacked = false;
+    public bool canDash = true;
 
     public GameObject slashCollider;
 
@@ -72,6 +82,7 @@ public class PlayerController : MonoBehaviour {
         gameOverText = this.GetComponentInChildren<Canvas>().GetComponentInChildren<Text>();
         Debug.developerConsoleVisible = true;
         CombatManager.instance.canReceiveInput = true;
+        state = State.Normal;
         //slashCollider.GetComponent<Collider>().enabled = false;
     }
 
@@ -85,35 +96,49 @@ public class PlayerController : MonoBehaviour {
             // TODO: should stop player control, maybe pause the game, when inventory is open
             // if (EventSystem.current.IsPointerOverGameObject())
             //     return;
+            switch (state){
+                case State.Normal:
 
-            movementManager();
+                    movementManager();
 
-            if (Input.GetMouseButtonDown(0)) {
+                    if (Input.GetMouseButtonDown(0)) {
 
-                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                //Debug.Log(mousePosition);
-                attackDir = (mousePosition - this.transform.position).normalized;
-                timer = 0;
-                //slashAnimation.enabled = true;
-                //Debug.Log(attackDir);
-                playerAnimator.SetFloat("attackDirX", attackDir.x);
-                playerAnimator.SetFloat("attackDirY", attackDir.y);
-                //attack(attackDir);
-            }
-            if(Input.GetKeyDown(KeyCode.Space)){
-                isDashButtonDown = true;
-            }
-            timer += Time.deltaTime;
-            if (timer >= .5) {
-                var colliders = slashAnimation.GetComponents<PolygonCollider2D>();
-                for (int i = 0; i < colliders.Length; i++) {
-                    colliders[i].enabled = false;
-                }
-            }
+                        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                        //Debug.Log(mousePosition);
+                        attackDir = (mousePosition - this.transform.position).normalized;
+                        timer = 0;
+                        //slashAnimation.enabled = true;
+                        //Debug.Log(attackDir);
+                        playerAnimator.SetFloat("attackDirX", attackDir.x);
+                        playerAnimator.SetFloat("attackDirY", attackDir.y);
+                        //attack(attackDir);
+                    }
+                    if(Input.GetKeyDown(KeyCode.Space)){
+                        dashDirection = moveDirection;
+                        dashSpeed = 250f;
+                        state = State.Dashing;
+                    }
+                    timer += Time.deltaTime;
+                    if (timer >= .5) {
+                        var colliders = slashAnimation.GetComponents<PolygonCollider2D>();
+                        for (int i = 0; i < colliders.Length; i++) {
+                            colliders[i].enabled = false;
+                        }
+                    }
 
-            hitDetection();
+                    hitDetection();
+                    gameIsOver();
+                        break;
 
-            gameIsOver();
+                case State.Dashing:
+                    float dashSpeedDropMultiplier = 5f;
+                    dashSpeed -= dashSpeed * dashSpeedDropMultiplier * Time.deltaTime;
+                    float dashSpeedMinium = 50f;
+                    if(dashSpeed < dashSpeedMinium){
+                        state = State.Normal;
+                    }
+                    break;
+        }
         } else {
             //Stops player from moving after GameOver screen is displayed.
             movement.x = 0;
@@ -128,22 +153,38 @@ public class PlayerController : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        switch(state){
+            case State.Normal:
+                rb.velocity = movement * speed;
+                break;
 
-        // Dash movement using raycast so player can't dash through walls.
-        if (isDashButtonDown){
-            float dashAmount = 1f;
-            Vector3 dashPosition = transform.position + lastMoveDirection * dashAmount;
-
-            RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, lastMoveDirection, dashAmount, dashLayerMask);
-            if(raycastHit2D.collider != null){
-                dashPosition = raycastHit2D.point;
-            }
-
-            rb.MovePosition(dashPosition);
-            isDashButtonDown = false;
+            case State.Dashing:
+                Debug.Log("dash");
+                rb.velocity = dashDirection * dashSpeed;
+                break;
         }
+        
+
+        // Dash (teleport) movement using raycast so player can't dash through walls.
+        // if (isDashButtonDown && canDash){
+        //     float dashAmount = 1f;
+        //     Vector3 dashPosition = transform.position + lastMoveDirection * dashAmount;
+
+        //     RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, lastMoveDirection, dashAmount, dashLayerMask);
+        //     if(raycastHit2D.collider != null){
+        //         dashPosition = raycastHit2D.point;
+        //     }
+
+        //     rb.MovePosition(dashPosition);
+        //     isDashButtonDown = false;
+        // }
     }
+
+    private IEnumerator DashTimer()
+     {
+         yield return new WaitForSeconds(1f);
+         canDash = true;
+     }
 
     // void attack(Vector3 attackDir) {
     //     //Debug.Log(attackDir);
