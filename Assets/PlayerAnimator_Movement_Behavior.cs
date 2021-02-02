@@ -5,20 +5,20 @@ using UnityEngine;
 public class PlayerAnimator_Movement_Behavior : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+       CombatManager.player.speed = 5.0f;
+    }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       if (CombatManager.instance.inputReceived){
+        if (CombatManager.instance.inputReceived){
            Debug.Log("input receieved!");
            animator.SetTrigger("Attack1");
            CombatManager.instance.InputManager();
            CombatManager.instance.inputReceived = false;
-       }
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
