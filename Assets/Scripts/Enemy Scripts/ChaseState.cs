@@ -58,7 +58,7 @@ public class ChaseState : BaseState
         foreach (GameObject __enemy in enemies) {
             if (__enemy != null) {
                 float currentDistance = Vector3.Distance(transform.position, __enemy.transform.position);
-                if (currentDistance < 2.0f)
+                if (currentDistance < 2.5f)
                 {
                 Vector3 dist = transform.position - __enemy.transform.position;
                 transform.position += dist * Time.deltaTime;

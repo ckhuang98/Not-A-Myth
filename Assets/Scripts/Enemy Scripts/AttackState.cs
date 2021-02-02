@@ -36,6 +36,8 @@ public class AttackState : BaseState
     public override Type Tick()
     {
         InstantiateAoE();
+        _enemy.enemyAnimator.SetFloat("AttackHorzontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+        _enemy.enemyAnimator.SetFloat("AttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         if (_enemy.goToWalk == true) {
             _enemy.goToWalk = false;
             return typeof(ChaseState);
