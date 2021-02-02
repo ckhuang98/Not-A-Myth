@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
 
     //Assigned to the close button inside the instruction window.
     public void hideInstructions(){
+        Debug.Log("Hide");
         instructions.SetActive(false);
     }
 
