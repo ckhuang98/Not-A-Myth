@@ -27,17 +27,23 @@ public class Enemy : MonoBehaviour
     public static int enemyAmount;
     ////////////////////////////////
 
-    StateMachine stateMachine;
+    StateMachine stateMachine; 
 
-    private float _rayDistance = 3.0f;
-    private int layerMask = 1 << 9;
+    public float _rayDistance = 5.0f;
+    private int layerMask = 1 << 20;
     public RaycastHit2D[] castList = new RaycastHit2D[8];
     public int[] weightList = new int[8];
     internal int currMoveDirection;
     //An array carrying all 8 movement options for the enemy
+    /*
     internal Vector3[] moveDirections = new Vector3[] { Vector3.right, Vector3.left, Vector3.up, Vector3.down, 
         Vector3.Normalize(Vector3.left + Vector3.up), Vector3.Normalize(Vector3.left + Vector3.down),
         Vector3.Normalize(Vector3.right + Vector3.up), Vector3.Normalize(Vector3.right + Vector3.down) };
+    */
+    
+    internal Vector3[] moveDirections = new Vector3[] { Vector3.up, Vector3.Normalize(Vector3.right + Vector3.up), 
+        Vector3.right, Vector3.Normalize(Vector3.right + Vector3.down), Vector3.down,
+        Vector3.Normalize(Vector3.left + Vector3.down), Vector3.left, Vector3.Normalize(Vector3.left + Vector3.up) };
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +55,10 @@ public class Enemy : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
         enemyList = GameObject.FindGameObjectsWithTag("Enemy");
-        enemyAmount = enemyList.Length;
+        enemyAmount = enemyList.Length;   
+        for (int i = 0; i < moveDirections.Count(); i ++) {
+            weightList[i] = 0;
+        }
         stateMachine = new StateMachine();
         InitializeStateMachine();
         
@@ -134,15 +143,14 @@ public class Enemy : MonoBehaviour
     {
         for (int i = 0; i < moveDirections.Count(); i ++) {
             var rayColor = Color.green;
-            Debug.DrawRay(transform.position, moveDirections[i] * _rayDistance, rayColor);
+            Debug.DrawRay(transform.position, moveDirections[i] * 3.0f, rayColor);
             castList[i] = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), 
-                new Vector2(moveDirections[i].x, moveDirections[i].y), _rayDistance, layerMask);
-            weightList[i] = 0;
+                new Vector2(moveDirections[i].x, moveDirections[i].y), 3.0f, layerMask);
         }
         for (int i = 0; i < moveDirections.Count(); i ++) {
             if (castList[i].collider != null) {
                 var rayColor = Color.red;
-                Debug.DrawRay(transform.position, moveDirections[i] * _rayDistance, rayColor);
+                Debug.DrawRay(transform.position, moveDirections[i] * 3.0f, rayColor);
             }
         }
     }
@@ -150,5 +158,10 @@ public class Enemy : MonoBehaviour
     void playFootstepSFX()
     {
         gameObject.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("Footsteps");
+    }
+    public void resetWeightsToZero() {
+        for (int i = 0; i < moveDirections.Count(); i ++) {
+            weightList[i] = 0;
+        }
     }
 }

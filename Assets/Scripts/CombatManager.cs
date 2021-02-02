@@ -20,7 +20,7 @@ public class CombatManager : MonoBehaviour
     public void Attack(InputAction.CallbackContext context){
         if(context.performed){
             if(canReceiveInput){
-                Debug.Log("Attack!");
+                //Debug.Log("Attack!");
                 inputReceived = true;
                 canReceiveInput = false;
             } else{
