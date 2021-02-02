@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour {
     public int numOfClicks = 0;
     float lastClickedTime = 0f;
     public float maxComboDelay = 0.9f;
+    private float fireStacks = 0;
 
     float healthTimer = 0f;
     public float attackStrength = 1f;
@@ -127,8 +128,10 @@ public class PlayerController : MonoBehaviour {
                     }
 
                     hitDetection();
+                    ApplyFire();
                     gameIsOver();
                         break;
+
 
                 case State.Dashing:
                     float dashSpeedDropMultiplier = 5f;
@@ -258,10 +261,22 @@ public class PlayerController : MonoBehaviour {
 
         //Tracks whether the enmemy has collided with the player. After initial
         //detection it will take damage from player per second
-        if (withinAggroColliders != null && healthTimer >= 1)
-        {
-            TakeDamage(10);
-            healthTimer = 0;
+
+        if (withinAggroColliders != null) {
+            fireStacks += 0.01f;
+            if (healthTimer >= 1) {
+                TakeDamage(10);
+                healthTimer = 0;
+            }
+        }
+    }
+
+    void ApplyFire() {
+        if (fireStacks > 0.0f) {
+            if (0.0f <= fireStacks % 1.0f && fireStacks % 1.0f < 0.01f) {
+                fireStacks -= 1.0f;
+                TakeDamage(1);
+            }
         }
     }
 
