@@ -146,4 +146,9 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+
+    void playFootstepSFX()
+    {
+        gameObject.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("Footsteps");
+    }
 }

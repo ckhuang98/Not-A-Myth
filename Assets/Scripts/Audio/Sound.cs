@@ -5,17 +5,19 @@ using UnityEngine;
 // Purpose: Define a sound object with properties for the AudioManager to use
 public class Sound
 {
+
     public string name;
-    public string followingSound;
 
     public AudioClip clip;
-    public AudioMixerGroup group;
 
-    [Range(0f, 1f)]
-    public float volume;
+    // public bool volumeOverride;
 
-    public bool loop;
+    // [Range(0f, 1f)]
+    // public float volume;
+
+    // public bool loopOverride;
 
     [HideInInspector]
     public AudioSource source;
+
 }

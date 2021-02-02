@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
             return;
         }
         instance = this;
+
     }
 
     //delegate called for calling subscibed methods when inventory is updated
@@ -28,6 +29,11 @@ public class Inventory : MonoBehaviour
 
     //The actual List of inventory items
     public List<Item> items = new List<Item>();
+
+    private void Start()
+    {
+        // FindObjectOfType<AudioManager>().PlayGroup("Overworld Music");
+    }
 
     //Purpose: Add the item to the inventory list if it is not a default item and there is room in the inventory for it
     public bool Add(Item item)

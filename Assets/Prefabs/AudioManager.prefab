@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5347535454852803138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5347535454852803142}
+  - component: {fileID: 5347535454852803143}
+  - component: {fileID: 5347535454852803140}
+  - component: {fileID: 5347535454852803141}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5347535454852803142
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5347535454852803138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5347535454852803143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5347535454852803138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ce681815ee38d459c975a8aa832b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  soundGroups:
+  - name: Overworld Music
+    group: {fileID: 1948652533155611144, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+    volume: 0.1
+    spacialBlend: 0
+    spread: 0
+    loopingClip: Demo2
+    rolloffMode: 0
+    maxDistance: 0
+    sounds:
+    - name: Demo1
+      clip: {fileID: 8300000, guid: 20e3e7b1d2fdea741a5555dc997fb877, type: 3}
+      source: {fileID: 0}
+    - name: Demo2
+      clip: {fileID: 8300000, guid: e4492807c58c5a44493b631ec562c0fa, type: 3}
+      source: {fileID: 0}
+    - name: NorseDem2
+      clip: {fileID: 8300000, guid: 0555a8adb2e4c7448a6aff1ca0920c83, type: 3}
+      source: {fileID: 0}
+  - name: Battle Music
+    group: {fileID: 0}
+    volume: 0
+    spacialBlend: 0
+    spread: 0
+    loopingClip: 
+    rolloffMode: 0
+    maxDistance: 0
+    sounds: []
+--- !u!222 &5347535454852803140
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5347535454852803138}
+  m_CullTransparentMesh: 0
+--- !u!114 &5347535454852803141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5347535454852803138}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Description:\nHandle game audio: music and sfx. \nIncrease the Size of
+    the Sounds attribute to add another sound\n\nAttributes of a Sound:\nName: Name
+    of sound finished playing\nClip: Clip of the sound to be played\nGroup: Audio
+    group this sound is a part of\nVolume: Volume of the clip\nLoop: loop this Sound\n\nFollowing
+    Sound (Optional): Name of a sound to be played once the current sound is.\n\tThe
+    purpose of a following sound is for a track to have an intro, and then transition\n\tsmoothly
+    into a looping section. Play intro track -> play looping track"
