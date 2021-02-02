@@ -294,12 +294,12 @@ public class PlayerController : MonoBehaviour {
 
         if (Enemy.enemyAmount <= 0)
         {
-            // Debug.Log("Game Over");
-            // gameOverText.text = "You Win!";
-            // Color alpha = gameOverText.color;
-            // alpha.a = 255f;
-            // gameOverText.color = alpha;
-            // gameOver = true;
+            Debug.Log("Game Over");
+            gameOverText.text = "You Win!";
+            Color alpha = gameOverText.color;
+            alpha.a = 255f;
+            gameOverText.color = alpha;
+            gameOver = true;
         }
     }
 }
