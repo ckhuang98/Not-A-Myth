@@ -42,6 +42,8 @@ public class WanderState : BaseState
     {
         //Debug.Log("Wanderin'");
         transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * Time.deltaTime * speed;
+        _enemy.enemyAnimator.SetFloat("Horizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+        _enemy.enemyAnimator.SetFloat("Vertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         
         if (decisionTimeCount >= 0)
         {

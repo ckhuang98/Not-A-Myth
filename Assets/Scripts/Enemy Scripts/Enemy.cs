@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
 
     private GameObject[] enemyList;
     public static int enemyAmount;
+    public Animator enemyAnimator;
     ////////////////////////////////
 
     StateMachine stateMachine; 
@@ -34,6 +35,9 @@ public class Enemy : MonoBehaviour
     public RaycastHit2D[] castList = new RaycastHit2D[8];
     public int[] weightList = new int[8];
     internal int currMoveDirection;
+    public bool doInstantiate = false;
+    public bool goToWalk = false;
+    public bool doAttack = false;
     //An array carrying all 8 movement options for the enemy
     /*
     internal Vector3[] moveDirections = new Vector3[] { Vector3.right, Vector3.left, Vector3.up, Vector3.down, 
@@ -66,6 +70,7 @@ public class Enemy : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        enemyAnimator.SetFloat("Speed", moveDirections[currMoveDirection].sqrMagnitude);
         isDead(PlayerController.gameOver);
         stateMachine.Update();
         DisplayRays();
@@ -163,5 +168,15 @@ public class Enemy : MonoBehaviour
         for (int i = 0; i < moveDirections.Count(); i ++) {
             weightList[i] = 0;
         }
+    }
+
+    public void AreaOfEffect() {
+        Debug.Log("Here");
+        doInstantiate = true;
+    }
+
+    public void moveToWalk () {
+        enemyAnimator.SetTrigger("Walking");
+        goToWalk = true;
     }
 }

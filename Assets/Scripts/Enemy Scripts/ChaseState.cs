@@ -41,6 +41,8 @@ public class ChaseState : BaseState
     { 
         _enemy.inBounds = false;
         transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
+        _enemy.enemyAnimator.SetFloat("Horizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+        _enemy.enemyAnimator.SetFloat("Vertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         Debug.DrawRay(transform.position, _enemy.moveDirections[_enemy.currMoveDirection] * 3.0f, Color.blue);
         var delta_x = transform.position.x - target.position.x;
         var delta_y = transform.position.y - target.position.y;
@@ -70,6 +72,7 @@ public class ChaseState : BaseState
         }
     
         if (Vector2.Distance(transform.position, target.position) <= 1) {
+            _enemy.enemyAnimator.SetTrigger("Attack");
             return typeof(AttackState);
         } 
         else if (Vector2.Distance(transform.position, target.position) >= 20 ) {

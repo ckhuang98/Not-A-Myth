@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AreaofEffectTime : MonoBehaviour
 {
-    private float destroyTime = 3f;
+    private float destroyTime = 5f;
     // Start is called before the first frame update
     void Start()
     {
