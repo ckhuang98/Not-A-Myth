@@ -8,8 +8,6 @@ public class AudioManager : MonoBehaviour
 
     public SoundGroup[] soundGroups;
 
-    // public Sound[] sounds;
-
     // fade down (true) fade up (false). Used for testing at the moment
     private bool fadeToggle;
 
@@ -60,6 +58,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    //Purpose: Begin playing a sound group with this name
+    //Will play all the sounds in a sound group in a row
+    //If there is a sound in the group set to loop, it will begin to loop and will NOT play the following sounds
     public SoundGroup PlayGroup(string name)
     {
         Debug.Log("Playing Sound Group: " + name);
@@ -94,6 +95,9 @@ public class AudioManager : MonoBehaviour
         return sg;
     }
 
+    //Purpose: If there is a looping track playing in this sound group, turn off looping and let it play out
+    //If there is a following sound in the soundgroup, it will play once the loop has finished its last cycle
+    //TODO: currently only works if there is a looping track playing
     public void EndLoop (string name)
     {
         SoundGroup sg = Array.Find(soundGroups, soundGroup => soundGroup.name == name);
@@ -118,7 +122,8 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public Sound PlayRandomSoundInGroup(string name, Vector3 position = new Vector3())
+    //Purpose: Play a random sound in a sound group
+    public Sound PlayRandomSoundInGroup(string name)
     {
         SoundGroup sg = Array.Find(soundGroups, soundGroup => soundGroup.name == name);
 
@@ -127,11 +132,12 @@ public class AudioManager : MonoBehaviour
 
         Sound randomSound = sg.sounds[UnityEngine.Random.Range(0, sg.sounds.Length)];
 
-        Play(randomSound, position);
+        Play(randomSound);
 
         return randomSound;
     }
 
+    //Purpsose: Play a specific sound in a sound group
     public Sound PlaySoundInGroup(string groupName, string soundName)
     {
         SoundGroup sg = Array.Find(soundGroups, soundGroup => soundGroup.name == groupName);
@@ -146,6 +152,7 @@ public class AudioManager : MonoBehaviour
         return s;
     }
 
+    //Purpose: Play a Sound
     public Sound Play (Sound sound)
     {
         if (sound == null)
@@ -158,16 +165,7 @@ public class AudioManager : MonoBehaviour
         return sound;
     }
 
-    public Sound Play (Sound sound, Vector3 position)
-    {
-        if (sound == null)
-            return null;
-
-        // AudioSource.PlayClipAtPoint(sound.source.clip, position);
-
-        return sound;
-    }
-
+    //Purpose: Schedule a Sound to be played. Currently not in use
     private Sound PlayScheduled(Sound sound, double delay)
     {
         return sound;
