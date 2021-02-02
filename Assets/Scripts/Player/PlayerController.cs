@@ -13,6 +13,7 @@ using Vector2 = UnityEngine.Vector2;
 using System;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -70,6 +71,8 @@ public class PlayerController : MonoBehaviour {
     public GameObject slashCollider;
 
     public static bool gameOver = false;
+
+    private GameObject restart;
     
     Text gameOverText;
     // Start is called before the first frame update
@@ -81,6 +84,9 @@ public class PlayerController : MonoBehaviour {
         Debug.developerConsoleVisible = true;
         CombatManager.instance.canReceiveInput = true;
         state = State.Normal;
+        restart = GameObject.FindWithTag("Restart");
+        restart.SetActive(false);
+        gameOver = false;
         //slashCollider.GetComponent<Collider>().enabled = false;
     }
 
@@ -118,6 +124,10 @@ public class PlayerController : MonoBehaviour {
                         for (int i = 0; i < colliders.Length; i++) {
                             colliders[i].enabled = false;
                         }
+                    }
+                    if (Input.GetKeyDown(KeyCode.X)){
+                        Debug.Log("death");
+                        currentHealth = 0;
                     }
 
                     hitDetection();
@@ -169,20 +179,35 @@ public class PlayerController : MonoBehaviour {
         // }
     }
 
+    // void OnCollisionEnter2D(Collision2D collision)
+    // {
+    //     Debug.Log(collision.gameObject.layer);
+    //     if(collision.gameObject.name == "Passable"){
+    //         Debug.Log(state);
+    //         if(state == State.Dashing){
+    //             Physics.IgnoreLayerCollision(0, 4, true);
+    //         } else{
+    //             Physics.IgnoreLayerCollision(0, 4, false);
+    //         }
+    //     }
+    // }
+
     private void dashManager(){
         if(Input.GetKeyDown(KeyCode.Space) && canDash){
             state = State.Dashing;
+            Physics2D.IgnoreLayerCollision(9, 4, true);
             Debug.Log("Dash");
-            dashSpeed = 15f;
+            dashSpeed = 20f;
         }
     }
     private void handleDash(){
-        transform.position += lastMoveDirection * dashSpeed * Time.deltaTime;
+        rb.velocity = lastMoveDirection * dashSpeed;
         dashSpeed -= dashSpeed * 5f * Time.deltaTime;
         if(dashSpeed < 2f){
             canDash = false;
             StartCoroutine(DashTimer());
             state = State.Normal;
+            Physics2D.IgnoreLayerCollision(9, 4, false);
             Debug.Log("Normal");
         }
     }
@@ -289,7 +314,7 @@ public class PlayerController : MonoBehaviour {
             alpha.a = 255f;
             gameOverText.color = alpha;
             gameOver = true;
-
+            restart.SetActive(true);
         }
 
         if (Enemy.enemyAmount <= 0)
@@ -300,6 +325,10 @@ public class PlayerController : MonoBehaviour {
             alpha.a = 255f;
             gameOverText.color = alpha;
             gameOver = true;
+            restart.SetActive(true);
         }
+    }
+    public void restartScene(){
+        SceneManager.LoadScene(0);
     }
 }
