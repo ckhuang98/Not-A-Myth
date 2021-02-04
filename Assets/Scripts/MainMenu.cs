@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         //Assigns the instructions window to the instructions variable.
-        instructions = GameObject.FindWithTag("MainMenu_Instructions");
+        instructions = GameObject.FindWithTag("Controls");
 
         //SetActive to false so the window doesn't cover the buttons.
         instructions.SetActive(false);
@@ -22,7 +22,6 @@ public class MainMenu : MonoBehaviour
 
     //Assigned to the close button inside the instruction window.
     public void hideInstructions(){
-        Debug.Log("Hide");
         instructions.SetActive(false);
     }
 

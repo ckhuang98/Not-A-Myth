@@ -9,6 +9,7 @@ public class GameMaster : MonoBehaviour
     private GameObject escapeMenu;
 
     private GameObject player;
+    private GameObject controlsWindow;
     public InputActionAsset inputActions;
     private bool paused;
 
@@ -17,6 +18,8 @@ public class GameMaster : MonoBehaviour
     {
         Cursor.visible = true;
         paused = false;
+        controlsWindow = GameObject.FindWithTag("Controls");
+        controlsWindow.SetActive(false);
         escapeMenu = GameObject.FindWithTag("EscapeMenu");
         escapeMenu.SetActive(false);
         player = GameObject.FindWithTag("Player");
@@ -46,5 +49,16 @@ public class GameMaster : MonoBehaviour
         inputActions.Enable();
         paused = false;
         escapeMenu.SetActive(false);
+    }
+
+    public void showControls(){
+        controlsWindow.SetActive(true);
+    }
+    public void hideControls(){
+        controlsWindow.SetActive(false);
+    }
+
+    public void exitGame(){
+        Application.Quit();
     }
 }
