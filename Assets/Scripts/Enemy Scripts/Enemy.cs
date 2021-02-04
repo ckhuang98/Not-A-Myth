@@ -47,6 +47,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private GameObject deathSFXObject;
+
+    private ObjectAudioManager audioManager;
     
     internal Vector3[] moveDirections = new Vector3[] { Vector3.up, Vector3.Normalize(Vector3.right + Vector3.up), 
         Vector3.right, Vector3.Normalize(Vector3.right + Vector3.down), Vector3.down,
@@ -67,6 +69,7 @@ public class Enemy : MonoBehaviour
             weightList[i] = 0;
         }
         stateMachine = new StateMachine();
+        audioManager = gameObject.GetComponent<ObjectAudioManager>();
         InitializeStateMachine();
         
     }
@@ -182,12 +185,27 @@ public class Enemy : MonoBehaviour
         goToWalk = true;
     }
 
-    public void playHurtSFX()
+    private void playHammerImpactSFX()
     {
-        gameObject.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("Hurt");
+        audioManager.PlayRandomSoundInGroup("Hammer Impact");
     }
 
-    public void playDeathSFX()
+    private void playHammerSwingSFX()
+    {
+        audioManager.PlayRandomSoundInGroup("Hammer Swing");
+    }
+
+    private void playFootstepSFX()
+    {
+        audioManager.PlayRandomSoundInGroup("Footsteps");
+    }
+
+    private void playHurtSFX()
+    {
+        audioManager.PlayRandomSoundInGroup("Hurt");
+    }
+
+    private void playDeathSFX()
     {
         // return gameObject.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("Death");
 
@@ -195,5 +213,6 @@ public class Enemy : MonoBehaviour
         GameObject soundSource = Instantiate(deathSFXObject, pos, Quaternion.identity);
         Sound sound = soundSource.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("Death");
         Destroy(soundSource, sound.source.clip.length);
+
     }
 }

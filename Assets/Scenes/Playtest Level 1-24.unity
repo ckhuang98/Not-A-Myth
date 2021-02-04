@@ -1030,6 +1030,7 @@ GameObject:
   - component: {fileID: 234701984}
   - component: {fileID: 234701983}
   - component: {fileID: 234701991}
+  - component: {fileID: 234701992}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -1275,6 +1276,92 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234701982}
   m_Enabled: 1
+--- !u!114 &234701992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234701982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ecd75c01e16404aa4292dc739d8116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  soundGroups:
+  - name: Footsteps
+    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+      type: 2}
+    volume: 1
+    spacialBlend: 0
+    spread: 0
+    loopingClip: 
+    rolloffMode: 0
+    maxDistance: 0
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 80f12bf636c01554d9ac770bcb8ae166, type: 3}
+      source: {fileID: 0}
+    - name: 2
+      clip: {fileID: 8300000, guid: 836ee5e6524f0244ebab7fcec964ed3c, type: 3}
+      source: {fileID: 0}
+    - name: 3
+      clip: {fileID: 8300000, guid: a9d5ac9f6411f5e4991a5c38b57ca720, type: 3}
+      source: {fileID: 0}
+    - name: 4
+      clip: {fileID: 8300000, guid: 8332092942f820a4aafc6b48c4430f45, type: 3}
+      source: {fileID: 0}
+    - name: 5
+      clip: {fileID: 8300000, guid: 51eeb15e2ff9c9244bf79a3f0eaae510, type: 3}
+      source: {fileID: 0}
+    - name: 6
+      clip: {fileID: 8300000, guid: 79f1355ff1b13624da343668a52986ea, type: 3}
+      source: {fileID: 0}
+  - name: Hurt
+    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+      type: 2}
+    volume: 1
+    spacialBlend: 0
+    spread: 0
+    loopingClip: 
+    rolloffMode: 0
+    maxDistance: 0
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 77bc650fc71ae064eb58492cf0fe1191, type: 3}
+      source: {fileID: 0}
+    - name: 2
+      clip: {fileID: 8300000, guid: afb6c0371830b20459111cf572a84212, type: 3}
+      source: {fileID: 0}
+    - name: 3
+      clip: {fileID: 8300000, guid: 40d00158adf49f24db5afff8bc514590, type: 3}
+      source: {fileID: 0}
+    - name: 4
+      clip: {fileID: 8300000, guid: 577d79089fd5fdc4aa2bf1646b427813, type: 3}
+      source: {fileID: 0}
+    - name: 5
+      clip: {fileID: 8300000, guid: 4216bafb74f1fdf458365fb7cb0bbdba, type: 3}
+      source: {fileID: 0}
+  - name: Slashes
+    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+      type: 2}
+    volume: 1
+    spacialBlend: 0
+    spread: 0
+    loopingClip: 
+    rolloffMode: 0
+    maxDistance: 0
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: eb1bc830d81b6254a8e1292c30165bc3, type: 3}
+      source: {fileID: 0}
+    - name: 2
+      clip: {fileID: 8300000, guid: 8b6c3cfb6cac6ef409639206cedd5020, type: 3}
+      source: {fileID: 0}
+    - name: 3
+      clip: {fileID: 8300000, guid: 5b3a7dca01a87de429b9bef15d847847, type: 3}
+      source: {fileID: 0}
 --- !u!1 &239114331
 GameObject:
   m_ObjectHideFlags: 0

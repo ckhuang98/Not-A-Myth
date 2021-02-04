@@ -329,8 +329,23 @@ MonoBehaviour:
     rolloffMode: 1
     maxDistance: 10
     sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: 3609a25708eba9f47a57fdf19e2f70e4, type: 3}
+      source: {fileID: 0}
+    - name: 2
+      clip: {fileID: 8300000, guid: 915691fe6d5b3774eb7531d3123fb5ae, type: 3}
+      source: {fileID: 0}
+    - name: 3
+      clip: {fileID: 8300000, guid: 805dc9ee2d5bae142875388541987e70, type: 3}
+      source: {fileID: 0}
+    - name: 4
+      clip: {fileID: 8300000, guid: 363448fb564cbcf46bbc193f30cb3136, type: 3}
+      source: {fileID: 0}
+    - name: 5
+      clip: {fileID: 8300000, guid: c0a9098266c24ca4390ad2b98d7cadb2, type: 3}
+      source: {fileID: 0}
     - name: Impact
-      clip: {fileID: 8300000, guid: e3da920eef8b94a4387776848a1eb166, type: 3}
+      clip: {fileID: 8300000, guid: 9fad331dccfdcf54e88dd90d420dfd88, type: 3}
       source: {fileID: 0}
   - name: Hammer Swing
     group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,

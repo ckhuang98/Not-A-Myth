@@ -73,6 +73,8 @@ public class PlayerController : MonoBehaviour {
     public static bool gameOver = false;
 
     private GameObject restart;
+
+    private ObjectAudioManager audioManager;
     
     Text gameOverText;
     // Start is called before the first frame update
@@ -87,6 +89,7 @@ public class PlayerController : MonoBehaviour {
         restart = GameObject.FindWithTag("Restart");
         restart.SetActive(false);
         gameOver = false;
+        audioManager = gameObject.GetComponent<ObjectAudioManager>();
         //slashCollider.GetComponent<Collider>().enabled = false;
     }
 
@@ -263,6 +266,7 @@ public class PlayerController : MonoBehaviour {
 
     // Reduces player's current health and updates the slider value of the health bar.
     void TakeDamage(int damage){
+        playHurtSFX();
         currentHealth -= damage;
         healthBar.SetValue(currentHealth);
     }
@@ -330,5 +334,20 @@ public class PlayerController : MonoBehaviour {
     }
     public void restartScene(){
         SceneManager.LoadScene(0);
+    }
+
+    private void playFootstepSFX()
+    {
+        audioManager.PlayRandomSoundInGroup("Footsteps");
+    }
+
+    private void playSlashSFX()
+    {
+        audioManager.PlayRandomSoundInGroup("Slashes");
+    }
+
+    private void playHurtSFX()
+    {
+        audioManager.PlayRandomSoundInGroup("Hurt");
     }
 }
