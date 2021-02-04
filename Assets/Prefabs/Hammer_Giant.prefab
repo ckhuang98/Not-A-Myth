@@ -259,6 +259,8 @@ MonoBehaviour:
   doInstantiate: 0
   goToWalk: 0
   doAttack: 0
+  deathSFXObject: {fileID: 6986382958281556572, guid: eb55799b3883de04086c3f34a5f3c139,
+    type: 3}
 --- !u!95 &610099760
 Animator:
   serializedVersion: 3
@@ -317,7 +319,7 @@ MonoBehaviour:
     - name: 6
       clip: {fileID: 8300000, guid: e4cc334ccb5c4964b99e4878f7777f4b, type: 3}
       source: {fileID: 0}
-  - name: Hammer
+  - name: Hammer Impact
     group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
       type: 2}
     volume: 1
@@ -351,6 +353,95 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: 4
       clip: {fileID: 8300000, guid: 2434b91dfc81e3f48a06dedb32b8a5fa, type: 3}
+      source: {fileID: 0}
+  - name: Hurt
+    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+      type: 2}
+    volume: 1
+    spacialBlend: 1
+    spread: 1
+    loopingClip: 
+    rolloffMode: 1
+    maxDistance: 10
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: b14476758b3a11f458cbf5dc0a1fcae7, type: 3}
+      source: {fileID: 0}
+    - name: 2
+      clip: {fileID: 8300000, guid: 71efcd7199dcb9946a37240cca78dc6c, type: 3}
+      source: {fileID: 0}
+    - name: 3
+      clip: {fileID: 8300000, guid: 2e5856d2d4a4e4243968da026069798e, type: 3}
+      source: {fileID: 0}
+    - name: 4
+      clip: {fileID: 8300000, guid: 4e62314333be95049abcd1d8e9bd146b, type: 3}
+      source: {fileID: 0}
+    - name: 5
+      clip: {fileID: 8300000, guid: 3fedfdf4cc1c44045a5ff52f2d07c780, type: 3}
+      source: {fileID: 0}
+    - name: 6
+      clip: {fileID: 8300000, guid: 486b0913e72290845ab4a2809a4537c2, type: 3}
+      source: {fileID: 0}
+    - name: 7
+      clip: {fileID: 8300000, guid: fca14c8dd14a5694d98eb5668beafcf7, type: 3}
+      source: {fileID: 0}
+    - name: 8
+      clip: {fileID: 8300000, guid: b565e1210f702a64898f4edd90268ca0, type: 3}
+      source: {fileID: 0}
+    - name: 9
+      clip: {fileID: 8300000, guid: c441de1ad18032846b1fc268af46dddd, type: 3}
+      source: {fileID: 0}
+    - name: 10
+      clip: {fileID: 8300000, guid: 2ab570a15cf634a449de521bcb83fd82, type: 3}
+      source: {fileID: 0}
+    - name: 11
+      clip: {fileID: 8300000, guid: 9d6321b1ecf706443a3d9bb610c10c28, type: 3}
+      source: {fileID: 0}
+    - name: 12
+      clip: {fileID: 8300000, guid: 3ecddd10879066b4f98250d6f3a9f587, type: 3}
+      source: {fileID: 0}
+    - name: 13
+      clip: {fileID: 8300000, guid: 6b7de2badfdd91647b5603e15ff34be4, type: 3}
+      source: {fileID: 0}
+    - name: 14
+      clip: {fileID: 8300000, guid: 099614c3449fab7419fdc7d754c6370e, type: 3}
+      source: {fileID: 0}
+  - name: Death
+    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+      type: 2}
+    volume: 1
+    spacialBlend: 1
+    spread: 1
+    loopingClip: 
+    rolloffMode: 1
+    maxDistance: 10
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: ef38ef69fae860e4eb4169e72297f22b, type: 3}
+      source: {fileID: 0}
+    - name: 2
+      clip: {fileID: 8300000, guid: 31a7a2fcdf88e0c4a8eb6354b43819f5, type: 3}
+      source: {fileID: 0}
+    - name: 3
+      clip: {fileID: 8300000, guid: 9a0c6f597562b78478f69d54132f2a84, type: 3}
+      source: {fileID: 0}
+    - name: 4
+      clip: {fileID: 8300000, guid: 1e67b2b85c90aee469ad24e6296fa91a, type: 3}
+      source: {fileID: 0}
+    - name: 5
+      clip: {fileID: 8300000, guid: 0f7c2b1bdc4820c4a8ee9d3075f0e021, type: 3}
+      source: {fileID: 0}
+    - name: 6
+      clip: {fileID: 8300000, guid: d5f20b107cdd52e45ab210407e239625, type: 3}
+      source: {fileID: 0}
+    - name: 7
+      clip: {fileID: 8300000, guid: 5259c90a9da84874f9d021312a4705cc, type: 3}
+      source: {fileID: 0}
+    - name: 8
+      clip: {fileID: 8300000, guid: 7a482a393e4f20948a9b4b808c3bbc21, type: 3}
+      source: {fileID: 0}
+    - name: 9
+      clip: {fileID: 8300000, guid: 11d6306d82e53ac41b98bb9f1460fd94, type: 3}
       source: {fileID: 0}
 --- !u!1 &2148566272820516472
 GameObject:

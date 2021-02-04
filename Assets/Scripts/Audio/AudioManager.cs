@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
                 Sound s = sg.sounds[i];
 
                 s.source = gameObject.AddComponent<AudioSource>();
+                s.source.playOnAwake = false;
                 s.source.clip = s.clip;
 
                 s.source.outputAudioMixerGroup = sg.group;

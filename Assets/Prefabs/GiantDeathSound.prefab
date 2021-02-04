@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6986382958281556572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 341518278725175788}
+  - component: {fileID: 7166710850266697308}
+  m_Layer: 10
+  m_Name: GiantDeathSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &341518278725175788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986382958281556572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7166710850266697308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986382958281556572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ecd75c01e16404aa4292dc739d8116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  soundGroups:
+  - name: Death
+    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+      type: 2}
+    volume: 1
+    spacialBlend: 1
+    spread: 1
+    loopingClip: 
+    rolloffMode: 1
+    maxDistance: 10
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: ef38ef69fae860e4eb4169e72297f22b, type: 3}
+      source: {fileID: 0}
+    - name: 2
+      clip: {fileID: 8300000, guid: 31a7a2fcdf88e0c4a8eb6354b43819f5, type: 3}
+      source: {fileID: 0}
+    - name: 3
+      clip: {fileID: 8300000, guid: 9a0c6f597562b78478f69d54132f2a84, type: 3}
+      source: {fileID: 0}
+    - name: 4
+      clip: {fileID: 8300000, guid: 1e67b2b85c90aee469ad24e6296fa91a, type: 3}
+      source: {fileID: 0}
+    - name: 5
+      clip: {fileID: 8300000, guid: 0f7c2b1bdc4820c4a8ee9d3075f0e021, type: 3}
+      source: {fileID: 0}
+    - name: 6
+      clip: {fileID: 8300000, guid: d5f20b107cdd52e45ab210407e239625, type: 3}
+      source: {fileID: 0}
+    - name: 7
+      clip: {fileID: 8300000, guid: 5259c90a9da84874f9d021312a4705cc, type: 3}
+      source: {fileID: 0}
+    - name: 8
+      clip: {fileID: 8300000, guid: 7a482a393e4f20948a9b4b808c3bbc21, type: 3}
+      source: {fileID: 0}
+    - name: 9
+      clip: {fileID: 8300000, guid: 11d6306d82e53ac41b98bb9f1460fd94, type: 3}
+      source: {fileID: 0}

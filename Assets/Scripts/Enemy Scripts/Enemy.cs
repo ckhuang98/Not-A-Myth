@@ -44,6 +44,9 @@ public class Enemy : MonoBehaviour
         Vector3.Normalize(Vector3.left + Vector3.up), Vector3.Normalize(Vector3.left + Vector3.down),
         Vector3.Normalize(Vector3.right + Vector3.up), Vector3.Normalize(Vector3.right + Vector3.down) };
     */
+
+    [SerializeField]
+    private GameObject deathSFXObject;
     
     internal Vector3[] moveDirections = new Vector3[] { Vector3.up, Vector3.Normalize(Vector3.right + Vector3.up), 
         Vector3.right, Vector3.Normalize(Vector3.right + Vector3.down), Vector3.down,
@@ -82,6 +85,7 @@ public class Enemy : MonoBehaviour
     {
         if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .5)
         {
+            playHurtSFX();
             Vector2 knockback = rb.transform.position - collider.transform.parent.position;
             //Debug.Log(knockback);
             rb.AddForce(knockback.normalized * 4000f);
@@ -116,7 +120,9 @@ public class Enemy : MonoBehaviour
 
     void isDead(bool gameOver){
         if (!gameOver) { 
-            if (healthAmount <= 0) {
+            if (healthAmount <= 0)
+            {
+                playDeathSFX();
                 Destroy(this.gameObject);
                 enemyAmount -= 1;
                 spawnShard();
@@ -160,10 +166,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void playFootstepSFX()
-    {
-        gameObject.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("Footsteps");
-    }
     public void resetWeightsToZero() {
         for (int i = 0; i < moveDirections.Count(); i ++) {
             weightList[i] = 0;
@@ -178,5 +180,20 @@ public class Enemy : MonoBehaviour
     public void moveToWalk () {
         enemyAnimator.SetTrigger("Walking");
         goToWalk = true;
+    }
+
+    public void playHurtSFX()
+    {
+        gameObject.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("Hurt");
+    }
+
+    public void playDeathSFX()
+    {
+        // return gameObject.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("Death");
+
+        Vector3 pos = this.gameObject.transform.position;
+        GameObject soundSource = Instantiate(deathSFXObject, pos, Quaternion.identity);
+        Sound sound = soundSource.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("Death");
+        Destroy(soundSource, sound.source.clip.length);
     }
 }

@@ -19,6 +19,7 @@ public class ObjectAudioManager : MonoBehaviour
                 Sound s = sg.sounds[i];
 
                 s.source = gameObject.AddComponent<AudioSource>();
+                s.source.playOnAwake = false;
                 s.source.clip = s.clip;
 
                 s.source.outputAudioMixerGroup = sg.group;
@@ -98,6 +99,10 @@ public class ObjectAudioManager : MonoBehaviour
     public Sound PlayRandomSoundInGroup(string name)
     {
         SoundGroup sg = Array.Find(soundGroups, soundGroup => soundGroup.name == name);
+        if (name == "Death")
+        {
+            Debug.Log(name);
+        }
 
         if (sg.sounds.Length < 1)
             return null;
