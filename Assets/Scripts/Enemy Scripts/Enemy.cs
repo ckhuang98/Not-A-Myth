@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     public GameObject shard;
     //Area of Effect
     public GameObject AOE;
+    public GameObject fireParticle;
     
     //Target is the players' current location
     private Transform target;

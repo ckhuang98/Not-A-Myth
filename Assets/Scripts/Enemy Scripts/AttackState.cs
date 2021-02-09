@@ -10,6 +10,7 @@ public class AttackState : BaseState
     //How long the enemy will be "attacking"
     private float attackTimeCount = .75f;
     private GameObject AoE;
+    private GameObject fireParticles;
     //Area of attack has spawned
     private bool hasSpawned = false;
 
@@ -65,30 +66,47 @@ public class AttackState : BaseState
     private void InstantiateAoE() {
         if (_enemy.doInstantiate == true) {
             AoE = GameObject.Instantiate(_enemy.AOE) as GameObject;
+            fireParticles = GameObject.Instantiate(_enemy.fireParticle) as GameObject;
             _enemy.doInstantiate = false; 
             if (_enemy.currMoveDirection == 0) {
                 AoE.transform.position = 
                 new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z);
+                fireParticles.transform.position = 
+                new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z);
             } else if (_enemy.currMoveDirection == 1) {
                 AoE.transform.position = 
+                new Vector3(this.transform.position.x + 1, this.transform.position.y + 1, this.transform.position.z);
+                fireParticles.transform.position = 
                 new Vector3(this.transform.position.x + 1, this.transform.position.y + 1, this.transform.position.z);
             } else if (_enemy.currMoveDirection == 2) {
                 AoE.transform.position = 
                 new Vector3(this.transform.position.x + 1, this.transform.position.y, this.transform.position.z);
+                fireParticles.transform.position = 
+                new Vector3(this.transform.position.x + 1, this.transform.position.y, this.transform.position.z);
             } else if (_enemy.currMoveDirection == 3) {
                 AoE.transform.position = 
+                new Vector3(this.transform.position.x + 1, this.transform.position.y - 1, this.transform.position.z);
+                fireParticles.transform.position = 
                 new Vector3(this.transform.position.x + 1, this.transform.position.y - 1, this.transform.position.z);
             } else if (_enemy.currMoveDirection == 4) {
                 AoE.transform.position = 
                 new Vector3(this.transform.position.x, this.transform.position.y - 1, this.transform.position.z);
+                fireParticles.transform.position = 
+                new Vector3(this.transform.position.x, this.transform.position.y - 1, this.transform.position.z);
             } else if (_enemy.currMoveDirection == 5) {
                 AoE.transform.position = 
+                new Vector3(this.transform.position.x - 1, this.transform.position.y - 1, this.transform.position.z);
+                fireParticles.transform.position = 
                 new Vector3(this.transform.position.x - 1, this.transform.position.y - 1, this.transform.position.z);
             } else if (_enemy.currMoveDirection == 6) {
                 AoE.transform.position = 
                 new Vector3(this.transform.position.x - 1, this.transform.position.y, this.transform.position.z);
+                fireParticles.transform.position = 
+                new Vector3(this.transform.position.x - 1, this.transform.position.y, this.transform.position.z);
             } else if (_enemy.currMoveDirection == 7) {
                 AoE.transform.position = 
+                new Vector3(this.transform.position.x - 1, this.transform.position.y + 1, this.transform.position.z);
+                fireParticles.transform.position = 
                 new Vector3(this.transform.position.x - 1, this.transform.position.y + 1, this.transform.position.z);
             }
         }
