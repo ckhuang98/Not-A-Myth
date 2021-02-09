@@ -208,7 +208,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &2148566272188717168
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -251,6 +251,8 @@ MonoBehaviour:
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
   AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
+  fireParticle: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
+    type: 3}
   inBounds: 0
   hasCircled: 0
   enemyAnimator: {fileID: 610099760}
