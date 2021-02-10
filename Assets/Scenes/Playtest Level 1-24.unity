@@ -127,12 +127,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 833551937}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &8297053 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 610099760, guid: 233d8dcf2985fab4a96b43def1841674,
-    type: 3}
-  m_PrefabInstance: {fileID: 833551937}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &17530508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -348,21 +342,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 1684735175}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -422,11 +401,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant B
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -731,25 +705,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 716455065}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -809,11 +764,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant F
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -948,12 +898,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1485766560}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &114388974 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 610099760, guid: 233d8dcf2985fab4a96b43def1841674,
-    type: 3}
-  m_PrefabInstance: {fileID: 1485766560}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &129440035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -961,21 +905,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 640752306}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -1036,22 +965,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hammer Giant P
       objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
 --- !u!4 &133739705 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
-    type: 3}
-  m_PrefabInstance: {fileID: 272169609}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &133739707 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 610099760, guid: 233d8dcf2985fab4a96b43def1841674,
     type: 3}
   m_PrefabInstance: {fileID: 272169609}
   m_PrefabAsset: {fileID: 0}
@@ -1518,12 +1436,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1924452874}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &263004131 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 610099760, guid: 233d8dcf2985fab4a96b43def1841674,
-    type: 3}
-  m_PrefabInstance: {fileID: 1924452874}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &272169609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1531,21 +1443,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 133739707}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -1605,11 +1502,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant O
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -1729,12 +1621,6 @@ Transform:
 --- !u!4 &315883296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
-    type: 3}
-  m_PrefabInstance: {fileID: 634273699}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &315883298 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 610099760, guid: 233d8dcf2985fab4a96b43def1841674,
     type: 3}
   m_PrefabInstance: {fileID: 634273699}
   m_PrefabAsset: {fileID: 0}
@@ -1972,12 +1858,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1423647037}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &409947484 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 610099760, guid: 233d8dcf2985fab4a96b43def1841674,
-    type: 3}
-  m_PrefabInstance: {fileID: 1423647037}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &428429888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2184,21 +2064,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 708023698}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -2258,11 +2123,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'Hammer Giant M '
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -2426,21 +2286,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 315883298}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -2500,11 +2345,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant K
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -2639,12 +2479,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 129440035}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &640752306 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 610099760, guid: 233d8dcf2985fab4a96b43def1841674,
-    type: 3}
-  m_PrefabInstance: {fileID: 129440035}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &643859455
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,21 +2590,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 1522413813}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -2831,11 +2650,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hammer Giant L
       objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
 --- !u!4 &708023696 stripped
@@ -2844,21 +2658,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 473710304}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &708023698 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 610099760, guid: 233d8dcf2985fab4a96b43def1841674,
-    type: 3}
-  m_PrefabInstance: {fileID: 473710304}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &716455063 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
-    type: 3}
-  m_PrefabInstance: {fileID: 83564124}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &716455065 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 610099760, guid: 233d8dcf2985fab4a96b43def1841674,
     type: 3}
   m_PrefabInstance: {fileID: 83564124}
   m_PrefabAsset: {fileID: 0}
@@ -2869,21 +2671,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 1883920999}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -2944,11 +2731,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hammer Giant I
       objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
 --- !u!1001 &833551937
@@ -2958,21 +2740,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 8297053}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -3033,11 +2800,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hammer Giant E
       objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
 --- !u!1001 &886609887
@@ -3047,21 +2809,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 1773371124}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -3121,11 +2868,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant H
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -15205,21 +14947,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 1385443548}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -15279,11 +15006,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant N
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -15612,12 +15334,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1298995338}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1385443548 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 610099760, guid: 233d8dcf2985fab4a96b43def1841674,
-    type: 3}
-  m_PrefabInstance: {fileID: 1298995338}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1423647037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15625,21 +15341,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 409947484}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -15699,11 +15400,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant D
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -15844,21 +15540,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 114388974}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -15918,11 +15599,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant G
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -16173,12 +15849,6 @@ PrefabInstance:
 --- !u!4 &1522413811 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
-    type: 3}
-  m_PrefabInstance: {fileID: 675430384}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1522413813 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 610099760, guid: 233d8dcf2985fab4a96b43def1841674,
     type: 3}
   m_PrefabInstance: {fileID: 675430384}
   m_PrefabAsset: {fileID: 0}
@@ -17313,12 +16983,6 @@ RectTransform:
 --- !u!4 &1684735173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
-    type: 3}
-  m_PrefabInstance: {fileID: 43495159}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1684735175 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 610099760, guid: 233d8dcf2985fab4a96b43def1841674,
     type: 3}
   m_PrefabInstance: {fileID: 43495159}
   m_PrefabAsset: {fileID: 0}
@@ -35807,21 +35471,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 1787003172}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -35882,11 +35531,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hammer Giant J
       objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
 --- !u!1 &1757119509
@@ -35941,21 +35585,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 886609887}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1773371124 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 610099760, guid: 233d8dcf2985fab4a96b43def1841674,
-    type: 3}
-  m_PrefabInstance: {fileID: 886609887}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1787003170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
-    type: 3}
-  m_PrefabInstance: {fileID: 1736640281}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1787003172 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 610099760, guid: 233d8dcf2985fab4a96b43def1841674,
     type: 3}
   m_PrefabInstance: {fileID: 1736640281}
   m_PrefabAsset: {fileID: 0}
@@ -36225,12 +35857,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 755573475}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1883920999 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 610099760, guid: 233d8dcf2985fab4a96b43def1841674,
-    type: 3}
-  m_PrefabInstance: {fileID: 755573475}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1900133644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36238,16 +35864,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -36317,21 +35933,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 1997745940}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -36391,11 +35992,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant C
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -36484,25 +36080,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: fireParticle
-      value: 
-      objectReference: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
-        type: 3}
-    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 263004131}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -36563,22 +36140,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hammer Giant Q
       objectReference: {fileID: 0}
-    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
 --- !u!4 &1997745938 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
-    type: 3}
-  m_PrefabInstance: {fileID: 1911648158}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1997745940 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 610099760, guid: 233d8dcf2985fab4a96b43def1841674,
     type: 3}
   m_PrefabInstance: {fileID: 1911648158}
   m_PrefabAsset: {fileID: 0}
