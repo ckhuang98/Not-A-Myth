@@ -15,27 +15,6 @@ public class Item : ScriptableObject
     //starts in player's inventory
     public bool isDefaultItem = false;
 
-    // maximum stack size
-    public int stackSize = 1;
-
-    // currently held
-    public int amount = 0;
-
-    // Check that 2 items are the same so that they may be stacked accordingly in the inventory
-    // and perhaps other future use cases
-    public bool Equals(Item item)
-    {
-        // properties of items to check if they are equal.
-        // More properties will probably be added like attack, defence, modifiers, etc.
-        if (this.name == item.name)
-        {
-            return true;
-        }
-
-        return false;
-        
-    }
-
     // Purpose: Use the item by clicking on it in the inventory
     public virtual void Use()
     {
@@ -47,9 +26,7 @@ public class Item : ScriptableObject
             case "Shard":
                 GameObject player = GameObject.Find("Player");
                 player.GetComponent<PlayerController>().gainStrength();
-
                 Inventory.instance.Remove(this);
-
                 break;
         }
     }

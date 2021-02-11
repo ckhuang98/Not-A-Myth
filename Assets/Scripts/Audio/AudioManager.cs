@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioMixer soundMixer;
+    public AudioMixer musicMixer;
 
     public SoundGroup[] soundGroups;
 
@@ -27,7 +27,6 @@ public class AudioManager : MonoBehaviour
                 s.source.playOnAwake = false;
                 s.source.clip = s.clip;
 
-                s.source.ignoreListenerPause = sg.ignorePause;
                 s.source.outputAudioMixerGroup = sg.group;
 
                 s.source.volume = sg.volume;
@@ -51,7 +50,7 @@ public class AudioManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             float vol = fadeToggle ? 0.0f : 1.0f;
-            StartCoroutine(FadeMixerGroup.StartFade(soundMixer, "volumeOverworld", 2.0f, vol));
+            StartCoroutine(FadeMixerGroup.StartFade(musicMixer, "volumeOverworld", 2.0f, vol));
             fadeToggle = !fadeToggle;
         }
         if (Input.GetKeyDown(KeyCode.L))

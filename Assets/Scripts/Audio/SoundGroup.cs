@@ -9,8 +9,6 @@ public class SoundGroup
 
     public AudioMixerGroup group;
 
-    public bool ignorePause = false;
-
     [Range(0f, 1f)]
     public float volume;
 

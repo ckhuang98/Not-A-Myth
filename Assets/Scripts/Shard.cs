@@ -29,7 +29,7 @@ public class Shard : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.name.Equals("Player") && pickedUp == false) {
 
-            bool wasPickedUp = Inventory.instance.Add(Instantiate(item)); //Returns true if the player can add item to the inventroy
+            bool wasPickedUp = Inventory.instance.Add(item); //adds shard to player's inventory and returns true if possible.
             if (wasPickedUp)
             {
                 Debug.Log("Picking up " + item.name);

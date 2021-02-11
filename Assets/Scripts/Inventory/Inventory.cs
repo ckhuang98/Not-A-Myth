@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -47,22 +46,7 @@ public class Inventory : MonoBehaviour
                 return false;
             }
 
-            bool itemFound = false;
-            foreach(Item i in items)
-            {
-                if (i.Equals(item) && i.amount < i.stackSize)
-                {
-                    i.amount++;
-                    itemFound = true;
-                    break;
-                }
-            }
-
-            if (itemFound == false)
-            {
-                item.amount = 1;
-                items.Add(item);
-            }
+            items.Add(item);
 
             if (onItemChangedCallback != null)
             {
@@ -76,21 +60,8 @@ public class Inventory : MonoBehaviour
     //Purpose: Remove the item from the inventory list
     public void Remove (Item item)
     {
-        item.amount--;
-        if (item.amount <= 0)
-        {
-            items.Remove(item);
-        }
-
-        if (onItemChangedCallback != null)
-        {
-            onItemChangedCallback.Invoke();
-        }
-    }
-
-    public void Delete (Item item)
-    {
         items.Remove(item);
+
         if (onItemChangedCallback != null)
         {
             onItemChangedCallback.Invoke();
