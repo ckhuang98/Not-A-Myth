@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76ce681815ee38d459c975a8aa832b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  soundMixer: {fileID: 0}
   soundGroups:
   - name: Overworld Music
     group: {fileID: 1948652533155611144, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
@@ -72,15 +72,19 @@ MonoBehaviour:
       clip: {fileID: 8300000, guid: 0555a8adb2e4c7448a6aff1ca0920c83, type: 3}
       source: {fileID: 0}
   - name: Battle Music
-    group: {fileID: 0}
+    group: {fileID: -1905005579781237440, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+      type: 2}
     ignorePause: 0
-    volume: 0
+    volume: 0.1
     spacialBlend: 0
     spread: 0
-    loopingClip: 
+    loopingClip: NorseDem2
     rolloffMode: 0
     maxDistance: 0
-    sounds: []
+    sounds:
+    - name: NorseDem2
+      clip: {fileID: 8300000, guid: 0555a8adb2e4c7448a6aff1ca0920c83, type: 3}
+      source: {fileID: 0}
 --- !u!222 &5347535454852803140
 CanvasRenderer:
   m_ObjectHideFlags: 0

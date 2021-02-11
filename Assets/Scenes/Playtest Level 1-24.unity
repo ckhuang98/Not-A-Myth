@@ -1459,7 +1459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ecd75c01e16404aa4292dc739d8116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  soundMixer: {fileID: 0}
   soundGroups:
   - name: Footsteps
     group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
@@ -14466,37 +14466,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347535454852803143, guid: 05a9fabe763e72245a96751fa8d58aa3,
-        type: 3}
-      propertyPath: soundGroups.Array.data[1].group
-      value: 
-      objectReference: {fileID: -1905005579781237440, guid: 0652cb0a1baf2164ea5b6391384a55b5,
-        type: 2}
-    - target: {fileID: 5347535454852803143, guid: 05a9fabe763e72245a96751fa8d58aa3,
-        type: 3}
-      propertyPath: soundGroups.Array.data[1].volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347535454852803143, guid: 05a9fabe763e72245a96751fa8d58aa3,
-        type: 3}
-      propertyPath: soundGroups.Array.data[1].loopingClip
-      value: NorseDem2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347535454852803143, guid: 05a9fabe763e72245a96751fa8d58aa3,
-        type: 3}
-      propertyPath: soundGroups.Array.data[1].sounds.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347535454852803143, guid: 05a9fabe763e72245a96751fa8d58aa3,
-        type: 3}
-      propertyPath: soundGroups.Array.data[1].sounds.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 0555a8adb2e4c7448a6aff1ca0920c83, type: 3}
-    - target: {fileID: 5347535454852803143, guid: 05a9fabe763e72245a96751fa8d58aa3,
-        type: 3}
-      propertyPath: soundGroups.Array.data[1].sounds.Array.data[0].name
-      value: NorseDem2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05a9fabe763e72245a96751fa8d58aa3, type: 3}
