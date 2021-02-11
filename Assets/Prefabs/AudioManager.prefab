@@ -54,6 +54,7 @@ MonoBehaviour:
   soundGroups:
   - name: Overworld Music
     group: {fileID: 1948652533155611144, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+    ignorePause: 0
     volume: 0.1
     spacialBlend: 0
     spread: 0
@@ -72,6 +73,7 @@ MonoBehaviour:
       source: {fileID: 0}
   - name: Battle Music
     group: {fileID: 0}
+    ignorePause: 0
     volume: 0
     spacialBlend: 0
     spread: 0
