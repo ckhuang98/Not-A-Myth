@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectAudioManager : MonoBehaviour
 {
-    public AudioMixer musicMixer;
+    public AudioMixer soundMixer;
 
     public SoundGroup[] soundGroups;
 

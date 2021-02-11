@@ -23,17 +23,6 @@ public class InventoryUI : MonoBehaviour
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //turn inventory on and off with i key or b key
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            Debug.Log("Toggling Inventory");
-            inventoryUI.SetActive(!inventoryUI.activeSelf);
-        }
-    }
-
     //Update the inventory slots
     void UpdateUI()
     {
@@ -41,7 +30,7 @@ public class InventoryUI : MonoBehaviour
         {
             if (i < inventory.items.Count)
             {
-                slots[i].AddItem(inventory.items[i]);
+                slots[i].UpdateItem(inventory.items[i]);
             }
             else
             {
