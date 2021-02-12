@@ -12,7 +12,7 @@ public class HotbarSlot : MonoBehaviour
 
     public void Update()
     {
-        if (keyCode != KeyCode.None && Input.GetKeyDown(keyCode)){
+        if (keyCode != KeyCode.None && Input.GetKeyDown(keyCode) && GameMaster.instance.getPaused() == false){
             if (item != null)
             {
                 item.Use();

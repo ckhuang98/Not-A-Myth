@@ -6,6 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
 {
+    // Singleton for inventory
+    public static GameMaster instance;
+
+    //The inventory exists within the GameManager object
+    //and it must be the only instance of inventory at all times
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("More than one instance of GameMaster found!");
+            return;
+        }
+        instance = this;
+
+    }
+
     private GameObject escapeMenu;
 
     [SerializeField]
@@ -42,6 +58,11 @@ public class GameMaster : MonoBehaviour
                 ResumeGame();
             }
         }
+    }
+
+    public bool getPaused()
+    {
+        return paused;
     }
 
     void PauseGame(){
