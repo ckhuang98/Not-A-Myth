@@ -231,6 +231,13 @@ public class PlayerController : MonoBehaviour {
         return attackStrength;
     }
 
+    //restore current health
+    public void resotreHealth(int restoreHealthBy = 10)
+    {
+        currentHealth = Math.Min(currentHealth + restoreHealthBy, maxHealth);
+        healthBar.SetValue(currentHealth);
+    }
+
     // Handles the player movements and animations.
     void movementManager(){
         movement.x = Input.GetAxisRaw("Horizontal");

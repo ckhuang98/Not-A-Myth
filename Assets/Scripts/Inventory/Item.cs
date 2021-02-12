@@ -21,6 +21,9 @@ public class Item : ScriptableObject
     // currently held
     public int amount = 0;
 
+    // amount to restore health by, if this item does that
+    public int restoreHealth = 0;
+
     // Check that 2 items are the same so that they may be stacked accordingly in the inventory
     // and perhaps other future use cases
     public bool Equals(Item item)
@@ -40,16 +43,21 @@ public class Item : ScriptableObject
     public virtual void Use()
     {
         Debug.Log("Using " + name);
+        GameObject player = GameObject.Find("Player");
 
         switch (name)
         {
             //Shard - Give strength to the player
             case "Shard":
-                GameObject player = GameObject.Find("Player");
                 player.GetComponent<PlayerController>().gainStrength();
 
                 Inventory.instance.Remove(this);
 
+                break;
+
+            case "Health Plant":
+                player.GetComponent<PlayerController>().resotreHealth(this.restoreHealth);
+                Inventory.instance.Remove(this);
                 break;
         }
     }
