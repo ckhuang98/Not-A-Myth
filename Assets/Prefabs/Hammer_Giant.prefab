@@ -208,7 +208,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!61 &2148566272188717168
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -294,11 +294,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ecd75c01e16404aa4292dc739d8116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  soundMixer: {fileID: 0}
   soundGroups:
   - name: Footsteps
     group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
       type: 2}
+    ignorePause: 0
     volume: 1
     spacialBlend: 1
     spread: 1
@@ -324,6 +325,7 @@ MonoBehaviour:
   - name: Hammer Impact
     group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
       type: 2}
+    ignorePause: 0
     volume: 1
     spacialBlend: 1
     spread: 1
@@ -352,6 +354,7 @@ MonoBehaviour:
   - name: Hammer Swing
     group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
       type: 2}
+    ignorePause: 0
     volume: 1
     spacialBlend: 1
     spread: 1
@@ -374,6 +377,7 @@ MonoBehaviour:
   - name: Hurt
     group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
       type: 2}
+    ignorePause: 0
     volume: 1
     spacialBlend: 1
     spread: 1
@@ -426,6 +430,7 @@ MonoBehaviour:
   - name: Death
     group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
       type: 2}
+    ignorePause: 0
     volume: 1
     spacialBlend: 1
     spread: 1
@@ -486,7 +491,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2148566272820516472}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.95, y: 2.93, z: 0}
+  m_LocalPosition: {x: -1.3999989, y: 2.93, z: 0}
   m_LocalScale: {x: 3, y: 0.4, z: 2}
   m_Children: []
   m_Father: {fileID: 2148566272188717182}
@@ -579,7 +584,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2148566273718171943}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.27, y: 2.9, z: 0}
+  m_LocalPosition: {x: -1.72, y: 2.9, z: 0}
   m_LocalScale: {x: 3.6, y: 0.6, z: 2}
   m_Children: []
   m_Father: {fileID: 2148566272188717182}
