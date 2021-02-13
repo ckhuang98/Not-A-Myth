@@ -16,7 +16,7 @@ public class ChaseState : BaseState
     private GameObject walls = GameObject.Find("Walls");
     private bool choice;
 
-    //private (int, int)[] successors = new  NaN
+    //private (int, int)[] successors = new NaN
 
     /*
     Purpose: constructor recieves all needed values from enemy class and recieves
