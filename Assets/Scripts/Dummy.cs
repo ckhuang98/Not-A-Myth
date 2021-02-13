@@ -7,6 +7,8 @@ public class Dummy : MonoBehaviour
     public float currentHealth;
     public float timer = 0;
 
+    public Gate gate;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class Dummy : MonoBehaviour
         timer += Time.deltaTime;
         if(currentHealth <=0){
             Destroy(this.gameObject);
+            gate.unlocked = true;
         }
     }
 
