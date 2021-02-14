@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour {
     private ObjectAudioManager audioManager;
     
     Text gameOverText;
+
     // Start is called before the first frame update
     void Start() {
         //slashAnimation.enabled = false;
@@ -93,6 +94,7 @@ public class PlayerController : MonoBehaviour {
         gameOver = false;
         audioManager = gameObject.GetComponent<ObjectAudioManager>();
         //slashCollider.GetComponent<Collider>().enabled = false;
+        //part = GameObject.Find("Cone Firing").GetComponent<ParticleSystem>();
     }
 
 
@@ -274,7 +276,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     // Reduces player's current health and updates the slider value of the health bar.
-    void TakeDamage(int damage){
+    public void TakeDamage(int damage){
         playHurtSFX();
         currentHealth -= damage;
         healthBar.SetValue(currentHealth);
@@ -360,4 +362,5 @@ public class PlayerController : MonoBehaviour {
     {
         audioManager.PlayRandomSoundInGroup("Hurt");
     }
+
 }
