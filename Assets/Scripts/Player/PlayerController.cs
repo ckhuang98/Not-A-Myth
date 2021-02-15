@@ -224,7 +224,14 @@ public class PlayerController : MonoBehaviour {
     public void gainStrength() {
 
         attackStrength += 1;
+        gameOverText.text = "Damage Increased!";
+        StartCoroutine(shardText());
 
+    }
+
+    private IEnumerator shardText(){
+        yield return new WaitForSeconds(1.5f);
+        gameOverText.text = "";
     }
 
     public float whatIsStrength() {
@@ -321,9 +328,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (currentHealth <= 0)
         {
-            Color alpha = gameOverText.color;
-            alpha.a = 255f;
-            gameOverText.color = alpha;
+            gameOverText.text = "Game Over! You Lose!";
             gameOver = true;
             restart.SetActive(true);
         }
@@ -332,9 +337,6 @@ public class PlayerController : MonoBehaviour {
         {
             Debug.Log("Game Over");
             gameOverText.text = "You Win!";
-            Color alpha = gameOverText.color;
-            alpha.a = 255f;
-            gameOverText.color = alpha;
             gameOver = true;
             restart.SetActive(true);
         }
