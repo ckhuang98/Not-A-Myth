@@ -16,6 +16,11 @@ public class Boss : MonoBehaviour
     BossStateMachine stateMachine; 
     private ObjectAudioManager audioManager;
 
+    public GameObject slash;
+    public GameObject shockWave;
+    public ParticleSystem fireCone;
+    public GameObject fireConeArea;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +33,8 @@ public class Boss : MonoBehaviour
         stateMachine = new BossStateMachine();
         audioManager = gameObject.GetComponent<ObjectAudioManager>();
         InitializeStateMachine();
+        fireCone.GetComponent<ParticleSystem>();
+        fireCone.Pause();
     }
 
     // Update is called once per frame

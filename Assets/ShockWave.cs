@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShockWave : MonoBehaviour
 {
+    private float timer = 5.0f;
     //Transform transform = GameObject.GetComponent<Transform>();
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,11 @@ public class ShockWave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (timer >= 0.0f) {
+            timer -= Time.deltaTime;
+        } else {
+            Destroy(this.gameObject);
+        }
         Vector3 newScale = transform.localScale;
         newScale *= 1.01f;
         transform.localScale = newScale;

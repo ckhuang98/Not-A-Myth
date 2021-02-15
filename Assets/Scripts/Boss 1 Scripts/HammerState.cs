@@ -6,6 +6,7 @@ using System;
 public class HammerState : BaseState
 {
     private Boss _boss;
+    private GameObject shockWaveAttack;
 
     public HammerState(Boss boss) : base (boss.gameObject)
     {
@@ -14,7 +15,9 @@ public class HammerState : BaseState
     
     public override Type Tick()
     {
+        shockWaveAttack = GameObject.Instantiate(_boss.shockWave) as GameObject;
+        shockWaveAttack.transform.position = transform.position;
         Debug.Log("Hammer State!");
-        return typeof(HammerState);
+        return typeof(IdleState);
     }
 }

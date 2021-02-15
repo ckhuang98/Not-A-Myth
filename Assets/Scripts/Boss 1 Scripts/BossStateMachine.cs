@@ -42,6 +42,21 @@ public class BossStateMachine : MonoBehaviour
         {
             CurrentState = availableStates.Values.First();
         }
+
+        var nextState = CurrentState?.Tick();
+        //Debug.Log("working");
+
+        if (nextState != null &&
+            nextState != CurrentState?.GetType())
+        {
+            SwitchToNewState(nextState);
+        }
+        /*
+        if (CurrentState == null)
+        {
+            Debug.Log("Working");
+            CurrentState = availableStates.Values.First();
+        }
         else {
             timer += Time.deltaTime;
             if (timer >= 3.0f) {
@@ -51,6 +66,7 @@ public class BossStateMachine : MonoBehaviour
                 CurrentState = availableStates.Values.ElementAt(randomIndex);
             }
         }
+        */
     }
 
     /*

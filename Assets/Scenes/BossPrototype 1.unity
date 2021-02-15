@@ -3737,25 +3737,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc5fe685089c774380cf520fdfd99b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashLayerMask:
-    m_Bits: 0
-  playerControls: {fileID: -944628639613478452, guid: 8357c797578d61c4198d4574d71699c5,
-    type: 3}
-  speed: 5
-  dashSpeed: 0
-  rb: {fileID: 1656302344}
-  attackPosition: {fileID: 0}
-  slashAnimation: {fileID: 289340389}
-  playerAnimator: {fileID: 1656302346}
-  attackStrength: 1
-  agroRange: 0
-  healthBar: {fileID: 313622521}
-  maxHealth: 100
-  currentHealth: 100
-  isDashButtonDown: 0
-  attacked: 0
-  canDash: 1
-  slashCollider: {fileID: 0}
 --- !u!50 &1656302344
 Rigidbody2D:
   serializedVersion: 4

@@ -16,7 +16,23 @@ public class IdleState : BaseState
     
     public override Type Tick()
     {
-        Debug.Log("Idle State!");
+        if (timer < 3.0f) {
+            timer += Time.deltaTime;
+        } else {
+            var num = UnityEngine.Random.Range(1,4);
+            if (num == 1) {
+                timer = 0.0f;
+                return typeof(HammerState);
+            } else if (num == 2) {
+                timer = 0.0f;
+                return typeof(SwordState);
+            } else if (num == 3) {
+                timer = 0.0f;
+                return typeof(ProjectileState);
+            }
+         }
+
+        //Debug.Log("Idle State!");
         return typeof(IdleState);
     }
 }
