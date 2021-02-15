@@ -224,12 +224,12 @@ public class PlayerController : MonoBehaviour {
     public void gainStrength() {
 
         attackStrength += 1;
-        gameOverText.text = "Damage Increased!";
         StartCoroutine(shardText());
 
     }
 
     private IEnumerator shardText(){
+        gameOverText.text = "Damage Increased!";
         yield return new WaitForSeconds(1.5f);
         gameOverText.text = "";
     }
@@ -243,6 +243,13 @@ public class PlayerController : MonoBehaviour {
     {
         currentHealth = Math.Min(currentHealth + restoreHealthBy, maxHealth);
         healthBar.SetValue(currentHealth);
+        StartCoroutine(plantText());
+    }
+
+    private IEnumerator plantText(){
+        gameOverText.text = "Health Healed!";
+        yield return new WaitForSeconds(1.5f);
+        gameOverText.text = "";
     }
 
     // Handles the player movements and animations.
