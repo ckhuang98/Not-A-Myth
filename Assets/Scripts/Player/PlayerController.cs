@@ -291,19 +291,17 @@ public class PlayerController : MonoBehaviour {
                 TakeDamage(10);
                 healthTimer = 0;
             }
-            fireStacks += Time.deltaTime;
+            if (fireStacks < 1.5) { fireStacks += Time.deltaTime; }
         }
         ApplyFire();
     }
 
     void ApplyFire() {
         fireTimer += Time.deltaTime;
-        if (fireStacks > 0.0f) {
-            if (fireTimer >= 0.25f && fireStacks >= 0.1f) {
-                TakeDamage(1);
-                fireTimer = 0;
-                fireStacks -= 0.1f;
-            }
+        if (fireTimer >= 0.5f && fireStacks >= 0.25f) {
+            TakeDamage(1);
+            fireTimer = 0;
+            fireStacks -= 0.25f;
         }
     }
 
