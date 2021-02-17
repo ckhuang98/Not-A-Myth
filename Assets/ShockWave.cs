@@ -21,7 +21,7 @@ public class ShockWave : MonoBehaviour
             Destroy(this.gameObject);
         }
         Vector3 newScale = transform.localScale;
-        newScale *= 1.01f;
+        newScale *= 1.006f;
         transform.localScale = newScale;
         
     }

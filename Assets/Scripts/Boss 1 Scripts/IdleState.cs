@@ -12,6 +12,7 @@ public class IdleState : BaseState
     public IdleState(Boss boss) : base (boss.gameObject)
     {
         _boss = boss;
+        _boss.animator.Play("Idle");
     }
     
     public override Type Tick()
@@ -29,6 +30,7 @@ public class IdleState : BaseState
             } else if (num == 3) {
                 timer = 0.0f;
                 return typeof(ProjectileState);
+                
             }
          }
 

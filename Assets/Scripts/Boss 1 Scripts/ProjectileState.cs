@@ -17,6 +17,7 @@ public class ProjectileState : BaseState
     
     public override Type Tick()
     {
+        
         if (isCreated == false) {
             FCA = GameObject.Instantiate(_boss.fireConeArea) as GameObject;
             FCA.transform.position = new Vector3(0, -1, 1);

@@ -331,6 +331,9 @@ public class PlayerController : MonoBehaviour {
             gameOver = true;
             restart.SetActive(true);
         }
+        if(bossFight){
+            
+        }
         else if(!bossFight){
             if (Enemy.enemyAmount <= 0)
             {

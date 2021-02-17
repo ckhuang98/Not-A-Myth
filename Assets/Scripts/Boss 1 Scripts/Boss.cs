@@ -13,6 +13,8 @@ public class Boss : MonoBehaviour
 
     private Transform target;
 
+    private float timer;
+
     BossStateMachine stateMachine; 
     private ObjectAudioManager audioManager;
 
@@ -20,6 +22,8 @@ public class Boss : MonoBehaviour
     public GameObject shockWave;
     public ParticleSystem fireCone;
     public GameObject fireConeArea;
+
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +46,7 @@ public class Boss : MonoBehaviour
     {
         // isDead(PlayerController.gameOver);
         stateMachine.Update();
+        isDead(PlayerController.gameOver);
     }
 
     /*
@@ -60,5 +65,27 @@ public class Boss : MonoBehaviour
             { typeof(ProjectileState), new ProjectileState(this) }
         };
         stateMachine.SetStates(states);
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .5)
+        {
+            // Vector2 knockback = rb.transform.position - collider.transform.parent.position;
+            // //Debug.Log(knockback);
+            // rb.AddForce(knockback.normalized * 4000f);
+            healthAmount -= collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength();
+            timer = 0;
+        }
+    }
+
+    void isDead(bool gameOver){
+        if (!gameOver) { 
+            if (healthAmount <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+            timer += Time.deltaTime; // Temporary
+        }
     }
 }

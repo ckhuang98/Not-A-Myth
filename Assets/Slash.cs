@@ -14,11 +14,12 @@ public class Slash : MonoBehaviour
     void Update()
     {
         Vector3 newScale = transform.localScale;
-        newScale *= 1.03f;
+        newScale.x *= 1.003f;
+        newScale.y *= 1.001f;
         transform.localScale = newScale;
         
         Vector3 newPos = transform.position;
-        newPos.y -= .15f;
+        newPos.y -= .015f;
         transform.position = newPos;
 
         if (transform.position.y <= -6.5f) {
