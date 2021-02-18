@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Threading;
 using System;
 using System.Linq;
@@ -11,7 +12,7 @@ public class Boss : MonoBehaviour
     Rigidbody2D rb;
     public float healthAmount;
 
-    private Transform target;
+    public Transform target;
 
     private float timer;
 
@@ -24,12 +25,16 @@ public class Boss : MonoBehaviour
     public GameObject fireConeArea;
 
     public Animator animator;
+    public BarScript healthBar;
+    public Text speechText;
 
     // Start is called before the first frame update
     void Start()
     {
-        healthAmount = 69f;
+        healthAmount = 25f;
         rb = GetComponent<Rigidbody2D>();
+
+        healthBar.SetMaxValue(healthAmount);
 
         //getting transform component from the Player
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -39,6 +44,11 @@ public class Boss : MonoBehaviour
         InitializeStateMachine();
         fireCone.GetComponent<ParticleSystem>();
         fireCone.Pause();
+        if(fireCone.isPaused){
+            Debug.Log("Paused Particle sys");
+            fireCone.Pause();
+        }
+        
     }
 
     // Update is called once per frame
@@ -75,6 +85,7 @@ public class Boss : MonoBehaviour
             // //Debug.Log(knockback);
             // rb.AddForce(knockback.normalized * 4000f);
             healthAmount -= collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength();
+            healthBar.SetValue(healthAmount);
             timer = 0;
         }
     }

@@ -13,18 +13,20 @@ public class Slash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newScale = transform.localScale;
-        newScale.x *= 1.003f;
-        newScale.y *= 1.001f;
-        transform.localScale = newScale;
-        
-        Vector3 newPos = transform.position;
-        newPos.y -= .015f;
-        transform.position = newPos;
 
         if (transform.position.y <= -6.5f) {
             Destroy(this.gameObject);
         }        
+    }
+    private void FixedUpdate() {
+        Vector3 newScale = transform.localScale;
+        newScale.x *= 1.05f;
+        newScale.y *= 1.03f;
+        transform.localScale = newScale;
+        
+        Vector3 newPos = transform.position;
+        newPos.y -= .15f;
+        transform.position = newPos;
     }
     /*
     void OnTriggerEnter2D() {

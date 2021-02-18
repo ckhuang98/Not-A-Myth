@@ -16,7 +16,7 @@ public class SwordState : BaseState
     {
         _boss = boss;
         bossPos = transform.position;
-        bossPos.y += 2;
+        bossPos.y += 3;
         slashPos = bossPos;
     }
     
@@ -25,13 +25,13 @@ public class SwordState : BaseState
         _boss.animator.SetTrigger("Slash");
         slashAttack = GameObject.Instantiate(_boss.slash) as GameObject;
         var num = UnityEngine.Random.Range(1,4);
-            if (num == 1) {
+            if (_boss.target.position.x > -3 && _boss.target.position.x < 3) {
                 slashAttack.transform.position = slashPos;
-            } else if (num == 2) {
-                slashPos.x += 4;
+            } else if (_boss.target.position.x >= 3 && _boss.target.position.x < 9) {
+                slashPos.x += 5;
                 slashAttack.transform.position = slashPos;
-            } else if (num == 3) {
-                slashPos.x -= 4;
+            } else if (_boss.target.position.x > -9 && _boss.target.position.x <=-3) {
+                slashPos.x -= 5;
                 slashAttack.transform.position = slashPos;
             }
         slashPos = bossPos;
