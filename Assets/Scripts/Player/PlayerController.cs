@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private LayerMask dashLayerMask;
     [SerializeField] private InputActionAsset playerControls;
 
+    public bool bossFight = false;
+
     private enum State{
         Normal,
         Dashing,
@@ -73,10 +75,12 @@ public class PlayerController : MonoBehaviour {
     public static bool gameOver = false;
 
     private GameObject restart;
+    private GameObject boss;
 
     private ObjectAudioManager audioManager;
     
     Text gameOverText;
+
     // Start is called before the first frame update
     void Start() {
         //slashAnimation.enabled = false;
@@ -90,7 +94,12 @@ public class PlayerController : MonoBehaviour {
         restart.SetActive(false);
         gameOver = false;
         audioManager = gameObject.GetComponent<ObjectAudioManager>();
+        boss = GameObject.FindWithTag("Boss");
+        if(boss != null){
+            bossFight = true;
+        }
         //slashCollider.GetComponent<Collider>().enabled = false;
+        //part = GameObject.Find("Cone Firing").GetComponent<ParticleSystem>();
     }
 
 
@@ -286,7 +295,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     // Reduces player's current health and updates the slider value of the health bar.
-    void TakeDamage(int damage){
+    public void TakeDamage(int damage){
         playHurtSFX();
         currentHealth -= damage;
         healthBar.SetValue(currentHealth);
@@ -339,13 +348,23 @@ public class PlayerController : MonoBehaviour {
             gameOver = true;
             restart.SetActive(true);
         }
-
-        if (Enemy.enemyAmount <= 0)
-        {
-            Debug.Log("Game Over");
-            gameOverText.text = "You Win!";
-            gameOver = true;
-            restart.SetActive(true);
+        if(bossFight){
+            if(boss == null){
+                gameOver = true;
+                restart.SetActive(true);
+            }
+        }
+        else if(!bossFight){
+            if (Enemy.enemyAmount <= 0)
+            {
+                Debug.Log("Game Over");
+                gameOverText.text = "You Win!";
+                Color alpha = gameOverText.color;
+                alpha.a = 255f;
+                gameOverText.color = alpha;
+                gameOver = true;
+                restart.SetActive(true);
+            }
         }
     }
     public void restartScene(){
@@ -366,4 +385,5 @@ public class PlayerController : MonoBehaviour {
     {
         audioManager.PlayRandomSoundInGroup("Hurt");
     }
+
 }
