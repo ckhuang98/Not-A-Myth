@@ -31,7 +31,7 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthAmount = 25f;
+        healthAmount = 3f;
         rb = GetComponent<Rigidbody2D>();
 
         healthBar.SetMaxValue(healthAmount);
@@ -94,7 +94,8 @@ public class Boss : MonoBehaviour
         if (!gameOver) { 
             if (healthAmount <= 0)
             {
-                Destroy(this.gameObject);
+                DestroyImmediate(this.gameObject);
+                Destroy(healthBar.gameObject);
             }
             timer += Time.deltaTime; // Temporary
         }

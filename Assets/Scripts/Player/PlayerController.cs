@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour {
     public static bool gameOver = false;
 
     private GameObject restart;
+    private GameObject boss;
 
     private ObjectAudioManager audioManager;
     
@@ -93,6 +94,10 @@ public class PlayerController : MonoBehaviour {
         restart.SetActive(false);
         gameOver = false;
         audioManager = gameObject.GetComponent<ObjectAudioManager>();
+        boss = GameObject.FindWithTag("Boss");
+        if(boss != null){
+            bossFight = true;
+        }
         //slashCollider.GetComponent<Collider>().enabled = false;
         //part = GameObject.Find("Cone Firing").GetComponent<ParticleSystem>();
     }
@@ -332,7 +337,10 @@ public class PlayerController : MonoBehaviour {
             restart.SetActive(true);
         }
         if(bossFight){
-            
+            if(boss == null){
+                gameOver = true;
+                restart.SetActive(true);
+            }
         }
         else if(!bossFight){
             if (Enemy.enemyAmount <= 0)
