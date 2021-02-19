@@ -13,6 +13,7 @@ public class Boss : MonoBehaviour
     public float healthAmount;
 
     public Transform target;
+    public String targetLastPos;
 
     private float timer;
 
@@ -27,6 +28,8 @@ public class Boss : MonoBehaviour
     public Animator animator;
     public BarScript healthBar;
     public Text speechText;
+
+    public bool calledAnimationHandler = false;
 
     // Start is called before the first frame update
     void Start()
@@ -70,9 +73,9 @@ public class Boss : MonoBehaviour
         var states = new Dictionary<Type, BaseState>()
         {
             { typeof(IdleState), new IdleState(this) },
-            { typeof(HammerState), new HammerState(this) },
-            { typeof(SwordState), new SwordState(this) },
-            { typeof(ProjectileState), new ProjectileState(this) }
+            { typeof(HammerState), new HammerState(this) },         // Cone of fire
+            { typeof(SwordState), new SwordState(this) },           // Slash Attack
+            { typeof(ProjectileState), new ProjectileState(this) }  // Shockwave
         };
         stateMachine.SetStates(states);
     }
@@ -100,4 +103,56 @@ public class Boss : MonoBehaviour
             timer += Time.deltaTime; // Temporary
         }
     }
+
+    public void startAnimation(int num){
+        StartCoroutine(animationHandler(num));
+    }
+
+    public void stopAnimation(){
+        animator.SetBool("SlashCenter", false);
+        animator.SetBool("SlashRight", false);
+        animator.SetBool("SlashLeft", false);
+        animator.SetBool("ConeCenter", false);
+        animator.SetBool("ConeRight", false);
+        animator.SetBool("ConeLeft", false);
+        animator.SetBool("Shockwave", false);
+    }
+
+    private IEnumerator animationHandler(int num){
+            if(num == 1){
+                if (target.position.x > -3 && target.position.x < 3) { // Center
+                    animator.SetBool("ConeCenter", true);
+                } else if (target.position.x >= 3 && target.position.x < 9) { // Right
+                    animator.SetBool("ConeRight", true);
+                } else if (target.position.x > -9 && target.position.x <=-3) { // Left
+                    animator.SetBool("ConeLeft", true);
+                }
+            } else if(num == 2){ 
+                if (target.position.x > -3 && target.position.x < 3) { // Center
+                    animator.SetBool("SlashCenter", true);
+                } else if (target.position.x >= 3 && target.position.x < 9) { // Right
+                    animator.SetBool("SlashRight", true);
+                } else if (target.position.x > -9 && target.position.x <=-3) { // Left
+                    animator.SetBool("SlashLeft", true);
+                }
+            } else if(num == 3){
+                animator.SetBool("Shockwave", true);
+            }
+            yield return new WaitForSeconds(3.0f);
+    }
+
+    /*******************************************************/
+    // Called at the beginnging of an animation's key frame to make sure the attack lines up with animation. 
+    /*******************************************************/
+
+    public void targetRight(){
+        targetLastPos = "Right";
+    }
+    public void targetCenter(){
+        targetLastPos = "Center";
+    }
+    public void targetLeft(){
+        targetLastPos = "Left";
+    }
+    /*******************************************************/
 }

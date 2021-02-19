@@ -6,19 +6,64 @@ using System;
 public class HammerState : BaseState
 {
     private Boss _boss;
-    private GameObject shockWaveAttack;
+    
+    private GameObject FCA;
+    private float timer  = 5.0f;
+    private bool isCreated = false;
+
+    private Vector3 conePos;
 
     public HammerState(Boss boss) : base (boss.gameObject)
     {
         _boss = boss;
+        conePos = _boss.fireCone.transform.position;
+        if(_boss.targetLastPos == "Left"){
+            
+        } else if(_boss.targetLastPos == "Right"){
+
+        }
     }
     
     public override Type Tick()
     {
-        _boss.animator.SetTrigger("Shockwave");
-        shockWaveAttack = GameObject.Instantiate(_boss.shockWave) as GameObject;
-        shockWaveAttack.transform.position = transform.position;
+
+        if (isCreated == false) {
+            FCA = GameObject.Instantiate(_boss.fireConeArea) as GameObject;
+
+            if(_boss.targetLastPos == "Center"){
+                FCA.transform.position = new Vector3(0, -1, 1);
+                conePos.x = 0;
+                _boss.fireCone.transform.position = conePos;
+            } else if(_boss.targetLastPos == "Left"){
+                FCA.transform.position = new Vector3(-3, -1, 1);
+                conePos.x = -3;
+                _boss.fireCone.transform.position = conePos;
+            } else if(_boss.targetLastPos == "Right"){
+                FCA.transform.position = new Vector3(3, -1, 1);
+                conePos.x = 3;
+                _boss.fireCone.transform.position = conePos;
+            }
+
+            isCreated = true;
+        }
+        
+        var em = _boss.fireCone.emission;
+
         Debug.Log("Hammer State!");
-        return typeof(IdleState);
+        _boss.fireCone.Play();
+        em.enabled = true;
+        if (timer >= 0.0f) {
+            timer -= Time.deltaTime;
+        } else {
+            Debug.Log("Done");
+            //_boss.fireCone.Stop();
+            GameObject.Destroy(FCA.gameObject);
+            em.enabled = false;
+            isCreated = false;
+            timer = 5.0f;
+            return typeof(IdleState);
+        }
+        return typeof(HammerState);
     }
+
 }

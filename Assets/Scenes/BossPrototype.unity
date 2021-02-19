@@ -1224,7 +1224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -493.12, y: -550}
+  m_AnchoredPosition: {x: -493.07, y: -547.81}
   m_SizeDelta: {x: 250, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &330397619
@@ -1393,12 +1393,12 @@ PrefabInstance:
     - target: {fileID: 7129161515764618023, guid: e71d92ff614681340b560fbb9ad24a89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7129161515764618023, guid: e71d92ff614681340b560fbb9ad24a89,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.03
+      value: -1.17
       objectReference: {fileID: 0}
     - target: {fileID: 7129161515764618023, guid: e71d92ff614681340b560fbb9ad24a89,
         type: 3}
@@ -1618,7 +1618,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5, y: -135}
+  m_AnchoredPosition: {x: -5, y: -192}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &982969645
@@ -1794,7 +1794,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.3064556
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3864,7 +3864,7 @@ GameObject:
   - component: {fileID: 1606269134}
   - component: {fileID: 1606269135}
   m_Layer: 0
-  m_Name: Temporary Boss
+  m_Name: Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3884,6 +3884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthAmount: 0
   target: {fileID: 0}
+  targetLastPos: 
   slash: {fileID: 8948142391974225190, guid: 03f905c9db3efea4b9e8304e9fb53891, type: 3}
   shockWave: {fileID: 6051182861315708512, guid: 27c4b9e8baf8b554b908d9459391786d,
     type: 3}
@@ -3893,6 +3894,7 @@ MonoBehaviour:
   animator: {fileID: 1606269134}
   healthBar: {fileID: 330397619}
   speechText: {fileID: 982969645}
+  calledAnimationHandler: 0
 --- !u!212 &1606269132
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3932,7 +3934,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2240994688644343673, guid: 1c130c52cfa1eeb44b5a9ef27e9a6f85,
+  m_Sprite: {fileID: 2154494338886447286, guid: 14bad2c788737cd4797a9bd91eacd9f3,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3952,8 +3954,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606269130}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 4.534, z: 0}
-  m_LocalScale: {x: 1.5651104, y: 1.1244493, z: 0.53251743}
+  m_LocalPosition: {x: 0.14, y: 6.49, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0.53251743}
   m_Children:
   - {fileID: 686804231}
   m_Father: {fileID: 0}
@@ -3969,7 +3971,7 @@ Animator:
   m_GameObject: {fileID: 1606269130}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 993dfd615e6843843b48447b01ac0493, type: 2}
+  m_Controller: {fileID: 9100000, guid: 72d99bffd79e03440802e5b78c43720d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3991,8 +3993,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01, y: 0.61999995}
-  m_Size: {x: 2.0960562, y: 2.2700002}
+  m_Offset: {x: -0.25014547, y: -0.41903356}
+  m_Size: {x: 4.2019076, y: 3.3933206}
   m_Direction: 1
 --- !u!1 &1608756565
 GameObject:
