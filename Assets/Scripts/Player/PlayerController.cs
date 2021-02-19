@@ -81,6 +81,10 @@ public class PlayerController : MonoBehaviour {
     
     Text gameOverText;
 
+    private bool isInvincible = false;
+
+    private SpriteRenderer playerSprite;
+
     // Start is called before the first frame update
     void Start() {
         //slashAnimation.enabled = false;
@@ -98,6 +102,7 @@ public class PlayerController : MonoBehaviour {
         if(boss != null){
             bossFight = true;
         }
+        playerSprite = this.GetComponent<SpriteRenderer>();
         //slashCollider.GetComponent<Collider>().enabled = false;
         //part = GameObject.Find("Cone Firing").GetComponent<ParticleSystem>();
     }
@@ -248,7 +253,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     //restore current health
-    public void resotreHealth(int restoreHealthBy = 10)
+    public void restoreHealth(int restoreHealthBy = 10)
     {
         currentHealth = Math.Min(currentHealth + restoreHealthBy, maxHealth);
         healthBar.SetValue(currentHealth);
@@ -297,8 +302,31 @@ public class PlayerController : MonoBehaviour {
     // Reduces player's current health and updates the slider value of the health bar.
     public void TakeDamage(int damage){
         playHurtSFX();
-        currentHealth -= damage;
+        if(!isInvincible){
+            currentHealth -= damage;
+            StartCoroutine(tempInvincible());
+        }
+        
         healthBar.SetValue(currentHealth);
+    }
+
+    private IEnumerator tempInvincible(){
+        isInvincible = true;
+        Color alpha = playerSprite.color;
+        for(float i = 0; i < 1f; i += 0.2f){
+            if(playerSprite.color.a == 0){
+                alpha.a = 255;
+                playerSprite.color = alpha;
+            } else{
+                alpha.a = 0;
+                playerSprite.color = alpha;
+            }
+            yield return new WaitForSeconds(0.15f);
+        }
+        
+        alpha.a = 255;
+        playerSprite.color = alpha;
+        isInvincible = false;
     }
 
     /*

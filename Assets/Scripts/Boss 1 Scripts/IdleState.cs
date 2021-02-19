@@ -23,7 +23,8 @@ public class IdleState : BaseState
             _boss.stopAnimation();
         } else if(timer < 3.0f && timer > 2.5f){
                 if(num == 0){
-                    num = UnityEngine.Random.Range(1,4);
+                    // num = UnityEngine.Random.Range(1,4);
+                    num = 1;
                 }
                 if(num == 1){
                     _boss.speechText.text = "Eat This!";
