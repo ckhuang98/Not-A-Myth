@@ -232,7 +232,7 @@ public class PlayerController : MonoBehaviour {
 
     public void gainStrength() {
 
-        attackStrength += 1;
+        attackStrength += 0.2f;
         StartCoroutine(shardText());
 
     }

@@ -34,7 +34,7 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthAmount = 3f;
+        healthAmount = 40f;
         rb = GetComponent<Rigidbody2D>();
 
         healthBar.SetMaxValue(healthAmount);
@@ -84,6 +84,7 @@ public class Boss : MonoBehaviour
     {
         if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .5)
         {
+            Debug.Log("Hit");
             // Vector2 knockback = rb.transform.position - collider.transform.parent.position;
             // //Debug.Log(knockback);
             // rb.AddForce(knockback.normalized * 4000f);
