@@ -3,6 +3,20 @@ using UnityEngine.UIElements;
 
 public class InventoryUI : MonoBehaviour
 {
+
+    public static InventoryUI instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     public Transform itemsParent;
     public GameObject inventoryUI;
     public Transform hotbarParent;
@@ -26,6 +40,8 @@ public class InventoryUI : MonoBehaviour
 
         //get the hotbar slots
         hotbarSlots = hotbarParent.GetComponentsInChildren<HotbarSlot>();
+
+        UpdateUI();
     }
 
     //Update the inventory slots
