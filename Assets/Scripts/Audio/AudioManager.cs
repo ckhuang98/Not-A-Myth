@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public AudioMixer soundMixer;
+    public string playGroupOnStart;
 
     public SoundGroup[] soundGroups;
 
@@ -42,7 +43,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        PlayGroup("Overworld Music");
+        PlayGroup(playGroupOnStart);
     }
 
     void Update()

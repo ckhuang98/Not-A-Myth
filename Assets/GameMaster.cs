@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -16,36 +17,50 @@ public class GameMaster : MonoBehaviour
         if (instance != null)
         {
             Debug.LogWarning("More than one instance of GameMaster found!");
+            Destroy(this.gameObject);
             return;
         }
         instance = this;
-
+        DontDestroyOnLoad(this);
     }
 
-    private GameObject escapeMenu;
-
-    [SerializeField]
     private AudioListener listener;
-
     private GameObject player;
+    [SerializeField]
+    private GameObject escapeMenu;
     private GameObject controlsWindow;
     private GameObject inventoryWindow;
     public InputActionAsset inputActions;
     private bool paused;
 
+    private int recordedPlayerHealth;
+    private bool playerHealthRecorded = false;
+
+    private bool firstInitialized = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         Cursor.visible = true;
         paused = false;
-        controlsWindow = GameObject.FindWithTag("Controls");
+        
+        assignReferences();
         controlsWindow.SetActive(false);
-        escapeMenu = GameObject.FindWithTag("EscapeMenu");
         escapeMenu.SetActive(false);
-        player = GameObject.FindWithTag("Player");
-
-        inventoryWindow = GameObject.FindWithTag("Inventory");
         inventoryWindow.SetActive(false);
+
+        firstInitialized = true;
+    }
+
+    void assignReferences()
+    {
+        player = GameObject.FindWithTag("Player");
+        listener = player.GetComponent<AudioListener>();
+
+        controlsWindow = GameObject.FindWithTag("Controls");
+        escapeMenu = GameObject.FindWithTag("EscapeMenu");
+        inventoryWindow = GameObject.FindWithTag("Inventory");
     }
 
     // Update is called once per frame
@@ -57,6 +72,22 @@ public class GameMaster : MonoBehaviour
             } else{
                 ResumeGame();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.N) && !paused)
+        {
+            recordPlayerHealth();
+            SceneManager.LoadScene(2);
+        }
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (firstInitialized)
+        {
+            //get the new player object and associated components
+            player = GameObject.FindWithTag("Player");
+            listener = player.GetComponent<AudioListener>();
         }
     }
 
@@ -114,5 +145,30 @@ public class GameMaster : MonoBehaviour
 
     public void exitGame(){
         Application.Quit();
+    }
+
+    //Get the player's health at the current time
+    void recordPlayerHealth()
+    {
+        if (player != null)
+        {
+            recordedPlayerHealth = player.GetComponent<PlayerController>().currentHealth;
+            playerHealthRecorded = true;
+        } else
+        {
+            playerHealthRecorded = false;
+        }
+    }
+
+    //Return what the player's health was when last recorded
+    public int getRecordedPlayerHealth()
+    {
+        return recordedPlayerHealth;
+    }
+
+    //Get whether the player's health has been recorded yet or not
+    public bool getPlayerHealthRecorded()
+    {
+        return playerHealthRecorded;
     }
 }

@@ -1545,6 +1545,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   playerControls: {fileID: 0}
+  bossFight: 0
   speed: 3
   dashSpeed: 0
   rb: {fileID: 234701986}
@@ -1685,7 +1686,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234701982}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -66.69, y: -134.93, z: 0}
+  m_LocalPosition: {x: -27.5, y: -94.3, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 1671540324}
@@ -21930,6 +21931,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5347535454852803143, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
+      propertyPath: playGroupOnStart
+      value: Overworld Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347535454852803143, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
+      propertyPath: soundGroups.Array.data[0].volume
+      value: 0.861
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347535454852803143, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
+      propertyPath: soundGroups.Array.data[1].volume
+      value: 0.699
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347535454852803143, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
+      propertyPath: soundGroups.Array.data[0].sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 474b02e632e3bcf479b7398750c9a049, type: 3}
+    - target: {fileID: 5347535454852803143, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
+      propertyPath: soundGroups.Array.data[0].sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c341e10634c53440bf9381cb44f752e, type: 3}
+    - target: {fileID: 5347535454852803143, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
+      propertyPath: soundGroups.Array.data[0].sounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d3c4704b3e8e2784494071a5693ac952, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05a9fabe763e72245a96751fa8d58aa3, type: 3}
 --- !u!4 &1522413811 stripped
@@ -62592,10 +62623,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 8887195380250220365, guid: 7aaa8d7b05ae8de4492656f887f3fff0,
-        type: 3}
-      propertyPath: listener
-      value: 
-      objectReference: {fileID: 234701991}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aaa8d7b05ae8de4492656f887f3fff0, type: 3}

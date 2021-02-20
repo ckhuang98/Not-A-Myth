@@ -39,6 +39,11 @@ public class Item : ScriptableObject
         
     }
 
+    private void OnDestroy()
+    {
+        Debug.LogWarning(name + " Object Destroyed");
+    }
+
     // Purpose: Use the item by clicking on it in the inventory
     public virtual void Use()
     {
