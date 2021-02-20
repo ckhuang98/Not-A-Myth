@@ -31,6 +31,11 @@ public class Boss : MonoBehaviour
 
     public bool calledAnimationHandler = false;
 
+    void Awake() {
+        fireCone.GetComponent<ParticleSystem>();
+        fireCone.Pause();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,12 +46,10 @@ public class Boss : MonoBehaviour
 
         //getting transform component from the Player
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-
         stateMachine = new BossStateMachine();
         audioManager = gameObject.GetComponent<ObjectAudioManager>();
         InitializeStateMachine();
-        fireCone.GetComponent<ParticleSystem>();
-        fireCone.Pause();
+        
         if(fireCone.isPaused){
             Debug.Log("Paused Particle sys");
             fireCone.Pause();
