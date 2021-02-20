@@ -78,7 +78,6 @@ public class PlayerController : MonoBehaviour {
     private GameObject boss;
 
     private ObjectAudioManager audioManager;
-    private GameMaster gameMaster;
     
     Text gameOverText;
 
@@ -89,10 +88,8 @@ public class PlayerController : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         //slashAnimation.enabled = false;
-        gameMaster = GameMaster.instance;
-        currentHealth = gameMaster.getPlayerHealthRecorded() ? gameMaster.getRecordedPlayerHealth() : maxHealth;
+        currentHealth = maxHealth;
         healthBar.SetMaxValue(maxHealth);
-        healthBar.SetValue(currentHealth);
         gameOverText = this.GetComponentInChildren<Canvas>().GetComponentInChildren<Text>();
         Debug.developerConsoleVisible = true;
         CombatManager.instance.canReceiveInput = true;
@@ -152,7 +149,7 @@ public class PlayerController : MonoBehaviour {
 
                     hitDetection();
                     ApplyFire();
-                    // gameIsOver();
+                    gameIsOver();
                     break;
 
 
