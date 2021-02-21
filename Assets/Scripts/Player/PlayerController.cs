@@ -384,18 +384,6 @@ public class PlayerController : MonoBehaviour {
                 restart.SetActive(true);
             }
         }
-        else if(!bossFight){
-            if (Enemy.enemyAmount <= 0)
-            {
-                Debug.Log("Game Over");
-                gameOverText.text = "You Win!";
-                Color alpha = gameOverText.color;
-                alpha.a = 255f;
-                gameOverText.color = alpha;
-                gameOver = true;
-                restart.SetActive(true);
-            }
-        }
     }
     public void restartScene(){
         SceneManager.LoadScene(0);
