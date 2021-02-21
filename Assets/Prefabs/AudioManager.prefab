@@ -51,14 +51,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  playGroupOnStart: Boss Music
   soundGroups:
-  - name: Overworld Music
-    group: {fileID: 1948652533155611144, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  - name: Boss Music
+    group: {fileID: -1905005579781237440, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+      type: 2}
     ignorePause: 0
-    volume: 0.1
+    volume: 0.5
     spacialBlend: 0
     spread: 0
-    loopingClip: Demo2
+    loopingClip: 2
     rolloffMode: 0
     maxDistance: 0
     sounds:
@@ -68,20 +70,6 @@ MonoBehaviour:
     - name: Demo2
       clip: {fileID: 8300000, guid: e4492807c58c5a44493b631ec562c0fa, type: 3}
       source: {fileID: 0}
-    - name: NorseDem2
-      clip: {fileID: 8300000, guid: 0555a8adb2e4c7448a6aff1ca0920c83, type: 3}
-      source: {fileID: 0}
-  - name: Battle Music
-    group: {fileID: -1905005579781237440, guid: 0652cb0a1baf2164ea5b6391384a55b5,
-      type: 2}
-    ignorePause: 0
-    volume: 0.1
-    spacialBlend: 0
-    spread: 0
-    loopingClip: NorseDem2
-    rolloffMode: 0
-    maxDistance: 0
-    sounds:
     - name: NorseDem2
       clip: {fileID: 8300000, guid: 0555a8adb2e4c7448a6aff1ca0920c83, type: 3}
       source: {fileID: 0}
