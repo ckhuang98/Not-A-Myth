@@ -12,13 +12,11 @@ using Vector3 = UnityEngine.Vector3;
 using Vector2 = UnityEngine.Vector2;
 using System;
 using TMPro;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
     [SerializeField] private LayerMask dashLayerMask;
-    [SerializeField] private InputActionAsset playerControls;
 
     public bool bossFight = false;
 
@@ -137,6 +135,7 @@ public class PlayerController : MonoBehaviour {
                         playerAnimator.SetFloat("attackDirX", attackDir.x);
                         playerAnimator.SetFloat("attackDirY", attackDir.y);
                         //attack(attackDir);
+                        CombatManager.instance.Attack();
                     }
                     timer += Time.deltaTime;
                     if (timer >= .5) {

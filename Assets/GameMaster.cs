@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
@@ -30,7 +29,6 @@ public class GameMaster : MonoBehaviour
     private GameObject escapeMenu;
     private GameObject controlsWindow;
     private GameObject inventoryWindow;
-    public InputActionAsset inputActions;
     private bool paused;
 
     private int recordedPlayerHealth;
@@ -98,7 +96,6 @@ public class GameMaster : MonoBehaviour
     void PauseGame(){
         Time.timeScale = 0;
         AudioListener.pause = true;
-        inputActions.Disable();
         paused = true;
         showEscapeMenu();
     }
@@ -106,7 +103,6 @@ public class GameMaster : MonoBehaviour
     public void ResumeGame(){
         Time.timeScale = 1;
         AudioListener.pause = false;
-        inputActions.Enable();
         paused = false;
         hideAllMenus();
     }
