@@ -152,7 +152,7 @@ public class PlayerController : MonoBehaviour {
 
                     hitDetection();
                     ApplyFire();
-                    // gameIsOver();
+                    gameIsOver();
                     break;
 
 

@@ -74,10 +74,9 @@ public class GameMaster : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.N) && !paused)
+        if (Input.GetKeyDown(KeyCode.N))
         {
-            recordPlayerHealth();
-            SceneManager.LoadScene(2);
+            loadSceneWithIndex(2);
         }
     }
 
@@ -170,5 +169,14 @@ public class GameMaster : MonoBehaviour
     public bool getPlayerHealthRecorded()
     {
         return playerHealthRecorded;
+    }
+
+    public void loadSceneWithIndex(int index)
+    {
+        if (!paused)
+        {
+            recordPlayerHealth();
+            SceneManager.LoadScene(index);
+        }
     }
 }
