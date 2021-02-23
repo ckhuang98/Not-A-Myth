@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour {
     public Animator playerAnimator;
 
     float timer = 0f;
+
+    float fireTimer = 0f;
     private float fireStacks = 0;
 
     float healthTimer = 0f;
@@ -150,7 +152,6 @@ public class PlayerController : MonoBehaviour {
                     }
 
                     hitDetection();
-                    ApplyFire();
                     gameIsOver();
                     break;
 
@@ -346,20 +347,21 @@ public class PlayerController : MonoBehaviour {
         //detection it will take damage from player per second
 
         if (withinAggroColliders != null) {
-            fireStacks += 0.01f;
             if (healthTimer >= 1) {
                 TakeDamage(10);
                 healthTimer = 0;
             }
+            if (fireStacks < 1.5) { fireStacks += Time.deltaTime; }
         }
+        ApplyFire();
     }
 
     void ApplyFire() {
-        if (fireStacks > 0.0f) {
-            if (0.0f <= fireStacks % 1.0f && fireStacks % 1.0f < 0.01f) {
-                fireStacks -= 1.0f;
-                TakeDamage(1);
-            }
+        fireTimer += Time.deltaTime;
+        if (fireTimer >= 0.5f && fireStacks >= 0.25f) {
+            TakeDamage(1);
+            fireTimer = 0;
+            fireStacks -= 0.25f;
         }
     }
 
