@@ -4,6 +4,7 @@ using System.Threading;
 using UnityEngine;
 using System;
 using System.Linq;
+using EZCameraShake;
 
 public class Enemy : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private GameObject deathSFXObject;
 
+    [SerializeField] private Freezer freezer;
     private ObjectAudioManager audioManager;
     
     internal Vector3[] moveDirections = new Vector3[] { Vector3.up, Vector3.Normalize(Vector3.right + Vector3.up), 
@@ -99,6 +101,8 @@ public class Enemy : MonoBehaviour
             this.GetComponent<Renderer>().material.color = thisColor;
 
             timer = 0;
+            CameraShaker.Instance.ShakeOnce(2f, 1.5f, 0.1f, 1f);
+            freezer.Freeze();
         }
         
         //check for when players view is overlapping with the enemy

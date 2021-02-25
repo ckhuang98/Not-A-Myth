@@ -9,7 +9,9 @@ public class PlayerAnimato_Attack1_Behavior : StateMachineBehaviour
     {
         CombatManager.player.attacked = true;
         CombatManager.instance.canReceiveInput = true;
-        CombatManager.player.speed = 0;
+        if(CombatManager.player.getState() == "Normal"){
+            CombatManager.player.speed = 1f;
+        }
         
         CombatManager.player.slashAnimation.Play("SlashAnim1", -1, 0f);
 
