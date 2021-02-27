@@ -7,7 +7,7 @@
 public class Item : ScriptableObject
 {
     //default name
-    new public string name = "New Item";
+    public string itemName = "New Item";
 
     //default icon
     public Sprite icon = null;
@@ -30,7 +30,7 @@ public class Item : ScriptableObject
     {
         // properties of items to check if they are equal.
         // More properties will probably be added like attack, defence, modifiers, etc.
-        if (this.name == item.name)
+        if (this.itemName == item.itemName)
         {
             return true;
         }
@@ -41,16 +41,16 @@ public class Item : ScriptableObject
 
     private void OnDestroy()
     {
-        Debug.LogWarning(name + " Object Destroyed");
+        Debug.LogWarning(itemName + " Object Destroyed");
     }
 
     // Purpose: Use the item by clicking on it in the inventory
     public virtual void Use()
     {
-        Debug.Log("Using " + name);
+        Debug.Log("Using " + itemName);
         GameObject player = GameObject.Find("Player");
 
-        switch (name)
+        switch (itemName)
         {
             //Shard - Give strength to the player
             case "Shard":

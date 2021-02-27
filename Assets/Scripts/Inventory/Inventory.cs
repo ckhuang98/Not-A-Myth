@@ -34,6 +34,7 @@ public class Inventory : MonoBehaviour
     //Purpose: Add the item to the inventory list if it is not a default item and there is room in the inventory for it
     public bool Add(Item item)
     {
+        item.name.Replace("(Clone)", "");
         if (!item.isDefaultItem)
         {
             if (items.Count >= space)

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3916534169070301588}
   - component: {fileID: 3916534169070301589}
   - component: {fileID: 3916534169070301586}
-  - component: {fileID: 3916534169070301587}
+  - component: {fileID: 2457862189561011340}
   m_Layer: 0
   m_Name: Health Plant
   m_TagString: Untagged
@@ -158,7 +158,7 @@ PolygonCollider2D:
       - {x: 0.03, y: -0.049999997}
       - {x: 0, y: -0.17}
       - {x: 0.01, y: -0.17}
---- !u!114 &3916534169070301587
+--- !u!114 &2457862189561011340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3916534169070301584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7745efdaaecc03468341d33e1155694, type: 3}
+  m_Script: {fileID: 11500000, guid: 950e5c8f4244d3b4b9571712085dce0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: ae4399c31c5c67046b8765819b982772, type: 2}

@@ -18,7 +18,7 @@ public class LookAtMouse : MonoBehaviour
     void Update()
     {
 
-        if (!PlayerController.gameOver) {
+        if (!GameMaster.instance.getGameOver()) {
         //Vector3 targetDirection = Input.mousePosition - this.transform.position;
 
         //float singleStep = 5 * Time.deltaTime;

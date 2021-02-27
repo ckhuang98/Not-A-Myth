@@ -62,7 +62,7 @@ public class Boss : MonoBehaviour
     {
         // isDead(PlayerController.gameOver);
         stateMachine.Update();
-        isDead(PlayerController.gameOver);
+        isDead(GameMaster.instance.getGameOver());
     }
 
     /*

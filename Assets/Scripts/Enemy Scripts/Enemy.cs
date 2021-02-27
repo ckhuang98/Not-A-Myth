@@ -78,7 +78,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update() {
         enemyAnimator.SetFloat("Speed", moveDirections[currMoveDirection].sqrMagnitude);
-        isDead(PlayerController.gameOver);
+        isDead(GameMaster.instance.getGameOver());
         stateMachine.Update();
         DisplayRays();
     }
