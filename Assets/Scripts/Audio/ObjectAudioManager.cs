@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ObjectAudioManager : MonoBehaviour
 {
+    [TextArea(1, 5)]
+    public string description;
+
     public AudioMixer soundMixer;
 
     public SoundGroup[] soundGroups;

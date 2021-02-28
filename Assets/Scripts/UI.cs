@@ -114,7 +114,7 @@ public class UI : MonoBehaviour
         gameOverMenu.transform.Find("Message").GetComponent<Text>().text = message;
     }
 
-    //displayer player update
+    //display player update
     public IEnumerator displayerPlayerUpdate(string message = "", float duration = 1.5f)
     {
         playerUpdates.GetComponent<Text>().text = message;

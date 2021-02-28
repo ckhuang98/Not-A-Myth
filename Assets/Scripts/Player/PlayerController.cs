@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour {
         gameMaster = GameMaster.instance;
         // currentHealth = maxHealth;
         // attackStrength = 1f;
-        gameMaster.applyStats(true);
+        gameMaster.applyStats(true); //sets currentHealth, attackStrength, and Inventory
         Debug.developerConsoleVisible = true;
         CombatManager.instance.canReceiveInput = true;
         state = State.Normal;

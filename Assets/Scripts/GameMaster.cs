@@ -21,15 +21,15 @@ public class GameMaster : MonoBehaviour
     }
 
     [SerializeField]
-    private UI ui = UI.instance;
+    private UI ui;
 
     [SerializeField]
     private GameObject player;
+
     private bool paused = false;
+
     [SerializeField]
     private bool gameOver = false;
-
-    private bool firstInitialized = false;
 
     private bool statsRecorded = false;
 
@@ -53,8 +53,9 @@ public class GameMaster : MonoBehaviour
     // since the GameManager carries over into all scenes
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        ui = UI.instance;
+        gameOver = false;
         assignReferences();
-        recordStats();
         ui.setUIForNewScene();
         ui.updateInventoryUI();
     }
@@ -86,7 +87,7 @@ public class GameMaster : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.V))
         {
-            applyStats(true);
+            applyStats();
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -95,6 +96,7 @@ public class GameMaster : MonoBehaviour
         }
     }
 
+    //Get necessary references to objects in the scene
     void assignReferences()
     {
         player = GameObject.FindWithTag("Player");
@@ -127,12 +129,17 @@ public class GameMaster : MonoBehaviour
         Application.Quit();
     }
 
-    public void restartCheckpoint()
+    public void restartCheckpoint(bool fullHealth = false)
     {
         resumeGame();
+        if (fullHealth) //set player's health to max. Used for when restarting checkpoint after death
+        {
+            recordedPlayerHealth = player.GetComponent<PlayerController>().maxHealth;
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    // Load the scene with the given build index
     public void loadScene(int index)
     {
         if (!paused)
@@ -142,6 +149,7 @@ public class GameMaster : MonoBehaviour
         }
     }
 
+    // Load the scene witht the given name
     public void loadScene(string name)
     {
         if (!paused)
@@ -151,6 +159,7 @@ public class GameMaster : MonoBehaviour
         }
     }
 
+    // Game over
     public bool getGameOver()
     {
         return gameOver;
@@ -158,18 +167,19 @@ public class GameMaster : MonoBehaviour
 
     public void setGameOver(bool win = false)
     {
-
         string gameOverMessage = win ? "A Winner Is You!" : "Game Over!";
         ui.showGameOverMenu(gameOverMessage);
 
         gameOver = true;
     }
 
-    public bool playerStatsRecorded()
+    //Player stats
+    public bool checkPlayerStatsRecorded()
     {
         return statsRecorded;
     }
 
+    //record the necessary stats associated with the player and inventory
     void recordStats()
     {
         if (player != null)
@@ -182,7 +192,7 @@ public class GameMaster : MonoBehaviour
             foreach (Item it in Inventory.instance.items)
             {
                 Item itemCopy = Instantiate(it) as Item;
-                // change the name to avoid (Clone)
+                // change the name to avoid (Clone) in the object name
                 itemCopy.name = it.name;
                 recordedInventory.Add(itemCopy);
             }
@@ -190,13 +200,15 @@ public class GameMaster : MonoBehaviour
             statsRecorded = true;
         } else
         {
-            recordedPlayerHealth = 0;
-            recordedPlayerStrength = 0.0f;
+            Debug.LogWarning("No instance of Player found");
+            recordedPlayerHealth = 100;
+            recordedPlayerStrength = 1.0f;
             recordedInventory.Clear();
             statsRecorded = false;
         }
     }
 
+    // Apply the stats to the player and inventory
     public void applyStats(bool overrideHealth = false)
     {
         if (statsRecorded)
@@ -206,11 +218,14 @@ public class GameMaster : MonoBehaviour
                 if (overrideHealth)
                 {
                     player.GetComponent<PlayerController>().currentHealth = recordedPlayerHealth;
+                } else
+                {
+                    player.GetComponent<PlayerController>().currentHealth = player.GetComponent<PlayerController>().maxHealth;
                 }
 
                 player.GetComponent<PlayerController>().attackStrength = recordedPlayerStrength;
 
-                // save inventory
+                // load inventory
                 Inventory.instance.items.Clear();
                 foreach (Item it in recordedInventory)
                 {
@@ -226,12 +241,12 @@ public class GameMaster : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("No player found");
+                Debug.LogWarning("No instance of Player found");
             }
         } else
         {
-            player.GetComponent<PlayerController>().currentHealth = 100;
-            player.GetComponent<PlayerController>().attackStrength = 1.0f;
+            player.GetComponent<PlayerController>().currentHealth = player.GetComponent<PlayerController>().maxHealth;
+            player.GetComponent<PlayerController>().attackStrength = 1.0f; //TODO: don't hard code attackStrength default value
             recordStats();
         }
         
