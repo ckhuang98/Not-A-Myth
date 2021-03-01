@@ -41,7 +41,7 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthAmount = 25f;
+        healthAmount = 50f;
         rb = GetComponent<Rigidbody2D>();
 
         healthBar.SetMaxValue(healthAmount);
