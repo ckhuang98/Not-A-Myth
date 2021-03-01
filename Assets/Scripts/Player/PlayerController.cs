@@ -5,6 +5,7 @@ using Vector3 = UnityEngine.Vector3;
 using Vector2 = UnityEngine.Vector2;
 using System;
 using UnityEngine.SceneManagement;
+using EZCameraShake;
 
 public class PlayerController : MonoBehaviour {
 
@@ -140,6 +141,19 @@ public class PlayerController : MonoBehaviour {
 
                 case State.Dashing:
                     handleDash();
+                    if (Input.GetMouseButtonDown(0)) {
+
+                        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                        //Debug.Log(mousePosition);
+                        attackDir = (mousePosition - this.transform.position).normalized;
+                        timer = 0;
+                        //slashAnimation.enabled = true;
+                        //Debug.Log(attackDir);
+                        playerAnimator.SetFloat("attackDirX", attackDir.x);
+                        playerAnimator.SetFloat("attackDirY", attackDir.y);
+                        //attack(attackDir);
+                        CombatManager.instance.Attack();
+                    }
                     break;
         }
         } else {
@@ -220,6 +234,15 @@ public class PlayerController : MonoBehaviour {
          canDash = true;
      }
 
+    public String getState(){
+        if(state == State.Normal){
+            return "Normal";
+        } else if(state == State.Dashing){
+            return "Dashing";
+        }
+        return "";
+    }
+
     public void gainStrength() {
 
         attackStrength += 0.2f;
@@ -277,6 +300,7 @@ public class PlayerController : MonoBehaviour {
         playHurtSFX();
         if(!isInvincible){
             currentHealth -= damage;
+            CameraShaker.Instance.ShakeOnce(3f, 3f, 0.1f, 1f);
             StartCoroutine(tempInvincible());
         }
         
