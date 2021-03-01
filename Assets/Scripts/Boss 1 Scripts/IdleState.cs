@@ -26,11 +26,11 @@ public class IdleState : BaseState
                     num = UnityEngine.Random.Range(1,4);
                 }
                 if(num == 1){
-                    _boss.speechText.text = "Eat This!";
+                    _boss.speechText.text = "Cone";
                 } else if(num == 2){
-                    _boss.speechText.text = "Take That!";
+                    _boss.speechText.text = "Slash";
                 } else if(num ==3){
-                    _boss.speechText.text = "Dodge This!";
+                    _boss.speechText.text = "Shockwave";
                 }
                 _boss.startAnimation(num);
         } else {

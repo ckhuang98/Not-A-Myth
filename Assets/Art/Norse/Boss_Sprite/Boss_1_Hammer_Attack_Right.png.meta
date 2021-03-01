@@ -1,7 +1,22 @@
 fileFormatVersion: 2
 guid: 2b99f28daad81ef4d9f92a38ba1bb960
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -6068866868755951227
+    second: Boss_1_Hammer_Attack_Right_0
+  - first:
+      213: -3639781896341878883
+    second: Boss_1_Hammer_Attack_Right_1
+  - first:
+      213: -7046586373368360613
+    second: Boss_1_Hammer_Attack_Right_2
+  - first:
+      213: -1479627392944909243
+    second: Boss_1_Hammer_Attack_Right_3
+  - first:
+      213: 3622858642040621707
+    second: Boss_1_Hammer_Attack_Right_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +86,126 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Boss_1_Hammer_Attack_Right_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 42
+        width: 1811
+        height: 1276
+      alignment: 9
+      pivot: {x: 0.49832767, y: 0.24125844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5811aa2bcbd07cba0800000000000000
+      internalID: -6068866868755951227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_1_Hammer_Attack_Right_1
+      rect:
+        serializedVersion: 2
+        x: 1834
+        y: 38
+        width: 1858
+        height: 1284
+      alignment: 9
+      pivot: {x: 0.49347928, y: 0.2381525}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9705a056a5ec7dc0800000000000000
+      internalID: -3639781896341878883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_1_Hammer_Attack_Right_2
+      rect:
+        serializedVersion: 2
+        x: 3745
+        y: 33
+        width: 1756
+        height: 1293
+      alignment: 9
+      pivot: {x: 0.53449863, y: 0.23997504}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b515540270f753e90800000000000000
+      internalID: -7046586373368360613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_1_Hammer_Attack_Right_3
+      rect:
+        serializedVersion: 2
+        x: 5630
+        y: 0
+        width: 1698
+        height: 1360
+      alignment: 9
+      pivot: {x: 0.535677, y: 0.22383206}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 544d49bb9be477be0800000000000000
+      internalID: -1479627392944909243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_1_Hammer_Attack_Right_4
+      rect:
+        serializedVersion: 2
+        x: 7599
+        y: 0
+        width: 1483
+        height: 1360
+      alignment: 9
+      pivot: {x: 0.5694446, y: 0.2706025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8a094e7dbaf64230800000000000000
+      internalID: 3622858642040621707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -1,7 +1,22 @@
 fileFormatVersion: 2
 guid: dee0bebec0c903241a2c846478cff1ec
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3504514655077144267
+    second: Boss_1_Sword_Attack_Center_0
+  - first:
+      213: -5313806072935225734
+    second: Boss_1_Sword_Attack_Center_1
+  - first:
+      213: 7525031524938438206
+    second: Boss_1_Sword_Attack_Center_2
+  - first:
+      213: 43828394804048518
+    second: Boss_1_Sword_Attack_Center_3
+  - first:
+      213: 1453061993009905012
+    second: Boss_1_Sword_Attack_Center_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +86,126 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Boss_1_Sword_Attack_Center_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 81
+        width: 1812
+        height: 1276
+      alignment: 9
+      pivot: {x: 0.49828166, y: 0.24134246}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc61606d28982a030800000000000000
+      internalID: 3504514655077144267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_1_Sword_Attack_Center_1
+      rect:
+        serializedVersion: 2
+        x: 1867
+        y: 76
+        width: 1914
+        height: 1286
+      alignment: 9
+      pivot: {x: 0.51464105, y: 0.2409326}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a76e169c7819146b0800000000000000
+      internalID: -5313806072935225734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_1_Sword_Attack_Center_2
+      rect:
+        serializedVersion: 2
+        x: 3882
+        y: 78
+        width: 1732
+        height: 1287
+      alignment: 9
+      pivot: {x: 0.46224815, y: 0.23629528}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3652977d484e6860800000000000000
+      internalID: 7525031524938438206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_1_Sword_Attack_Center_3
+      rect:
+        serializedVersion: 2
+        x: 5755
+        y: 0
+        width: 1819
+        height: 1442
+      alignment: 9
+      pivot: {x: 0.4537832, y: 0.21065933}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 682fe5f51b5bb9000800000000000000
+      internalID: 43828394804048518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_1_Sword_Attack_Center_4
+      rect:
+        serializedVersion: 2
+        x: 7825
+        y: 66
+        width: 1511
+        height: 1310
+      alignment: 9
+      pivot: {x: 0.34545106, y: 0.23617156}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47df9f91f205a2410800000000000000
+      internalID: 1453061993009905012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

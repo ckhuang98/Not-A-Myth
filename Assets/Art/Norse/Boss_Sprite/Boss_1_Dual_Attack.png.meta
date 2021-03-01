@@ -1,7 +1,22 @@
 fileFormatVersion: 2
 guid: a64eb5991ebef3649a5e2a765f0c2d02
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2610099503779404392
+    second: Boss_1_Dual_Attack_0
+  - first:
+      213: 6995299001358611917
+    second: Boss_1_Dual_Attack_1
+  - first:
+      213: -4703236327326373062
+    second: Boss_1_Dual_Attack_2
+  - first:
+      213: -7091466023608979504
+    second: Boss_1_Dual_Attack_3
+  - first:
+      213: 4298156006191291562
+    second: Boss_1_Dual_Attack_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +86,126 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Boss_1_Dual_Attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 68
+        width: 1810
+        height: 1272
+      alignment: 9
+      pivot: {x: 0.49906853, y: 0.20609276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86ad1377bafe83420800000000000000
+      internalID: 2610099503779404392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_1_Dual_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 1889
+        y: 68
+        width: 1755
+        height: 1272
+      alignment: 9
+      pivot: {x: 0.48742822, y: 0.20975682}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc5ff99016b441160800000000000000
+      internalID: 6995299001358611917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_1_Dual_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 3832
+        y: 16
+        width: 1590
+        height: 1377
+      alignment: 9
+      pivot: {x: 0.48772448, y: 0.19524164}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3baff6aa7fbabeb0800000000000000
+      internalID: -4703236327326373062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_1_Dual_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 5662
+        y: 0
+        width: 1646
+        height: 1408
+      alignment: 9
+      pivot: {x: 0.4988146, y: 0.18670253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dfe806493d069d90800000000000000
+      internalID: -7091466023608979504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_1_Dual_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 7766
+        y: 63
+        width: 1156
+        height: 1282
+      alignment: 9
+      pivot: {x: 0.527016, y: 0.21528871}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aac5e327d1e16ab30800000000000000
+      internalID: 4298156006191291562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
