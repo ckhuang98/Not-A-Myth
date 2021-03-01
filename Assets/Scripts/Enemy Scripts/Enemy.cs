@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private GameObject deathSFXObject;
 
-    [SerializeField] private Freezer freezer;
+    private Freezer freezer;
     private ObjectAudioManager audioManager;
     
     internal Vector3[] moveDirections = new Vector3[] { Vector3.up, Vector3.Normalize(Vector3.right + Vector3.up), 
@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
     {
         healthAmount = 3f;
         rb = GetComponent<Rigidbody2D>();
-
+        freezer = GameMaster.instance.GetComponent<Freezer>();
         //getting transform component from the Player
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 

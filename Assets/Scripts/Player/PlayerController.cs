@@ -113,13 +113,14 @@ public class PlayerController : MonoBehaviour {
                     dashManager();
 
                     if (Input.GetMouseButtonDown(0)) {
-
+                        if(!CombatManager.instance.canReceiveInput){
+                            CombatManager.instance.InputManager();
+                        }
                         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                         //Debug.Log(mousePosition);
                         attackDir = (mousePosition - this.transform.position).normalized;
                         timer = 0;
                         //slashAnimation.enabled = true;
-                        //Debug.Log(attackDir);
                         playerAnimator.SetFloat("attackDirX", attackDir.x);
                         playerAnimator.SetFloat("attackDirY", attackDir.y);
                         //attack(attackDir);
