@@ -73,10 +73,13 @@ public class PlayerController : MonoBehaviour {
 
     private GameMaster gameMaster;
 
+    private Freezer freezer;
+
     // Start is called before the first frame update
     void Start() {
         //slashAnimation.enabled = false;
         gameMaster = GameMaster.instance;
+        freezer = gameMaster.GetComponent<Freezer>();
         // currentHealth = maxHealth;
         // attackStrength = 1f;
         gameMaster.applyStats(true); //sets currentHealth, attackStrength, and Inventory
