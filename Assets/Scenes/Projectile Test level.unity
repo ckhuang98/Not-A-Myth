@@ -140,16 +140,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -210,8 +222,112 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hammer Giant B
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
+--- !u!1 &45267400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 45267401}
+  - component: {fileID: 45267403}
+  - component: {fileID: 45267402}
+  m_Layer: 0
+  m_Name: Armor Healthbar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &45267401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45267400}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.8500004, y: 3.100006, z: 0}
+  m_LocalScale: {x: 3, y: 0.4, z: 2}
+  m_Children: []
+  m_Father: {fileID: 640752304}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &45267402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45267400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdddadb584b2c74429b41b87eed7342e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &45267403
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45267400}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 1c89b68bcfaeeb14c86f07eb4eb32b8a, type: 3}
+  m_Color: {r: 0.19164926, g: 0.94509804, b: 0.039215684, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1001 &49533600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1200,16 +1316,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -1270,6 +1398,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hammer Giant F
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
 --- !u!4 &114388972 stripped
@@ -1287,20 +1425,37 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
+    - target: {fileID: 2148566272188717170, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
@@ -1356,6 +1511,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant P
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -1443,20 +1608,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
@@ -1512,6 +1689,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant Tutorial 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -1624,7 +1811,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.044033617, y: -0.33760023}
+  m_Offset: {x: -0.058745384, y: 0.08533478}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.54371744, y: 0.49606934}
@@ -1635,7 +1822,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6192474, y: 2.0386033}
+  m_Size: {x: 0.3687954, y: 0.542099}
   m_EdgeRadius: 0
 --- !u!95 &234701988
 Animator:
@@ -1715,7 +1902,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234701982}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.5, y: 109.1, z: 0}
+  m_LocalPosition: {x: 13.03, y: 108.23, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 1671540324}
@@ -1945,16 +2132,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -2014,6 +2213,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant O
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -2283,6 +2492,7 @@ Transform:
   - {fileID: 708023696}
   - {fileID: 1385443546}
   - {fileID: 133739705}
+  - {fileID: 1641103164}
   - {fileID: 640752304}
   - {fileID: 263004129}
   - {fileID: 232560588}
@@ -2703,18 +2913,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
+    - target: {fileID: 1111143845, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -2774,6 +3000,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'Hammer Giant M '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272820516472, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566273718171943, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566273718171961, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -3086,16 +3337,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -3155,6 +3418,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant K
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -3792,16 +4065,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -3861,6 +4146,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant L
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -3970,16 +4265,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -4039,6 +4346,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant I
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -4202,16 +4519,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -4271,6 +4600,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant E
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -4352,6 +4691,100 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865258749}
   m_CullTransparentMesh: 0
+--- !u!1 &884410976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 884410977}
+  - component: {fileID: 884410979}
+  - component: {fileID: 884410978}
+  m_Layer: 0
+  m_Name: Armor Healthbar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &884410977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884410976}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.85, y: 3.100006, z: 0}
+  m_LocalScale: {x: 3, y: 0.39999998, z: 2}
+  m_Children: []
+  m_Father: {fileID: 1385443546}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &884410978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884410976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdddadb584b2c74429b41b87eed7342e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &884410979
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884410976}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 1c89b68bcfaeeb14c86f07eb4eb32b8a, type: 3}
+  m_Color: {r: 0.19164926, g: 0.94509804, b: 0.039215684, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1001 &886609887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4365,16 +4798,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -4434,6 +4879,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant H
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -4829,6 +5284,100 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.01, y: 4.01}
   m_EdgeRadius: 0
+--- !u!1 &1057807544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1057807545}
+  - component: {fileID: 1057807546}
+  - component: {fileID: 1057807547}
+  m_Layer: 0
+  m_Name: Armor Healthbar border
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1057807545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057807544}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.14, y: 3.09, z: 0}
+  m_LocalScale: {x: 3.6, y: 0.6, z: 2}
+  m_Children: []
+  m_Father: {fileID: 640752304}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1057807546
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057807544}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 1c89b68bcfaeeb14c86f07eb4eb32b8a, type: 3}
+  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &1057807547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057807544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bbeef5a67b201749b426c198fa57c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1122814735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4838,20 +5387,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
@@ -4908,6 +5469,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hammer Giant Tutorial 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
 --- !u!4 &1122814736 stripped
@@ -4926,6 +5497,100 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25deb614805bbe6499e7764e100b0fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1161247178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1161247179}
+  - component: {fileID: 1161247180}
+  - component: {fileID: 1161247181}
+  m_Layer: 0
+  m_Name: Armor Healthbar border
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1161247179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161247178}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.14, y: 3.09, z: 0}
+  m_LocalScale: {x: 3.6, y: 0.59999996, z: 2}
+  m_Children: []
+  m_Father: {fileID: 708023696}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1161247180
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161247178}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 1c89b68bcfaeeb14c86f07eb4eb32b8a, type: 3}
+  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &1161247181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161247178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bbeef5a67b201749b426c198fa57c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1210005513
@@ -5017,7 +5682,7 @@ GameObject:
   - component: {fileID: 1243497378}
   m_Layer: 20
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21643,16 +22308,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -21713,8 +22390,112 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hammer Giant N
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
+--- !u!1 &1309123738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1309123739}
+  - component: {fileID: 1309123740}
+  - component: {fileID: 1309123741}
+  m_Layer: 0
+  m_Name: Armor Healthbar border
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1309123739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309123738}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.14, y: 3.0899963, z: 0}
+  m_LocalScale: {x: 3.6, y: 0.59999996, z: 2}
+  m_Children: []
+  m_Father: {fileID: 133739705}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1309123740
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309123738}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 1c89b68bcfaeeb14c86f07eb4eb32b8a, type: 3}
+  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &1309123741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309123738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bbeef5a67b201749b426c198fa57c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1362077261
 GameObject:
   m_ObjectHideFlags: 0
@@ -21908,16 +22689,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -21977,6 +22770,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant D
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -22123,16 +22926,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -22192,6 +23007,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant G
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -22560,6 +23385,319 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1641103163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8431690623568102684, guid: ee55f44c4fc120243b3bee8786e7110b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8431690621929257511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1641103164 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8431690623568102683, guid: ee55f44c4fc120243b3bee8786e7110b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8431690621929257511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1641103169
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641103163}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1644488966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1644488967}
+  - component: {fileID: 1644488968}
+  - component: {fileID: 1644488969}
+  m_Layer: 0
+  m_Name: Armor Healthbar border
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1644488967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644488966}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.14, y: 3.09, z: 0}
+  m_LocalScale: {x: 3.6, y: 0.59999996, z: 2}
+  m_Children: []
+  m_Father: {fileID: 263004129}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1644488968
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644488966}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 1c89b68bcfaeeb14c86f07eb4eb32b8a, type: 3}
+  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &1644488969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644488966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bbeef5a67b201749b426c198fa57c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1648528776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1648528777}
+  - component: {fileID: 1648528779}
+  - component: {fileID: 1648528778}
+  m_Layer: 0
+  m_Name: Armor Healthbar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1648528777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648528776}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.85, y: 3.100006, z: 0}
+  m_LocalScale: {x: 3, y: 0.39999998, z: 2}
+  m_Children: []
+  m_Father: {fileID: 708023696}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1648528778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648528776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdddadb584b2c74429b41b87eed7342e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &1648528779
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648528776}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 1c89b68bcfaeeb14c86f07eb4eb32b8a, type: 3}
+  m_Color: {r: 0.19164926, g: 0.94509804, b: 0.039215684, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &1657728600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1657728601}
+  - component: {fileID: 1657728603}
+  - component: {fileID: 1657728602}
+  m_Layer: 0
+  m_Name: Armor Healthbar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1657728601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657728600}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.85, y: 3.100006, z: 0}
+  m_LocalScale: {x: 3, y: 0.39999998, z: 2}
+  m_Children: []
+  m_Father: {fileID: 263004129}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1657728602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657728600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdddadb584b2c74429b41b87eed7342e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &1657728603
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657728600}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 1c89b68bcfaeeb14c86f07eb4eb32b8a, type: 3}
+  m_Color: {r: 0.19164926, g: 0.94509804, b: 0.039215684, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1671540323
 GameObject:
   m_ObjectHideFlags: 0
@@ -23461,6 +24599,100 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 43495159}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1686111640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1686111641}
+  - component: {fileID: 1686111643}
+  - component: {fileID: 1686111642}
+  m_Layer: 0
+  m_Name: Armor Healthbar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1686111641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686111640}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.85, y: 3.100006, z: 0}
+  m_LocalScale: {x: 3, y: 0.39999998, z: 2}
+  m_Children: []
+  m_Father: {fileID: 133739705}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1686111642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686111640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdddadb584b2c74429b41b87eed7342e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &1686111643
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686111640}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 1c89b68bcfaeeb14c86f07eb4eb32b8a, type: 3}
+  m_Color: {r: 0.19164926, g: 0.94509804, b: 0.039215684, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1714994267
 GameObject:
   m_ObjectHideFlags: 0
@@ -62009,16 +63241,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -62078,6 +63322,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant J
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -62193,6 +63447,100 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1831191196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1831191197}
+  - component: {fileID: 1831191198}
+  - component: {fileID: 1831191199}
+  m_Layer: 0
+  m_Name: Armor Healthbar border
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1831191197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831191196}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.14, y: 3.09, z: 0}
+  m_LocalScale: {x: 3.6, y: 0.59999996, z: 2}
+  m_Children: []
+  m_Father: {fileID: 1385443546}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1831191198
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831191196}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 1c89b68bcfaeeb14c86f07eb4eb32b8a, type: 3}
+  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &1831191199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831191196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bbeef5a67b201749b426c198fa57c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1873457618
 GameObject:
   m_ObjectHideFlags: 0
@@ -62372,16 +63720,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -62442,6 +63802,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hammer Giant A
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
 --- !u!1001 &1911648158
@@ -62457,16 +63827,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -62526,6 +63908,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant C
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -62615,26 +64007,34 @@ PrefabInstance:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: 9.92
       objectReference: {fileID: 0}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
@@ -62685,6 +64085,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant Q
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -62838,20 +64248,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1111143846, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 2148566272188717169, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
@@ -62907,6 +64329,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant Tutorial 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148566272188717183, guid: 233d8dcf2985fab4a96b43def1841674,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hammer Giant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
@@ -62985,6 +64417,92 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: decf8b17ba4b0df4d9dc5c9d47b9e0f0, type: 3}
+--- !u!1001 &8431690621929257511
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 310123243}
+    m_Modifications:
+    - target: {fileID: 8431690623568102682, guid: ee55f44c4fc120243b3bee8786e7110b,
+        type: 3}
+      propertyPath: enemyAnimator
+      value: 
+      objectReference: {fileID: 1641103169}
+    - target: {fileID: 8431690623568102682, guid: ee55f44c4fc120243b3bee8786e7110b,
+        type: 3}
+      propertyPath: damageProjectile
+      value: 
+      objectReference: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+        type: 3}
+    - target: {fileID: 8431690623568102682, guid: ee55f44c4fc120243b3bee8786e7110b,
+        type: 3}
+      propertyPath: healingProjectile
+      value: 
+      objectReference: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
+        type: 3}
+    - target: {fileID: 8431690623568102683, guid: ee55f44c4fc120243b3bee8786e7110b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431690623568102683, guid: ee55f44c4fc120243b3bee8786e7110b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431690623568102683, guid: ee55f44c4fc120243b3bee8786e7110b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 38.6193
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431690623568102683, guid: ee55f44c4fc120243b3bee8786e7110b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431690623568102683, guid: ee55f44c4fc120243b3bee8786e7110b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.9999619
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431690623568102683, guid: ee55f44c4fc120243b3bee8786e7110b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431690623568102683, guid: ee55f44c4fc120243b3bee8786e7110b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431690623568102683, guid: ee55f44c4fc120243b3bee8786e7110b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.008726277
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431690623568102683, guid: ee55f44c4fc120243b3bee8786e7110b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431690623568102683, guid: ee55f44c4fc120243b3bee8786e7110b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431690623568102683, guid: ee55f44c4fc120243b3bee8786e7110b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 361
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431690623568102684, guid: ee55f44c4fc120243b3bee8786e7110b,
+        type: 3}
+      propertyPath: m_Name
+      value: Fire Imp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ee55f44c4fc120243b3bee8786e7110b, type: 3}
 --- !u!1001 &8887195381389723030
 PrefabInstance:
   m_ObjectHideFlags: 0

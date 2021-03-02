@@ -13,7 +13,8 @@ public class WanderState : BaseState
     private bool choice;
     private float thirty = 30f;
 
-    private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+    private GameObject[] hammerGiants = GameObject.FindGameObjectsWithTag("Hammer Giant");
+    private GameObject[] fireImps = GameObject.FindGameObjectsWithTag("Fire Imp");
 
     bool hasMoved = false;
     /*
@@ -42,8 +43,11 @@ public class WanderState : BaseState
     {
         //Debug.Log("Wanderin'");
         transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * Time.deltaTime * speed;
-        _enemy.enemyAnimator.SetFloat("Horizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-        _enemy.enemyAnimator.SetFloat("Vertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+        if (_enemy.tag == "Hammer Giant") {
+            _enemy.enemyAnimator.SetFloat("Horizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("Vertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+        }
+        
         
         if (decisionTimeCount >= 0)
         {
@@ -58,23 +62,18 @@ public class WanderState : BaseState
             ChooseMoveDirection();
         }
 
-        foreach (GameObject __enemy in enemies) {
-            if (__enemy != null) {
-                float currentDistance = Vector3.Distance(transform.position, __enemy.transform.position);
-                if (currentDistance < 2.0f)
-                {
-                Vector3 dist = transform.position - __enemy.transform.position;
-                transform.position += dist * Time.deltaTime;
-                } 
-            }
-        }
-
+        NPCDetection();
         WallDetection();
 
-        if (_enemy.inBounds == true) {
-            _enemy.resetWeightsToZero();
-            return typeof(ChaseState);
+        if (_enemy.inBounds == true && _enemy.tag == "Hammer Giant") {
+            //_enemy.resetWeightsToZero();
+            //return typeof(ChaseState);
         }
+        if (_enemy.inBounds == true && _enemy.tag == "Fire Imp") {
+            _enemy.resetWeightsToZero();
+            return typeof(MaintainDistanceState);
+        }
+
         return typeof(WanderState);
     }
 
@@ -232,7 +231,27 @@ public class WanderState : BaseState
     }
 
     private void NPCDetection() {
-        
+        foreach (GameObject _hammerGiant in hammerGiants) {
+            if (_hammerGiant != null) {
+                float currentDistance = Vector3.Distance(transform.position, _hammerGiant.transform.position);
+                if (currentDistance < 2.0f)
+                {
+                    Vector3 dist = transform.position - _hammerGiant.transform.position;
+                    transform.position += dist * Time.deltaTime;
+                } 
+            }
+        }
+
+        foreach (GameObject _fireImp in fireImps) {
+            if (_fireImp != null) {
+                float currentDistance = Vector3.Distance(transform.position, _fireImp.transform.position);
+                if (currentDistance < 2.0f)
+                {
+                    Vector3 dist = transform.position - _fireImp.transform.position;
+                    transform.position += dist * Time.deltaTime;
+                } 
+            }
+        }
     }
     
 }

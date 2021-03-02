@@ -12,7 +12,8 @@ public class ChaseState : BaseState
     private Transform target;
     public float speed = 3f;
     private bool hasCircled = false;
-    private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+    private GameObject[] hammerGiants = GameObject.FindGameObjectsWithTag("Hammer Giant");
+    private GameObject[] fireImps = GameObject.FindGameObjectsWithTag("Fire Imp");
     private GameObject walls = GameObject.Find("Walls");
     private bool choice;
 
@@ -43,7 +44,7 @@ public class ChaseState : BaseState
         transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
         _enemy.enemyAnimator.SetFloat("Horizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
         _enemy.enemyAnimator.SetFloat("Vertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-        Debug.DrawRay(transform.position, _enemy.moveDirections[_enemy.currMoveDirection] * 3.0f, Color.blue);
+        //Debug.DrawRay(transform.position, _enemy.moveDirections[_enemy.currMoveDirection] * 3.0f, Color.blue);
         var delta_x = transform.position.x - target.position.x;
         var delta_y = transform.position.y - target.position.y;
         float angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
@@ -54,24 +55,14 @@ public class ChaseState : BaseState
         WallDetection();
         FailSafeDirection();  
         MoveDirection();   
-
-        foreach (GameObject __enemy in enemies) {
-            if (__enemy != null) {
-                float currentDistance = Vector3.Distance(transform.position, __enemy.transform.position);
-                if (currentDistance < 2.5f)
-                {
-                Vector3 dist = transform.position - __enemy.transform.position;
-                transform.position += dist * Time.deltaTime;
-                } 
-            }
-        }
+        NPCDetection();
 
         if (Vector3.Distance(transform.position, walls.transform.position) < 2.0f) {
             Vector3 dist = transform.position - walls.transform.position;
             transform.position += dist * Time.deltaTime;
         }
     
-        if (Vector2.Distance(transform.position, target.position) <= 1) {
+        if (Vector2.Distance(transform.position, target.position) <= 2) {
             _enemy.enemyAnimator.SetTrigger("Attack");
             return typeof(AttackState);
         } 
@@ -193,6 +184,30 @@ public class ChaseState : BaseState
                 _enemy.currMoveDirection = i;
                 //FailSafeDirection();
                 //Debug.Log("weight of " + i + " is == 1!");
+            }
+        }
+    }
+
+    private void NPCDetection() {
+        foreach (GameObject _hammerGiant in hammerGiants) {
+            if (_hammerGiant != null) {
+                float currentDistance = Vector3.Distance(transform.position, _hammerGiant.transform.position);
+                if (currentDistance < 2.0f)
+                {
+                Vector3 dist = transform.position - _hammerGiant.transform.position;
+                transform.position += dist * Time.deltaTime;
+                } 
+            }
+        }
+
+        foreach (GameObject _fireImp in fireImps) {
+            if (_fireImp != null) {
+                float currentDistance = Vector3.Distance(transform.position, _fireImp.transform.position);
+                if (currentDistance < 2.0f)
+                {
+                Vector3 dist = transform.position - _fireImp.transform.position;
+                transform.position += dist * Time.deltaTime;
+                } 
             }
         }
     }
