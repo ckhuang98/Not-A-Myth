@@ -66,7 +66,12 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthAmount = 3f;
+        if (this.tag == "Hammer Giant") {
+            healthAmount = 3f;
+        } else if (this.tag == "Fire Imp") {
+            healthAmount = 25f;
+        }
+        
         armorAmount = 0f;
         rb = GetComponent<Rigidbody2D>();
 
@@ -142,7 +147,12 @@ public class Enemy : MonoBehaviour
             if (armorAmount > 0) {
                 armorAmount -= (collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength() * .75f);
             } else {
-                healthAmount -= collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength();
+                if (this.tag == "Hammer Giant") {
+                    healthAmount -= collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength();
+                } else if (this.tag == "Fire Imp") {
+                    healthAmount -= (collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength() * 8.4f);
+                }
+                
             }
             
             var thisColor = this.GetComponent<Renderer>().material.color;

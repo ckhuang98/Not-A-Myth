@@ -13,6 +13,7 @@ public class AttackState : BaseState
     private GameObject fireParticles;
     //Area of attack has spawned
     private bool hasSpawned = false;
+    private bool gotAngle = false;
     private float angle;
     private Transform target;
 
@@ -41,16 +42,21 @@ public class AttackState : BaseState
     {
         var delta_x = transform.position.x - target.position.x;
         var delta_y = transform.position.y - target.position.y;
-        float angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
-        if (angle < 0.0f) {
-            angle = angle + 360f;
-        } 
-        //Debug.Log(angle);
+        if (gotAngle == false) {
+            angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+            if (angle < 0.0f) {
+                angle = angle + 360f;
+            }
+            gotAngle = true;
+        }
+        
+        Debug.Log(angle);
         InstantiateAoE(angle);
         _enemy.enemyAnimator.SetFloat("AttackHorzontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
         _enemy.enemyAnimator.SetFloat("AttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         if (_enemy.goToWalk == true) {
             _enemy.goToWalk = false;
+            gotAngle = false;
             return typeof(ChaseState);
         }
         //Debug.Log("GOIGN");

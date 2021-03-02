@@ -404,4 +404,10 @@ public class PlayerController : MonoBehaviour {
         audioManager.PlayRandomSoundInGroup("Hurt");
     }
 
+    private void OnTriggerEnter2D(Collider2D col) {
+        if (col.CompareTag("Imp Damage Projectile")) {
+            TakeDamage(10);
+        }
+    }
+
 }
