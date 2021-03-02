@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5347535454852803142}
+  - component: {fileID: 5347535454852803141}
   - component: {fileID: 5347535454852803143}
   - component: {fileID: 5347535454852803140}
-  - component: {fileID: 5347535454852803141}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -38,49 +38,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5347535454852803143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5347535454852803138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76ce681815ee38d459c975a8aa832b8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
-  playGroupOnStart: Boss Music
-  soundGroups:
-  - name: Boss Music
-    group: {fileID: -1905005579781237440, guid: 0652cb0a1baf2164ea5b6391384a55b5,
-      type: 2}
-    ignorePause: 0
-    volume: 0.5
-    spacialBlend: 0
-    spread: 0
-    loopingClip: 2
-    rolloffMode: 0
-    maxDistance: 0
-    sounds:
-    - name: Demo1
-      clip: {fileID: 8300000, guid: 20e3e7b1d2fdea741a5555dc997fb877, type: 3}
-      source: {fileID: 0}
-    - name: Demo2
-      clip: {fileID: 8300000, guid: e4492807c58c5a44493b631ec562c0fa, type: 3}
-      source: {fileID: 0}
-    - name: NorseDem2
-      clip: {fileID: 8300000, guid: 0555a8adb2e4c7448a6aff1ca0920c83, type: 3}
-      source: {fileID: 0}
---- !u!222 &5347535454852803140
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5347535454852803138}
-  m_CullTransparentMesh: 0
 --- !u!114 &5347535454852803141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,10 +70,56 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Description:\nHandle game audio: music and sfx. \nIncrease the Size of
-    the Sounds attribute to add another sound\n\nAttributes of a Sound:\nName: Name
-    of sound finished playing\nClip: Clip of the sound to be played\nGroup: Audio
-    group this sound is a part of\nVolume: Volume of the clip\nLoop: loop this Sound\n\nFollowing
-    Sound (Optional): Name of a sound to be played once the current sound is.\n\tThe
-    purpose of a following sound is for a track to have an intro, and then transition\n\tsmoothly
-    into a looping section. Play intro track -> play looping track"
+  m_Text: '!!!DO NOT OVERRIDE THIS PREFAB!!!
+
+
+    The AudioManager in a scene is
+    for controlling universal sounds like music and menu noises.
+
+    (Not for specific
+    instance sounds like the player or giants. They have their own individual audio
+    managers call ObjectAudioManager)
+
+
+    Properties
+
+    Sound Mixer is the mixer
+    that controls the different audio levels
+
+
+    Sound Groups is a list of individual
+    sound collections with different adjustable volume and other properties.
+
+    Each
+    sound group contains another list of sounds for that group. This is where individual
+    sound clips go. Each must be tied to a channel on the sound mixer.
+
+    For example,
+    you can have a sound group called Overworld Music which contains 3 sounds: the
+    intro, the loop, and the outro. You can also specify which sound in the group
+    you want to loop
+
+'
+--- !u!114 &5347535454852803143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5347535454852803138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ce681815ee38d459c975a8aa832b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  playGroupOnStart: 
+  soundGroups: []
+--- !u!222 &5347535454852803140
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5347535454852803138}
+  m_CullTransparentMesh: 0

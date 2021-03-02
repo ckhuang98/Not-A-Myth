@@ -263,6 +263,7 @@ MonoBehaviour:
   doAttack: 0
   deathSFXObject: {fileID: 6986382958281556572, guid: eb55799b3883de04086c3f34a5f3c139,
     type: 3}
+  freezer: {fileID: 0}
 --- !u!95 &610099760
 Animator:
   serializedVersion: 3
@@ -300,7 +301,7 @@ MonoBehaviour:
     group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
       type: 2}
     ignorePause: 0
-    volume: 0.5
+    volume: 0.3
     spacialBlend: 1
     spread: 1
     loopingClip: 
@@ -326,7 +327,7 @@ MonoBehaviour:
     group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
       type: 2}
     ignorePause: 0
-    volume: 0.5
+    volume: 0.3
     spacialBlend: 1
     spread: 1
     loopingClip: 
@@ -355,7 +356,7 @@ MonoBehaviour:
     group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
       type: 2}
     ignorePause: 0
-    volume: 0.5
+    volume: 0.3
     spacialBlend: 1
     spread: 1
     loopingClip: 
@@ -378,7 +379,7 @@ MonoBehaviour:
     group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
       type: 2}
     ignorePause: 0
-    volume: 0.5
+    volume: 0.3
     spacialBlend: 1
     spread: 1
     loopingClip: 
@@ -431,7 +432,7 @@ MonoBehaviour:
     group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
       type: 2}
     ignorePause: 0
-    volume: 0.5
+    volume: 0.3
     spacialBlend: 1
     spread: 1
     loopingClip: 

@@ -31,6 +31,8 @@ public class Boss : MonoBehaviour
 
     public bool calledAnimationHandler = false;
 
+    private Freezer freezer;
+
     void Awake() {
         fireCone.GetComponent<ParticleSystem>();
         fireCone.Pause();
@@ -49,6 +51,7 @@ public class Boss : MonoBehaviour
         stateMachine = new BossStateMachine();
         audioManager = gameObject.GetComponent<ObjectAudioManager>();
         InitializeStateMachine();
+        freezer = GameMaster.instance.GetComponent<Freezer>();
         
         if(fireCone.isPaused){
             Debug.Log("Paused Particle sys");
@@ -62,7 +65,7 @@ public class Boss : MonoBehaviour
     {
         // isDead(PlayerController.gameOver);
         stateMachine.Update();
-        isDead(PlayerController.gameOver);
+        isDead(GameMaster.instance.getGameOver());
     }
 
     /*
@@ -87,7 +90,7 @@ public class Boss : MonoBehaviour
     {
         if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .5)
         {
-            Debug.Log("Hit");
+            freezer.Freeze();
             // Vector2 knockback = rb.transform.position - collider.transform.parent.position;
             // //Debug.Log(knockback);
             // rb.AddForce(knockback.normalized * 4000f);
@@ -101,8 +104,7 @@ public class Boss : MonoBehaviour
         if (!gameOver) { 
             if (healthAmount <= 0)
             {
-                DestroyImmediate(this.gameObject);
-                Destroy(healthBar.gameObject);
+                GameMaster.instance.setGameOver(true);
             }
             timer += Time.deltaTime; // Temporary
         }

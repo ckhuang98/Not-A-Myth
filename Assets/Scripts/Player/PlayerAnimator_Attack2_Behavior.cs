@@ -9,7 +9,7 @@ public class PlayerAnimator_Attack2_Behavior : StateMachineBehaviour
     {
         CombatManager.player.attacked = true;
         CombatManager.instance.canReceiveInput = true;
-        CombatManager.player.speed = 0;
+        CombatManager.player.speed = 0.8f;
 
         CombatManager.player.slashAnimation.Play("SlashAnim2", -1, 0f);
     }

@@ -1,18 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using System.Runtime.ExceptionServices;
-using System.Threading;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.UI;
-using UnityEngine.Video;
-using UnityEngine.EventSystems;
 using Vector3 = UnityEngine.Vector3;
 using Vector2 = UnityEngine.Vector2;
 using System;
-using TMPro;
 using UnityEngine.SceneManagement;
+using EZCameraShake;
 
 public class PlayerController : MonoBehaviour {
 
@@ -46,10 +39,12 @@ public class PlayerController : MonoBehaviour {
     public Animator playerAnimator;
 
     float timer = 0f;
+
+    float fireTimer = 0f;
     private float fireStacks = 0;
 
     float healthTimer = 0f;
-    public float attackStrength = 1f;
+    public float attackStrength;
 
     private Collider2D withinAggroColliders;
     public float agroRange = 0;
@@ -70,40 +65,33 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject slashCollider;
 
-    public static bool gameOver = false;
-
-    private GameObject restart;
-    private GameObject boss;
-
     private ObjectAudioManager audioManager;
-    private GameMaster gameMaster;
-    
-    Text gameOverText;
 
     private bool isInvincible = false;
 
     private SpriteRenderer playerSprite;
 
+    private GameMaster gameMaster;
+
+    private Freezer freezer;
+
     // Start is called before the first frame update
     void Start() {
         //slashAnimation.enabled = false;
         gameMaster = GameMaster.instance;
-        currentHealth = gameMaster.getPlayerHealthRecorded() ? gameMaster.getRecordedPlayerHealth() : maxHealth;
-        healthBar.SetMaxValue(maxHealth);
-        healthBar.SetValue(currentHealth);
-        gameOverText = this.GetComponentInChildren<Canvas>().GetComponentInChildren<Text>();
+        freezer = gameMaster.GetComponent<Freezer>();
+        // currentHealth = maxHealth;
+        // attackStrength = 1f;
+        gameMaster.applyStats(true); //sets currentHealth, attackStrength, and Inventory
         Debug.developerConsoleVisible = true;
         CombatManager.instance.canReceiveInput = true;
         state = State.Normal;
-        restart = GameObject.FindWithTag("Restart");
-        restart.SetActive(false);
-        gameOver = false;
         audioManager = gameObject.GetComponent<ObjectAudioManager>();
-        boss = GameObject.FindWithTag("Boss");
-        if(boss != null){
-            bossFight = true;
-        }
         playerSprite = this.GetComponent<SpriteRenderer>();
+
+        healthBar = UI.instance.GetComponentInChildren<BarScript>();
+        healthBar.SetMaxValue(maxHealth);
+        healthBar.SetValue(currentHealth);
         //slashCollider.GetComponent<Collider>().enabled = false;
         //part = GameObject.Find("Cone Firing").GetComponent<ParticleSystem>();
     }
@@ -112,7 +100,7 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (!gameOver) {
+        if (!gameMaster.getGameOver()) {
 
             // Stop character control when mousing over inventory
             // TODO: should stop player control, maybe pause the game, when inventory is open
@@ -125,13 +113,14 @@ public class PlayerController : MonoBehaviour {
                     dashManager();
 
                     if (Input.GetMouseButtonDown(0)) {
-
+                        if(!CombatManager.instance.canReceiveInput){
+                            CombatManager.instance.InputManager();
+                        }
                         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                         //Debug.Log(mousePosition);
                         attackDir = (mousePosition - this.transform.position).normalized;
                         timer = 0;
                         //slashAnimation.enabled = true;
-                        //Debug.Log(attackDir);
                         playerAnimator.SetFloat("attackDirX", attackDir.x);
                         playerAnimator.SetFloat("attackDirY", attackDir.y);
                         //attack(attackDir);
@@ -150,13 +139,25 @@ public class PlayerController : MonoBehaviour {
                     }
 
                     hitDetection();
-                    ApplyFire();
-                    gameIsOver();
+                    checkIfPlayerIsDead();
                     break;
 
 
                 case State.Dashing:
                     handleDash();
+                    if (Input.GetMouseButtonDown(0)) {
+
+                        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                        //Debug.Log(mousePosition);
+                        attackDir = (mousePosition - this.transform.position).normalized;
+                        timer = 0;
+                        //slashAnimation.enabled = true;
+                        //Debug.Log(attackDir);
+                        playerAnimator.SetFloat("attackDirX", attackDir.x);
+                        playerAnimator.SetFloat("attackDirY", attackDir.y);
+                        //attack(attackDir);
+                        CombatManager.instance.Attack();
+                    }
                     break;
         }
         } else {
@@ -237,20 +238,23 @@ public class PlayerController : MonoBehaviour {
          canDash = true;
      }
 
+    public String getState(){
+        if(state == State.Normal){
+            return "Normal";
+        } else if(state == State.Dashing){
+            return "Dashing";
+        }
+        return "";
+    }
+
     public void gainStrength() {
 
         attackStrength += 0.2f;
-        StartCoroutine(shardText());
+        StartCoroutine(UI.instance.displayerPlayerUpdate("Stregnth Increased!"));
 
     }
 
-    private IEnumerator shardText(){
-        gameOverText.text = "Damage Increased!";
-        yield return new WaitForSeconds(1.5f);
-        gameOverText.text = "";
-    }
-
-    public float whatIsStrength() {
+    public float whatIsStrength() { // is there a purpos to this when attackStrength is public?
         return attackStrength;
     }
 
@@ -259,13 +263,7 @@ public class PlayerController : MonoBehaviour {
     {
         currentHealth = Math.Min(currentHealth + restoreHealthBy, maxHealth);
         healthBar.SetValue(currentHealth);
-        StartCoroutine(plantText());
-    }
-
-    private IEnumerator plantText(){
-        gameOverText.text = "Health Healed!";
-        yield return new WaitForSeconds(1.5f);
-        gameOverText.text = "";
+        StartCoroutine(UI.instance.displayerPlayerUpdate("Health Restored"));
     }
 
     // Handles the player movements and animations.
@@ -306,6 +304,7 @@ public class PlayerController : MonoBehaviour {
         playHurtSFX();
         if(!isInvincible){
             currentHealth -= damage;
+            CameraShaker.Instance.ShakeOnce(3f, 3f, 0.1f, 1f);
             StartCoroutine(tempInvincible());
         }
         
@@ -346,20 +345,21 @@ public class PlayerController : MonoBehaviour {
         //detection it will take damage from player per second
 
         if (withinAggroColliders != null) {
-            fireStacks += 0.01f;
             if (healthTimer >= 1) {
                 TakeDamage(10);
                 healthTimer = 0;
             }
+            if (fireStacks < 1.5) { fireStacks += Time.deltaTime; }
         }
+        ApplyFire();
     }
 
     void ApplyFire() {
-        if (fireStacks > 0.0f) {
-            if (0.0f <= fireStacks % 1.0f && fireStacks % 1.0f < 0.01f) {
-                fireStacks -= 1.0f;
-                TakeDamage(1);
-            }
+        fireTimer += Time.deltaTime;
+        if (fireTimer >= 0.5f && fireStacks >= 0.25f) {
+            TakeDamage(1);
+            fireTimer = 0;
+            fireStacks -= 0.25f;
         }
     }
 
@@ -370,23 +370,12 @@ public class PlayerController : MonoBehaviour {
     Recieves: nothing.
     Returns: nothing.
     */
-    void gameIsOver()
+    void checkIfPlayerIsDead()
     {
         if (currentHealth <= 0)
         {
-            gameOverText.text = "Game Over! You Lose!";
-            gameOver = true;
-            restart.SetActive(true);
+            gameMaster.setGameOver();
         }
-        if(bossFight){
-            if(boss == null){
-                gameOver = true;
-                restart.SetActive(true);
-            }
-        }
-    }
-    public void restartScene(){
-        SceneManager.LoadScene(0);
     }
 
     private void playFootstepSFX()

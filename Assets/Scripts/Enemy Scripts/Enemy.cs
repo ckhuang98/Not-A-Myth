@@ -4,6 +4,7 @@ using System.Threading;
 using UnityEngine;
 using System;
 using System.Linq;
+using EZCameraShake;
 
 public class Enemy : MonoBehaviour
 {
@@ -57,6 +58,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private GameObject deathSFXObject;
 
+    private Freezer freezer;
     private ObjectAudioManager audioManager;
     
     internal Vector3[] moveDirections = new Vector3[] { Vector3.up, Vector3.Normalize(Vector3.right + Vector3.up), 
@@ -74,7 +76,7 @@ public class Enemy : MonoBehaviour
         
         armorAmount = 0f;
         rb = GetComponent<Rigidbody2D>();
-
+        freezer = GameMaster.instance.GetComponent<Freezer>();
         //getting transform component from the Player
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
@@ -98,7 +100,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update() {
         enemyAnimator.SetFloat("Speed", moveDirections[currMoveDirection].sqrMagnitude);
-        isDead(PlayerController.gameOver);
+        isDead(GameMaster.instance.getGameOver());
         stateMachine.Update();
         DisplayRays();
         /*
@@ -164,6 +166,8 @@ public class Enemy : MonoBehaviour
             
 
             timer = 0;
+            CameraShaker.Instance.ShakeOnce(2f, 1.5f, 0.1f, 1f);
+            freezer.Freeze();
         }
         
         //check for when players view is overlapping with the enemy

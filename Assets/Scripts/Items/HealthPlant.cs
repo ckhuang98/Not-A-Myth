@@ -15,7 +15,7 @@ public class HealthPlant : MonoBehaviour
             bool wasPickedUp = Inventory.instance.Add(Instantiate(item)); //Returns true if the player can add item to the inventroy
             if (wasPickedUp)
             {
-                Debug.Log("Picking up " + item.name);
+                Debug.Log("Picking up " + item.itemName);
                 // collider.GetComponent<PlayerController>().gainStrength();
                 this.gameObject.GetComponent<Renderer>().enabled = false;
                 Destroy(this.gameObject);

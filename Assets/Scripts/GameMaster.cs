@@ -1,0 +1,254 @@
+﻿using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class GameMaster : MonoBehaviour
+{
+    //Create Singleton instance of GameMaster
+    public static GameMaster instance;
+    //To access GameMaster's methods and fields, call GameMaster.instance from any other script
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        } else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    [SerializeField]
+    private UI ui;
+
+    [SerializeField]
+    private GameObject player;
+
+    private bool paused = false;
+
+    [SerializeField]
+    private bool gameOver = false;
+
+    private bool statsRecorded = false;
+
+    //player stats to be saved
+    public int recordedPlayerHealth;
+    public float recordedPlayerStrength;
+    public List<Item> recordedInventory = new List<Item>();
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    // OnSceneLoaded: Called every time a new scene is loaded (before Start)
+    // Treat like a Start method for every time a new scene is loaded
+    // since the GameManager carries over into all scenes
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ui = UI.instance;
+        gameOver = false;
+        assignReferences();
+        ui.setUIForNewScene();
+        ui.updateInventoryUI();
+    }
+
+    private void Start()
+    {
+        Cursor.visible = true;
+        paused = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (paused)
+            {
+                resumeGame();
+            } else
+            {
+                pauseGame();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            assignReferences();
+            recordStats();
+        }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            applyStats();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            restartCheckpoint();
+        }
+    }
+
+    //Get necessary references to objects in the scene
+    void assignReferences()
+    {
+        player = GameObject.FindWithTag("Player");
+    }
+
+    public bool isPaused()
+    {
+        return paused;
+    }
+
+    void pauseGame(bool showMenu = true)
+    {
+        Time.timeScale = 0;
+        AudioListener.pause = true;
+        paused = true;
+        if (showMenu) ui.showPauseMenu();
+        ui.updateInventoryUI();
+    }
+
+    public void resumeGame()
+    {
+        Time.timeScale = 1;
+        AudioListener.pause = false;
+        paused = false;
+        ui.hideAllPauseMenus();
+    }
+
+    public void exitGame()
+    {
+        Application.Quit();
+    }
+
+    public void restartCheckpoint(bool fullHealth = false)
+    {
+        resumeGame();
+        if (fullHealth) //set player's health to max. Used for when restarting checkpoint after death
+        {
+            recordedPlayerHealth = player.GetComponent<PlayerController>().maxHealth;
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // Load the scene with the given build index
+    public void loadScene(int index)
+    {
+        if (!paused)
+        {
+            recordStats();
+            SceneManager.LoadScene(index);
+        }
+    }
+
+    // Load the scene witht the given name
+    public void loadScene(string name)
+    {
+        if (!paused)
+        {
+            recordStats();
+            SceneManager.LoadScene(name);
+        }
+    }
+
+    // Game over
+    public bool getGameOver()
+    {
+        return gameOver;
+    }
+
+    public void setGameOver(bool win = false)
+    {
+        string gameOverMessage = win ? "A Winner Is You!" : "Game Over!";
+        ui.showGameOverMenu(gameOverMessage);
+
+        gameOver = true;
+    }
+
+    //Player stats
+    public bool checkPlayerStatsRecorded()
+    {
+        return statsRecorded;
+    }
+
+    //record the necessary stats associated with the player and inventory
+    void recordStats()
+    {
+        if (player != null)
+        {
+            recordedPlayerHealth = player.GetComponent<PlayerController>().currentHealth;
+            recordedPlayerStrength = player.GetComponent<PlayerController>().attackStrength;
+
+            // save inventory
+            recordedInventory.Clear();
+            foreach (Item it in Inventory.instance.items)
+            {
+                Item itemCopy = Instantiate(it) as Item;
+                // change the name to avoid (Clone) in the object name
+                itemCopy.name = it.name;
+                recordedInventory.Add(itemCopy);
+            }
+
+            statsRecorded = true;
+        } else
+        {
+            Debug.LogWarning("No instance of Player found");
+            recordedPlayerHealth = 100;
+            recordedPlayerStrength = 1.0f;
+            recordedInventory.Clear();
+            statsRecorded = false;
+        }
+    }
+
+    // Apply the stats to the player and inventory
+    public void applyStats(bool overrideHealth = false)
+    {
+        if (statsRecorded)
+        {
+            if (player != null)
+            {
+                if (overrideHealth)
+                {
+                    player.GetComponent<PlayerController>().currentHealth = recordedPlayerHealth;
+                } else
+                {
+                    player.GetComponent<PlayerController>().currentHealth = player.GetComponent<PlayerController>().maxHealth;
+                }
+
+                player.GetComponent<PlayerController>().attackStrength = recordedPlayerStrength;
+
+                // load inventory
+                Inventory.instance.items.Clear();
+                foreach (Item it in recordedInventory)
+                {
+                    Item itemCopy = Instantiate(it) as Item;
+                    // change the name to avoid (Clone)
+                    itemCopy.name = it.name;
+                    Inventory.instance.items.Add(itemCopy);
+                }
+
+                ui.updateInventoryUI();
+
+                statsRecorded = true;
+            }
+            else
+            {
+                Debug.LogWarning("No instance of Player found");
+            }
+        } else
+        {
+            player.GetComponent<PlayerController>().currentHealth = player.GetComponent<PlayerController>().maxHealth;
+            player.GetComponent<PlayerController>().attackStrength = 1.0f; //TODO: don't hard code attackStrength default value
+            recordStats();
+        }
+        
+    }
+}

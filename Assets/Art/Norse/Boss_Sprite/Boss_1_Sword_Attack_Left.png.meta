@@ -1,7 +1,22 @@
 fileFormatVersion: 2
-guid: adcd9d09498e8f84489c98e83e626b68
+guid: b68ef4547fde93944aec1e9726ffe687
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7753938579843654921
+    second: Boss_1_Sword_Attack_Left_0
+  - first:
+      213: 8973932320913180206
+    second: Boss_1_Sword_Attack_Left_1
+  - first:
+      213: -8726455728517881538
+    second: Boss_1_Sword_Attack_Left_2
+  - first:
+      213: -689151295046337598
+    second: Boss_1_Sword_Attack_Left_3
+  - first:
+      213: 5466788423490375854
+    second: Boss_1_Sword_Attack_Left_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +86,126 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Boss_1_Sword_Attack_Left_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 81
+        width: 1812
+        height: 1275
+      alignment: 9
+      pivot: {x: 0.50000006, y: 0.24655063}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fad83a91f9746490800000000000000
+      internalID: -7753938579843654921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_1_Sword_Attack_Left_1
+      rect:
+        serializedVersion: 2
+        x: 1868
+        y: 77
+        width: 1912
+        height: 1288
+      alignment: 9
+      pivot: {x: 0.51280385, y: 0.24150597}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e264d6266efc98c70800000000000000
+      internalID: 8973932320913180206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_1_Sword_Attack_Left_2
+      rect:
+        serializedVersion: 2
+        x: 3883
+        y: 77
+        width: 1731
+        height: 1288
+      alignment: 9
+      pivot: {x: 0.46181506, y: 0.24340667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e31e489efb665e680800000000000000
+      internalID: -8726455728517881538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_1_Sword_Attack_Left_3
+      rect:
+        serializedVersion: 2
+        x: 5753
+        y: 0
+        width: 1820
+        height: 1442
+      alignment: 9
+      pivot: {x: 0.45426628, y: 0.21308789}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cb33466c84af66f0800000000000000
+      internalID: -689151295046337598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_1_Sword_Attack_Left_4
+      rect:
+        serializedVersion: 2
+        x: 7656
+        y: 55
+        width: 1850
+        height: 1329
+      alignment: 9
+      pivot: {x: 0.4749884, y: 0.2452064}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea09c5c5b1feddb40800000000000000
+      internalID: 5466788423490375854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

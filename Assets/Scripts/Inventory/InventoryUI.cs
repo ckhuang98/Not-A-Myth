@@ -45,26 +45,29 @@ public class InventoryUI : MonoBehaviour
     }
 
     //Update the inventory slots
-    void UpdateUI()
+    public void UpdateUI()
     {
-        for (int i = 0; i < slots.Length; i++)
+        if (slots != null)
         {
-            if (i < inventory.items.Count)
+            for (int i = 0; i < slots.Length; i++)
             {
-                slots[i].UpdateItem(inventory.items[i]);
-
-                if (i < hotbarSlots.Length)
+                if (i < inventory.items.Count)
                 {
-                    hotbarSlots[i].UpdateItem(inventory.items[i]);
+                    slots[i].UpdateItem(inventory.items[i]);
+
+                    if (i < hotbarSlots.Length)
+                    {
+                        hotbarSlots[i].UpdateItem(inventory.items[i]);
+                    }
                 }
-            }
-            else
-            {
-                slots[i].ClearSlot();
-
-                if (i < hotbarSlots.Length)
+                else
                 {
-                    hotbarSlots[i].ClearSlot();
+                    slots[i].ClearSlot();
+
+                    if (i < hotbarSlots.Length)
+                    {
+                        hotbarSlots[i].ClearSlot();
+                    }
                 }
             }
         }

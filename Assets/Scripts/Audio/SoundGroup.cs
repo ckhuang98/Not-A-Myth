@@ -17,7 +17,7 @@ public class SoundGroup
     [Range(0f, 1f)]
     public float spacialBlend;
 
-    [Range(0f, 1f)]
+    [Range(0f, 360f)]
     public float spread;
 
     public string loopingClip;

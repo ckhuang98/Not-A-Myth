@@ -24,7 +24,7 @@ public class Door : MonoBehaviour
     void Update()
     {
         if (active && Input.GetKeyDown(KeyCode.E)){
-            GameMaster.instance.loadSceneWithIndex(2);
+            GameMaster.instance.loadScene(2);
         }
     }
 
