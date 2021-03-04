@@ -66,8 +66,8 @@ public class WanderState : BaseState
         WallDetection();
 
         if (_enemy.inBounds == true && _enemy.tag == "Hammer Giant") {
-            //_enemy.resetWeightsToZero();
-            //return typeof(ChaseState);
+            _enemy.resetWeightsToZero();
+            return typeof(ChaseState);
         }
         if (_enemy.inBounds == true && _enemy.tag == "Fire Imp") {
             _enemy.resetWeightsToZero();
