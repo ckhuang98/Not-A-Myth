@@ -5,6 +5,9 @@ using UnityEngine;
 public class AreaofEffectTime : MonoBehaviour
 {
     private float destroyTime = 5f;
+    private float hitTimer = 0.25f;
+    public bool canHit = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +22,15 @@ public class AreaofEffectTime : MonoBehaviour
         } else {
             Destroy(this.gameObject);
         }
+
+        // Hit timer used to properly set 'canHit' boolean
+        if (hitTimer >= 0f) {
+            hitTimer -= Time.deltaTime;
+        } else {
+            canHit = false;
+        }
     }
+
+    // Called in PlayerController to determine if AoE circle is new
+    public bool CanHit() { return canHit; }
 }
