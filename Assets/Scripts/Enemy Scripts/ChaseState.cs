@@ -14,11 +14,9 @@ public class ChaseState : BaseState
     private bool hasCircled = false;
     private GameObject[] hammerGiants = GameObject.FindGameObjectsWithTag("Hammer Giant");
     private GameObject[] fireImps = GameObject.FindGameObjectsWithTag("Fire Imp");
+    private GameObject[] fireEels = GameObject.FindGameObjectsWithTag("Fire Eel");
     private GameObject walls = GameObject.Find("Walls");
     private bool choice;
-    private float fireTrailTimer = .5f;
-    private GameObject fireBall;
-    private float lungeAttackTimer = 3f;
 
     //private (int, int)[] successors = new NaN
 
@@ -43,11 +41,6 @@ public class ChaseState : BaseState
     */
     public override Type Tick()
     { 
-        if (_enemy.tag == "Hammer Giant") {
-            speed = 3f;
-        } else if (_enemy.tag == "Fire Eel") {
-            speed = 2f;
-        }
         _enemy.inBounds = false;
         transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
         if (_enemy.tag == "Hammer Giant") {
@@ -55,10 +48,6 @@ public class ChaseState : BaseState
             _enemy.enemyAnimator.SetFloat("Vertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         }
 
-        if (_enemy.tag == "Fire Eel") {
-            _enemy.enemyAnimator.SetFloat("EelWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-            _enemy.enemyAnimator.SetFloat("EelWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-        } 
         //Debug.DrawRay(transform.position, _enemy.moveDirections[_enemy.currMoveDirection] * 3.0f, Color.blue);
         var delta_x = transform.position.x - target.position.x;
         var delta_y = transform.position.y - target.position.y;
@@ -71,7 +60,6 @@ public class ChaseState : BaseState
         FailSafeDirection();  
         MoveDirection();   
         NPCDetection();
-        PlaceFire();
 
         if (Vector3.Distance(transform.position, walls.transform.position) < 2.0f) {
             Vector3 dist = transform.position - walls.transform.position;
@@ -85,15 +73,6 @@ public class ChaseState : BaseState
             Debug.Log("Moving to wander state");
             return typeof(WanderState);
         } 
-        if (lungeAttackTimer > 0) {
-            lungeAttackTimer -= Time.deltaTime;
-        } else {
-            if (Vector2.Distance(transform.position, target.position) <= 6 && _enemy.tag == "Fire Eel") {
-                lungeAttackTimer = 3f;
-                _enemy.enemyAnimator.SetTrigger("FireEelAttacking");
-                return typeof(LungeAttackState);
-            } 
-        }
 
         return typeof(ChaseState);
     }
@@ -234,16 +213,14 @@ public class ChaseState : BaseState
                 } 
             }
         }
-    }
 
-    private void PlaceFire() {
-        if (_enemy.tag == "Fire Eel") {
-            if (fireTrailTimer > 0) {
-                fireTrailTimer -= Time.deltaTime;
-            } else {
-                fireBall = GameObject.Instantiate(_enemy.fireTrail) as GameObject;
-                fireBall.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-                fireTrailTimer = 1f;
+        foreach(GameObject _fireEel in fireEels) {
+            if (_fireEel != null) {
+                float currentDistance = Vector3.Distance(transform.position, _fireEel.transform.position);
+                if (currentDistance < 3.0f) {
+                    Vector3 dist = transform.position - _fireEel.transform.position;
+                    transform.position += dist *Time.deltaTime;
+                }
             }
         }
     }

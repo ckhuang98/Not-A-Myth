@@ -174,7 +174,7 @@ public class Enemy : MonoBehaviour
             
 
             timer = 0;
-            //CameraShaker.Instance.ShakeOnce(2f, 1.5f, 0.1f, 1f);
+            CameraShaker.Instance.ShakeOnce(2f, 1.5f, 0.1f, 1f);
             freezer.Freeze();
         }
         

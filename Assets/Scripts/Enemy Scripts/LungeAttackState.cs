@@ -32,7 +32,7 @@ public class LungeAttackState : BaseState
         _enemy.enemyAnimator.SetFloat("EelAttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
         _enemy.enemyAnimator.SetFloat("EelAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         if (_enemy.doLungeAttack == true) {
-            //Debug.Log("Lunging");
+            Debug.Log("Lunging");
             transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
         }
         if (_enemy.goToWalk == true) {
@@ -40,7 +40,7 @@ public class LungeAttackState : BaseState
             //_enemy.doLungeAttack = false;
             _enemy.goToWalk = false;
             gotAngle = false;
-            return typeof(ChaseState);
+            return typeof(EelMaintainDistanceState);
         }
         return typeof(LungeAttackState);
     }

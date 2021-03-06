@@ -304,7 +304,7 @@ public class PlayerController : MonoBehaviour {
         playHurtSFX();
         if(!isInvincible){
             currentHealth -= damage;
-            //CameraShaker.Instance.ShakeOnce(3f, 3f, 0.1f, 1f);
+            CameraShaker.Instance.ShakeOnce(3f, 3f, 0.1f, 1f);
             StartCoroutine(tempInvincible());
         }
         
