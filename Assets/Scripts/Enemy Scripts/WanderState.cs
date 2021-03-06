@@ -12,9 +12,12 @@ public class WanderState : BaseState
     internal float decisionTimeCount = 0f;
     private bool choice;
     private float thirty = 30f;
+    private float fireTrailTimer = 1f;
+    private GameObject fireBall;
 
     private GameObject[] hammerGiants = GameObject.FindGameObjectsWithTag("Hammer Giant");
     private GameObject[] fireImps = GameObject.FindGameObjectsWithTag("Fire Imp");
+    private GameObject[] fireEels = GameObject.FindGameObjectsWithTag("Fire Eel");
 
     bool hasMoved = false;
     /*
@@ -47,7 +50,11 @@ public class WanderState : BaseState
             _enemy.enemyAnimator.SetFloat("Horizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
             _enemy.enemyAnimator.SetFloat("Vertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         }
-        
+
+        if (_enemy.tag == "Fire Eel") {
+            _enemy.enemyAnimator.SetFloat("EelWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("EelWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+        }        
         
         if (decisionTimeCount >= 0)
         {
@@ -64,8 +71,9 @@ public class WanderState : BaseState
 
         NPCDetection();
         WallDetection();
+        PlaceFire();
 
-        if (_enemy.inBounds == true && _enemy.tag == "Hammer Giant") {
+        if ((_enemy.inBounds == true && _enemy.tag == "Hammer Giant") || (_enemy.inBounds == true && _enemy.tag == "Fire Eel")) {
             _enemy.resetWeightsToZero();
             return typeof(ChaseState);
         }
@@ -225,6 +233,15 @@ public class WanderState : BaseState
                     }
                     _enemy.weightList[about_face] = 1;
                     _enemy.currMoveDirection = about_face;
+                } else if (_enemy.tag == "Fire Eel" && _enemy.castList[i].distance <= 2.5f) {
+                    var about_face = i;
+                    if (about_face >= 4) {
+                        about_face -= 4;
+                    } else if (about_face < 4) {
+                        about_face += 4;
+                    }
+                    _enemy.weightList[about_face] = 1;
+                    _enemy.currMoveDirection = about_face;
                 }
             }
         }
@@ -250,6 +267,28 @@ public class WanderState : BaseState
                     Vector3 dist = transform.position - _fireImp.transform.position;
                     transform.position += dist * Time.deltaTime;
                 } 
+            }
+        }
+
+        foreach(GameObject _fireEel in fireEels) {
+            if (_fireEel != null) {
+                float currentDistance = Vector3.Distance(transform.position, _fireEel.transform.position);
+                if (currentDistance < 3.0f) {
+                    Vector3 dist = transform.position - _fireEel.transform.position;
+                    transform.position += dist *Time.deltaTime;
+                }
+            }
+        }
+    }
+
+    private void PlaceFire() {
+        if (_enemy.tag == "Fire Eel") {
+            if (fireTrailTimer > 0) {
+                fireTrailTimer -= Time.deltaTime;
+            } else {
+                fireBall = GameObject.Instantiate(_enemy.fireTrail) as GameObject;
+                fireBall.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+                fireTrailTimer = 1f;
             }
         }
     }
