@@ -79,20 +79,17 @@ public class GameMaster : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            assignReferences();
-            recordStats();
-        }
-
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            applyStats();
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            restartCheckpoint();
+            if (paused)
+            {
+                resumeGame();
+            } else
+            {
+                pauseGame(false);
+                ui.hideHotbar();
+                ui.showSkillTree();
+            }
         }
     }
 
@@ -127,6 +124,7 @@ public class GameMaster : MonoBehaviour
         AudioListener.pause = false;
         paused = false;
         ui.hideAllPauseMenus();
+        ui.showHotbar();
     }
 
     public void exitGame()
