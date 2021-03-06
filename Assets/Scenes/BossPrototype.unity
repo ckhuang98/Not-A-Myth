@@ -3672,6 +3672,7 @@ MonoBehaviour:
   isDashButtonDown: 0
   attacked: 0
   canDash: 1
+  canDashTwice: 1
   slashCollider: {fileID: 1700799245}
 --- !u!50 &1269919533
 Rigidbody2D:
@@ -5526,6 +5527,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1472184324}
+    - target: {fileID: 8210909393460759355, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1472184324}
+    - target: {fileID: 8210909393460759355, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: exitGame
+      objectReference: {fileID: 0}
     - target: {fileID: 8439812502630407016, guid: 9bc6f6206f5387c49b65d003f009bb84,
         type: 3}
       propertyPath: m_AnchorMax.y
