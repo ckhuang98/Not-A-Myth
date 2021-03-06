@@ -102,6 +102,11 @@ public class GameMaster : MonoBehaviour
         player = GameObject.FindWithTag("Player");
     }
 
+    public GameObject getPlayer()
+    {
+        return player;
+    }
+
     public bool isPaused()
     {
         return paused;

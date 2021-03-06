@@ -36,6 +36,8 @@ public class UI : MonoBehaviour
     private GameObject gameOverMenu;
     [SerializeField]
     private GameObject playerUpdates;
+    [SerializeField]
+    private GameObject skillTree;
 
 
     // Start is called before the first frame update
@@ -62,6 +64,7 @@ public class UI : MonoBehaviour
         hidePauseMenu();
         hideControlsMenu();
         hideInventoryMenu();
+        hideSkillTree();
     }
 
     // pause menu
@@ -96,6 +99,28 @@ public class UI : MonoBehaviour
     public void updateInventoryUI()
     {
         inventoryUIComponent.UpdateUI();
+    }
+
+    //hotbar
+    public void showHotbar()
+    {
+        hotbar.SetActive(true);
+    }
+    public void hideHotbar()
+    {
+        hotbar.SetActive(false);
+    }
+
+
+    //skill tree
+    public void showSkillTree()
+    {
+        skillTree.SetActive(true);
+    }
+    public void hideSkillTree()
+    {
+        skillTree.GetComponent<SkillTree>().clearSkillDescription();
+        skillTree.SetActive(false);
     }
 
     //game over
