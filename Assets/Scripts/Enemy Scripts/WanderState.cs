@@ -73,9 +73,13 @@ public class WanderState : BaseState
         WallDetection();
         PlaceFire();
 
-        if ((_enemy.inBounds == true && _enemy.tag == "Hammer Giant") || (_enemy.inBounds == true && _enemy.tag == "Fire Eel")) {
+        if (_enemy.inBounds == true && _enemy.tag == "Hammer Giant") {
             _enemy.resetWeightsToZero();
             return typeof(ChaseState);
+        }
+        if (_enemy.inBounds == true && _enemy.tag == "Fire Eel") {
+            _enemy.resetWeightsToZero();
+            return typeof(EelMaintainDistanceState);
         }
         if (_enemy.inBounds == true && _enemy.tag == "Fire Imp") {
             _enemy.resetWeightsToZero();

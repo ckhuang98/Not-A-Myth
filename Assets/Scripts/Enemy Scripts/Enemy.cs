@@ -149,7 +149,7 @@ public class Enemy : MonoBehaviour
         }
         if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .5)
         {
-            //playHurtSFX();
+            playHurtSFX();
             // Vector2 knockback = rb.transform.position - collider.transform.parent.position;
             // //Debug.Log(knockback);
             // rb.AddForce(knockback.normalized * 4000f);
@@ -203,7 +203,7 @@ public class Enemy : MonoBehaviour
         if (!gameOver) { 
             if (healthAmount <= 0)
             {
-                //playDeathSFX();
+                playDeathSFX();
                 Destroy(this.gameObject);
                 enemyAmount -= 1;
                 spawnShard();
@@ -228,7 +228,8 @@ public class Enemy : MonoBehaviour
             { typeof(AttackState), new AttackState(this) },
             { typeof(MaintainDistanceState), new MaintainDistanceState(this) },
             { typeof(FireProjectileState), new FireProjectileState(this) },
-            { typeof(LungeAttackState), new LungeAttackState(this) }
+            { typeof(LungeAttackState), new LungeAttackState(this) },
+            { typeof(EelMaintainDistanceState), new EelMaintainDistanceState(this) }
         };
 
         stateMachine.SetStates(states);
