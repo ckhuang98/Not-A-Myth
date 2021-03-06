@@ -69,6 +69,9 @@ public class PlayerController : MonoBehaviour {
 
     public bool attacked = false;
     public bool canDash = true;
+    public bool canDashTwice = true;
+    private bool dashedOnce = false;
+    private bool dashedTwice = false;
 
     public GameObject slashCollider;
 
@@ -224,12 +227,13 @@ public class PlayerController : MonoBehaviour {
     // }
 
     private void dashManager(){
+        canDashTwice = true;
         if(Input.GetKeyDown(KeyCode.Space) && canDash){
             state = State.Dashing;
             Physics2D.IgnoreLayerCollision(9, 4, true);
-            Debug.Log("Dash");
             dashSpeed = 20f;
         }
+
     }
     private void handleDash(){
         rb.velocity = lastMoveDirection * dashSpeed;
@@ -239,14 +243,20 @@ public class PlayerController : MonoBehaviour {
             StartCoroutine(DashTimer());
             state = State.Normal;
             Physics2D.IgnoreLayerCollision(9, 4, false);
-            Debug.Log("Normal");
+        } else{
+            if(canDashTwice && Input.GetKeyDown(KeyCode.Space)){
+                dashSpeed = 20f;
+                rb.velocity = lastMoveDirection * dashSpeed;
+                dashSpeed -= dashSpeed * 5f * Time.deltaTime;
+                canDashTwice = false;
+            }
         }
     }
 
     private IEnumerator DashTimer()
      {
-         yield return new WaitForSeconds(0.7f);
-         canDash = true;
+        yield return new WaitForSeconds(0.7f);
+        canDash = true;
      }
 
     public String getState(){
