@@ -341,8 +341,8 @@ GameObject:
   - component: {fileID: 91314709}
   - component: {fileID: 91314708}
   m_Layer: 5
-  m_Name: Controls_Window
-  m_TagString: Controls
+  m_Name: Credits_Window
+  m_TagString: Credits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -839,7 +839,7 @@ GameObject:
   - component: {fileID: 872561089}
   - component: {fileID: 872561088}
   m_Layer: 5
-  m_Name: Text_Instructions
+  m_Name: Text_Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -890,21 +890,20 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\t1. Move \r\n\t\t\ta. Use W, A, S, D to move around\r\n\t2. Attack\r\n\t\t\ta.
-    Aim your Attacks by moving the Mouse\r\n\t\t\tb. Use Left Click to Attack\r\n\t3.
-    Health\r\n\t\t\ta. If you run out of Health, you lose\r\n\t4. Combos\r\n\t\t\ta.
-    Attack multiple times in a row to perform a Combo Slash\r\n\t5. Dashing\r\n\t\t\ta.
-    Use Spacebar to dash in your current move direction\r\n\t6. Inventory\r\n\t\t\ta.
-    Press I to open your inventory\r\n\t\t\tb. You can Collect Gems, which will then
-    be stored in your Inventory\r\n\t\t\tc. Click on Gems to use them\r\n\t\t\td.
-    Gems increase your Damage\n\t7.Pause\n\t\t\ta. Press Escape to bring up pause
-    menu."
+    m_LineSpacing: 1.5
+  m_Text: "Team Scrum Chums:\nAmir Alaj - Enemy AI & Combat Programmer\nKenny Blum
+    - Enemy AI & Combat Programmer, External Collaborator\nClaire Camomile - Environmental
+    Artist, Animator\nCary Huang - Lead Programmer, Gameplay Programmer\nJoonsu Jun
+    - Concept Artist, Environmental Artist\nKatarina Kelso - Lead Artist, Character
+    Artist, Animator\nFinn Morrison - UI/UX Designer/Programmer, Sound Programmer,
+    External Collaborator\nLily Pham - Character Artist, Environmental Artist, External
+    Collaaborator\nTennessee Phillips Ward - Lead Game Designer, Producer, Programmer\nAnthony
+    Pelscia - Character Artist, Concept Artist\nKalvin Vinski - Lead Sound Designer\n\t"
 --- !u!222 &872561089
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -992,7 +991,7 @@ GameObject:
   - component: {fileID: 1114517187}
   - component: {fileID: 1114517186}
   m_Layer: 5
-  m_Name: Button_Start (1)
+  m_Name: Button_Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1221,7 +1220,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Instructions
+  m_Text: Credits
 --- !u!222 &1622553913
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1243,7 +1242,7 @@ GameObject:
   - component: {fileID: 1801888167}
   - component: {fileID: 1801888166}
   m_Layer: 5
-  m_Name: Button_Instructions
+  m_Name: Button_Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1313,7 +1312,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1342202823}
-        m_MethodName: showInstructions
+        m_MethodName: showCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1443,7 +1442,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1342202823}
-        m_MethodName: hideInstructions
+        m_MethodName: hideCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

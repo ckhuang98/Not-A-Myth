@@ -5,24 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    private GameObject instructions;
+    private GameObject credits;
     void Start()
     {
-        //Assigns the instructions window to the instructions variable.
-        instructions = GameObject.FindWithTag("Controls");
+        //Assigns the credits window to the credits variable.
+        credits = GameObject.FindWithTag("Credits");
 
         //SetActive to false so the window doesn't cover the buttons.
-        instructions.SetActive(false);
+        credits.SetActive(false);
     }
 
-    //Assigned to the Instructions button.
-    public void showInstructions(){
-        instructions.SetActive(true);
+    //Assigned to the credits button.
+    public void showCredits(){
+        credits.SetActive(true);
     }
 
     //Assigned to the close button inside the instruction window.
-    public void hideInstructions(){
-        instructions.SetActive(false);
+    public void hideCredits(){
+        credits.SetActive(false);
     }
 
     //Assigned to the play button.
