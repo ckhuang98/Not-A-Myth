@@ -46,7 +46,7 @@ public class EelMaintainDistanceState : BaseState
         MaintainDistance();
         MoveDirection();   
         NPCDetection();
-        PlaceFire();
+        //PlaceFire();
 
         if (lungeAttackTimer > 0) {
             lungeAttackTimer -= Time.deltaTime;
