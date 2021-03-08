@@ -7,6 +7,8 @@ public class SkillTree : MonoBehaviour
 {
     public Text skillDescription;
 
+    public Text skillPoints;
+
     public void clearSkillDescription()
     {
         skillDescription.text = "";
