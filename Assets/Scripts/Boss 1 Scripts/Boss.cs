@@ -104,7 +104,7 @@ public class Boss : MonoBehaviour
         if (!gameOver) { 
             if (healthAmount <= 0)
             {
-                Destroy(this);
+                Destroy(this.gameObject);
                 GameMaster.instance.setGameOver(true);
             }
             timer += Time.deltaTime; // Temporary

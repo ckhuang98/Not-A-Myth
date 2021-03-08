@@ -7,7 +7,11 @@ public class SkillTree : MonoBehaviour
 {
     public Text skillDescription;
 
-    public Text skillPoints;
+    public Text skillPointsText;
+
+    private GameMaster gameMaster;
+
+    public void Start(){}
 
     public void clearSkillDescription()
     {
@@ -18,13 +22,21 @@ public class SkillTree : MonoBehaviour
         skillDescription.text = button.skillDescription + "\n" + button.currentUses + "/" + button.maxUses;
     }
 
+    public void updateSkillPoints(){
+        skillPointsText.text = "Skill Points: " + GameMaster.instance.getSkillPoints();
+    }
+
     public void increaseTotalHealth(SkillTreeButton button)
     {
         if (button.currentUses < button.maxUses)
         {
             // if player has required items
-
-            button.currentUses++;
+            if(GameMaster.instance.getSkillPoints() > 0){
+                GameMaster.instance.spendSkillPoints();
+                updateSkillPoints();
+                GameMaster.instance.gainHealth();
+                button.currentUses++;
+            }
         }
         updateSkillDescription(button);
     }
@@ -35,7 +47,12 @@ public class SkillTree : MonoBehaviour
         {
             // if player has required items
 
-            button.currentUses++;
+            if(GameMaster.instance.getSkillPoints() > 0){
+                GameMaster.instance.spendSkillPoints();
+                updateSkillPoints();
+                GameMaster.instance.gainStrength();
+                button.currentUses++;
+            }
         }
         updateSkillDescription(button);
     }
@@ -46,7 +63,12 @@ public class SkillTree : MonoBehaviour
         {
             // if player has required items
 
-            button.currentUses++;
+            if(GameMaster.instance.getSkillPoints() > 0){
+                GameMaster.instance.spendSkillPoints();
+                updateSkillPoints();
+                GameMaster.instance.gainSpeed();
+                button.currentUses++;
+            }
         }
         updateSkillDescription(button);
     }
@@ -57,7 +79,11 @@ public class SkillTree : MonoBehaviour
         {
             // if player has required items
 
-            button.currentUses++;
+            if(GameMaster.instance.getSkillPoints() > 0){
+                GameMaster.instance.spendSkillPoints();
+                updateSkillPoints();
+                button.currentUses++;
+            }
         }
         updateSkillDescription(button);
     }
