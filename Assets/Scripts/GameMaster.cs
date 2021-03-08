@@ -162,6 +162,12 @@ public class GameMaster : MonoBehaviour
         }
     }
 
+    public void loadMainMenuScene(){
+        statsRecorded = false;
+        Destroy(ui.gameObject);
+        SceneManager.LoadScene(0);
+    }
+
     // Game over
     public bool getGameOver()
     {
