@@ -25,8 +25,6 @@ public class GameMaster : MonoBehaviour
 
     [SerializeField]
     private GameObject player;
-
-    private SkillTree skillTree;
     private int skillPoints = 0;
     private int numOfShards = 0;
 
@@ -109,7 +107,7 @@ public class GameMaster : MonoBehaviour
 
     public void pickUpShard(){
         numOfShards++;
-        if(numOfShards == 3){
+        if(numOfShards == 5){
             numOfShards = 0;
             skillPoints++;
         }
@@ -131,7 +129,6 @@ public class GameMaster : MonoBehaviour
     void assignReferences()
     {
         player = GameObject.FindWithTag("Player");
-        skillTree = ui.GetComponent<SkillTree>();
     }
 
     public GameObject getPlayer()
@@ -198,8 +195,7 @@ public class GameMaster : MonoBehaviour
     }
 
     public void loadMainMenuScene(){
-        statsRecorded = false;
-        Destroy(ui.gameObject);
+        Destroy(gameObject);
         SceneManager.LoadScene(0);
     }
 
