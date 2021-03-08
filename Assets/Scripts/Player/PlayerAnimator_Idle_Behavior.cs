@@ -7,7 +7,7 @@ public class PlayerAnimator_Idle_Behavior : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       CombatManager.player.speed = 5.0f;
+       CombatManager.player.speed = CombatManager.player.maxSpeed;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -29,18 +29,21 @@ public class Shard : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.name.Equals("Player") && pickedUp == false) {
 
-            Item newItem = Instantiate(item);
-            newItem.name = item.itemName;
-            bool wasPickedUp = Inventory.instance.Add(newItem); //Returns true if the player can add item to the inventroy
-            if (wasPickedUp)
-            {
-                Debug.Log("Picking up " + newItem.itemName);
-                // collider.GetComponent<PlayerController>().gainStrength();
-                var shardObject = this.gameObject;
-                shardObject.GetComponent<Renderer>().enabled = false;
-                Destroy(this.gameObject);
-                pickedUp = true;
-            }
+            // Item newItem = Instantiate(item);
+            // newItem.name = item.itemName;
+            // bool wasPickedUp = Inventory.instance.Add(newItem); //Returns true if the player can add item to the inventroy
+            // if (wasPickedUp)
+            // {
+            //     Debug.Log("Picking up " + newItem.itemName);
+            //     // collider.GetComponent<PlayerController>().gainStrength();
+            //     var shardObject = this.gameObject;
+            //     shardObject.GetComponent<Renderer>().enabled = false;
+            //     Destroy(this.gameObject);
+            //     pickedUp = true;
+            // }
+            Destroy(this.gameObject);
+            pickedUp = true;
+            GameMaster.instance.pickUpShard();
         }
     }
 }

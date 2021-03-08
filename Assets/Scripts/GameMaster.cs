@@ -26,6 +26,10 @@ public class GameMaster : MonoBehaviour
     [SerializeField]
     private GameObject player;
 
+    private SkillTree skillTree;
+    private int skillPoints = 0;
+    private int numOfShards = 0;
+
     private bool paused = false;
 
     [SerializeField]
@@ -93,10 +97,41 @@ public class GameMaster : MonoBehaviour
         }
     }
 
+    public int getSkillPoints(){
+        return skillPoints;
+    }
+
+    public void spendSkillPoints(){
+        if(skillPoints > 0){
+            skillPoints--;
+        }
+    }
+
+    public void pickUpShard(){
+        numOfShards++;
+        if(numOfShards == 3){
+            numOfShards = 0;
+            skillPoints++;
+        }
+    }
+
+    public void gainStrength(){
+        player.GetComponent<PlayerController>().gainStrength();
+    }
+
+    public void gainHealth(){
+        player.GetComponent<PlayerController>().gainHealth();
+    }
+
+    public void gainSpeed(){
+        player.GetComponent<PlayerController>().gainSpeed();
+    }
+
     //Get necessary references to objects in the scene
     void assignReferences()
     {
         player = GameObject.FindWithTag("Player");
+        skillTree = ui.GetComponent<SkillTree>();
     }
 
     public GameObject getPlayer()

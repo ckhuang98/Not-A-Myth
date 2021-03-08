@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour {
 
     private State state;
 
-    public float speed = 5.0f;
+    public float maxSpeed = 5.0f;
+    public float speed;
     public float dashSpeed;
 
     public Rigidbody2D rb;
@@ -102,6 +103,8 @@ public class PlayerController : MonoBehaviour {
         healthBar = UI.instance.GetComponentInChildren<BarScript>();
         healthBar.SetMaxValue(maxHealth);
         healthBar.SetValue(currentHealth);
+
+        speed = maxSpeed;
         //slashCollider.GetComponent<Collider>().enabled = false;
         //part = GameObject.Find("Cone Firing").GetComponent<ParticleSystem>();
         fireAlert = this.GetComponentInChildren<Image>();
@@ -270,13 +273,23 @@ public class PlayerController : MonoBehaviour {
 
     public void gainStrength() {
 
-        attackStrength += 0.2f;
-        StartCoroutine(UI.instance.displayerPlayerUpdate("Stregnth Increased!"));
+        attackStrength += 0.75f;
+        //StartCoroutine(UI.instance.displayerPlayerUpdate("Stregnth Increased!"));
 
     }
 
     public float whatIsStrength() { // is there a purpos to this when attackStrength is public?
         return attackStrength;
+    }
+
+    public void gainHealth(){
+        maxHealth += 15;
+        healthBar.SetMaxValue(maxHealth);
+        healthBar.SetValue(currentHealth);
+    }
+
+    public void gainSpeed(){
+        maxSpeed++;
     }
 
     //restore current health

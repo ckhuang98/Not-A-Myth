@@ -116,10 +116,12 @@ public class UI : MonoBehaviour
     public void showSkillTree()
     {
         skillTree.SetActive(true);
+        skillTree.GetComponent<SkillTree>().updateSkillPoints();
     }
     public void hideSkillTree()
     {
         skillTree.GetComponent<SkillTree>().clearSkillDescription();
+        
         skillTree.SetActive(false);
     }
 
