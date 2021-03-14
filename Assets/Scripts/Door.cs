@@ -14,10 +14,11 @@ public class Door : MonoBehaviour
         if (enterInstructions == null)
         {
             enterInstructions = GameObject.FindWithTag("Enter Door Text").GetComponent<Text>();
+            enterInstructions.text = "";
         }
 
         active = false;
-        enterInstructions.text = "";
+        
     }
 
     // Update is called once per frame

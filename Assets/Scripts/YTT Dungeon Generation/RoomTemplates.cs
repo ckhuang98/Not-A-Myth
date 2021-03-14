@@ -11,6 +11,8 @@ using UnityEngine;
 
 public class RoomTemplates : MonoBehaviour
 {
+    public int maxRooms = 7;
+    public int timesClosed = 0;
     public GameObject[] bottomRooms;
     public GameObject[] topRooms;
     public GameObject[] leftRooms;
@@ -19,4 +21,14 @@ public class RoomTemplates : MonoBehaviour
     public GameObject closedRooms;
 
     public List<GameObject> rooms;
+
+    public float waitTime;
+    public GameObject door;
+
+    void Update() {
+        if(timesClosed == 4){
+            Instantiate(door, rooms[rooms.Count-1].transform.position, Quaternion.identity);
+        }
+    }
+
 }
