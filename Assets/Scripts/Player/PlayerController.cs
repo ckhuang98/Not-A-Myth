@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour {
 
     private State state;
 
-    public float speed = 5.0f;
+    public float maxSpeed = 5.0f;
+    public float speed;
     public float dashSpeed;
 
     public Rigidbody2D rb;
@@ -40,9 +41,6 @@ public class PlayerController : MonoBehaviour {
 
     float timer = 0f;
 
-    float fireTimer = 0f;
-    private float fireStacks = 0;
-
     float healthTimer = 0f;
     public float attackStrength;
 
@@ -50,6 +48,16 @@ public class PlayerController : MonoBehaviour {
     public float agroRange = 0;
 
     private int layerMask = 1 << 8;
+
+    ////////////////////////////////////
+    // Variables for fire damage.
+    bool onFire = false;
+    float fireAddTimer = 0f;
+    float fireRemoveTimer = 0f;
+    float fireDamageTimer = 0f;
+    public int fireStacks = 0;
+    public Image fireAlert;
+    ////////////////////////////////////
 
     ////////////////////////////////////
     // Variables for the health bar.
@@ -62,6 +70,9 @@ public class PlayerController : MonoBehaviour {
 
     public bool attacked = false;
     public bool canDash = true;
+    public bool canDashTwice = true;
+    private bool dashedOnce = false;
+    private bool dashedTwice = false;
 
     public GameObject slashCollider;
 
@@ -92,8 +103,13 @@ public class PlayerController : MonoBehaviour {
         healthBar = UI.instance.GetComponentInChildren<BarScript>();
         healthBar.SetMaxValue(maxHealth);
         healthBar.SetValue(currentHealth);
+
+        speed = maxSpeed;
         //slashCollider.GetComponent<Collider>().enabled = false;
         //part = GameObject.Find("Cone Firing").GetComponent<ParticleSystem>();
+        fireAlert = this.GetComponentInChildren<Image>();
+        fireAlert.fillMethod = Image.FillMethod.Vertical;
+        fireAlert.fillAmount = 0f;
     }
 
 
@@ -139,6 +155,7 @@ public class PlayerController : MonoBehaviour {
                     }
 
                     hitDetection();
+                    handleFire();
                     checkIfPlayerIsDead();
                     break;
 
@@ -213,12 +230,13 @@ public class PlayerController : MonoBehaviour {
     // }
 
     private void dashManager(){
+        canDashTwice = true;
         if(Input.GetKeyDown(KeyCode.Space) && canDash){
             state = State.Dashing;
             Physics2D.IgnoreLayerCollision(9, 4, true);
-            Debug.Log("Dash");
             dashSpeed = 20f;
         }
+
     }
     private void handleDash(){
         rb.velocity = lastMoveDirection * dashSpeed;
@@ -228,14 +246,20 @@ public class PlayerController : MonoBehaviour {
             StartCoroutine(DashTimer());
             state = State.Normal;
             Physics2D.IgnoreLayerCollision(9, 4, false);
-            Debug.Log("Normal");
+        } else{
+            if(canDashTwice && Input.GetKeyDown(KeyCode.Space)){
+                dashSpeed = 20f;
+                rb.velocity = lastMoveDirection * dashSpeed;
+                dashSpeed -= dashSpeed * 5f * Time.deltaTime;
+                canDashTwice = false;
+            }
         }
     }
 
     private IEnumerator DashTimer()
      {
-         yield return new WaitForSeconds(0.7f);
-         canDash = true;
+        yield return new WaitForSeconds(0.7f);
+        canDash = true;
      }
 
     public String getState(){
@@ -249,13 +273,23 @@ public class PlayerController : MonoBehaviour {
 
     public void gainStrength() {
 
-        attackStrength += 0.2f;
-        StartCoroutine(UI.instance.displayerPlayerUpdate("Stregnth Increased!"));
+        attackStrength += 0.75f;
+        //StartCoroutine(UI.instance.displayerPlayerUpdate("Stregnth Increased!"));
 
     }
 
     public float whatIsStrength() { // is there a purpos to this when attackStrength is public?
         return attackStrength;
+    }
+
+    public void gainHealth(){
+        maxHealth += 15;
+        healthBar.SetMaxValue(maxHealth);
+        healthBar.SetValue(currentHealth);
+    }
+
+    public void gainSpeed(){
+        maxSpeed++;
     }
 
     //restore current health
@@ -311,6 +345,14 @@ public class PlayerController : MonoBehaviour {
         healthBar.SetValue(currentHealth);
     }
 
+    // Separate from TakeDamage(), because fire damage should not
+    // have a camera shake, or allow temporary invincibility
+    public void TakeFireDamage(int damage) {
+        playHurtSFX();
+        currentHealth -= damage;
+        healthBar.SetValue(currentHealth);
+    }
+
     private IEnumerator tempInvincible(){
         isInvincible = true;
         Color alpha = playerSprite.color;
@@ -345,21 +387,78 @@ public class PlayerController : MonoBehaviour {
         //detection it will take damage from player per second
 
         if (withinAggroColliders != null) {
-            if (healthTimer >= 1) {
-                TakeDamage(10);
-                healthTimer = 0;
+
+            // If one of the colliders is an AoE circle (from a giant)
+            if (withinAggroColliders.CompareTag("Fire Giant AoE")) {
+
+                fireAddTimer += Time.deltaTime;
+                fireRemoveTimer = Mathf.Max(0f, fireRemoveTimer - Time.deltaTime);
+                
+                // If AoE is new (< 0.25 secs after creation), 10 dmg for hammer swing
+                var AoE = withinAggroColliders.GetComponent<AreaofEffectTime>();
+                if (AoE.CanHit() && healthTimer >= 1) {
+                    TakeDamage(10);
+                    healthTimer = 0;
+                }
+
+                // Increment fireStacks every 0.1 secs (onFire = T if stacks == 10)
+                if (fireAddTimer >= 0.1f) {
+                    if (fireStacks != 10) { fireStacks += 1; }
+                    if (fireStacks == 10) { onFire = true; }
+                    fireAddTimer = 0f;
+                }
             }
-            if (fireStacks < 1.5) { fireStacks += Time.deltaTime; }
+
+            // If player collides with boss slash attack, 15 damage
+            if (withinAggroColliders.CompareTag("Boss Slash")) { TakeDamage(15); }
+
+            // If the player collides with boss shockwave attack, 10 damage
+            if (withinAggroColliders.CompareTag("Shockwave")) { TakeDamage(10); }
+            
+
+            /* EXAMPLE for other types of damage
+
+             // if one of the colliders is (something else) (from some other enemy)
+             if (withinAggroColliders.CompareTag("Slowing Projectile")) {
+                 TakeDamage(5);
+                 Slow_Player(2);    // just an example function
+            }
+            */
+            
         }
-        ApplyFire();
+
+        // Note: This is likely not where this condition should be!
+        //       I ran into problems attempting to put this condition
+        //       in  (withinAggroColliders != null) condition.
+        //
+        // If not within an AoE circle, adjust timers, stacks, onFire
+        else {
+            fireRemoveTimer += Time.deltaTime;
+            fireAddTimer = Mathf.Max(0f, fireAddTimer - Time.deltaTime);
+                    
+            // If not in circle, decrement stacks (onFire = F if stacks == 0)
+            if (fireRemoveTimer >= 0.25) {
+                if (fireStacks != 0) { fireStacks -= 1; }
+                if (fireStacks == 0) { onFire = false; }
+                fireRemoveTimer = 0f;
+            }
+        }
+        
     }
 
+    // Purpose: To handle fire indicator above player
+    void handleFire() {
+        fireDamageTimer += Time.deltaTime;
+        fireAlert.fillAmount = fireStacks / 10f;
+        if (onFire) { ApplyFire(); }
+    }
+
+    // Purpose: damaging the player at a certain rate
     void ApplyFire() {
-        fireTimer += Time.deltaTime;
-        if (fireTimer >= 0.5f && fireStacks >= 0.25f) {
-            TakeDamage(1);
-            fireTimer = 0;
-            fireStacks -= 0.25f;
+        if (fireDamageTimer >= 0.5f) {
+            TakeFireDamage(2);
+            fireDamageTimer = 0f;
+            fireStacks -= 1;
         }
     }
 
@@ -391,6 +490,12 @@ public class PlayerController : MonoBehaviour {
     private void playHurtSFX()
     {
         audioManager.PlayRandomSoundInGroup("Hurt");
+    }
+
+    private void OnTriggerEnter2D(Collider2D col) {
+        if (col.CompareTag("Imp Damage Projectile")) {
+            TakeDamage(10);
+        }
     }
 
 }

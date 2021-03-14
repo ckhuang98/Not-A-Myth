@@ -13,6 +13,9 @@ public class AttackState : BaseState
     private GameObject fireParticles;
     //Area of attack has spawned
     private bool hasSpawned = false;
+    private bool gotAngle = false;
+    private float angle;
+    private Transform target;
 
     private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
@@ -24,6 +27,7 @@ public class AttackState : BaseState
     public AttackState(Enemy enemy) : base (enemy.gameObject)
     {
         _enemy = enemy; 
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     /*
@@ -36,11 +40,22 @@ public class AttackState : BaseState
     */
     public override Type Tick()
     {
-        InstantiateAoE();
+        var delta_x = transform.position.x - target.position.x;
+        var delta_y = transform.position.y - target.position.y;
+        if (gotAngle == false) {
+            angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+            if (angle < 0.0f) {
+                angle = angle + 360f;
+            }
+            gotAngle = true;
+        }
+        
+        InstantiateAoE(angle);
         _enemy.enemyAnimator.SetFloat("AttackHorzontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
         _enemy.enemyAnimator.SetFloat("AttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         if (_enemy.goToWalk == true) {
             _enemy.goToWalk = false;
+            gotAngle = false;
             return typeof(ChaseState);
         }
         //Debug.Log("GOIGN");
@@ -63,51 +78,42 @@ public class AttackState : BaseState
         return typeof(AttackState);
     }
 
-    private void InstantiateAoE() {
+    private void InstantiateAoE(float angle) {
         if (_enemy.doInstantiate == true) {
             AoE = GameObject.Instantiate(_enemy.AOE) as GameObject;
             fireParticles = GameObject.Instantiate(_enemy.fireParticle) as GameObject;
             _enemy.doInstantiate = false; 
-            if (_enemy.currMoveDirection == 0) {
+            // UP
+            if (315 > angle && angle > 225) {
+                Debug.Log("Up Attack");
                 AoE.transform.position = 
-                new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z);
+                new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
                 fireParticles.transform.position = 
-                new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z);
-            } else if (_enemy.currMoveDirection == 1) {
+                new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
+            } 
+            // RIGHT
+            if (225 > angle && angle > 135) {
+                Debug.Log("Right Attack");
                 AoE.transform.position = 
-                new Vector3(this.transform.position.x + 1, this.transform.position.y + 1, this.transform.position.z);
+                new Vector3(this.transform.position.x + 2, this.transform.position.y - 0.5f, this.transform.position.z);
                 fireParticles.transform.position = 
-                new Vector3(this.transform.position.x + 1, this.transform.position.y + 1, this.transform.position.z);
-            } else if (_enemy.currMoveDirection == 2) {
+                new Vector3(this.transform.position.x + 2, this.transform.position.y - 0.5f, this.transform.position.z);
+            } 
+            // DOWN
+            if (135 > angle && angle > 45) {
+                Debug.Log("Down attack");
                 AoE.transform.position = 
-                new Vector3(this.transform.position.x + 1, this.transform.position.y, this.transform.position.z);
+                new Vector3(this.transform.position.x, this.transform.position.y - 2.75f, this.transform.position.z);
                 fireParticles.transform.position = 
-                new Vector3(this.transform.position.x + 1, this.transform.position.y, this.transform.position.z);
-            } else if (_enemy.currMoveDirection == 3) {
+                new Vector3(this.transform.position.x, this.transform.position.y - 2.75f, this.transform.position.z);
+            } 
+            // LEFT
+            if ((45 > angle && angle > 0) || (360 > angle && angle > 315)) {
+                Debug.Log("Left Attack");
                 AoE.transform.position = 
-                new Vector3(this.transform.position.x + 1, this.transform.position.y - 1, this.transform.position.z);
+                new Vector3(this.transform.position.x - 2, this.transform.position.y - 0.5f, this.transform.position.z);
                 fireParticles.transform.position = 
-                new Vector3(this.transform.position.x + 1, this.transform.position.y - 1, this.transform.position.z);
-            } else if (_enemy.currMoveDirection == 4) {
-                AoE.transform.position = 
-                new Vector3(this.transform.position.x, this.transform.position.y - 1, this.transform.position.z);
-                fireParticles.transform.position = 
-                new Vector3(this.transform.position.x, this.transform.position.y - 1, this.transform.position.z);
-            } else if (_enemy.currMoveDirection == 5) {
-                AoE.transform.position = 
-                new Vector3(this.transform.position.x - 1, this.transform.position.y - 1, this.transform.position.z);
-                fireParticles.transform.position = 
-                new Vector3(this.transform.position.x - 1, this.transform.position.y - 1, this.transform.position.z);
-            } else if (_enemy.currMoveDirection == 6) {
-                AoE.transform.position = 
-                new Vector3(this.transform.position.x - 1, this.transform.position.y, this.transform.position.z);
-                fireParticles.transform.position = 
-                new Vector3(this.transform.position.x - 1, this.transform.position.y, this.transform.position.z);
-            } else if (_enemy.currMoveDirection == 7) {
-                AoE.transform.position = 
-                new Vector3(this.transform.position.x - 1, this.transform.position.y + 1, this.transform.position.z);
-                fireParticles.transform.position = 
-                new Vector3(this.transform.position.x - 1, this.transform.position.y + 1, this.transform.position.z);
+                new Vector3(this.transform.position.x - 2, this.transform.position.y - 0.5f, this.transform.position.z);
             }
         }
     }

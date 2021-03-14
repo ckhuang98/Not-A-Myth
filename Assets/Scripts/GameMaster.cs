@@ -25,6 +25,8 @@ public class GameMaster : MonoBehaviour
 
     [SerializeField]
     private GameObject player;
+    private int skillPoints = 0;
+    private int numOfShards = 0;
 
     private bool paused = false;
 
@@ -79,27 +81,59 @@ public class GameMaster : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            assignReferences();
-            recordStats();
+            if (paused)
+            {
+                resumeGame();
+            } else
+            {
+                pauseGame(false);
+                ui.hideHotbar();
+                ui.showSkillTree();
+            }
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            applyStats();
-        }
+    public int getSkillPoints(){
+        return skillPoints;
+    }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            restartCheckpoint();
+    public void spendSkillPoints(){
+        if(skillPoints > 0){
+            skillPoints--;
         }
+    }
+
+    public void pickUpShard(){
+        numOfShards++;
+        if(numOfShards == 5){
+            numOfShards = 0;
+            skillPoints++;
+        }
+    }
+
+    public void gainStrength(){
+        player.GetComponent<PlayerController>().gainStrength();
+    }
+
+    public void gainHealth(){
+        player.GetComponent<PlayerController>().gainHealth();
+    }
+
+    public void gainSpeed(){
+        player.GetComponent<PlayerController>().gainSpeed();
     }
 
     //Get necessary references to objects in the scene
     void assignReferences()
     {
         player = GameObject.FindWithTag("Player");
+    }
+
+    public GameObject getPlayer()
+    {
+        return player;
     }
 
     public bool isPaused()
@@ -122,6 +156,7 @@ public class GameMaster : MonoBehaviour
         AudioListener.pause = false;
         paused = false;
         ui.hideAllPauseMenus();
+        ui.showHotbar();
     }
 
     public void exitGame()
@@ -157,6 +192,11 @@ public class GameMaster : MonoBehaviour
             recordStats();
             SceneManager.LoadScene(name);
         }
+    }
+
+    public void loadMainMenuScene(){
+        Destroy(gameObject);
+        SceneManager.LoadScene(0);
     }
 
     // Game over

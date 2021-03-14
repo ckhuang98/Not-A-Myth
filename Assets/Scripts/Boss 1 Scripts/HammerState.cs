@@ -49,13 +49,13 @@ public class HammerState : BaseState
         
         var em = _boss.fireCone.emission;
 
-        Debug.Log("Hammer State!");
+        // Debug.Log("Hammer State!");
         _boss.fireCone.Play();
         em.enabled = true;
         if (timer >= 0.0f) {
             timer -= Time.deltaTime;
         } else {
-            Debug.Log("Done");
+            // Debug.Log("Done");
             //_boss.fireCone.Stop();
             GameObject.Destroy(FCA.gameObject);
             em.enabled = false;
