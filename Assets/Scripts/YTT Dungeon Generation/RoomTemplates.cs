@@ -11,7 +11,7 @@ using UnityEngine;
 
 public class RoomTemplates : MonoBehaviour
 {
-    public int maxRooms = 7;
+    public int maxRooms = 5;
     public int timesClosed = 0;
     public GameObject[] bottomRooms;
     public GameObject[] topRooms;
@@ -25,9 +25,12 @@ public class RoomTemplates : MonoBehaviour
     public float waitTime;
     public GameObject door;
 
+    private bool spawnedDoor;
+
     void Update() {
-        if(timesClosed == 4){
+        if(timesClosed == 4 && spawnedDoor == false){
             Instantiate(door, rooms[rooms.Count-1].transform.position, Quaternion.identity);
+            spawnedDoor = true;
         }
     }
 

@@ -40,6 +40,7 @@ public class RoomSpawner : MonoBehaviour
                 if(templates.rooms.Count >= templates.maxRooms){
                     GameObject room = Instantiate(templates.bottomRooms[0], transform.position, templates.bottomRooms[0].transform.rotation);
                     room.transform.parent = grid.transform;
+                    templates.timesClosed++;
                 } else{
                     rand = Random.Range(0, templates.bottomRooms.Length);
                     GameObject room = Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
@@ -55,6 +56,7 @@ public class RoomSpawner : MonoBehaviour
                 if(templates.rooms.Count >= templates.maxRooms){
                     GameObject room = Instantiate(templates.topRooms[0], transform.position, templates.bottomRooms[0].transform.rotation);
                     room.transform.parent = grid.transform;
+                    templates.timesClosed++;
                 } else{
                     rand = Random.Range(0, templates.topRooms.Length);
                     GameObject room = Instantiate(templates.topRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
@@ -71,6 +73,7 @@ public class RoomSpawner : MonoBehaviour
                 if(templates.rooms.Count >= templates.maxRooms){
                     GameObject room = Instantiate(templates.leftRooms[0], transform.position, templates.bottomRooms[0].transform.rotation);
                     room.transform.parent = grid.transform;
+                    templates.timesClosed++;
                 } else{
                     rand = Random.Range(0, templates.leftRooms.Length);
                     GameObject room = Instantiate(templates.leftRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
@@ -87,6 +90,7 @@ public class RoomSpawner : MonoBehaviour
                 if(templates.rooms.Count >= templates.maxRooms){
                     GameObject room = Instantiate(templates.rightRooms[0], transform.position, templates.bottomRooms[0].transform.rotation);
                     room.transform.parent = grid.transform;
+                    templates.timesClosed++;
                 } else{
                     rand = Random.Range(0, templates.rightRooms.Length);
                     GameObject room = Instantiate(templates.rightRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);

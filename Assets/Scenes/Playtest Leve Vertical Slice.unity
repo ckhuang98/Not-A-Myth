@@ -1585,6 +1585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c929e3e3021d87d408c10b3ec185e5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   canReceiveInput: 0
   inputReceived: 0
 --- !u!114 &211995275
@@ -53403,6 +53404,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887195380250220364, guid: 7aaa8d7b05ae8de4492656f887f3fff0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aaa8d7b05ae8de4492656f887f3fff0, type: 3}
