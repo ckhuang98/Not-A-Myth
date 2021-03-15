@@ -30,7 +30,7 @@ public class RoomSpawner : MonoBehaviour
         // Destroy(gameObject, waitTime);
         templates = GameObject.FindGameObjectWithTag("RoomTemplates").GetComponent<RoomTemplates>();
         grid = GameObject.FindWithTag("Grid");
-        Invoke("Spawn", 1f);
+        Invoke("Spawn", 0.1f);
     }
 
     private void Spawn() {
@@ -39,12 +39,12 @@ public class RoomSpawner : MonoBehaviour
                 //need to spawn a room with a BOTTOM door.
                 if(templates.rooms.Count >= templates.maxRooms){
                     GameObject room = Instantiate(templates.bottomRooms[0], transform.position, templates.bottomRooms[0].transform.rotation);
-                    room.transform.parent = grid.transform;
+                    //room.transform.parent = grid.transform;
                     templates.timesClosed++;
                 } else{
                     rand = Random.Range(0, templates.bottomRooms.Length);
                     GameObject room = Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
-                    room.transform.parent = grid.transform;
+                    //room.transform.parent = grid.transform;
                     if(rand == 0){
                         templates.timesClosed++;
                     }
@@ -55,12 +55,12 @@ public class RoomSpawner : MonoBehaviour
                 //need to spawn a room with a TOP door.
                 if(templates.rooms.Count >= templates.maxRooms){
                     GameObject room = Instantiate(templates.topRooms[0], transform.position, templates.bottomRooms[0].transform.rotation);
-                    room.transform.parent = grid.transform;
+                    //room.transform.parent = grid.transform;
                     templates.timesClosed++;
                 } else{
                     rand = Random.Range(0, templates.topRooms.Length);
                     GameObject room = Instantiate(templates.topRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
-                    room.transform.parent = grid.transform;
+                    //room.transform.parent = grid.transform;
                     if(rand == 0){
                         templates.timesClosed++;
                     }
@@ -72,12 +72,12 @@ public class RoomSpawner : MonoBehaviour
                 //need to spawn a room with a LEFT door.
                 if(templates.rooms.Count >= templates.maxRooms){
                     GameObject room = Instantiate(templates.leftRooms[0], transform.position, templates.bottomRooms[0].transform.rotation);
-                    room.transform.parent = grid.transform;
+                    //room.transform.parent = grid.transform;
                     templates.timesClosed++;
                 } else{
                     rand = Random.Range(0, templates.leftRooms.Length);
                     GameObject room = Instantiate(templates.leftRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
-                    room.transform.parent = grid.transform;
+                    //room.transform.parent = grid.transform;
                     if(rand == 0){
                         templates.timesClosed++;
                     }
@@ -89,12 +89,12 @@ public class RoomSpawner : MonoBehaviour
                 //need to spawn a room with a RIGHT door.
                 if(templates.rooms.Count >= templates.maxRooms){
                     GameObject room = Instantiate(templates.rightRooms[0], transform.position, templates.bottomRooms[0].transform.rotation);
-                    room.transform.parent = grid.transform;
+                    //room.transform.parent = grid.transform;
                     templates.timesClosed++;
                 } else{
                     rand = Random.Range(0, templates.rightRooms.Length);
                     GameObject room = Instantiate(templates.rightRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
-                    room.transform.parent = grid.transform;
+                    
                     if(rand == 0){
                         templates.timesClosed++;
                     }
@@ -113,8 +113,12 @@ public class RoomSpawner : MonoBehaviour
                 if(other.GetComponent<RoomSpawner>().spawned == false && spawned == false) {
                     //spawn walls blocking off any openings 
                     GameObject room = Instantiate(templates.closedRooms, transform.position, Quaternion.identity);
-                    room.transform.parent = grid.transform;
+                    
                     Destroy(gameObject);
+                    templates.timesClosed++;
+                    if(templates.timesClosed == 4){
+                        templates.lastRoomClosed = true;
+                    }
             }
             }
 

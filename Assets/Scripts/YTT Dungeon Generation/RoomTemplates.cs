@@ -13,6 +13,7 @@ public class RoomTemplates : MonoBehaviour
 {
     public int maxRooms = 5;
     public int timesClosed = 0;
+    public bool lastRoomClosed = false;
     public GameObject[] bottomRooms;
     public GameObject[] topRooms;
     public GameObject[] leftRooms;
@@ -29,7 +30,12 @@ public class RoomTemplates : MonoBehaviour
 
     void Update() {
         if(timesClosed == 4 && spawnedDoor == false){
-            Instantiate(door, rooms[rooms.Count-1].transform.position, Quaternion.identity);
+            if(lastRoomClosed){
+                Instantiate(door, rooms[rooms.Count-2].transform.position, Quaternion.identity);
+            } else{
+                Instantiate(door, rooms[rooms.Count-1].transform.position, Quaternion.identity);
+            }
+            
             spawnedDoor = true;
         }
     }
