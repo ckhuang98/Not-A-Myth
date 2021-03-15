@@ -11,6 +11,7 @@ public class ChaseState : BaseState
     //This is the player
     private Transform target;
     public float speed = 3f;
+    public float turnTimer = 0f;
     private bool hasCircled = false;
     private GameObject[] hammerGiants = GameObject.FindGameObjectsWithTag("Hammer Giant");
     private GameObject[] fireImps = GameObject.FindGameObjectsWithTag("Fire Imp");
@@ -40,7 +41,7 @@ public class ChaseState : BaseState
     enemy gets close, then the type of the attack state is returned
     */
     public override Type Tick()
-    { 
+    {
         _enemy.inBounds = false;
         transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
         if (_enemy.tag == "Hammer Giant") {
@@ -181,10 +182,14 @@ public class ChaseState : BaseState
             
 
     private void MoveDirection() {
+        turnTimer += Time.deltaTime;
         for (int i = 0; i < _enemy.moveDirections.Count(); i++) {
             //Debug.Log("in da mf loop");
             if (_enemy.weightList[i] == 1) {
-                _enemy.currMoveDirection = i;
+                if (turnTimer >= 0.5f) {
+                    _enemy.currMoveDirection = i;
+                    turnTimer = 0f;
+                }
                 //FailSafeDirection();
                 //Debug.Log("weight of " + i + " is == 1!");
             }

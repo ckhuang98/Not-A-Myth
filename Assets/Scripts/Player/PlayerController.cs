@@ -232,6 +232,7 @@ public class PlayerController : MonoBehaviour {
     private void dashManager(){
         canDashTwice = true;
         if(Input.GetKeyDown(KeyCode.Space) && canDash){
+            fireStacks = Mathf.Max(0, fireStacks - 2);
             state = State.Dashing;
             Physics2D.IgnoreLayerCollision(9, 4, true);
             dashSpeed = 20f;
@@ -432,7 +433,7 @@ public class PlayerController : MonoBehaviour {
         //       in  (withinAggroColliders != null) condition.
         //
         // If not within an AoE circle, adjust timers, stacks, onFire
-        else {
+        else if (fireStacks > 0) {
             fireRemoveTimer += Time.deltaTime;
             fireAddTimer = Mathf.Max(0f, fireAddTimer - Time.deltaTime);
                     
@@ -456,9 +457,9 @@ public class PlayerController : MonoBehaviour {
     // Purpose: damaging the player at a certain rate
     void ApplyFire() {
         if (fireDamageTimer >= 0.5f) {
-            TakeFireDamage(2);
+            TakeFireDamage(1);
             fireDamageTimer = 0f;
-            fireStacks -= 1;
+            // fireStacks -= 1;
         }
     }
 
