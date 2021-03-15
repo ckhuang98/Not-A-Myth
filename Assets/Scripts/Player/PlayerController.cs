@@ -414,6 +414,10 @@ public class PlayerController : MonoBehaviour {
 
             // If the player collides with boss shockwave attack, 10 damage
             if (withinAggroColliders.CompareTag("Shockwave")) { TakeDamage(10); }
+
+            if (withinAggroColliders.CompareTag("Eel Tendril")) { TakeDamage(10); }
+
+            if (withinAggroColliders.CompareTag("Fire Ball")) { TakeDamage(5); }
             
 
             /* EXAMPLE for other types of damage
