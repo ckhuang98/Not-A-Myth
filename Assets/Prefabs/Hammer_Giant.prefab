@@ -263,7 +263,6 @@ MonoBehaviour:
   doAttack: 0
   deathSFXObject: {fileID: 6986382958281556572, guid: eb55799b3883de04086c3f34a5f3c139,
     type: 3}
-  freezer: {fileID: 0}
 --- !u!95 &610099760
 Animator:
   serializedVersion: 3
@@ -295,6 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ecd75c01e16404aa4292dc739d8116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: 
   soundMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
   soundGroups:
   - name: Footsteps
