@@ -26,16 +26,19 @@ public class RoomTemplates : MonoBehaviour
     public float waitTime;
     public GameObject door;
 
+    public GameObject[] enemies;
+
     private bool spawnedDoor;
 
     void Update() {
         if(timesClosed == 4 && spawnedDoor == false){
+            GameObject doorLocation = rooms[rooms.Count-1].transform.Find("DoorSpawnPoint").gameObject;
             // if(lastRoomClosed){
             //     Instantiate(door, rooms[rooms.Count-2].transform.position, Quaternion.identity);
             // } else{
             //     Instantiate(door, rooms[rooms.Count-1].transform.position, Quaternion.identity);
             // }
-            Instantiate(door, rooms[rooms.Count-1].transform.position, Quaternion.identity);
+            Instantiate(door, doorLocation.transform.position, Quaternion.identity);
             spawnedDoor = true;
         }
     }

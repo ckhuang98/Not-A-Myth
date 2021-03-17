@@ -248,11 +248,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 0
+  armorAmount: 0
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
   AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
   fireParticle: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
     type: 3}
+  damageProjectile: {fileID: 0}
+  healingProjectile: {fileID: 0}
+  fireTrail: {fileID: 0}
   inBounds: 0
   hasCircled: 0
   enemyAnimator: {fileID: 610099760}
@@ -261,6 +265,7 @@ MonoBehaviour:
   doInstantiate: 0
   goToWalk: 0
   doAttack: 0
+  doLungeAttack: 0
   deathSFXObject: {fileID: 6986382958281556572, guid: eb55799b3883de04086c3f34a5f3c139,
     type: 3}
 --- !u!95 &610099760

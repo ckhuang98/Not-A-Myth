@@ -426,6 +426,9 @@ MonoBehaviour:
   AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
   fireParticle: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
     type: 3}
+  damageProjectile: {fileID: 0}
+  healingProjectile: {fileID: 0}
+  fireTrail: {fileID: 0}
   inBounds: 0
   hasCircled: 0
   enemyAnimator: {fileID: 0}
@@ -434,4 +437,5 @@ MonoBehaviour:
   doInstantiate: 0
   goToWalk: 0
   doAttack: 0
+  doLungeAttack: 0
   deathSFXObject: {fileID: 0}

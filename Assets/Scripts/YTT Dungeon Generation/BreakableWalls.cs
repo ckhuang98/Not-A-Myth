@@ -13,7 +13,9 @@ public class BreakableWalls : MonoBehaviour
         {
             Debug.Log("Triggered");
             Destroy(this.gameObject);
-            label.text = "";
+            if(label != null){
+                label.text = "";
+            }
         }
     }
 }

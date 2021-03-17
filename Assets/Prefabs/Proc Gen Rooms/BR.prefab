@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 575816135486542768}
   - component: {fileID: 4581752519919955467}
   - component: {fileID: 4811890480710210141}
+  - component: {fileID: 1612587960746880014}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
@@ -1010,7 +1011,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.014285743, y: 0.014395595, z: 0}
   m_MaxChunkCount: 16
@@ -1026,12 +1027,12 @@ TilemapCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183484286246138948}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
@@ -1056,6 +1057,258 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!66 &1612587960746880014
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183484286246138948}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 4581752519919955467}
+    m_ColliderPaths:
+    - - X: -29724050
+        Y: -100123080
+      - X: -19724050
+        Y: -100123080
+      - X: -19724050
+        Y: -79721848
+      - X: -59724048
+        Y: -79721848
+      - X: -59724048
+        Y: -69721848
+      - X: -69724048
+        Y: -69721848
+      - X: -69724048
+        Y: -59721852
+      - X: -79724056
+        Y: -59721852
+      - X: -79724056
+        Y: -49721852
+      - X: -89724056
+        Y: -49721852
+      - X: -89724056
+        Y: 49847096
+      - X: -79724056
+        Y: 49847096
+      - X: -79724056
+        Y: 59847096
+      - X: -69724048
+        Y: 59847096
+      - X: -69724048
+        Y: 69847096
+      - X: -59724048
+        Y: 69847096
+      - X: -59724048
+        Y: 79847096
+      - X: 59874720
+        Y: 79847096
+      - X: 59874720
+        Y: 69847096
+      - X: 69874720
+        Y: 69847096
+      - X: 69874720
+        Y: 59847096
+      - X: 79874720
+        Y: 59847096
+      - X: 79874720
+        Y: 49847096
+      - X: 89874728
+        Y: 49847096
+      - X: 89874728
+        Y: 19847098
+      - X: 100275944
+        Y: 19847098
+      - X: 100275944
+        Y: 60278148
+      - X: 90275944
+        Y: 60278148
+      - X: 90275944
+        Y: 70278152
+      - X: 80275952
+        Y: 70278152
+      - X: 80275952
+        Y: 80278152
+      - X: 70275952
+        Y: 80278152
+      - X: 70275952
+        Y: 90278152
+      - X: 60275952
+        Y: 90278152
+      - X: 60275952
+        Y: 100278152
+      - X: -60125280
+        Y: 100278152
+      - X: -60125280
+        Y: 90278152
+      - X: -70125280
+        Y: 90278152
+      - X: -70125280
+        Y: 80278152
+      - X: -80125272
+        Y: 80278152
+      - X: -80125272
+        Y: 70278152
+      - X: -90125272
+        Y: 70278152
+      - X: -90125272
+        Y: 60278148
+      - X: -100125272
+        Y: 60278148
+      - X: -100125272
+        Y: -60152904
+      - X: -90125272
+        Y: -60152904
+      - X: -90125272
+        Y: -70152904
+      - X: -80125272
+        Y: -70152904
+      - X: -80125272
+        Y: -80152904
+      - X: -70125280
+        Y: -80152904
+      - X: -70125280
+        Y: -90152904
+      - X: -60125280
+        Y: -90152904
+      - X: -60125280
+        Y: -100152904
+      - X: -29724050
+        Y: -100152904
+    - - X: 60275952
+        Y: -90152904
+      - X: 70275952
+        Y: -90152904
+      - X: 70275952
+        Y: -80152904
+      - X: 80275952
+        Y: -80152904
+      - X: 80275952
+        Y: -70152904
+      - X: 90275944
+        Y: -70152904
+      - X: 90275944
+        Y: -60152904
+      - X: 100275944
+        Y: -60152904
+      - X: 100275944
+        Y: -19721854
+      - X: 89874728
+        Y: -19721854
+      - X: 89874728
+        Y: -49721852
+      - X: 79874720
+        Y: -49721852
+      - X: 79874720
+        Y: -59721852
+      - X: 69874720
+        Y: -59721852
+      - X: 69874720
+        Y: -69721848
+      - X: 59874720
+        Y: -69721848
+      - X: 59874720
+        Y: -79721848
+      - X: 19874720
+        Y: -79721848
+      - X: 19874720
+        Y: -100123080
+      - X: 29874720
+        Y: -100123080
+      - X: 29874720
+        Y: -100152904
+      - X: 60275952
+        Y: -100152904
+  m_CompositePaths:
+    m_Paths:
+    - - {x: -2.9724345, y: -10.01529}
+      - {x: -2.9723756, y: -10.012308}
+      - {x: -1.9724051, y: -10.012279}
+      - {x: -1.9724344, y: -7.9721847}
+      - {x: -5.972405, y: -7.972155}
+      - {x: -5.972434, y: -6.9721847}
+      - {x: -6.972405, y: -6.972155}
+      - {x: -6.9724345, y: -5.972185}
+      - {x: -7.972406, y: -5.972156}
+      - {x: -7.9724355, y: -4.972185}
+      - {x: -8.972405, y: -4.972156}
+      - {x: -8.972376, y: 4.9847097}
+      - {x: -7.972406, y: 4.984739}
+      - {x: -7.972376, y: 5.9847097}
+      - {x: -6.972405, y: 5.984739}
+      - {x: -6.9723754, y: 6.9847097}
+      - {x: -5.972405, y: 6.9847393}
+      - {x: -5.9723754, y: 7.9847097}
+      - {x: 5.987472, y: 7.98468}
+      - {x: 5.987501, y: 6.9847097}
+      - {x: 6.987472, y: 6.98468}
+      - {x: 6.9875016, y: 5.9847097}
+      - {x: 7.987472, y: 5.98468}
+      - {x: 7.9875016, y: 4.9847097}
+      - {x: 8.987473, y: 4.98468}
+      - {x: 8.987502, y: 1.9847099}
+      - {x: 10.027595, y: 1.9847392}
+      - {x: 10.027565, y: 6.027815}
+      - {x: 9.027595, y: 6.027844}
+      - {x: 9.027565, y: 7.0278153}
+      - {x: 8.0275955, y: 7.027845}
+      - {x: 8.027566, y: 8.027815}
+      - {x: 7.0275955, y: 8.027844}
+      - {x: 7.0275655, y: 9.027815}
+      - {x: 6.027595, y: 9.027844}
+      - {x: 6.027566, y: 10.027815}
+      - {x: -6.012528, y: 10.027785}
+      - {x: -6.0125575, y: 9.027815}
+      - {x: -7.012528, y: 9.027785}
+      - {x: -7.0125575, y: 8.027815}
+      - {x: -8.012527, y: 8.027785}
+      - {x: -8.012557, y: 7.0278153}
+      - {x: -9.012527, y: 7.027786}
+      - {x: -9.012557, y: 6.027815}
+      - {x: -10.012527, y: 6.027786}
+      - {x: -10.012498, y: -6.0152903}
+      - {x: -9.012527, y: -6.0153203}
+      - {x: -9.012498, y: -7.0152903}
+      - {x: -8.012527, y: -7.0153203}
+      - {x: -8.012498, y: -8.01529}
+      - {x: -7.012528, y: -8.01532}
+      - {x: -7.0124984, y: -9.01529}
+      - {x: -6.012528, y: -9.01532}
+      - {x: -6.012499, y: -10.01529}
+    - - {x: 6.027566, y: -10.01529}
+      - {x: 6.027625, y: -9.01529}
+      - {x: 7.0275955, y: -9.015261}
+      - {x: 7.027625, y: -8.01529}
+      - {x: 8.0275955, y: -8.015261}
+      - {x: 8.027625, y: -7.0152903}
+      - {x: 9.027595, y: -7.0152607}
+      - {x: 9.027624, y: -6.0152903}
+      - {x: 10.027595, y: -6.015261}
+      - {x: 10.027565, y: -1.9721854}
+      - {x: 8.987473, y: -1.9722148}
+      - {x: 8.987443, y: -4.972185}
+      - {x: 7.987472, y: -4.972214}
+      - {x: 7.9874425, y: -5.972185}
+      - {x: 6.987472, y: -5.9722147}
+      - {x: 6.9874425, y: -6.9721847}
+      - {x: 5.987472, y: -6.9722147}
+      - {x: 5.9874425, y: -7.9721847}
+      - {x: 1.987472, y: -7.9722147}
+      - {x: 1.9875013, y: -10.012308}
+      - {x: 2.987472, y: -10.012338}
+      - {x: 2.9875011, y: -10.01529}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
 --- !u!1 &337587652111175452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,6 +1966,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1960095327456329162}
+  - component: {fileID: 2231598473962073409}
   m_Layer: 0
   m_Name: EnemySpawnPoint (4)
   m_TagString: EnemySpawnPoint
@@ -1734,6 +1988,18 @@ Transform:
   m_Father: {fileID: 5478597256186599220}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2231598473962073409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677787753861886862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184a898185c99b24185db6bb81e7c7ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1809465265577613446
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,7 +2320,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.014285743, y: 0.014395595, z: 0}
   m_MaxChunkCount: 16
@@ -2839,6 +3105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4978138292591332361}
+  - component: {fileID: 7402440556089951241}
   m_Layer: 0
   m_Name: EnemySpawnPoint (3)
   m_TagString: EnemySpawnPoint
@@ -2860,6 +3127,18 @@ Transform:
   m_Father: {fileID: 5478597256186599220}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7402440556089951241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4032295081097144341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184a898185c99b24185db6bb81e7c7ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4034386948707766671
 GameObject:
   m_ObjectHideFlags: 0
@@ -3234,7 +3513,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.014285743, y: 0.014395595, z: 0}
   m_MaxChunkCount: 16
@@ -4362,6 +4641,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4881294710633382369}
+  - component: {fileID: 6661191188352971600}
   m_Layer: 0
   m_Name: EnemySpawnPoint (2)
   m_TagString: EnemySpawnPoint
@@ -4383,6 +4663,18 @@ Transform:
   m_Father: {fileID: 5478597256186599220}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6661191188352971600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817267356622668816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184a898185c99b24185db6bb81e7c7ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6951463757386564028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4500,6 +4792,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4576847407928476848}
+  - component: {fileID: 1757402334463521546}
   m_Layer: 0
   m_Name: EnemySpawnPoint (1)
   m_TagString: EnemySpawnPoint
@@ -4521,6 +4814,18 @@ Transform:
   m_Father: {fileID: 5478597256186599220}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1757402334463521546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7148075807302362503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184a898185c99b24185db6bb81e7c7ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7679921228344465753
 GameObject:
   m_ObjectHideFlags: 0
@@ -8162,7 +8467,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.014285743, y: 0.014395595, z: 0}
   m_MaxChunkCount: 16
@@ -8180,6 +8485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6780051559854185388}
+  - component: {fileID: 4240979821650574557}
   m_Layer: 0
   m_Name: EnemySpawnPoint
   m_TagString: EnemySpawnPoint
@@ -8201,6 +8507,18 @@ Transform:
   m_Father: {fileID: 5478597256186599220}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4240979821650574557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8649298328211773538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184a898185c99b24185db6bb81e7c7ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8816638863965143511
 GameObject:
   m_ObjectHideFlags: 0
