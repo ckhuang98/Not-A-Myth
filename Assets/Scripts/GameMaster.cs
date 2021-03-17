@@ -175,6 +175,16 @@ public class GameMaster : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    // Load next scene
+
+    public void loadScene(){
+        if (!paused)
+        {
+            recordStats();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
+
     // Load the scene with the given build index
     public void loadScene(int index)
     {

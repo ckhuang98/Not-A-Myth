@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class Door : MonoBehaviour
     void Update()
     {
         if (active && Input.GetKeyDown(KeyCode.E)){
-            GameMaster.instance.loadScene(2);
+            GameMaster.instance.loadScene();
         }
     }
 
