@@ -30,12 +30,12 @@ public class RoomTemplates : MonoBehaviour
 
     void Update() {
         if(timesClosed == 4 && spawnedDoor == false){
-            if(lastRoomClosed){
-                Instantiate(door, rooms[rooms.Count-2].transform.position, Quaternion.identity);
-            } else{
-                Instantiate(door, rooms[rooms.Count-1].transform.position, Quaternion.identity);
-            }
-            
+            // if(lastRoomClosed){
+            //     Instantiate(door, rooms[rooms.Count-2].transform.position, Quaternion.identity);
+            // } else{
+            //     Instantiate(door, rooms[rooms.Count-1].transform.position, Quaternion.identity);
+            // }
+            Instantiate(door, rooms[rooms.Count-1].transform.position, Quaternion.identity);
             spawnedDoor = true;
         }
     }

@@ -116,9 +116,9 @@ public class RoomSpawner : MonoBehaviour
                     
                     Destroy(gameObject);
                     templates.timesClosed++;
-                    if(templates.timesClosed == 4){
-                        templates.lastRoomClosed = true;
-                    }
+                    // if(templates.timesClosed == 4){
+                    //     templates.lastRoomClosed = true;
+                    // }
             }
             }
 
