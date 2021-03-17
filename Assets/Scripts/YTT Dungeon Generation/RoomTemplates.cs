@@ -31,7 +31,7 @@ public class RoomTemplates : MonoBehaviour
     private bool spawnedDoor;
 
     void Update() {
-        if(timesClosed == 4 && spawnedDoor == false){
+        if(timesClosed >= 4 && spawnedDoor == false){
             GameObject doorLocation = rooms[rooms.Count-1].transform.Find("DoorSpawnPoint").gameObject;
             // if(lastRoomClosed){
             //     Instantiate(door, rooms[rooms.Count-2].transform.position, Quaternion.identity);

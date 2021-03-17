@@ -115,7 +115,7 @@ public class RoomSpawner : MonoBehaviour
                     GameObject room = Instantiate(templates.closedRooms, transform.position, Quaternion.identity);
                     
                     Destroy(gameObject);
-                    templates.timesClosed++;
+                    templates.timesClosed += 2;
                     // if(templates.timesClosed == 4){
                     //     templates.lastRoomClosed = true;
                     // }
