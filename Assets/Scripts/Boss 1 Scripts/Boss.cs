@@ -116,34 +116,34 @@ public class Boss : MonoBehaviour
     }
 
     public void stopAnimation(){
-        animator.SetBool("SlashCenter", false);
-        animator.SetBool("SlashRight", false);
-        animator.SetBool("SlashLeft", false);
-        animator.SetBool("ConeCenter", false);
-        animator.SetBool("ConeRight", false);
-        animator.SetBool("ConeLeft", false);
-        animator.SetBool("Shockwave", false);
+        // animator.SetBool("SlashCenter", false);
+        // animator.SetBool("SlashRight", false);
+        // animator.SetBool("SlashLeft", false);
+        // animator.SetBool("ConeCenter", false);
+        // animator.SetBool("ConeRight", false);
+        // animator.SetBool("ConeLeft", false);
+        // animator.SetBool("Shockwave", false);
     }
 
     private IEnumerator animationHandler(int num){
             if(num == 1){
                 if (target.position.x > -3 && target.position.x < 3) { // Center
-                    animator.SetBool("ConeCenter", true);
+                    animator.SetTrigger("ConeCenter");
                 } else if (target.position.x >= 3 && target.position.x < 9) { // Right
-                    animator.SetBool("ConeRight", true);
+                    animator.SetTrigger("ConeRight");
                 } else if (target.position.x > -9 && target.position.x <=-3) { // Left
-                    animator.SetBool("ConeLeft", true);
+                    animator.SetTrigger("ConeLeft");
                 }
             } else if(num == 2){ 
                 if (target.position.x > -3 && target.position.x < 3) { // Center
-                    animator.SetBool("SlashCenter", true);
+                    animator.SetTrigger("SlashCenter");
                 } else if (target.position.x >= 3 && target.position.x < 9) { // Right
-                    animator.SetBool("SlashRight", true);
+                    animator.SetTrigger("SlashRight");
                 } else if (target.position.x > -9 && target.position.x <=-3) { // Left
-                    animator.SetBool("SlashLeft", true);
+                    animator.SetTrigger("SlashLeft");
                 }
             } else if(num == 3){
-                animator.SetBool("Shockwave", true);
+                animator.SetTrigger("Shockwave");
             }
             yield return new WaitForSeconds(3.0f);
     }
