@@ -489,7 +489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxUses: 1
   currentUses: 0
-  skillDescription: Work in Progress
+  skillDescription: Gain Fire Resistance!
 --- !u!114 &125982429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,7 +534,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1664965573}
-        m_MethodName: mysterySkillUpgrade
+        m_MethodName: fireReistanceSkillUpgrade
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 125982430}
@@ -1768,7 +1768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxUses: 1
   currentUses: 0
-  skillDescription: Work in Progress
+  skillDescription: Gain Knockback!
 --- !u!114 &581519435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1813,7 +1813,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1664965573}
-        m_MethodName: mysterySkillUpgrade
+        m_MethodName: knockbackSkillUpgrade
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 581519436}
@@ -2716,7 +2716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxUses: 1
   currentUses: 0
-  skillDescription: Work in Progress
+  skillDescription: Gain Double Dash!
 --- !u!114 &1029965312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2761,7 +2761,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1664965573}
-        m_MethodName: mysterySkillUpgrade
+        m_MethodName: doubleDashSkillUpgrade
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1029965313}

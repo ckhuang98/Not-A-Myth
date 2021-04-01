@@ -35,6 +35,7 @@ public class GameMaster : MonoBehaviour
 
     private bool statsRecorded = false;
 
+
     //player stats to be saved
     public int recordedPlayerHealth;
     public float recordedPlayerStrength;
@@ -123,6 +124,18 @@ public class GameMaster : MonoBehaviour
 
     public void gainSpeed(){
         player.GetComponent<PlayerController>().gainSpeed();
+    }
+
+    public void gainFireResistance(){
+        
+    }
+
+    public void gainDoubleDash(){
+        player.GetComponent<PlayerController>().gainDoubleDash();
+    }
+
+    public void gainKnockback(){
+        player.GetComponent<PlayerController>().gainKnockback();
     }
 
     //Get necessary references to objects in the scene
