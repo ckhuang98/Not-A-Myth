@@ -2588,6 +2588,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: decf8b17ba4b0df4d9dc5c9d47b9e0f0, type: 3}
+--- !u!1 &473151830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 281763088282732764, guid: 744f5f063bee72a45bd3d2d43ff37067,
+    type: 3}
+  m_PrefabInstance: {fileID: 1799971746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &473151831
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473151830}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 10
+  m_LinearDrag: 5
+  m_AngularDrag: 5
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!4 &478019773 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3916534169070301588, guid: decf8b17ba4b0df4d9dc5c9d47b9e0f0,
@@ -2991,6 +3018,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire Eel For Split (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 281763088282732764, guid: 744f5f063bee72a45bd3d2d43ff37067,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 281763088282732766, guid: 744f5f063bee72a45bd3d2d43ff37067,
         type: 3}
       propertyPath: m_RootOrder
@@ -3070,6 +3102,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 310123243}
     m_Modifications:
+    - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9e77297748eaab74a9d8a9e3e8ebc72c,
+        type: 3}
+    - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111143848, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2148566272188717182, guid: 233d8dcf2985fab4a96b43def1841674,
         type: 3}
       propertyPath: m_RootOrder
@@ -4365,6 +4410,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fire Eel For Split
+      objectReference: {fileID: 0}
+    - target: {fileID: 281763088282732764, guid: 744f5f063bee72a45bd3d2d43ff37067,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 281763088282732766, guid: 744f5f063bee72a45bd3d2d43ff37067,
         type: 3}
@@ -20334,6 +20384,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire Eel For Split (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 281763088282732764, guid: 744f5f063bee72a45bd3d2d43ff37067,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 281763088282732766, guid: 744f5f063bee72a45bd3d2d43ff37067,
         type: 3}
       propertyPath: m_RootOrder
@@ -20564,6 +20619,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233d8dcf2985fab4a96b43def1841674, type: 3}
+--- !u!1 &1472941598 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 281763088282732764, guid: 744f5f063bee72a45bd3d2d43ff37067,
+    type: 3}
+  m_PrefabInstance: {fileID: 2128129692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1472941599
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472941598}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 5
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1001 &1482219856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52570,6 +52652,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire Eel For Split (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 281763088282732764, guid: 744f5f063bee72a45bd3d2d43ff37067,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 281763088282732766, guid: 744f5f063bee72a45bd3d2d43ff37067,
         type: 3}
       propertyPath: m_RootOrder
@@ -53389,6 +53476,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Eel Tendril
+      objectReference: {fileID: 0}
+    - target: {fileID: 281763089236605731, guid: 744f5f063bee72a45bd3d2d43ff37067,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9e77297748eaab74a9d8a9e3e8ebc72c,
+        type: 3}
+    - target: {fileID: 281763089236605731, guid: 744f5f063bee72a45bd3d2d43ff37067,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 281763089236605731, guid: 744f5f063bee72a45bd3d2d43ff37067,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 744f5f063bee72a45bd3d2d43ff37067, type: 3}

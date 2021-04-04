@@ -16,6 +16,7 @@ public class EelMaintainDistanceState : BaseState
     private GameObject fireBall;
     private GameObject walls = GameObject.Find("Walls");
     private bool choice;
+    private bool stop = false;
     private float lungeAttackTimer = 3f;
     private bool movingBack = false;
 
@@ -26,7 +27,10 @@ public class EelMaintainDistanceState : BaseState
     }
 
     public override Type Tick() {
-        transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
+        if (stop == false) {
+            transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
+        }
+        
         if (_enemy.tag == "Fire Eel") {
             _enemy.enemyAnimator.SetFloat("EelWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
             _enemy.enemyAnimator.SetFloat("EelWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
@@ -135,8 +139,9 @@ public class EelMaintainDistanceState : BaseState
     }
 
     private void MaintainDistance() {
-        if (Vector2.Distance(transform.position, target.position) <= 5) {
+        if (Vector2.Distance(transform.position, target.position) <= 3) {
             movingBack = true;
+            stop = false;
             Debug.Log("Trying to move back");
             var about_face = _enemy.currMoveDirection;
             if (about_face >= 4) {
@@ -146,8 +151,12 @@ public class EelMaintainDistanceState : BaseState
             }
             _enemy.weightList[about_face] = 1;
             _enemy.currMoveDirection = about_face;
-        } else {
+        } else if (Vector2.Distance(transform.position, target.position) >= 4.5) {
+            stop = false;
             movingBack = false;
+        } else {
+            stop = true;
+            transform.position = this.transform.position;
         }
     }
 
