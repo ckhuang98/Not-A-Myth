@@ -10,6 +10,8 @@ public class IdleState : BaseState
     private Boss _boss;
     private int num;
 
+    private bool calledAnim = false;
+
     public IdleState(Boss boss) : base (boss.gameObject)
     {
         _boss = boss;
@@ -19,9 +21,7 @@ public class IdleState : BaseState
     public override Type Tick()
     {
         timer += Time.deltaTime;
-        if (timer < 2.5f && timer > 1.5f) {
-            _boss.stopAnimation();
-        } else if(timer < 3.0f && timer > 2.5f){
+        if(timer < 2.7f && timer > 1.5f){
                 if(num == 0){
                     num = UnityEngine.Random.Range(1,4);
                 }
@@ -32,7 +32,11 @@ public class IdleState : BaseState
                 } else if(num ==3){
                     _boss.speechText.text = "Shockwave";
                 }
-                _boss.startAnimation(num);
+                if(calledAnim == false){
+                    _boss.startAnimation(num);
+                    calledAnim = true;
+                }
+                
         } else {
             _boss.speechText.text = "";
             if (num == 1) {
@@ -55,6 +59,7 @@ public class IdleState : BaseState
                 return typeof(ProjectileState);
                 
             }
+            calledAnim = false;
          }
 
         //Debug.Log("Idle State!");
