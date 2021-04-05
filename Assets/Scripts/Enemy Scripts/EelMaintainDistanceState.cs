@@ -17,6 +17,7 @@ public class EelMaintainDistanceState : BaseState
     private GameObject walls = GameObject.Find("Walls");
     private bool choice;
     private bool stop = false;
+    private bool attackDistance = false;
     private float lungeAttackTimer = 3f;
     private bool movingBack = false;
 
@@ -26,7 +27,14 @@ public class EelMaintainDistanceState : BaseState
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
+    /*
+    Purpose: Calls all functions in order to successfully maintain distance of the player
+    Recieves: nothing
+    Returns: the type of the current chase state consistently returned, until the 
+    enemy gets close, then the type of the attack state is returned
+    */
     public override Type Tick() {
+        //Debug.Log("I'm here");
         if (stop == false) {
             transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
         }
@@ -55,7 +63,7 @@ public class EelMaintainDistanceState : BaseState
         if (lungeAttackTimer > 0) {
             lungeAttackTimer -= Time.deltaTime;
         } else {
-            if (movingBack == true) {
+            if (attackDistance == true) {
                 lungeAttackTimer = 3f;
                 _enemy.enemyAnimator.SetTrigger("FireEelAttacking");
                 return typeof(LungeAttackState);
@@ -65,6 +73,12 @@ public class EelMaintainDistanceState : BaseState
         return typeof(EelMaintainDistanceState);
     }
 
+    /*
+    Purpose: Uses the angle of the player relative to the enemy, and picks the proper
+    move direction accordingly.
+    Recieves: A float "angle" which is the angle relative to the player and the enemy.
+    Returns: nothing
+    */
     private void LocatePlayer(float angle) {
         // transform.position += _enemy.moveDirections[i] * speed * Time.deltaTime;
 
@@ -113,7 +127,12 @@ public class EelMaintainDistanceState : BaseState
         }
     }
     
-
+    /*
+    Purpose: If a wall is detected within 1.5 pixels away, the enemy will make a
+    180 and walk away from wall.
+    Recieves: nothing
+    Returns: nothing
+    */
     private void WallDetection() {
         // Adjust weight list: -1 for wall, 0 for non-wall
         for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
@@ -127,9 +146,8 @@ public class EelMaintainDistanceState : BaseState
             }
         }
     }
-
+    /*
     private void findNextDirection() {
-        Debug.Log("Stuck Here");
         for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
             if (_enemy.weightList[i] == 0) {
                 _enemy.weightList[i] = 1;
@@ -137,12 +155,19 @@ public class EelMaintainDistanceState : BaseState
             }
         }
     }
+    */
 
+    /*
+    Purpose: makes sure the enemy is in between the specified distances  of the player. If it
+    gets too close the eel will do a 180, if its too far it will chase, otherwise it stops.
+    Recieves: nothing
+    Returns: nothing
+    */
     private void MaintainDistance() {
-        if (Vector2.Distance(transform.position, target.position) <= 3) {
+        if (Vector2.Distance(transform.position, target.position) <= 2.5) {
+            attackDistance = true;
             movingBack = true;
             stop = false;
-            Debug.Log("Trying to move back");
             var about_face = _enemy.currMoveDirection;
             if (about_face >= 4) {
                 about_face -= 4;
@@ -151,15 +176,23 @@ public class EelMaintainDistanceState : BaseState
             }
             _enemy.weightList[about_face] = 1;
             _enemy.currMoveDirection = about_face;
-        } else if (Vector2.Distance(transform.position, target.position) >= 4.5) {
+        } else if (Vector2.Distance(transform.position, target.position) >= 3.75) {
             stop = false;
             movingBack = false;
+            attackDistance = false;
         } else {
+            attackDistance = true;
             stop = true;
             transform.position = this.transform.position;
         }
     }
 
+    /*
+    Purpose: If the current move direction finds an obstacle and becomes a weight of
+    -1. FialSafeDirection finds the next best direction to take.
+    Recieves: nothing
+    Returns: nothing
+    */
     private void FailSafeDirection() {
         if (_enemy.weightList[_enemy.currMoveDirection] == -1) {
             if (_enemy.currMoveDirection == 7) {
@@ -189,18 +222,26 @@ public class EelMaintainDistanceState : BaseState
         }
     }
             
-
+    /*
+    Purpose: sets the current move direction to the direction with a weight of 1
+    Recieves: nothing
+    Returns: nothign
+    */
     private void MoveDirection() {
         for (int i = 0; i < _enemy.moveDirections.Count(); i++) {
-            //Debug.Log("in da mf loop");
             if (_enemy.weightList[i] == 1) {
                 _enemy.currMoveDirection = i;
                 //FailSafeDirection();
-                //Debug.Log("weight of " + i + " is == 1!");
             }
         }
     }
 
+    /*
+    Purpose: If another enemy if detected they will slowly avoid each other. Different
+    distances are based on the enemies different sizes.
+    Recieves: nothing.
+    Returns: nothing
+    */
     private void NPCDetection() {
         foreach (GameObject _hammerGiant in hammerGiants) {
             if (_hammerGiant != null) {
@@ -235,6 +276,11 @@ public class EelMaintainDistanceState : BaseState
         }
     }
 
+    /*
+    Purpose: Drops a fireball every half second
+    Recieves: nothing
+    Returns: nothing
+    */
     private void PlaceFire() {
         if (_enemy.tag == "Fire Eel") {
             if (fireTrailTimer > 0) {

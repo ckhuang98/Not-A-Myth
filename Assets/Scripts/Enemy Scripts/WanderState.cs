@@ -11,7 +11,6 @@ public class WanderState : BaseState
     private Vector2 decisionTime = new Vector2(1, 4);
     internal float decisionTimeCount = 0f;
     private bool choice;
-    private float thirty = 30f;
     private float fireTrailTimer = 1f;
     private GameObject fireBall;
 
@@ -224,6 +223,12 @@ public class WanderState : BaseState
         return;
     }
 
+    /*
+    Purpose: If a wall is detected within 1.5 pixels away, the enemy will make a
+    180 and walk away from wall.
+    Recieves: nothing
+    Returns: nothing
+    */
     private void WallDetection() {
         for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
             if (_enemy.castList[i].collider != null) {
@@ -251,6 +256,12 @@ public class WanderState : BaseState
         }
     }
 
+    /*
+    Purpose: If another enemy if detected they will slowly avoid each other. Different
+    distances are based on the enemies different sizes.
+    Recieves: nothing.
+    Returns: nothing
+    */
     private void NPCDetection() {
         foreach (GameObject _hammerGiant in hammerGiants) {
             if (_hammerGiant != null) {
@@ -285,6 +296,11 @@ public class WanderState : BaseState
         }
     }
 
+    /*
+    Purpose: Drops a fireball every half second
+    Recieves: nothing
+    Returns: nothing
+    */
     private void PlaceFire() {
         if (_enemy.tag == "Fire Eel") {
             if (fireTrailTimer > 0) {

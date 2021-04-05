@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2965140102467813561}
   - component: {fileID: 2965140102467813560}
   - component: {fileID: 2965140102467813566}
+  - component: {fileID: -7449039523219332789}
   m_Layer: 0
   m_Name: Fire Eel Prefab
   m_TagString: Untagged
@@ -92,7 +93,7 @@ Animator:
   m_GameObject: {fileID: 2965140102467813563}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 96c22a3d295c0a446bd82026d176f69b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3bbb5c1a8b2783949a3a769b168c7236, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -101,3 +102,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-7449039523219332789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2965140102467813563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d095abe629e71044a0f72155e72e2fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthAmount: 0
+  armorAmount: 0
+  timer: 0
+  shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
+  AOE: {fileID: 0}
+  fireParticle: {fileID: 0}
+  damageProjectile: {fileID: 0}
+  healingProjectile: {fileID: 0}
+  fireTrail: {fileID: 0}
+  inBounds: 0
+  hasCircled: 0
+  enemyAnimator: {fileID: 0}
+  _rayDistance: 5
+  weightList: 0000000000000000000000000000000000000000000000000000000000000000
+  doInstantiate: 0
+  goToWalk: 0
+  doAttack: 0
+  doLungeAttack: 0
+  deathSFXObject: {fileID: 0}
