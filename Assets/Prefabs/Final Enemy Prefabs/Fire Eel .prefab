@@ -79,7 +79,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!70 &2207686454240702948
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 4000617127544784163}
   - component: {fileID: 449503612592202966}
   - component: {fileID: 2207686455493674375}
-  - component: {fileID: 2207686455493674372}
+  - component: {fileID: 2423584560005821208}
   - component: {fileID: 2207686455493674378}
   m_Layer: 0
   m_Name: 'Fire Eel '
@@ -398,7 +398,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 431e394b253b93b4fa86a1e4101a65ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -486,7 +486,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &2207686455493674372
+--- !u!60 &2423584560005821208
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

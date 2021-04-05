@@ -1780,6 +1780,7 @@ MonoBehaviour:
   attackStrength: 1
   agroRange: 0
   fireStacks: 0
+  maxFireStacks: 10
   fireAlert: {fileID: 0}
   healthBar: {fileID: 0}
   maxHealth: 100
@@ -1788,6 +1789,8 @@ MonoBehaviour:
   attacked: 0
   canDash: 1
   canDashTwice: 1
+  unlockedDashTwice: 0
+  hasKnockback: 0
   slashCollider: {fileID: 874089642}
 --- !u!50 &598137611
 Rigidbody2D:
@@ -3256,8 +3259,32 @@ PrefabInstance:
     - target: {fileID: 1041104838085933484, guid: 11d6d995f61001c4a93c4a2bdc9182e5,
         type: 3}
       propertyPath: enemies.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1041104838085933484, guid: 11d6d995f61001c4a93c4a2bdc9182e5,
+        type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 6249455407112965218, guid: 2f3cf01bf6a98434286655b9dbca6ede,
+        type: 3}
+    - target: {fileID: 1041104838085933484, guid: 11d6d995f61001c4a93c4a2bdc9182e5,
+        type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 6249455407112965218, guid: 2f3cf01bf6a98434286655b9dbca6ede,
+        type: 3}
+    - target: {fileID: 1041104838085933484, guid: 11d6d995f61001c4a93c4a2bdc9182e5,
+        type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 5494777218385843898, guid: d4a19b75165a7eb4fbc82e03040d0aa0,
+        type: 3}
+    - target: {fileID: 1041104838085933484, guid: 11d6d995f61001c4a93c4a2bdc9182e5,
+        type: 3}
+      propertyPath: enemies.Array.data[3]
+      value: 
+      objectReference: {fileID: 4000617127544784166, guid: 9f4f8d0b4e2b45940bb1d867a4e6541e,
+        type: 3}
     - target: {fileID: 1041104838085933486, guid: 11d6d995f61001c4a93c4a2bdc9182e5,
         type: 3}
       propertyPath: m_Name
