@@ -73,17 +73,42 @@ public class SkillTree : MonoBehaviour
         updateSkillDescription(button);
     }
 
-    public void mysterySkillUpgrade(SkillTreeButton button)
+    public void fireReistanceSkillUpgrade(SkillTreeButton button)
     {
         if (button.currentUses < button.maxUses)
         {
-            // if player has required items
+            if(GameMaster.instance.getSkillPoints() > 0){
+                GameMaster.instance.spendSkillPoints();
+                updateSkillPoints();
+                GameMaster.instance.gainFireResistance();
+                button.currentUses++;
+            }
+        }
+        updateSkillDescription(button);
+    }
 
-            // if(GameMaster.instance.getSkillPoints() > 0){
-            //     GameMaster.instance.spendSkillPoints();
-            //     updateSkillPoints();
-            //     button.currentUses++;
-            // }
+    public void doubleDashSkillUpgrade(SkillTreeButton button){
+        if (button.currentUses < button.maxUses)
+        {
+            if(GameMaster.instance.getSkillPoints() > 0){
+                GameMaster.instance.spendSkillPoints();
+                updateSkillPoints();
+                GameMaster.instance.gainDoubleDash();
+                button.currentUses++;
+            }
+        }
+        updateSkillDescription(button);
+    }
+
+    public void knockbackSkillUpgrade(SkillTreeButton button){
+        if (button.currentUses < button.maxUses)
+        {
+            if(GameMaster.instance.getSkillPoints() > 0){
+                GameMaster.instance.spendSkillPoints();
+                updateSkillPoints();
+                GameMaster.instance.gainKnockback();
+                button.currentUses++;
+            }
         }
         updateSkillDescription(button);
     }

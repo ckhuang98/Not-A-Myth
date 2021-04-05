@@ -10,7 +10,7 @@ public class CircleState : BaseState
     //private float radius = 3f;
     //private float rotateSpeed = 2f;
     //private float angle;
-    private float speed = 5f;
+    //private float speed = 5f;
     private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
     //private Vector2 decisionTime = new Vector2(1, 4);

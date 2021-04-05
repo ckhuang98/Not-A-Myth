@@ -11,7 +11,6 @@ public class ChaseState : BaseState
     //This is the player
     private Transform target;
     public float speed = 3f;
-    private bool hasCircled = false;
     private GameObject[] hammerGiants = GameObject.FindGameObjectsWithTag("Hammer Giant");
     private GameObject[] fireImps = GameObject.FindGameObjectsWithTag("Fire Imp");
     private GameObject[] fireEels = GameObject.FindGameObjectsWithTag("Fire Eel");
@@ -33,8 +32,7 @@ public class ChaseState : BaseState
     }
 
     /*
-    Purpose: Calls the MoveTowards function in order for the enemy to chase the
-    player, If the enemy gets close enough to the player the attack state is started.
+    Purpose: Calls all functions in order to successfully chase the player
     Recieves: nothing
     Returns: the type of the current chase state consistently returned, until the 
     enemy gets close, then the type of the attack state is returned
@@ -77,6 +75,12 @@ public class ChaseState : BaseState
         return typeof(ChaseState);
     }
 
+    /*
+    Purpose: Uses the angle of the player relative to the enemy, and picks the proper
+    move direction accordingly.
+    Recieves: A float "angle" which is the angle relative to the player and the enemy.
+    Returns: nothing
+    */
     private void LocatePlayer(float angle) {
         // transform.position += _enemy.moveDirections[i] * speed * Time.deltaTime;
 
@@ -125,7 +129,12 @@ public class ChaseState : BaseState
         }
     }
     
-
+    /*
+    Purpose: If a wall is detected within 1.5 pixels away, the enemy will make a
+    180 and walk away from wall.
+    Recieves: nothing
+    Returns: nothing
+    */
     private void WallDetection() {
         // Adjust weight list: -1 for wall, 0 for non-wall
         for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
@@ -140,6 +149,7 @@ public class ChaseState : BaseState
         }
     }
 
+    /*
     private void findNextDirection() {
         Debug.Log("Stuck Here");
         for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
@@ -149,9 +159,17 @@ public class ChaseState : BaseState
             }
         }
     }
+    */
 
+    /*
+    Purpose: If the current move direction finds an obstacle and becomes a weight of
+    -1. FialSafeDirection finds the next best direction to take.
+    Recieves: nothing
+    Returns: nothing
+    */
     private void FailSafeDirection() {
         if (_enemy.weightList[_enemy.currMoveDirection] == -1) {
+            //If the array is at the end or beginning the choice will be made for them
             if (_enemy.currMoveDirection == 7) {
                 choice = false;
             } else if (_enemy.currMoveDirection == 0) {
@@ -179,18 +197,27 @@ public class ChaseState : BaseState
         }
     }
             
-
+    /*
+    Purpose: sets the current move direction to the direction with a weight of 1
+    Recieves: nothing
+    Returns: nothign
+    */
     private void MoveDirection() {
         for (int i = 0; i < _enemy.moveDirections.Count(); i++) {
             //Debug.Log("in da mf loop");
             if (_enemy.weightList[i] == 1) {
                 _enemy.currMoveDirection = i;
-                //FailSafeDirection();
-                //Debug.Log("weight of " + i + " is == 1!");
+
             }
         }
     }
 
+    /*
+    Purpose: If another enemy if detected they will slowly avoid each other. Different
+    distances are based on the enemies different sizes.
+    Recieves: nothing.
+    Returns: nothing
+    */
     private void NPCDetection() {
         foreach (GameObject _hammerGiant in hammerGiants) {
             if (_hammerGiant != null) {

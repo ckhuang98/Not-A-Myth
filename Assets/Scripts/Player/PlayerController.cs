@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour {
     float fireRemoveTimer = 0f;
     float fireDamageTimer = 0f;
     public int fireStacks = 0;
+    public int maxFireStacks = 10;
     public Image fireAlert;
     ////////////////////////////////////
 
@@ -68,11 +69,14 @@ public class PlayerController : MonoBehaviour {
 
     public bool isDashButtonDown = false;
 
+    ///////////////////////////////////
     public bool attacked = false;
     public bool canDash = true;
-    public bool canDashTwice = true;
-    private bool dashedOnce = false;
-    private bool dashedTwice = false;
+    public bool canDashTwice = false;
+    public bool unlockedDashTwice = false;
+
+    public bool hasKnockback = false;
+    ///////////////////////////////////
 
     public GameObject slashCollider;
 
@@ -230,7 +234,9 @@ public class PlayerController : MonoBehaviour {
     // }
 
     private void dashManager(){
-        canDashTwice = true;
+        if(unlockedDashTwice){
+           canDashTwice = true; 
+        }
         if(Input.GetKeyDown(KeyCode.Space) && canDash){
             state = State.Dashing;
             Physics2D.IgnoreLayerCollision(9, 4, true);
@@ -247,7 +253,7 @@ public class PlayerController : MonoBehaviour {
             state = State.Normal;
             Physics2D.IgnoreLayerCollision(9, 4, false);
         } else{
-            if(canDashTwice && Input.GetKeyDown(KeyCode.Space)){
+            if(unlockedDashTwice && canDashTwice && Input.GetKeyDown(KeyCode.Space)){
                 dashSpeed = 20f;
                 rb.velocity = lastMoveDirection * dashSpeed;
                 dashSpeed -= dashSpeed * 5f * Time.deltaTime;
@@ -290,6 +296,21 @@ public class PlayerController : MonoBehaviour {
 
     public void gainSpeed(){
         maxSpeed++;
+    }
+
+    // Gives player fire resistance; takes twice as long to be set on fire.
+    public void gainFireResistance(){
+        maxFireStacks = maxFireStacks * 2;
+    }
+
+    // Player can now dash twice in succession.
+    public void gainDoubleDash(){
+        unlockedDashTwice = true;
+    }
+
+    // Player attacks now have minor knockback.
+    public void gainKnockback(){
+        hasKnockback = true;
     }
 
     //restore current health
@@ -403,8 +424,8 @@ public class PlayerController : MonoBehaviour {
 
                 // Increment fireStacks every 0.1 secs (onFire = T if stacks == 10)
                 if (fireAddTimer >= 0.1f) {
-                    if (fireStacks != 10) { fireStacks += 1; }
-                    if (fireStacks == 10) { onFire = true; }
+                    if (fireStacks != maxFireStacks) { fireStacks += 1; }
+                    if (fireStacks == maxFireStacks) { onFire = true; }
                     fireAddTimer = 0f;
                 }
             }
