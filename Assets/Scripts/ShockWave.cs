@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ShockWave : MonoBehaviour
 {
-    private float timer = 5.0f;
     private Color col;
     //public float alphaLevel = 1.01f;
     SpriteRenderer rend;
@@ -16,27 +15,25 @@ public class ShockWave : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        /*
-        if (timer >= 0.0f) {
-            timer -= Time.deltaTime;
-        } else {
-            Destroy(this.gameObject);
-        }
-        */
         Vector3 newScale = transform.localScale;
         newScale *= 1.01f;
         transform.localScale = newScale;
+        //Calls the IEnumerator for FadeOut
         if (transform.localScale.x >= 15.0f && called == false) {
-            Debug.Log("Called");
             called = true;
             StartCoroutine("FadeOut");
         }
 
     }
 
+    /*
+    Purpose: Slowly decrease the alpha for 5 seconds and destroys the object.
+    Receives: nothing
+    Returns: nothing
+    */
     IEnumerator FadeOut() {
         for (float f = 1f; f >= -0.05f; f -= 0.05f) {
             Color c = rend.material.color;

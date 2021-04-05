@@ -8,7 +8,6 @@ public class LungeAttackState : BaseState
 {
     Enemy _enemy;
     private Transform target;
-    private float timer = 1.3f;
     private float speed = 5;
     private bool gotAngle = false;
     private float angle;
@@ -18,6 +17,13 @@ public class LungeAttackState : BaseState
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
+    /*
+    Purpose: Keeps track of player angle for attack direaction and calls everything to make the eel
+    attack.
+    Recieves: nothing.
+    Returns: the type of the attack state itself consistently and returns
+    the type of the ell maintain distance state when the animation is over.
+    */
     public override Type Tick() {
         var delta_x = transform.position.x - target.position.x;
         var delta_y = transform.position.y - target.position.y;
@@ -32,12 +38,9 @@ public class LungeAttackState : BaseState
         _enemy.enemyAnimator.SetFloat("EelAttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
         _enemy.enemyAnimator.SetFloat("EelAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         if (_enemy.doLungeAttack == true) {
-            Debug.Log("Lunging");
             transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
         }
         if (_enemy.goToWalk == true) {
-            //Debug.Log("Moving");
-            //_enemy.doLungeAttack = false;
             _enemy.goToWalk = false;
             gotAngle = false;
             return typeof(EelMaintainDistanceState);
@@ -45,6 +48,11 @@ public class LungeAttackState : BaseState
         return typeof(LungeAttackState);
     }
 
+    /*
+    Purpose: uses the angle of the player to pick what direction to attack.
+    Recieves: nothing.
+    Returns: nothing.
+    */
     private void LungeAttack() {
         // UP
         if (315 > angle && angle > 225) {
