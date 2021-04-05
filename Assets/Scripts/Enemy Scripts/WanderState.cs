@@ -70,7 +70,7 @@ public class WanderState : BaseState
 
         NPCDetection();
         WallDetection();
-        //PlaceFire();
+        PlaceFire();
 
         if (_enemy.inBounds == true && _enemy.tag == "Hammer Giant") {
             _enemy.resetWeightsToZero();
