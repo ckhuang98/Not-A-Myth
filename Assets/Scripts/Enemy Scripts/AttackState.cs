@@ -7,8 +7,12 @@ using System;
 public class AttackState : BaseState
 {
     private Enemy _enemy;
+    //How long the enemy will be "attacking"
+    private float attackTimeCount = .75f;
     private GameObject AoE;
     private GameObject fireParticles;
+    //Area of attack has spawned
+    private bool hasSpawned = false;
     private bool gotAngle = false;
     private float angle;
     private Transform target;
@@ -28,7 +32,7 @@ public class AttackState : BaseState
 
     /*
     Purpose: Spawns the area of attack of the enemy for a short amount 
-    of time. The moment the animation is over, the area of effect disapears and the
+    of time. The moment time is up, the area of attack disapears and the
     chase state is started.
     Recieves: nothing
     Returns: the type of the attack state itself consistently and returns
@@ -54,17 +58,26 @@ public class AttackState : BaseState
             gotAngle = false;
             return typeof(ChaseState);
         }
+        //Debug.Log("GOIGN");
+        //_enemy.enemyAnimator.Play("AttackHorizontal");
+        /*
+        if (attackTimeCount >= 0f) {
+            attackTimeCount -= Time.deltaTime;
+            if (hasSpawned == false) {
+                InstantiateAoE();
+                hasSpawned = true;
+            }
+        } else {
+            attackTimeCount = .75f;
+            hasSpawned = false;
+            
+            return typeof(ChaseState);
+        }
+        */
 
         return typeof(AttackState);
     }
 
-    /*
-    Purpose: Instantiates the area of effect, the placement is specified by the players
-    angle in four different directions.
-    Recieves: a float called "angle" which contains the angle the player is at relative to
-    the player.
-    Returns: nothng
-    */
     private void InstantiateAoE(float angle) {
         if (_enemy.doInstantiate == true) {
             AoE = GameObject.Instantiate(_enemy.AOE) as GameObject;
@@ -72,6 +85,7 @@ public class AttackState : BaseState
             _enemy.doInstantiate = false; 
             // UP
             if (315 > angle && angle > 225) {
+                Debug.Log("Up Attack");
                 AoE.transform.position = 
                 new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
                 fireParticles.transform.position = 
@@ -79,6 +93,7 @@ public class AttackState : BaseState
             } 
             // RIGHT
             if (225 > angle && angle > 135) {
+                Debug.Log("Right Attack");
                 AoE.transform.position = 
                 new Vector3(this.transform.position.x + 2, this.transform.position.y - 0.5f, this.transform.position.z);
                 fireParticles.transform.position = 
@@ -86,6 +101,7 @@ public class AttackState : BaseState
             } 
             // DOWN
             if (135 > angle && angle > 45) {
+                Debug.Log("Down attack");
                 AoE.transform.position = 
                 new Vector3(this.transform.position.x, this.transform.position.y - 2.75f, this.transform.position.z);
                 fireParticles.transform.position = 
@@ -93,6 +109,7 @@ public class AttackState : BaseState
             } 
             // LEFT
             if ((45 > angle && angle > 0) || (360 > angle && angle > 315)) {
+                Debug.Log("Left Attack");
                 AoE.transform.position = 
                 new Vector3(this.transform.position.x - 2, this.transform.position.y - 0.5f, this.transform.position.z);
                 fireParticles.transform.position = 
