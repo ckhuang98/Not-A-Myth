@@ -7,14 +7,19 @@ public class BarScript : MonoBehaviour
 {
     public Slider slider;
 
-    // Sets the max value of the slider.
-    public void SetMaxValue(float value){
-        slider.maxValue = value;
-        slider.value = value;
-    }
+	private void Start()
+	{
+		
+	}
 
-    // Sets the current value of the slider.
-    public void SetValue(float value){
-        slider.value = value;
-    }
+	// Sets the max value of the slider.
+	public void SetMaxValue(float value){
+	    slider.maxValue = value;
+	    slider.value = value;
+	}
+
+	// Sets the current value of the slider.
+	public void SetValue(float value){
+	    slider.value = value;
+	}
 }

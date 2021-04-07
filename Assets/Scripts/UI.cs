@@ -39,11 +39,14 @@ public class UI : MonoBehaviour
     [SerializeField]
     private GameObject skillTree;
 
-
     // Start is called before the first frame update
     void Start()
     {
         inventoryUIComponent = GetComponent<InventoryUI>();
+
+        GameMaster.instance.OnGameResumed += testing_OnGameResumed;
+
+        GameMaster.instance.OnGameOver += testing_OnGameOver;
     }
 
     // Update is called once per frame
@@ -51,6 +54,19 @@ public class UI : MonoBehaviour
     {
         
     }
+
+    private void testing_OnGameResumed()
+	{
+        Debug.Log("UI: Game Resumed");
+        hideAllPauseMenus();
+        showHotbar();
+	}
+
+    private void testing_OnGameOver(bool win)
+	{
+        string gameOverMessage = win ? "A Winner Is You?" : "Game Over";
+        showGameOverMenu(gameOverMessage);
+	}
 
     public void setUIForNewScene()
     {
