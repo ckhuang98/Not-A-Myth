@@ -100,6 +100,9 @@ public class PlayerController : MonoBehaviour {
         // attackStrength = 1f;
         gameMaster.applyStats(true); //sets currentHealth, attackStrength, and Inventory
         Debug.developerConsoleVisible = true;
+
+        if (stats == null) stats = ScriptableObject.CreateInstance("PlayerStats") as PlayerStats;
+
         CombatManager.instance.canReceiveInput = true;
         state = State.Normal;
         audioManager = gameObject.GetComponent<ObjectAudioManager>();

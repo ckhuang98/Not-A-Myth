@@ -220,7 +220,7 @@ public class Enemy : MonoBehaviour
         {
             { typeof(WanderState), new WanderState(this) },
             { typeof(ChaseState), new ChaseState(this) },
-            { typeof(CircleState), new CircleState(this) },
+            // { typeof(CircleState), new CircleState(this) },
             { typeof(AttackState), new AttackState(this) },
             { typeof(MaintainDistanceState), new MaintainDistanceState(this) },
             { typeof(FireProjectileState), new FireProjectileState(this) },
