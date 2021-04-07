@@ -16,5 +16,6 @@ public abstract class BaseState
     protected GameObject gameObject;
     protected Transform transform;
 
+    // The "update()" function for all states
     public abstract Type Tick();
 }

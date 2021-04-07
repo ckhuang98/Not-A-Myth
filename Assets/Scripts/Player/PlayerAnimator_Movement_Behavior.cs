@@ -7,7 +7,7 @@ public class PlayerAnimator_Movement_Behavior : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       CombatManager.player.speed = CombatManager.player.maxSpeed;
+       CombatManager.instance.player.speed = CombatManager.instance.player.maxSpeed;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

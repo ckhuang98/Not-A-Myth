@@ -164,7 +164,8 @@ public class GameMaster : MonoBehaviour
     //Get necessary references to objects in the scene
     void assignReferences()
     {
-        player = GameObject.FindWithTag("Player");
+        Debug.Log("Assigned Ref");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public GameObject getPlayer()
@@ -212,6 +213,16 @@ public class GameMaster : MonoBehaviour
             recordedPlayerHealth = player.GetComponent<PlayerController>().maxHealth;
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // Load next scene
+
+    public void loadScene(){
+        if (!paused)
+        {
+            recordStats();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     // Load the scene with the given build index

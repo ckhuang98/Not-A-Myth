@@ -7,13 +7,13 @@ public class PlayerAnimato_Attack1_Behavior : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        CombatManager.player.attacked = true;
+        CombatManager.instance.player.attacked = true;
         CombatManager.instance.canReceiveInput = true;
-        if(CombatManager.player.getState() == "Normal"){
-            CombatManager.player.speed = 1f;
+        if(CombatManager.instance.player.getState() == "Normal"){
+            CombatManager.instance.player.speed = 1f;
         }
         
-        CombatManager.player.slashAnimation.Play("SlashAnim1", -1, 0f);
+        CombatManager.instance.player.slashAnimation.Play("SlashAnim1", -1, 0f);
 
     }
 

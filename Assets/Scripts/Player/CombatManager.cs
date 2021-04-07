@@ -6,7 +6,7 @@ public class CombatManager : MonoBehaviour
 {
     public static CombatManager instance;
 
-    public static PlayerController player;
+    public PlayerController player;
 
     public bool canReceiveInput;
     public bool inputReceived;
