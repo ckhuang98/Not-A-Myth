@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
@@ -14,17 +15,18 @@ public class Door : MonoBehaviour
         if (enterInstructions == null)
         {
             enterInstructions = GameObject.FindWithTag("Enter Door Text").GetComponent<Text>();
+            enterInstructions.text = "";
         }
 
         active = false;
-        enterInstructions.text = "";
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         if (active && Input.GetKeyDown(KeyCode.E)){
-            GameMaster.instance.loadScene(2);
+            GameMaster.instance.loadScene();
         }
     }
 

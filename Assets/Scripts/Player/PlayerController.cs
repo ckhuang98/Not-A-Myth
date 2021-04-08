@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour {
 
     ////////////////////////////////////
     // Variables for the health bar.
+    public PlayerStats stats;
     public BarScript healthBar;
     public int maxHealth;
     public int currentHealth;
@@ -99,14 +100,17 @@ public class PlayerController : MonoBehaviour {
         // attackStrength = 1f;
         gameMaster.applyStats(true); //sets currentHealth, attackStrength, and Inventory
         Debug.developerConsoleVisible = true;
+
+        if (stats == null) stats = ScriptableObject.CreateInstance("PlayerStats") as PlayerStats;
+
         CombatManager.instance.canReceiveInput = true;
         state = State.Normal;
         audioManager = gameObject.GetComponent<ObjectAudioManager>();
         playerSprite = this.GetComponent<SpriteRenderer>();
 
         healthBar = UI.instance.GetComponentInChildren<BarScript>();
-        healthBar.SetMaxValue(maxHealth);
-        healthBar.SetValue(currentHealth);
+        // healthBar.SetMaxValue(maxHealth);
+        // healthBar.SetValue(currentHealth);
 
         speed = maxSpeed;
         //slashCollider.GetComponent<Collider>().enabled = false;
@@ -119,6 +123,12 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+        // test take damage
+        if (Input.GetKeyDown(KeyCode.G))
+		{
+            TakeDamage(26);
+		}
 
         if (!gameMaster.getGameOver()) {
 
@@ -290,8 +300,8 @@ public class PlayerController : MonoBehaviour {
 
     public void gainHealth(){
         maxHealth += 15;
-        healthBar.SetMaxValue(maxHealth);
-        healthBar.SetValue(currentHealth);
+        // healthBar.SetMaxValue(maxHealth);
+        // healthBar.SetValue(currentHealth);
     }
 
     public void gainSpeed(){
@@ -317,7 +327,7 @@ public class PlayerController : MonoBehaviour {
     public void restoreHealth(int restoreHealthBy = 10)
     {
         currentHealth = Math.Min(currentHealth + restoreHealthBy, maxHealth);
-        healthBar.SetValue(currentHealth);
+        // healthBar.SetValue(currentHealth);
         StartCoroutine(UI.instance.displayerPlayerUpdate("Health Restored"));
     }
 
@@ -359,11 +369,12 @@ public class PlayerController : MonoBehaviour {
         playHurtSFX();
         if(!isInvincible){
             currentHealth -= damage;
+            stats.currentHealth.Value -= damage;
             CameraShaker.Instance.ShakeOnce(3f, 3f, 0.1f, 1f);
             StartCoroutine(tempInvincible());
         }
         
-        healthBar.SetValue(currentHealth);
+        // healthBar.SetValue(currentHealth);
     }
 
     // Separate from TakeDamage(), because fire damage should not
@@ -371,7 +382,8 @@ public class PlayerController : MonoBehaviour {
     public void TakeFireDamage(int damage) {
         playHurtSFX();
         currentHealth -= damage;
-        healthBar.SetValue(currentHealth);
+        stats.currentHealth.Value -= damage;
+        // healthBar.SetValue(currentHealth);
     }
 
     private IEnumerator tempInvincible(){
@@ -435,6 +447,10 @@ public class PlayerController : MonoBehaviour {
 
             // If the player collides with boss shockwave attack, 10 damage
             if (withinAggroColliders.CompareTag("Shockwave")) { TakeDamage(10); }
+
+            if (withinAggroColliders.CompareTag("Fireball")) { TakeDamage(10); }
+
+            if (withinAggroColliders.CompareTag("Eel Tendril")) { TakeDamage(10); }
             
 
             /* EXAMPLE for other types of damage
@@ -496,6 +512,11 @@ public class PlayerController : MonoBehaviour {
         {
             gameMaster.setGameOver();
         }
+
+        if (stats.currentHealth.Value <= 0)
+		{
+            gameMaster.setGameOver();
+		}
     }
 
     private void playFootstepSFX()

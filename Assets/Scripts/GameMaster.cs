@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,6 +24,15 @@ public class GameMaster : MonoBehaviour
 
     [SerializeField]
     private UI ui;
+
+    // Events
+    public delegate void GMDelegate();
+    public GMDelegate OnGamePuased;
+    public GMDelegate OnGameResumed;
+
+    public delegate void GMDelegateBool(bool b);
+
+    public GMDelegateBool OnGameOver;
 
     [SerializeField]
     private GameObject player;
@@ -63,10 +74,22 @@ public class GameMaster : MonoBehaviour
         ui.updateInventoryUI();
     }
 
+
+    public PlayerStats playerStats;
+
+    public void Testing_PlayerStatsUpdated()
+	{
+        Debug.Log("GameMaster: Player Stats Updated");
+	}
+
+
     private void Start()
     {
         Cursor.visible = true;
         paused = false;
+
+        playerStats.OnStatsChanged += Testing_PlayerStatsUpdated;
+        playerStats.currentHealth.Value += 1;
     }
 
     private void Update()
@@ -141,7 +164,8 @@ public class GameMaster : MonoBehaviour
     //Get necessary references to objects in the scene
     void assignReferences()
     {
-        player = GameObject.FindWithTag("Player");
+        Debug.Log("Assigned Ref");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public GameObject getPlayer()
@@ -161,6 +185,8 @@ public class GameMaster : MonoBehaviour
         paused = true;
         if (showMenu) ui.showPauseMenu();
         ui.updateInventoryUI();
+
+        OnGamePuased?.Invoke();
     }
 
     public void resumeGame()
@@ -170,6 +196,8 @@ public class GameMaster : MonoBehaviour
         paused = false;
         ui.hideAllPauseMenus();
         ui.showHotbar();
+
+        // OnGameResumed?.Invoke();
     }
 
     public void exitGame()
@@ -185,6 +213,16 @@ public class GameMaster : MonoBehaviour
             recordedPlayerHealth = player.GetComponent<PlayerController>().maxHealth;
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // Load next scene
+
+    public void loadScene(){
+        if (!paused)
+        {
+            recordStats();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     // Load the scene with the given build index
@@ -220,8 +258,10 @@ public class GameMaster : MonoBehaviour
 
     public void setGameOver(bool win = false)
     {
-        string gameOverMessage = win ? "A Winner Is You!" : "Game Over!";
-        ui.showGameOverMenu(gameOverMessage);
+        // string gameOverMessage = win ? "A Winner Is You!" : "Game Over!";
+        // ui.showGameOverMenu(gameOverMessage);
+
+        OnGameOver?.Invoke(win);
 
         gameOver = true;
     }
