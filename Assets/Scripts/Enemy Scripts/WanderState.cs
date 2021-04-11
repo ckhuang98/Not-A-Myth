@@ -17,6 +17,7 @@ public class WanderState : BaseState
     private GameObject[] hammerGiants = GameObject.FindGameObjectsWithTag("Hammer Giant");
     private GameObject[] fireImps = GameObject.FindGameObjectsWithTag("Fire Imp");
     private GameObject[] fireEels = GameObject.FindGameObjectsWithTag("Fire Eel");
+    private GameObject[] swordGiants = GameObject.FindGameObjectsWithTag("Sword Giant");
 
     bool hasMoved = false;
     /*
@@ -54,7 +55,14 @@ public class WanderState : BaseState
             _enemy.enemyAnimator.SetFloat("EelWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
             _enemy.enemyAnimator.SetFloat("EelWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         }        
-        
+        if (_enemy.tag == "Fire Imp") {
+            _enemy.enemyAnimator.SetTrigger("ImpIdle");
+        }  
+        if(_enemy.tag == "Sword Giant") {
+            _enemy.enemyAnimator.SetFloat("SwordWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("SwordWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+        }
+
         if (decisionTimeCount >= 0)
         {
             decisionTimeCount -= Time.deltaTime;
@@ -72,7 +80,7 @@ public class WanderState : BaseState
         WallDetection();
         PlaceFire();
 
-        if (_enemy.inBounds == true && _enemy.tag == "Hammer Giant") {
+        if (_enemy.inBounds == true && (_enemy.tag == "Hammer Giant" || _enemy.tag == "Sword Giant")) {
             _enemy.resetWeightsToZero();
             return typeof(ChaseState);
         }
@@ -290,6 +298,16 @@ public class WanderState : BaseState
                 float currentDistance = Vector3.Distance(transform.position, _fireEel.transform.position);
                 if (currentDistance < 3.0f) {
                     Vector3 dist = transform.position - _fireEel.transform.position;
+                    transform.position += dist *Time.deltaTime;
+                }
+            }
+        }
+
+        foreach(GameObject _swordGiant in swordGiants) {
+            if (_swordGiant != null) {
+                float currentDistance = Vector3.Distance(transform.position, _swordGiant.transform.position);
+                if (currentDistance < 3.0f) {
+                    Vector3 dist = transform.position - _swordGiant.transform.position;
                     transform.position += dist *Time.deltaTime;
                 }
             }

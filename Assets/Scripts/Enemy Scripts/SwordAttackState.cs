@@ -4,11 +4,10 @@ using UnityEngine;
 using System;
 //using Pathfinding;
 
-public class AttackState : BaseState
+public class SwordAttackState : BaseState
 {
     private Enemy _enemy;
-    private GameObject AoE;
-    private GameObject fireParticles;
+    private GameObject slashAttack;
     private bool gotAngle = false;
     private float angle;
     private Transform target;
@@ -20,7 +19,7 @@ public class AttackState : BaseState
     Recieves: the enemy class from the enemy.cs file.
     Returns: nothing.
     */
-    public AttackState(Enemy enemy) : base (enemy.gameObject)
+    public SwordAttackState(Enemy enemy) : base (enemy.gameObject)
     {
         _enemy = enemy; 
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -46,16 +45,16 @@ public class AttackState : BaseState
             gotAngle = true;
         }
         
-        InstantiateAoE(angle);
-        _enemy.enemyAnimator.SetFloat("AttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-        _enemy.enemyAnimator.SetFloat("AttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+        InstantiateSlash(angle);
+        _enemy.enemyAnimator.SetFloat("SwordAttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+        _enemy.enemyAnimator.SetFloat("SwordAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         if (_enemy.goToWalk == true) {
             _enemy.goToWalk = false;
             gotAngle = false;
             return typeof(ChaseState);
         }
 
-        return typeof(AttackState);
+        return typeof(SwordAttackState);
     }
 
     /*
@@ -65,38 +64,32 @@ public class AttackState : BaseState
     the player.
     Returns: nothng
     */
-    private void InstantiateAoE(float angle) {
+    private void InstantiateSlash(float angle) {
         if (_enemy.doInstantiate == true) {
-            AoE = GameObject.Instantiate(_enemy.AOE) as GameObject;
-            fireParticles = GameObject.Instantiate(_enemy.fireParticle) as GameObject;
+            slashAttack = GameObject.Instantiate(_enemy.slash) as GameObject;
             _enemy.doInstantiate = false; 
             // UP
             if (315 > angle && angle > 225) {
-                AoE.transform.position = 
-                new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
-                fireParticles.transform.position = 
-                new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
+                slashAttack.transform.position = 
+                new Vector3(this.transform.position.x, this.transform.position.y + 1f, this.transform.position.z);
+                slashAttack.transform.localRotation = Quaternion.Euler(0f, 0f, 90f); 
             } 
             // RIGHT
             if (225 > angle && angle > 135) {
-                AoE.transform.position = 
-                new Vector3(this.transform.position.x + 2, this.transform.position.y - 0.5f, this.transform.position.z);
-                fireParticles.transform.position = 
-                new Vector3(this.transform.position.x + 2, this.transform.position.y - 0.5f, this.transform.position.z);
+                slashAttack.transform.position = 
+                new Vector3(this.transform.position.x + 1.5f, this.transform.position.y - 0.1f, this.transform.position.z);
             } 
             // DOWN
             if (135 > angle && angle > 45) {
-                AoE.transform.position = 
-                new Vector3(this.transform.position.x, this.transform.position.y - 2.75f, this.transform.position.z);
-                fireParticles.transform.position = 
-                new Vector3(this.transform.position.x, this.transform.position.y - 2.75f, this.transform.position.z);
+                slashAttack.transform.position = 
+                new Vector3(this.transform.position.x, this.transform.position.y - 1.5f, this.transform.position.z);
+                slashAttack.transform.localRotation = Quaternion.Euler(0f, 0f, 270f); 
             } 
             // LEFT
             if ((45 > angle && angle > 0) || (360 > angle && angle > 315)) {
-                AoE.transform.position = 
-                new Vector3(this.transform.position.x - 2, this.transform.position.y - 0.5f, this.transform.position.z);
-                fireParticles.transform.position = 
-                new Vector3(this.transform.position.x - 2, this.transform.position.y - 0.5f, this.transform.position.z);
+                slashAttack.transform.position = 
+                new Vector3(this.transform.position.x - 1.5f, this.transform.position.y - 0.1f, this.transform.position.z);
+                slashAttack.transform.localRotation = Quaternion.Euler(0f, 0f, 180f); 
             }
         }
     }
