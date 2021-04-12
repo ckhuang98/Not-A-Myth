@@ -48,13 +48,13 @@ public class Item : ScriptableObject
     public virtual void Use()
     {
         Debug.Log("Using " + itemName);
-        GameObject player = GameObject.Find("Player");
+        GameObject player = GameObject.FindWithTag("Player");
 
         switch (itemName)
         {
             //Shard - Give strength to the player
             case "Shard":
-                player.GetComponent<PlayerController>().gainStrength();
+                GameMaster.instance.gainStrength();
 
                 Inventory.instance.Remove(this);
 

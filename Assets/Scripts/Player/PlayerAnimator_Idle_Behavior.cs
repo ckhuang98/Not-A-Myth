@@ -7,7 +7,14 @@ public class PlayerAnimator_Idle_Behavior : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       CombatManager.instance.player.speed = CombatManager.instance.player.maxSpeed;
+        if(GameMaster.instance.playerStats.inCombat.Value == false){
+            GameMaster.instance.playerStats.speed.Value = GameMaster.instance.playerStats.sprintSpeed.Value;
+            Debug.Log("Out of combat");
+        } else{
+            GameMaster.instance.playerStats.speed.Value = GameMaster.instance.playerStats.maxSpeed.Value;
+            Debug.Log("In Combat");
+        }
+        
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

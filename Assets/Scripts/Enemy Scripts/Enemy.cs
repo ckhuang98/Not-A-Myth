@@ -25,17 +25,18 @@ public class Enemy : MonoBehaviour
     public GameObject damageProjectile;
     public GameObject healingProjectile;
     public GameObject fireTrail;
+    public GameObject slash;
     
     //Target is the players' current location
     private Transform target;
 
-    private PlayerController player;            // Added by Cary 04/01/21
     public bool inBounds = false;
     public bool hasCircled = false;
 
     private GameObject[] hammerGiantList;
     private GameObject[] fireImpList;
     private GameObject[] fireEelList;
+    private GameObject[] swordGiantList;
     public static int enemyAmount;
     public Animator enemyAnimator;
     ////////////////////////////////
@@ -69,7 +70,7 @@ public class Enemy : MonoBehaviour
             healthAmount = 1f;
         } else if (this.tag == "Fire Imp") {
             healthAmount = .8f;
-        } else if (this.tag == "Hammer Giant") {
+        } else if (this.tag == "Hammer Giant" || this.tag == "Sword Giant") {
             healthAmount = 1.5f;
         }
         
@@ -78,13 +79,13 @@ public class Enemy : MonoBehaviour
         freezer = GameMaster.instance.GetComponent<Freezer>();
         //getting transform component from the Player
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();    // Added by Cary 04/01/21
 
         hammerGiantList = GameObject.FindGameObjectsWithTag("Hammer Giant");
         fireImpList = GameObject.FindGameObjectsWithTag("Fire Imp");
         fireEelList = GameObject.FindGameObjectsWithTag("Fire Eel");
+        swordGiantList = GameObject.FindGameObjectsWithTag("Sword Giant");
 
-        enemyAmount = hammerGiantList.Length + fireImpList.Length;   
+        enemyAmount = hammerGiantList.Length + fireImpList.Length + fireEelList.Length + swordGiantList.Length;   
         for (int i = 0; i < moveDirections.Count(); i ++) {
             weightList[i] = 0;
         }
@@ -96,9 +97,7 @@ public class Enemy : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (goToWalk == true) {
-            Debug.Log("Still true");
-        }
+
         //enemyAnimator.SetFloat("Speed", moveDirections[currMoveDirection].sqrMagnitude);
         isDead(GameMaster.instance.getGameOver());
         stateMachine.Update();
@@ -122,7 +121,7 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         //Applies armor to the Hammer Giant
-        if (collider.CompareTag("Healing Projectile") && armorAmount < 3 && this.tag == "Hammer Giant") {
+        if (collider.CompareTag("Healing Projectile") && armorAmount < 3 && (this.tag == "Hammer Giant" || this.tag == "Sword Giant")) {
             armorAmount += .5f;
             var thisColor = this.GetComponent<Renderer>().material.color;
             if (thisColor.a < 1f && thisColor.a > 0f) {
@@ -132,9 +131,7 @@ public class Enemy : MonoBehaviour
                     thisColor.a = 1f;
                     this.GetComponent<Renderer>().material.color = thisColor;
                 }
-            }
-            
-            
+            }            
         }
         if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .5)
         {
@@ -142,21 +139,18 @@ public class Enemy : MonoBehaviour
             ////////////////////////////////////////////////////////////////////////////////////
             // Adds knockback to enemy
             // Added by Cary 04/01/21
-            if(player.hasKnockback){
                 Vector2 knockback = rb.transform.position - collider.transform.parent.position;
-                //Debug.Log(knockback);
-                rb.AddForce(knockback.normalized * 600f);
-            }
+                rb.AddForce(knockback.normalized * GameMaster.instance.playerStats.knockBackForce.Value);
             ////////////////////////////////////////////////////////////////////////////////////
             if (armorAmount > 0) {
-                armorAmount -= (collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength() * .3f);
+                armorAmount -= (GameMaster.instance.playerStats.attackPower.Value * .3f);
             } else {
                 if (this.tag == "Fire Eel") {
-                    healthAmount -= (collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength() * .25f);
+                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .25f);
                 } else if (this.tag == "Fire Imp") {
-                    healthAmount -= (collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength() * 0.4f);
-                } else if (this.tag == "Hammer Giant") {
-                    healthAmount -= (collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength() * .5f);
+                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * 0.4f);
+                } else if (this.tag == "Hammer Giant" || this.tag == "Sword Giant") {
+                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .3f);
                 }
                 
             }
@@ -225,7 +219,8 @@ public class Enemy : MonoBehaviour
             { typeof(MaintainDistanceState), new MaintainDistanceState(this) },
             { typeof(FireProjectileState), new FireProjectileState(this) },
             { typeof(LungeAttackState), new LungeAttackState(this) },
-            { typeof(EelMaintainDistanceState), new EelMaintainDistanceState(this) }
+            { typeof(EelMaintainDistanceState), new EelMaintainDistanceState(this) },
+            { typeof(SwordAttackState), new SwordAttackState(this) }
         };
 
         stateMachine.SetStates(states);
@@ -265,6 +260,14 @@ public class Enemy : MonoBehaviour
         doInstantiate = true;
     }
 
+    public void ProjectileThrow() {
+        doInstantiate = true;
+    }
+
+    public void doSlash() {
+        doInstantiate = true;
+    }
+
     // Move to walk animations based on enemy tags
     public void moveToWalk () {
         if (this.tag == "Hammer Giant") {
@@ -272,6 +275,10 @@ public class Enemy : MonoBehaviour
         } else if (this.tag == "Fire Eel") {
             enemyAnimator.SetTrigger("FireEelWalking");
             doLungeAttack = false;
+        } else if (this.tag == "Fire Imp") {
+            enemyAnimator.SetTrigger("ImpIdle");
+        } else if (this.tag == "Sword Giant") {
+            enemyAnimator.SetTrigger("SwordWalking");
         }
         goToWalk = true;
     }

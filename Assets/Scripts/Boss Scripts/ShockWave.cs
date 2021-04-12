@@ -16,10 +16,10 @@ public class ShockWave : MonoBehaviour
     }
 
     
-    void Update()
+    void FixedUpdate()
     {
         Vector3 newScale = transform.localScale;
-        newScale *= 1.01f;
+        newScale *= 1.04f;
         transform.localScale = newScale;
         //Calls the IEnumerator for FadeOut
         if (transform.localScale.x >= 15.0f && called == false) {

@@ -94,7 +94,7 @@ public class Boss : MonoBehaviour
             // Vector2 knockback = rb.transform.position - collider.transform.parent.position;
             // //Debug.Log(knockback);
             // rb.AddForce(knockback.normalized * 4000f);
-            healthAmount -= collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength();
+            healthAmount -= GameMaster.instance.playerStats.attackPower.Value;
             healthBar.SetValue(healthAmount);
             timer = 0;
         }

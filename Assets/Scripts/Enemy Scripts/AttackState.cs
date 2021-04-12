@@ -47,7 +47,7 @@ public class AttackState : BaseState
         }
         
         InstantiateAoE(angle);
-        _enemy.enemyAnimator.SetFloat("AttackHorzontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+        _enemy.enemyAnimator.SetFloat("AttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
         _enemy.enemyAnimator.SetFloat("AttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         if (_enemy.goToWalk == true) {
             _enemy.goToWalk = false;

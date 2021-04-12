@@ -7,14 +7,28 @@ public class PlayerStats : ScriptableObject
 	public SharedFloat currentHealth;
 	public SharedFloat maxHealth;
 
+	public SharedFloat currentXp;
+
+	public SharedFloat skillPoints;
+
 	public SharedFloat attackPower;
 
 	public SharedFloat speed;
 
+	public SharedFloat maxSpeed;
+
+	public SharedFloat sprintSpeed;
+
 	public SharedFloat dashSpeed;
+
+	public SharedFloat knockBackForce;
 
 	[Space]
 	public SharedBool unlockedDoubleDash;
+
+	public SharedBool unlockedHealthDash;
+
+	public SharedBool inCombat;
 
 	public event Action OnStatsChanged;
 
@@ -24,9 +38,14 @@ public class PlayerStats : ScriptableObject
 		{
 			currentHealth,
 			maxHealth,
+			currentXp,
+			skillPoints,
 			attackPower,
 			speed,
+			maxSpeed,
+			sprintSpeed,
 			dashSpeed,
+			knockBackForce,
 		};
 
 		foreach (SharedFloat sf in SharedFloats) {
@@ -36,6 +55,8 @@ public class PlayerStats : ScriptableObject
 		SharedBool[] SharedBools =
 		{
 			unlockedDoubleDash,
+			unlockedHealthDash,
+			inCombat,
 		};
 
 		foreach (SharedBool sb in SharedBools)
