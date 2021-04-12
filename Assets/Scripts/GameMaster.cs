@@ -155,6 +155,10 @@ public class GameMaster : MonoBehaviour
         playerStats.unlockedDoubleDash.Value = true;
     }
 
+    public void gainHealthDash(){
+        playerStats.unlockedHealthDash.Value = true;
+    }
+
     //Get necessary references to objects in the scene
     void assignReferences()
     {

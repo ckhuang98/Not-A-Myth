@@ -323,6 +323,9 @@ public class PlayerController : MonoBehaviour {
             stats.currentHealth.Value -= damage;
             CameraShaker.Instance.ShakeOnce(3f, 3f, 0.1f, 1f);
             StartCoroutine(tempInvincible());
+            if(stats.unlockedHealthDash.Value){
+                StartCoroutine(healthDashWindow(damage));
+            }
         }
         
         // healthBar.SetValue(currentHealth);
@@ -334,6 +337,18 @@ public class PlayerController : MonoBehaviour {
         playHurtSFX();
         stats.currentHealth.Value -= damage;
         // healthBar.SetValue(currentHealth);
+    }
+
+    private IEnumerator healthDashWindow(int damage){
+        float tempTimer = 0;
+        while(!Input.GetKeyDown(KeyCode.Space) && tempTimer < 1f)
+        {
+            tempTimer += Time.deltaTime;
+            yield return null;
+        }
+        if(tempTimer < 1f){
+            stats.currentHealth.Value += damage;
+        }
     }
 
     private IEnumerator tempInvincible(){

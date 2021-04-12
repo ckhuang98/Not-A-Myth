@@ -139,10 +139,24 @@ public class SkillTree : MonoBehaviour
     public void doubleDashSkillUpgrade(SkillTreeButton button){
         if (button.currentUses < button.maxUses)
         {
-            if(GameMaster.instance.getSkillPoints() > 0 && (s1 == true && s2 == true && s3 == true)){
+            if(GameMaster.instance.getSkillPoints() > 0 && (s1 && s2 && s3)){
                 GameMaster.instance.spendSkillPoints();
                 updateSkillPoints();
                 GameMaster.instance.gainDoubleDash();
+                button.currentUses++;
+            }
+        }
+        updateSkillDescription(button);
+    }
+
+    public void healthDashSkillUpgrade(SkillTreeButton button){
+        if (button.currentUses < button.maxUses)
+        {
+            Debug.Log(h2 + " " + s2);
+            if(GameMaster.instance.getSkillPoints() > 0 && (h2 & s2)){
+                GameMaster.instance.spendSkillPoints();
+                updateSkillPoints();
+                GameMaster.instance.gainHealthDash();
                 button.currentUses++;
             }
         }

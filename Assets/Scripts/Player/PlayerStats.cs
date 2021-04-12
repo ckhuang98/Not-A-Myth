@@ -26,6 +26,8 @@ public class PlayerStats : ScriptableObject
 	[Space]
 	public SharedBool unlockedDoubleDash;
 
+	public SharedBool unlockedHealthDash;
+
 	public SharedBool inCombat;
 
 	public event Action OnStatsChanged;
@@ -53,6 +55,7 @@ public class PlayerStats : ScriptableObject
 		SharedBool[] SharedBools =
 		{
 			unlockedDoubleDash,
+			unlockedHealthDash,
 			inCombat,
 		};
 
