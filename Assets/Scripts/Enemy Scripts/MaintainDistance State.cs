@@ -63,6 +63,7 @@ public class MaintainDistanceState : BaseState
 
         if (timeBtwShots <= 0) {
             timeBtwShots = 2f;
+            _enemy.enemyAnimator.SetTrigger("ImpAttacking");
             return typeof(FireProjectileState);
         } else {
             timeBtwShots -= Time.deltaTime;

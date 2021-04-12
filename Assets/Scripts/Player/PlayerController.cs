@@ -416,6 +416,8 @@ public class PlayerController : MonoBehaviour {
             if (withinAggroColliders.CompareTag("Fireball")) { TakeDamage(10); }
 
             if (withinAggroColliders.CompareTag("Eel Tendril")) { TakeDamage(10); }
+
+            if (withinAggroColliders.CompareTag("EnemySlash")) { TakeDamage(10); }
             
 
             /* EXAMPLE for other types of damage
