@@ -1,9 +1,11 @@
 ﻿using UnityEngine.Audio;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+
     [TextArea(maxLines: 10, minLines: 4)] [SerializeField]
     private string description = @"!!!DO NOT OVERRIDE THIS PREFAB!!!
 
@@ -18,214 +20,314 @@ public class AudioManager : MonoBehaviour
     For example, you can have a sound group called Overworld Music which contains 3 sounds: the intro, the loop, and the outro.You can also specify which sound in the group you want to loop
     ";
 
-    public AudioMixer soundMixer;
+    public AudioMixer audioMixer;
+
+    [Tooltip("Name of group to play on Start")]
     public string playGroupOnStart;
 
     public SoundGroup[] soundGroups;
 
-    // fade down (true) fade up (false). Used for testing at the moment
-    private bool fadeToggle;
+    // fade down (true) fade up (false). Used for Testing at the moment
+    private bool test_fadeToggle;
 
-    // Purpose: Initialize AudioManager
-    // Create and define an AudioSource for each Sound in sounds
-    void Awake()
-    {
-        fadeToggle = true;
+	private void Awake()
+	{
+        test_fadeToggle = true;
 
-        foreach (SoundGroup sg in soundGroups)
-        {
-            for (int i = 0; i < sg.sounds.Length; i++)
-            {
-                Sound s = sg.sounds[i];
+        foreach(SoundGroup sg in soundGroups)
+		{
+            int index = 0;
+            foreach (Sound s in sg.sounds)
+			{
+                s.index = index;                                    // set the index of the sound in the group
 
-                s.source = gameObject.AddComponent<AudioSource>();
-                s.source.playOnAwake = false;
-                s.source.clip = s.clip;
+                s.source = gameObject.AddComponent<AudioSource>();  // add the actual audio source
+                s.source.playOnAwake = false;                       // so clip won't immediately play
+                s.source.clip = s.clip;                             // set the source's sound clip
 
-                s.source.ignoreListenerPause = sg.ignorePause;
-                s.source.outputAudioMixerGroup = sg.group;
+                s.source.ignoreListenerPause = sg.ignorePause;      // if true, sound will continue to play when AudioListener is paused
+                s.source.outputAudioMixerGroup = sg.group;          // set the sound group from the audio mixer
 
-                s.source.volume = sg.volume;
+                s.source.volume = sg.volume;                        // set the volume 0 - 1. NOT THE SAME AS THE MIXER GROUP'S VOLUME
 
-                // s.source.loop = s.loop;
-
-                // s.source.spatialBlend = sg.spacialBlend;
-                // s.source.spread = sg.spread;
-
-                s.source.loop = sg.loopingClip == s.name;
+                s.source.loop = sg.loopingClip == s.name;           // set whether the clip loops
+                s.length = s.source.clip.samples / s.source.clip.frequency;
+                index++;
             }
-        }
-    }
+		}
+	}
 
-    void Start()
-    {
+	private void Start()
+	{
+        GameMaster.instance.OnGameOver += OnGameOver;
+        GameMaster.instance.OnGameRestart += OnGameRestart;
+
+        // playGroupOnStart(playGroupOnStart);
         PlayGroup(playGroupOnStart);
-    }
+	}
 
-    void Update()
-    {
-        // Test the fade in and fade out of the music in the overworld group
+	private void OnDisable()
+	{
+        GameMaster.instance.OnGameOver -= OnGameOver;
+        GameMaster.instance.OnGameRestart -= OnGameRestart;
+	}
+
+	private void Update()
+	{
+		// Test the fad in and out of the music in the overworld group
         if (Input.GetKeyDown(KeyCode.P))
-        {
-            float vol = fadeToggle ? 0.0f : 1.0f;
-            StartCoroutine(FadeMixerGroup.StartFade(soundMixer, "volumeOverworld", 2.0f, vol));
-            fadeToggle = !fadeToggle;
-        }
+		{
+            float vol = test_fadeToggle ? 0.0f : 1.0f;
+            StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "volumeOverworld", 2.0f, vol));
+            test_fadeToggle = !test_fadeToggle;
+		}
+
+        // Test ending the loop on the overworld music
         if (Input.GetKeyDown(KeyCode.L))
-        {
+		{
             EndLoop("Overworld Music");
-        }
+		}
+	}
+
+    private void OnGameOver(bool win)
+	{
+        Debug.Log("AudioManager: OnGameOver");
+        // StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "volumeMusic", 1.0f, 0.0f));
+        // EndLoop("Overworld Music");
+	}
+
+    private void OnGameRestart()
+	{
+        // StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "volumeMusic", 0.1f, 1.0f));
+	}
+
+    // Purpose: Find sound group with given name
+    private SoundGroup FindSoundGroup(string name)
+	{
+        return Array.Find(soundGroups, soundGroup => soundGroup.name == name);
+	}
+
+    private Sound FindSoundInGroup(SoundGroup sg, string sName)
+	{
+        if (sg == null) return null;
+        return Array.Find(sg.sounds, s => s.name == sName);
+	}
+
+    private Sound FindSoundInGroup(string sgName, string sName)
+	{
+        return FindSoundInGroup(FindSoundGroup(sgName), sName);
+	}
+
+    // Purpose: Get the sound at the given index of the sound group from the given name
+    private Sound GetSoundAtIndex(string name, int index)
+	{
+        return FindSoundGroup(name)?.sounds[index]; // this notation is wack, but it works. Returns null if not found
     }
 
-    //Purpose: Begin playing a sound group with this name
-    //Will play all the sounds in a sound group in a row
-    //If there is a sound in the group set to loop, it will begin to loop and will NOT play the following sounds
-    public SoundGroup PlayGroup(string name)
+    // Purpose: get the currently playing sound in the group
+    private Sound GetCurrentlyPlayingSound(string name)
     {
-        Debug.Log("Playing Sound Group: " + name);
-        SoundGroup sg = Array.Find(soundGroups, soundGroup => soundGroup.name == name);
+        return GetCurrentlyPlayingSound(FindSoundGroup(name));
+    }
+    private Sound GetCurrentlyPlayingSound(SoundGroup sg)
+    {
+        if (sg == null) return null; // if group is not found
 
-        if (sg == null || sg.sounds.Length == 0)
+        foreach (Sound s in sg.sounds)
         {
-            return null;
+            if (s.source.isPlaying) return s;
         }
 
-        sg.sounds[0].source.Play();
+        return null; // if no sound in group is playing
+    }
 
-        if (sg.sounds.Length > 1)
+    // Purpose: get the delays for all songs in the group
+    // Ex. The first delay will be the length of the first clip,
+    // the second will be the length of both the first and second clip,
+    // and the third will be the length of the first + the second + the third
+    // and so on
+    private List<double> GetDelays(string name)
+    {
+        return (GetDelays(FindSoundGroup(name)));
+    }
+
+    private List<double> GetDelays(SoundGroup sg)
+    {
+        List<double> delays = new List<double>();
+        double totalDelay = 0;
+        delays.Add(totalDelay);
+
+        foreach (Sound s in sg.sounds)
         {
-            double totalDelay = 0;
-
-            for (int i = 1; i < sg.sounds.Length; i++)
-            {
-                Sound currentSound = sg.sounds[i];
-                Sound previousSound = sg.sounds[i - 1];
-
-                totalDelay += (previousSound.source.clip.samples / previousSound.source.clip.frequency);
-                currentSound.source.PlayScheduled(AudioSettings.dspTime + totalDelay);
-
-                if (currentSound.source.loop)
-                {
-                    break;
-                }
-            }
+            totalDelay += s.length;
+            delays.Add(totalDelay);
         }
+
+        return delays;
+    }
+
+    // Purpose: if the sound group is playing, return an array of the times left for each song to play
+    // Does not account for looping
+    private List<double> GetDelaysFromPlaying(string name)
+	{
+        return GetDelaysFromPlaying(FindSoundGroup(name));
+	}
+
+    private List<double> GetDelaysFromPlaying(SoundGroup sg)
+    {
+        List<double> delayList = new List<double>();
+        double totalDelay = 0;
+        delayList.Add(totalDelay);
+
+        // Get the time left for the currently playing clip
+        Sound currentlyPlayingSound = GetCurrentlyPlayingSound(sg);
+        if (currentlyPlayingSound == null) return null;
+
+        totalDelay += (currentlyPlayingSound.source.clip.samples
+            - currentlyPlayingSound.source.timeSamples)
+            / currentlyPlayingSound.source.clip.frequency;
+
+        delayList.Add(totalDelay);
+
+        // add the lengths of the next songs that will play
+
+        for (int i = currentlyPlayingSound.index + 1; i < sg.sounds.Length; i++)
+		{
+            Sound currentSound = sg.sounds[i];
+
+            totalDelay += currentSound.source.clip.samples / currentSound.source.clip.frequency;
+
+            delayList.Add(totalDelay);
+		}
+
+        return delayList;
+    }
+
+    public Sound Play (Sound s)
+	{
+        if (s == null) return null;
+
+        s.source.Play();
+
+        return s;
+	}
+
+    // Purpose: Begin playing a sound group with given name
+    // Will play all the sounds in a group in a row
+    // If there is a sound in the group set to loop, it will begin to loop and will NOT play the following sounds
+    // Set noLoop to true if you want the group to play through without any looping
+    public SoundGroup PlayGroup(string name, bool noLoop = false)
+	{
+        Debug.Log("Playing SoundGroup: " + name);
+
+        // find the SoundGroup with the given name
+        SoundGroup sg = FindSoundGroup(name);
+
+        double startDelay = 0.5;
+
+        // return null if SoundGroup was not found
+        if (sg == null) return null;
+
+        // check there is no sound already playing
+        if (GetCurrentlyPlayingSound(sg) != null)
+		{
+            Debug.LogWarning("A sound in this group is already playing");
+            return sg;
+        }
+
+        // reset clips that loop
+        foreach (Sound s in sg.sounds) s.source.loop = noLoop ? false : sg.loopingClip == s.name;
+
+        List<double> delayList = GetDelays(sg);
+        double totalDelay = 0;
+
+        double startTime = startDelay + AudioSettings.dspTime;
+
+        foreach(Sound s in sg.sounds)
+		{
+            // if (s.index == 0) s.source.Play();
+            // else s.source.PlayScheduled(AudioSettings.dspTime + delayList[s.index]);
+            s.source.PlayScheduled(startTime + totalDelay);
+            totalDelay += s.length;
+            if (s.source.loop) break;
+		}
 
         return sg;
+	}
+
+    // Purpose: If there is a looping track playing, turn off looping
+    // and continue playing the rest of the sounds in the group
+    // if there are any
+    // Set continuePlaying to false if you don't want the clips after the looping clip to play
+    // TODO: currently only works if there is LOOPING clip playing
+    public void EndLoop(string name, bool continuePlaying = true)
+	{
+        SoundGroup sg = FindSoundGroup(name);
+
+        if (sg == null)
+		{
+            Debug.Log("AudioManager: EndLoop: Group not found: " + name);
+            return;
+		}
+
+        // turn off looping in this group
+        foreach (Sound s in sg.sounds) s.source.loop = false;
+
+        Sound currentlyPlaying = GetCurrentlyPlayingSound(sg);
+        List<double> delayList = GetDelaysFromPlaying(sg);
+
+        foreach(double d in delayList)
+		{
+            Debug.Log("delayList: " + d);
+		}
+        
+        for (int i = currentlyPlaying.index + 1; i < sg.sounds.Length; i++)
+		{
+            sg.sounds[i].source.PlayScheduled(AudioSettings.dspTime + delayList[i]);
+		}
     }
 
-    //Purpose: If there is a looping track playing in this sound group, turn off looping and let it play out
-    //If there is a following sound in the soundgroup, it will play once the loop has finished its last cycle
-    //TODO: currently only works if there is a looping track playing
-    public void EndLoop (string name)
-    {
-        SoundGroup sg = Array.Find(soundGroups, soundGroup => soundGroup.name == name);
-
-        for (int i = 0; i < sg.sounds.Length; i++)
-        {
-            if (sg.sounds[i].source.isPlaying)
-            {
-                Sound currentSound = sg.sounds[i];
-                currentSound.source.loop = false;
-
-                if (i + 1 < sg.sounds.Length)
-                {
-                    Sound nextSound = sg.sounds[i + 1];
-
-                    nextSound.source.PlayScheduled(AudioSettings.dspTime
-                        + (currentSound.source.clip.samples
-                        - currentSound.source.timeSamples)
-                        / currentSound.source.clip.frequency);
-                }
-            }
-        }
-    }
-
-    //Purpose: Play a random sound in a sound group
+    // Purpose: Play a random sound in a sound group
     public Sound PlayRandomSoundInGroup(string name)
-    {
-        SoundGroup sg = Array.Find(soundGroups, soundGroup => soundGroup.name == name);
+	{
+        return PlayRandomSoundInGroup(FindSoundGroup(name));
+	}
 
-        if (sg.sounds.Length < 1)
-            return null;
+    public Sound PlayRandomSoundInGroup(SoundGroup sg)
+	{
+        if (sg == null || sg.sounds.Length == 0) return null;
 
         Sound randomSound = sg.sounds[UnityEngine.Random.Range(0, sg.sounds.Length)];
 
         Play(randomSound);
 
         return randomSound;
-    }
+	}
 
-    //Purpsose: Play a specific sound in a sound group
-    public Sound PlaySoundInGroup(string groupName, string soundName)
-    {
-        SoundGroup sg = Array.Find(soundGroups, soundGroup => soundGroup.name == groupName);
+    // Purpose: Play a specific sound in a given group
+    public Sound PlaySoundInGroup(string sgName, string sName)
+	{
+        return PlaySoundInGroup(FindSoundGroup(sgName), sName);
+	}
 
-        Sound s = Array.Find(sg.sounds, sound => sound.name == soundName);
-
-        if (s != null)
-        {
-            Play(s);
-        }
-
+    public Sound PlaySoundInGroup(SoundGroup sg, string sName)
+	{
+        Sound s = FindSoundInGroup(sg, sName);
+        if (s == null) return null;
+        Play(s);
         return s;
-    }
+	}
 
-    //Purpose: Play a Sound
-    public Sound Play (Sound sound)
-    {
-        if (sound == null)
-        {
-            return null;
-        }
 
-        sound.source.Play();
-
-        return sound;
-    }
-
-    //Purpose: Schedule a Sound to be played. Currently not in use
-    private Sound PlayScheduled(Sound sound, double delay)
-    {
-        return sound;
-    }
-
-    // Purpose: Play the sound from the given sound name
-    // If the sound has a following sound, schedule that sound for playback
-    //public Sound Play(string name)
-    //{
-    //    Sound s = Array.Find(sounds, sound => sound.name == name);
-    //    if (s == null)
-    //    {
-    //        Debug.LogWarning("Sound " + name + " not found");
-    //        return null;
-    //    }
-    //    s.source.Play();
-
-    //    if (s.followingSound != null)
-    //    {
-    //        // double delay = (amount of clip samples) / (clip frequency) - This is the length of the clip in DSP time
-    //        PlayScheduled(s.followingSound, (double)(s.source.clip.samples / s.source.clip.frequency));
-    //    }
-
-    //    return s;
-    //}
-
-    // Purpose: Play the sound from the given name after a delay
-    // delay is a double and the timing is based off the sample rate
-    // Then length of an audio clip in DSP time is the amount of samples of the clip divided by the clip's frequency
-    //public Sound PlayScheduled(string name, double delay)
-    //{
-    //    Sound s = Array.Find(sounds, sound => sound.name == name);
-    //    if (s == null)
-    //    {
-    //        Debug.LogWarning("Sound " + name + " not found");
-    //        return null;
-    //    }
-
-    //    Debug.Log("Scheduling " + s.name);
-    //    s.source.PlayScheduled(AudioSettings.dspTime + delay);
-
-    //    return s;
-    //}
+    // Purpose: Stop all sounds playing in this group
+    public void StopAll()
+	{
+        foreach (SoundGroup sg in soundGroups)
+		{
+            foreach(Sound s in sg.sounds)
+			{
+                s.source.Stop();
+			}
+		}
+	}
 }

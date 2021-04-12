@@ -307,7 +307,7 @@ public class Enemy : MonoBehaviour
 
         Vector3 pos = this.gameObject.transform.position;
         GameObject soundSource = Instantiate(deathSFXObject, pos, Quaternion.identity);
-        Sound sound = soundSource.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("Death");
+        Sound sound = soundSource.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("death");
         Destroy(soundSource, sound.source.clip.length);
 
     }

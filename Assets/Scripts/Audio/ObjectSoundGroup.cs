@@ -1,5 +1,6 @@
 ﻿using UnityEngine.Audio;
 using UnityEngine;
+using UnityEditor;
 
 [System.Serializable]
 // Purpose: Define a sound object with properties for the AudioManager to use
@@ -26,8 +27,13 @@ public class ObjectSoundGroup
 
     public AudioRolloffMode rolloffMode;
     public int minDistance = 3;
-    public int maxDistance = 20;
+    public int maxDistance = 10;
 
     [Space]
     public Sound[] sounds;
+}
+
+public class IntDrawer : PropertyDrawer
+{
+
 }
