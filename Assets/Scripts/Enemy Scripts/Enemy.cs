@@ -150,7 +150,7 @@ public class Enemy : MonoBehaviour
                 } else if (this.tag == "Fire Imp") {
                     healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * 0.4f);
                 } else if (this.tag == "Hammer Giant" || this.tag == "Sword Giant") {
-                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .5f);
+                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .3f);
                 }
                 
             }
