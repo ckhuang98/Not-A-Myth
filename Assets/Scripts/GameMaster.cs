@@ -29,6 +29,8 @@ public class GameMaster : MonoBehaviour
     public delegate void GMDelegate();
     public GMDelegate OnGamePuased;
     public GMDelegate OnGameResumed;
+    public GMDelegate OnSceneLoad;
+    public GMDelegate OnGameRestart;
 
     public delegate void GMDelegateBool(bool b);
 
@@ -72,6 +74,7 @@ public class GameMaster : MonoBehaviour
         assignReferences();
         ui.setUIForNewScene();
         ui.updateInventoryUI();
+        OnSceneLoad?.Invoke();
     }
 
 
@@ -212,6 +215,7 @@ public class GameMaster : MonoBehaviour
         {
             recordedPlayerHealth = player.GetComponent<PlayerController>().maxHealth;
         }
+        OnGameRestart?.Invoke();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

@@ -508,30 +508,35 @@ public class PlayerController : MonoBehaviour {
     */
     void checkIfPlayerIsDead()
     {
-        if (currentHealth <= 0)
+        if (!gameMaster.getGameOver())
         {
-            gameMaster.setGameOver();
-        }
+            if (currentHealth <= 0)
+            {
+                gameMaster.setGameOver();
+                return;
+            }
 
-        if (stats.currentHealth.Value <= 0)
-		{
-            gameMaster.setGameOver();
-		}
+            if (stats.currentHealth.Value <= 0)
+            {
+                gameMaster.setGameOver();
+                return;
+            }
+        }
     }
 
     private void playFootstepSFX()
     {
-        audioManager.PlayRandomSoundInGroup("Footsteps");
+        // audioManager.PlayRandomSoundInGroup("Footsteps");
     }
 
     private void playSlashSFX()
     {
-        audioManager.PlayRandomSoundInGroup("Slashes");
+        // audioManager.PlayRandomSoundInGroup("Slashes");
     }
 
     private void playHurtSFX()
     {
-        audioManager.PlayRandomSoundInGroup("Hurt");
+        // audioManager.PlayRandomSoundInGroup("Hurt");
     }
 
     private void OnTriggerEnter2D(Collider2D col) {

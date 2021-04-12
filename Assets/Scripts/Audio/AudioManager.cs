@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    [TextArea(maxLines: 10, minLines: 4)] [SerializeField]
+    private string description = @"!!!DO NOT OVERRIDE THIS PREFAB!!!
+
+    The AudioManager in a scene is for controlling universal sounds like music and menu noises.
+    (Not for specific instance sounds like the player or giants. They have their own individual audio managers call ObjectAudioManager)
+
+    Properties
+    Sound Mixer is the mixer that controls the different audio levels
+
+    Sound Groups is a list of individual sound collections with different adjustable volume and other properties.
+    Each sound group contains another list of sounds for that group.This is where individual sound clips go.Each must be tied to a channel on the sound mixer.
+    For example, you can have a sound group called Overworld Music which contains 3 sounds: the intro, the loop, and the outro.You can also specify which sound in the group you want to loop
+    ";
+
     public AudioMixer soundMixer;
     public string playGroupOnStart;
 
@@ -33,8 +47,10 @@ public class AudioManager : MonoBehaviour
 
                 s.source.volume = sg.volume;
 
-                s.source.spatialBlend = sg.spacialBlend;
-                s.source.spread = sg.spread;
+                // s.source.loop = s.loop;
+
+                // s.source.spatialBlend = sg.spacialBlend;
+                // s.source.spread = sg.spread;
 
                 s.source.loop = sg.loopingClip == s.name;
             }
@@ -69,7 +85,7 @@ public class AudioManager : MonoBehaviour
         Debug.Log("Playing Sound Group: " + name);
         SoundGroup sg = Array.Find(soundGroups, soundGroup => soundGroup.name == name);
 
-        if (sg == null)
+        if (sg == null || sg.sounds.Length == 0)
         {
             return null;
         }

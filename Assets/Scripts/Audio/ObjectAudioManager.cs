@@ -29,13 +29,13 @@ public class ObjectAudioManager : MonoBehaviour
 
                 s.source.volume = sg.volume;
 
-                s.source.spatialBlend = sg.spacialBlend;
-                s.source.spread = sg.spread;
+                // s.source.spatialBlend = sg.spacialBlend;
+                // s.source.spread = sg.spread;
 
                 s.source.loop = sg.loopingClip == s.name;
 
-                s.source.rolloffMode = sg.rolloffMode;
-                s.source.maxDistance = sg.maxDistance;
+                // s.source.rolloffMode = sg.rolloffMode;
+                // s.source.maxDistance = sg.maxDistance;
             }
         }
     }

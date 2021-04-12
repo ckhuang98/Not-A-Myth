@@ -474,8 +474,8 @@ GameObject:
   - component: {fileID: 6249455407112965223}
   - component: {fileID: 3831496449369086244}
   - component: {fileID: -2846928315923067694}
-  - component: {fileID: 3831496449369086267}
   - component: {fileID: 3831496449369086266}
+  - component: {fileID: 948363859}
   m_Layer: 0
   m_Name: 'Hammer Giant '
   m_TagString: Hammer Giant
@@ -618,190 +618,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0694771, y: 2.1649857}
   m_EdgeRadius: 0
---- !u!114 &3831496449369086267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6249455407112965218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7ecd75c01e16404aa4292dc739d8116, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: 
-  soundMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
-  soundGroups:
-  - name: Footsteps
-    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
-      type: 2}
-    ignorePause: 0
-    volume: 0.3
-    spacialBlend: 1
-    spread: 1
-    loopingClip: 
-    rolloffMode: 1
-    maxDistance: 10
-    sounds:
-    - name: 2
-      clip: {fileID: 8300000, guid: c23093c7101f14a4a8d07f4fbbace0cd, type: 3}
-      source: {fileID: 0}
-    - name: 3
-      clip: {fileID: 8300000, guid: 8e98cbd092b332340863c915006e3868, type: 3}
-      source: {fileID: 0}
-    - name: 4
-      clip: {fileID: 8300000, guid: 95a479f3b1474584193aba4c8e78a5e7, type: 3}
-      source: {fileID: 0}
-    - name: 5
-      clip: {fileID: 8300000, guid: b75ee9baf0a3f1642acff38d77f859be, type: 3}
-      source: {fileID: 0}
-    - name: 6
-      clip: {fileID: 8300000, guid: e4cc334ccb5c4964b99e4878f7777f4b, type: 3}
-      source: {fileID: 0}
-  - name: Hammer Impact
-    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
-      type: 2}
-    ignorePause: 0
-    volume: 0.3
-    spacialBlend: 1
-    spread: 1
-    loopingClip: 
-    rolloffMode: 1
-    maxDistance: 10
-    sounds:
-    - name: 1
-      clip: {fileID: 8300000, guid: 3609a25708eba9f47a57fdf19e2f70e4, type: 3}
-      source: {fileID: 0}
-    - name: 2
-      clip: {fileID: 8300000, guid: 915691fe6d5b3774eb7531d3123fb5ae, type: 3}
-      source: {fileID: 0}
-    - name: 3
-      clip: {fileID: 8300000, guid: 805dc9ee2d5bae142875388541987e70, type: 3}
-      source: {fileID: 0}
-    - name: 4
-      clip: {fileID: 8300000, guid: 363448fb564cbcf46bbc193f30cb3136, type: 3}
-      source: {fileID: 0}
-    - name: 5
-      clip: {fileID: 8300000, guid: c0a9098266c24ca4390ad2b98d7cadb2, type: 3}
-      source: {fileID: 0}
-    - name: Impact
-      clip: {fileID: 8300000, guid: 9fad331dccfdcf54e88dd90d420dfd88, type: 3}
-      source: {fileID: 0}
-  - name: Hammer Swing
-    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
-      type: 2}
-    ignorePause: 0
-    volume: 0.3
-    spacialBlend: 1
-    spread: 1
-    loopingClip: 
-    rolloffMode: 1
-    maxDistance: 10
-    sounds:
-    - name: 1
-      clip: {fileID: 8300000, guid: 408ba9ba04c9f994387fa3a51f34ac4a, type: 3}
-      source: {fileID: 0}
-    - name: 2
-      clip: {fileID: 8300000, guid: 4f152c758c7038346ae05151092ce8bd, type: 3}
-      source: {fileID: 0}
-    - name: 3
-      clip: {fileID: 8300000, guid: cb81338f9772e784dbbfb82534447d9d, type: 3}
-      source: {fileID: 0}
-    - name: 4
-      clip: {fileID: 8300000, guid: 2434b91dfc81e3f48a06dedb32b8a5fa, type: 3}
-      source: {fileID: 0}
-  - name: Hurt
-    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
-      type: 2}
-    ignorePause: 0
-    volume: 0.3
-    spacialBlend: 1
-    spread: 1
-    loopingClip: 
-    rolloffMode: 1
-    maxDistance: 10
-    sounds:
-    - name: 1
-      clip: {fileID: 8300000, guid: b14476758b3a11f458cbf5dc0a1fcae7, type: 3}
-      source: {fileID: 0}
-    - name: 2
-      clip: {fileID: 8300000, guid: 71efcd7199dcb9946a37240cca78dc6c, type: 3}
-      source: {fileID: 0}
-    - name: 3
-      clip: {fileID: 8300000, guid: 2e5856d2d4a4e4243968da026069798e, type: 3}
-      source: {fileID: 0}
-    - name: 4
-      clip: {fileID: 8300000, guid: 4e62314333be95049abcd1d8e9bd146b, type: 3}
-      source: {fileID: 0}
-    - name: 5
-      clip: {fileID: 8300000, guid: 3fedfdf4cc1c44045a5ff52f2d07c780, type: 3}
-      source: {fileID: 0}
-    - name: 6
-      clip: {fileID: 8300000, guid: 486b0913e72290845ab4a2809a4537c2, type: 3}
-      source: {fileID: 0}
-    - name: 7
-      clip: {fileID: 8300000, guid: fca14c8dd14a5694d98eb5668beafcf7, type: 3}
-      source: {fileID: 0}
-    - name: 8
-      clip: {fileID: 8300000, guid: b565e1210f702a64898f4edd90268ca0, type: 3}
-      source: {fileID: 0}
-    - name: 9
-      clip: {fileID: 8300000, guid: c441de1ad18032846b1fc268af46dddd, type: 3}
-      source: {fileID: 0}
-    - name: 10
-      clip: {fileID: 8300000, guid: 2ab570a15cf634a449de521bcb83fd82, type: 3}
-      source: {fileID: 0}
-    - name: 11
-      clip: {fileID: 8300000, guid: 9d6321b1ecf706443a3d9bb610c10c28, type: 3}
-      source: {fileID: 0}
-    - name: 12
-      clip: {fileID: 8300000, guid: 3ecddd10879066b4f98250d6f3a9f587, type: 3}
-      source: {fileID: 0}
-    - name: 13
-      clip: {fileID: 8300000, guid: 6b7de2badfdd91647b5603e15ff34be4, type: 3}
-      source: {fileID: 0}
-    - name: 14
-      clip: {fileID: 8300000, guid: 099614c3449fab7419fdc7d754c6370e, type: 3}
-      source: {fileID: 0}
-  - name: Death
-    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
-      type: 2}
-    ignorePause: 0
-    volume: 0.3
-    spacialBlend: 1
-    spread: 1
-    loopingClip: 
-    rolloffMode: 1
-    maxDistance: 10
-    sounds:
-    - name: 1
-      clip: {fileID: 8300000, guid: ef38ef69fae860e4eb4169e72297f22b, type: 3}
-      source: {fileID: 0}
-    - name: 2
-      clip: {fileID: 8300000, guid: 31a7a2fcdf88e0c4a8eb6354b43819f5, type: 3}
-      source: {fileID: 0}
-    - name: 3
-      clip: {fileID: 8300000, guid: 9a0c6f597562b78478f69d54132f2a84, type: 3}
-      source: {fileID: 0}
-    - name: 4
-      clip: {fileID: 8300000, guid: 1e67b2b85c90aee469ad24e6296fa91a, type: 3}
-      source: {fileID: 0}
-    - name: 5
-      clip: {fileID: 8300000, guid: 0f7c2b1bdc4820c4a8ee9d3075f0e021, type: 3}
-      source: {fileID: 0}
-    - name: 6
-      clip: {fileID: 8300000, guid: d5f20b107cdd52e45ab210407e239625, type: 3}
-      source: {fileID: 0}
-    - name: 7
-      clip: {fileID: 8300000, guid: 5259c90a9da84874f9d021312a4705cc, type: 3}
-      source: {fileID: 0}
-    - name: 8
-      clip: {fileID: 8300000, guid: 7a482a393e4f20948a9b4b808c3bbc21, type: 3}
-      source: {fileID: 0}
-    - name: 9
-      clip: {fileID: 8300000, guid: 11d6306d82e53ac41b98bb9f1460fd94, type: 3}
-      source: {fileID: 0}
 --- !u!114 &3831496449369086266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,3 +654,62 @@ MonoBehaviour:
   doLungeAttack: 0
   deathSFXObject: {fileID: 6986382958281556572, guid: eb55799b3883de04086c3f34a5f3c139,
     type: 3}
+--- !u!114 &948363859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6249455407112965218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f022c857e6ec6ac4eb85d0a451860390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: "The Object Audio Manager is for sounds emitted from objects in the
+    scene (the player, enemies, environment, etc.)\r\n    \r\n    Audio Mixer: The
+    Audio Mixer for the game. Should be set to SoundMixer\r\n    Play Group On Start:
+    The name of the audio group that will automatically play on Start\r\n    Sound
+    Groups: An array containing SoundGroups\r\n    \r\n    Sound Groups categorize,
+    hold, and set parameters for individual Sounds\r\n    ex. The SoundGroup 'footsteps'
+    can hold all the object's footstep Sounds\r\n\r\n    Sounds each have a name
+    and an associated AudioClip"
+  audioMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  playGroupOnStart: 
+  soundGroups:
+  - name: footsteps
+    group: {fileID: 999436064050034201, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+    ignorePause: 1
+    volume: 0.3
+    loopingClip: 
+    spacialAudio: 1
+    spread: 150
+    rolloffMode: 0
+    minDistance: 1
+    maxDistance: 20
+    sounds:
+    - name: 2
+      clip: {fileID: 8300000, guid: 2cad8d408349bdd4f8ec451ec4573d45, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 3
+      clip: {fileID: 8300000, guid: 060ac00f9131b5c41af0e595e5803621, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 4
+      clip: {fileID: 8300000, guid: 73dd1ea3936cfd7438a39477ce7be5fe, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 5
+      clip: {fileID: 8300000, guid: 663be65f5ec40914eb2bb66ab83e88d0, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 6
+      clip: {fileID: 8300000, guid: 40b892bf070fc6f488e7b427b783967e, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}

@@ -18,6 +18,12 @@ public class Sound
     // public bool loopOverride;
 
     [HideInInspector]
+    public int index;
+
+    [HideInInspector]
+    public double length;
+
+    [HideInInspector]
     public AudioSource source;
 
 }

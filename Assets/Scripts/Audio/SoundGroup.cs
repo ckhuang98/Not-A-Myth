@@ -14,16 +14,7 @@ public class SoundGroup
     [Range(0f, 1f)]
     public float volume;
 
-    [Range(0f, 1f)]
-    public float spacialBlend;
-
-    [Range(0f, 360f)]
-    public float spread;
-
     public string loopingClip;
-
-    public AudioRolloffMode rolloffMode;
-    public int maxDistance = 20;
 
     [Space]
     public Sound[] sounds;
