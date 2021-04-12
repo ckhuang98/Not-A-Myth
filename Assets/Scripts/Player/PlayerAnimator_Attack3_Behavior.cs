@@ -7,7 +7,8 @@ public class PlayerAnimator_Attack3_Behavior : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       CombatManager.instance.player.speed = 0.6f;
+       GameMaster.instance.playerStats.speed.Value = 0.6f;
+       GameMaster.instance.playerStats.knockBackForce.Value = 1200f;
        CombatManager.instance.player.slashAnimation.Play("SlashAnim3", -1, 0f);
     }
 

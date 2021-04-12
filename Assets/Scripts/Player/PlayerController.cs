@@ -20,8 +20,6 @@ public class PlayerController : MonoBehaviour {
 
     private State state;
 
-    public float maxSpeed = 5.0f;
-    public float speed;
     public float dashSpeed;
 
     public Rigidbody2D rb;
@@ -29,11 +27,7 @@ public class PlayerController : MonoBehaviour {
     Vector2 movement;
     Vector3 attackDir;
 
-    Vector3 moveDirection;
     Vector3 lastMoveDirection;
-    Vector3 dashDirection;
-
-    public Text attackPosition;
 
     public Animator slashAnimation;
 
@@ -42,7 +36,6 @@ public class PlayerController : MonoBehaviour {
     float timer = 0f;
 
     float healthTimer = 0f;
-    public float attackStrength;
 
     private Collider2D withinAggroColliders;
     public float agroRange = 0;
@@ -68,15 +61,11 @@ public class PlayerController : MonoBehaviour {
     public int currentHealth;
     ///////////////////////////////////
 
-    public bool isDashButtonDown = false;
-
     ///////////////////////////////////
     public bool attacked = false;
     public bool canDash = true;
     public bool canDashTwice = false;
-    public bool unlockedDashTwice = false;
 
-    public bool hasKnockback = false;
     ///////////////////////////////////
 
     public GameObject slashCollider;
@@ -112,7 +101,6 @@ public class PlayerController : MonoBehaviour {
         // healthBar.SetMaxValue(maxHealth);
         // healthBar.SetValue(currentHealth);
 
-        speed = maxSpeed;
         //slashCollider.GetComponent<Collider>().enabled = false;
         //part = GameObject.Find("Cone Firing").GetComponent<ParticleSystem>();
         fireAlert = this.GetComponentInChildren<Image>();
@@ -207,7 +195,7 @@ public class PlayerController : MonoBehaviour {
     void FixedUpdate() {
         switch(state){
             case State.Normal:
-                rb.velocity = movement * speed;
+                rb.velocity = movement * stats.speed.Value;
                 break;
 
             case State.Dashing:
@@ -244,7 +232,7 @@ public class PlayerController : MonoBehaviour {
     // }
 
     private void dashManager(){
-        if(unlockedDashTwice){
+        if(stats.unlockedDoubleDash.Value){
            canDashTwice = true; 
         }
         if(Input.GetKeyDown(KeyCode.Space) && canDash){
@@ -263,7 +251,7 @@ public class PlayerController : MonoBehaviour {
             state = State.Normal;
             Physics2D.IgnoreLayerCollision(9, 4, false);
         } else{
-            if(unlockedDashTwice && canDashTwice && Input.GetKeyDown(KeyCode.Space)){
+            if(stats.unlockedDoubleDash.Value && canDashTwice && Input.GetKeyDown(KeyCode.Space)){
                 dashSpeed = 20f;
                 rb.velocity = lastMoveDirection * dashSpeed;
                 dashSpeed -= dashSpeed * 5f * Time.deltaTime;
@@ -287,46 +275,10 @@ public class PlayerController : MonoBehaviour {
         return "";
     }
 
-    public void gainStrength() {
-
-        attackStrength += 0.75f;
-        //StartCoroutine(UI.instance.displayerPlayerUpdate("Stregnth Increased!"));
-
-    }
-
-    public float whatIsStrength() { // is there a purpos to this when attackStrength is public?
-        return attackStrength;
-    }
-
-    public void gainHealth(){
-        maxHealth += 15;
-        // healthBar.SetMaxValue(maxHealth);
-        // healthBar.SetValue(currentHealth);
-    }
-
-    public void gainSpeed(){
-        maxSpeed++;
-    }
-
-    // Gives player fire resistance; takes twice as long to be set on fire.
-    public void gainFireResistance(){
-        maxFireStacks = maxFireStacks * 2;
-    }
-
-    // Player can now dash twice in succession.
-    public void gainDoubleDash(){
-        unlockedDashTwice = true;
-    }
-
-    // Player attacks now have minor knockback.
-    public void gainKnockback(){
-        hasKnockback = true;
-    }
-
     //restore current health
     public void restoreHealth(int restoreHealthBy = 10)
     {
-        currentHealth = Math.Min(currentHealth + restoreHealthBy, maxHealth);
+        stats.currentHealth.Value = Math.Min(stats.currentHealth.Value + restoreHealthBy, stats.maxHealth.Value);
         // healthBar.SetValue(currentHealth);
         StartCoroutine(UI.instance.displayerPlayerUpdate("Health Restored"));
     }
@@ -368,7 +320,6 @@ public class PlayerController : MonoBehaviour {
     public void TakeDamage(int damage){
         playHurtSFX();
         if(!isInvincible){
-            currentHealth -= damage;
             stats.currentHealth.Value -= damage;
             CameraShaker.Instance.ShakeOnce(3f, 3f, 0.1f, 1f);
             StartCoroutine(tempInvincible());
@@ -381,7 +332,6 @@ public class PlayerController : MonoBehaviour {
     // have a camera shake, or allow temporary invincibility
     public void TakeFireDamage(int damage) {
         playHurtSFX();
-        currentHealth -= damage;
         stats.currentHealth.Value -= damage;
         // healthBar.SetValue(currentHealth);
     }

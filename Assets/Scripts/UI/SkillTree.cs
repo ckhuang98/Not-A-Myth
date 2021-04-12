@@ -73,24 +73,11 @@ public class SkillTree : MonoBehaviour
         updateSkillDescription(button);
     }
 
-    public void fireReistanceSkillUpgrade(SkillTreeButton button)
-    {
-        if (button.currentUses < button.maxUses)
-        {
-            if(GameMaster.instance.getSkillPoints() > 0){
-                GameMaster.instance.spendSkillPoints();
-                updateSkillPoints();
-                GameMaster.instance.gainFireResistance();
-                button.currentUses++;
-            }
-        }
-        updateSkillDescription(button);
-    }
 
     public void doubleDashSkillUpgrade(SkillTreeButton button){
         if (button.currentUses < button.maxUses)
         {
-            if(GameMaster.instance.getSkillPoints() > 0){
+            if(GameMaster.instance.getSkillPoints() > 0 && GameMaster.instance.playerStats.maxSpeed.Value == 8){
                 GameMaster.instance.spendSkillPoints();
                 updateSkillPoints();
                 GameMaster.instance.gainDoubleDash();
@@ -100,16 +87,4 @@ public class SkillTree : MonoBehaviour
         updateSkillDescription(button);
     }
 
-    public void knockbackSkillUpgrade(SkillTreeButton button){
-        if (button.currentUses < button.maxUses)
-        {
-            if(GameMaster.instance.getSkillPoints() > 0){
-                GameMaster.instance.spendSkillPoints();
-                updateSkillPoints();
-                GameMaster.instance.gainKnockback();
-                button.currentUses++;
-            }
-        }
-        updateSkillDescription(button);
-    }
 }

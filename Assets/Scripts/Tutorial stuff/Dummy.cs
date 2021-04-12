@@ -29,7 +29,7 @@ public class Dummy : MonoBehaviour
     {
         if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .5)
         {
-            currentHealth -= collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength();
+            currentHealth -= GameMaster.instance.playerStats.attackPower.Value;
             timer = 0;
         }
     }

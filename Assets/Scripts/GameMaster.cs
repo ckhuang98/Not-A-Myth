@@ -88,8 +88,8 @@ public class GameMaster : MonoBehaviour
         Cursor.visible = true;
         paused = false;
 
-        playerStats.OnStatsChanged += Testing_PlayerStatsUpdated;
-        playerStats.currentHealth.Value += 1;
+        //playerStats.OnStatsChanged += Testing_PlayerStatsUpdated;
+        //playerStats.currentHealth.Value += 1;
     }
 
     private void Update()
@@ -119,46 +119,40 @@ public class GameMaster : MonoBehaviour
         }
     }
 
-    public int getSkillPoints(){
-        return skillPoints;
+    public float getSkillPoints(){
+        return playerStats.skillPoints.Value;
     }
 
     public void spendSkillPoints(){
-        if(skillPoints > 0){
-            skillPoints--;
+        if(playerStats.skillPoints.Value > 0){
+            playerStats.skillPoints.Value--;
         }
     }
 
     public void pickUpShard(){
-        numOfShards++;
-        if(numOfShards == 5){
-            numOfShards = 0;
-            skillPoints++;
+        playerStats.currentXp.Value++;
+        if(playerStats.currentXp.Value == 5){
+            playerStats.currentXp.Value = 0;
+            playerStats.skillPoints.Value++;
+            StartCoroutine(UI.instance.displayerPlayerUpdate("Skill Point Availble!"));
         }
     }
 
     public void gainStrength(){
-        player.GetComponent<PlayerController>().gainStrength();
+        playerStats.attackPower.Value += 0.75f;
     }
 
     public void gainHealth(){
-        player.GetComponent<PlayerController>().gainHealth();
+        playerStats.maxHealth.Value += 15;
     }
 
     public void gainSpeed(){
-        player.GetComponent<PlayerController>().gainSpeed();
-    }
-
-    public void gainFireResistance(){
-        
+        playerStats.maxSpeed.Value++;
+        playerStats.speed.Value = playerStats.maxSpeed.Value;
     }
 
     public void gainDoubleDash(){
-        player.GetComponent<PlayerController>().gainDoubleDash();
-    }
-
-    public void gainKnockback(){
-        player.GetComponent<PlayerController>().gainKnockback();
+        playerStats.unlockedDoubleDash.Value = true;
     }
 
     //Get necessary references to objects in the scene
@@ -210,7 +204,7 @@ public class GameMaster : MonoBehaviour
         resumeGame();
         if (fullHealth) //set player's health to max. Used for when restarting checkpoint after death
         {
-            recordedPlayerHealth = player.GetComponent<PlayerController>().maxHealth;
+            //recordedPlayerHealth = playerStats.maxHealth.Value;
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -277,9 +271,6 @@ public class GameMaster : MonoBehaviour
     {
         if (player != null)
         {
-            recordedPlayerHealth = player.GetComponent<PlayerController>().currentHealth;
-            recordedPlayerStrength = player.GetComponent<PlayerController>().attackStrength;
-
             // save inventory
             recordedInventory.Clear();
             foreach (Item it in Inventory.instance.items)
@@ -294,8 +285,6 @@ public class GameMaster : MonoBehaviour
         } else
         {
             Debug.LogWarning("No instance of Player found");
-            recordedPlayerHealth = 100;
-            recordedPlayerStrength = 1.0f;
             recordedInventory.Clear();
             statsRecorded = false;
         }
@@ -308,15 +297,6 @@ public class GameMaster : MonoBehaviour
         {
             if (player != null)
             {
-                if (overrideHealth)
-                {
-                    player.GetComponent<PlayerController>().currentHealth = recordedPlayerHealth;
-                } else
-                {
-                    player.GetComponent<PlayerController>().currentHealth = player.GetComponent<PlayerController>().maxHealth;
-                }
-
-                player.GetComponent<PlayerController>().attackStrength = recordedPlayerStrength;
 
                 // load inventory
                 Inventory.instance.items.Clear();
@@ -338,8 +318,6 @@ public class GameMaster : MonoBehaviour
             }
         } else
         {
-            player.GetComponent<PlayerController>().currentHealth = player.GetComponent<PlayerController>().maxHealth;
-            player.GetComponent<PlayerController>().attackStrength = 1.0f; //TODO: don't hard code attackStrength default value
             recordStats();
         }
         

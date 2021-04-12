@@ -27,7 +27,7 @@ public class Shard : MonoBehaviour
     //the shard has not already been picked up, so that the player can only pick
     //it up once.
     void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.gameObject.name.Equals("Player") && pickedUp == false) {
+        if (collider.gameObject.name.Equals("MC Prefab") && pickedUp == false) {
 
             // Item newItem = Instantiate(item);
             // newItem.name = item.itemName;

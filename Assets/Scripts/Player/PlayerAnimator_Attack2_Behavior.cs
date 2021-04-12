@@ -9,8 +9,8 @@ public class PlayerAnimator_Attack2_Behavior : StateMachineBehaviour
     {
         CombatManager.instance.player.attacked = true;
         CombatManager.instance.canReceiveInput = true;
-        CombatManager.instance.player.speed = 0.8f;
-
+        GameMaster.instance.playerStats.speed.Value = 0.8f;
+        GameMaster.instance.playerStats.knockBackForce.Value = 600f;
         CombatManager.instance.player.slashAnimation.Play("SlashAnim2", -1, 0f);
     }
 

@@ -29,7 +29,6 @@ public class Enemy : MonoBehaviour
     //Target is the players' current location
     private Transform target;
 
-    private PlayerController player;            // Added by Cary 04/01/21
     public bool inBounds = false;
     public bool hasCircled = false;
 
@@ -78,7 +77,6 @@ public class Enemy : MonoBehaviour
         freezer = GameMaster.instance.GetComponent<Freezer>();
         //getting transform component from the Player
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();    // Added by Cary 04/01/21
 
         hammerGiantList = GameObject.FindGameObjectsWithTag("Hammer Giant");
         fireImpList = GameObject.FindGameObjectsWithTag("Fire Imp");
@@ -142,21 +140,18 @@ public class Enemy : MonoBehaviour
             ////////////////////////////////////////////////////////////////////////////////////
             // Adds knockback to enemy
             // Added by Cary 04/01/21
-            if(player.hasKnockback){
                 Vector2 knockback = rb.transform.position - collider.transform.parent.position;
-                //Debug.Log(knockback);
-                rb.AddForce(knockback.normalized * 600f);
-            }
+                rb.AddForce(knockback.normalized * GameMaster.instance.playerStats.knockBackForce.Value);
             ////////////////////////////////////////////////////////////////////////////////////
             if (armorAmount > 0) {
-                armorAmount -= (collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength() * .3f);
+                armorAmount -= (GameMaster.instance.playerStats.attackPower.Value * .3f);
             } else {
                 if (this.tag == "Fire Eel") {
-                    healthAmount -= (collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength() * .25f);
+                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .25f);
                 } else if (this.tag == "Fire Imp") {
-                    healthAmount -= (collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength() * 0.4f);
+                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * 0.4f);
                 } else if (this.tag == "Hammer Giant") {
-                    healthAmount -= (collider.transform.parent.parent.GetComponent<PlayerController>().whatIsStrength() * .5f);
+                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .5f);
                 }
                 
             }
