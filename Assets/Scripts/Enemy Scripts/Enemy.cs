@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     //GameObject armorBorderObject;
     public const float maxArmorAmount = 3f;
     private float alpha;
+    private float originalY;
+    public float floatStrength = 1;
 
     public float timer = 0;
 
@@ -73,6 +75,7 @@ public class Enemy : MonoBehaviour
         } else if (this.tag == "Hammer Giant" || this.tag == "Sword Giant") {
             healthAmount = 1.5f;
         }
+        originalY = this.transform.position.y;
         
         armorAmount = 0f;
         rb = GetComponent<Rigidbody2D>();
@@ -102,6 +105,9 @@ public class Enemy : MonoBehaviour
         isDead(GameMaster.instance.getGameOver());
         stateMachine.Update();
         DisplayRays();
+        if (this.tag == "Fire Imp") {
+            DoFloat();
+        }
 
         if (armorAmount > 1.5) {
             armorAmount = 1.5f;
@@ -281,6 +287,12 @@ public class Enemy : MonoBehaviour
             enemyAnimator.SetTrigger("SwordWalking");
         }
         goToWalk = true;
+    }
+
+    private void DoFloat() {
+        transform.position = new Vector3(transform.position.x,
+            originalY + ((float)Math.Sin(Time.time) * floatStrength),
+            transform.position.z);
     }
 
     //Tell lungeattackstate to do the lunge attack
