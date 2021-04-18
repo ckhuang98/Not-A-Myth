@@ -318,8 +318,8 @@ public class PlayerController : MonoBehaviour {
 
     // Reduces player's current health and updates the slider value of the health bar.
     public void TakeDamage(int damage){
-        playHurtSFX();
         if(!isInvincible){
+            playHurtSFX();
             stats.currentHealth.Value -= damage;
             CameraShaker.Instance.ShakeOnce(3f, 3f, 0.1f, 1f);
             StartCoroutine(tempInvincible());
