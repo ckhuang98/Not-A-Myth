@@ -588,8 +588,8 @@ GameObject:
   - component: {fileID: 4991579861065913857}
   - component: {fileID: 4029913715696956789}
   - component: {fileID: 2558569842908750872}
-  - component: {fileID: 405546095551986458}
   - component: {fileID: 4869283209196162237}
+  - component: {fileID: 4642655493653333179}
   m_Layer: 9
   m_Name: MC Prefab
   m_TagString: Player
@@ -764,122 +764,6 @@ MonoBehaviour:
   canDash: 1
   canDashTwice: 0
   slashCollider: {fileID: 561858605}
---- !u!114 &405546095551986458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726095169486400776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7ecd75c01e16404aa4292dc739d8116, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: 'This holds and controls all the sound effects made by this object.
-
-
-    Soundeffects
-    are sorted as Sounds in Sound Groups (ex. individual footstep sounds can be put
-    in a footsteps group)
-
-
-    Properties of each group:
-
-    Name - name of the
-    group
-
-    Group - the sound chanel in the mixer
-
-    Ignore Pause - keep playing
-    when game is paused
-
-    Volume - the volume of the group (does not control the
-    volume in the mixer)
-
-    Spacial Blend - controls 3D spacialization (0.0 2D,
-    1.0 3D. Full 3D preferable for sounds with a specific source)
-
-    Spread - Sets
-    the spread angle (in degrees) of a 3D stereo or multichannel sound in speaker
-    space'
-  soundMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
-  soundGroups:
-  - name: Footsteps
-    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
-      type: 2}
-    ignorePause: 0
-    volume: 1
-    spacialBlend: 0
-    spread: 0
-    loopingClip: 
-    rolloffMode: 0
-    maxDistance: 0
-    sounds:
-    - name: 1
-      clip: {fileID: 8300000, guid: 80f12bf636c01554d9ac770bcb8ae166, type: 3}
-      source: {fileID: 0}
-    - name: 2
-      clip: {fileID: 8300000, guid: 836ee5e6524f0244ebab7fcec964ed3c, type: 3}
-      source: {fileID: 0}
-    - name: 3
-      clip: {fileID: 8300000, guid: a9d5ac9f6411f5e4991a5c38b57ca720, type: 3}
-      source: {fileID: 0}
-    - name: 4
-      clip: {fileID: 8300000, guid: 8332092942f820a4aafc6b48c4430f45, type: 3}
-      source: {fileID: 0}
-    - name: 5
-      clip: {fileID: 8300000, guid: 51eeb15e2ff9c9244bf79a3f0eaae510, type: 3}
-      source: {fileID: 0}
-    - name: 6
-      clip: {fileID: 8300000, guid: 79f1355ff1b13624da343668a52986ea, type: 3}
-      source: {fileID: 0}
-  - name: Hurt
-    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
-      type: 2}
-    ignorePause: 0
-    volume: 0.3
-    spacialBlend: 0
-    spread: 0
-    loopingClip: 
-    rolloffMode: 0
-    maxDistance: 0
-    sounds:
-    - name: 1
-      clip: {fileID: 8300000, guid: 77bc650fc71ae064eb58492cf0fe1191, type: 3}
-      source: {fileID: 0}
-    - name: 2
-      clip: {fileID: 8300000, guid: afb6c0371830b20459111cf572a84212, type: 3}
-      source: {fileID: 0}
-    - name: 3
-      clip: {fileID: 8300000, guid: 40d00158adf49f24db5afff8bc514590, type: 3}
-      source: {fileID: 0}
-    - name: 4
-      clip: {fileID: 8300000, guid: 577d79089fd5fdc4aa2bf1646b427813, type: 3}
-      source: {fileID: 0}
-    - name: 5
-      clip: {fileID: 8300000, guid: 4216bafb74f1fdf458365fb7cb0bbdba, type: 3}
-      source: {fileID: 0}
-  - name: Slashes
-    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
-      type: 2}
-    ignorePause: 0
-    volume: 1
-    spacialBlend: 0
-    spread: 0
-    loopingClip: 
-    rolloffMode: 0
-    maxDistance: 0
-    sounds:
-    - name: 1
-      clip: {fileID: 8300000, guid: eb1bc830d81b6254a8e1292c30165bc3, type: 3}
-      source: {fileID: 0}
-    - name: 2
-      clip: {fileID: 8300000, guid: 8b6c3cfb6cac6ef409639206cedd5020, type: 3}
-      source: {fileID: 0}
-    - name: 3
-      clip: {fileID: 8300000, guid: 5b3a7dca01a87de429b9bef15d847847, type: 3}
-      source: {fileID: 0}
 --- !u!81 &4869283209196162237
 AudioListener:
   m_ObjectHideFlags: 0
@@ -888,6 +772,225 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 726095169486400776}
   m_Enabled: 1
+--- !u!114 &4642655493653333179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726095169486400776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f022c857e6ec6ac4eb85d0a451860390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: "The Object Audio Manager is for sounds emitted from objects in the
+    scene (the player, enemies, environment, etc.)\r\n    \r\n    Properties:\r\n   
+    Audio Mixer: Should be set to SoundMixer\r\n    Play Group On Start: The name
+    of the group that will be played on Start\r\n    Volume: Volume of the clips
+    in the group. Can be overridden by the individual groups.\r\n            Value
+    0 - 1. NOT THE SAME AS THE MIXER'S VOLUME.\r\n    Spread: How the audio is balanced
+    in stereo. 180 is perfectly balanced.\r\n    AudioRolloffMode: How the audio
+    fades as the source gets further away\r\n    Min Distance: The minimum distance
+    from the source for the sound to be at full loudness\r\n    Max Distance: THe
+    maximum distance from which the source can still be heard\r\n    Sound Groups:
+    Array of SoundGroups which hold the different Sounds\r\n                  ex.
+    the 'footsteps' SoundGroup can hold all the footstep Sounds"
+  audioMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  audioMixerGroup: {fileID: 7685793082683988513, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+    type: 2}
+  playGroupOnStart: 
+  volume: 0.5
+  spread: 150
+  rolloffMode: 0
+  minDistance: 3
+  maxDistance: 10
+  soundGroups:
+  - name: footsteps
+    ignorePause: 0
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 
+      clip: {fileID: 8300000, guid: 80f12bf636c01554d9ac770bcb8ae166, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 836ee5e6524f0244ebab7fcec964ed3c, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: a9d5ac9f6411f5e4991a5c38b57ca720, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 8332092942f820a4aafc6b48c4430f45, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 51eeb15e2ff9c9244bf79a3f0eaae510, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 79f1355ff1b13624da343668a52986ea, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+  - name: hurt
+    ignorePause: 0
+    overrideVolume: 1
+    volume: 0.3
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 
+      clip: {fileID: 8300000, guid: 35b9fccf5102aa34f8df00bec0e20a56, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 35b13ed5ada40bb4aae6ad7537b8dc4b, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: e61bf81ad3876c347b4c4e999f365b0a, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: edef11977486fbd4391cb87ee2c845c4, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: e7b593ffbb5bf2c40bfac69348b9ff00, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 234ef8bbab9f6804194916131686357a, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 0459ffcbbcb8fd44db2283a256c2af98, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 437d5c7b83c0e0b4b87b06de11c471fb, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+  - name: sizzle
+    ignorePause: 0
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 
+      clip: {fileID: 8300000, guid: 77bc650fc71ae064eb58492cf0fe1191, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: afb6c0371830b20459111cf572a84212, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 40d00158adf49f24db5afff8bc514590, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 577d79089fd5fdc4aa2bf1646b427813, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 4216bafb74f1fdf458365fb7cb0bbdba, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+  - name: slashes
+    ignorePause: 0
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 
+      clip: {fileID: 8300000, guid: eb1bc830d81b6254a8e1292c30165bc3, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 8b6c3cfb6cac6ef409639206cedd5020, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 5b3a7dca01a87de429b9bef15d847847, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+  - name: squawks
+    ignorePause: 0
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 
+      clip: {fileID: 8300000, guid: c6377b6dc47b35c40b4f92f7500f842e, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 710917708b5b6c343ad367cbd661d6d8, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 41711c7f373e32a4998d413960861cf1, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: ce416faef2b0a72449078334bc7743ae, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 13839aaf3112c7840a468f9f6178fe5b, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: e427a18ecc415e04483e90386db246ed, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
 --- !u!1 &1544246780598707078
 GameObject:
   m_ObjectHideFlags: 0

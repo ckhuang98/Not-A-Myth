@@ -9,20 +9,36 @@ public class ObjectAudioManager : MonoBehaviour
     [SerializeField]
     private string description = @"The Object Audio Manager is for sounds emitted from objects in the scene (the player, enemies, environment, etc.)
     
-    Audio Mixer: The Audio Mixer for the game. Should be set to SoundMixer
-    Play Group On Start: The name of the audio group that will automatically play on Start
-    Sound Groups: An array containing SoundGroups
-    
-    Sound Groups categorize, hold, and set parameters for individual Sounds
-    ex. The SoundGroup 'footsteps' can hold all the object's footstep Sounds
-
-    Sounds each have a name and an associated AudioClip";
+    Properties:
+    Audio Mixer: Should be set to SoundMixer
+    Play Group On Start: The name of the group that will be played on Start
+    Volume: Volume of the clips in the group. Can be overridden by the individual groups.
+            Value 0 - 1. NOT THE SAME AS THE MIXER'S VOLUME.
+    Spread: How the audio is balanced in stereo. 180 is perfectly balanced.
+    AudioRolloffMode: How the audio fades as the source gets further away
+    Min Distance: The minimum distance from the source for the sound to be at full loudness
+    Max Distance: THe maximum distance from which the source can still be heard
+    Sound Groups: Array of SoundGroups which hold the different Sounds
+                  ex. the 'footsteps' SoundGroup can hold all the footstep Sounds";
 
     public AudioMixer audioMixer;
+    public AudioMixerGroup audioMixerGroup;
 
     [Tooltip("Name of group to play on Start")]
     public string playGroupOnStart;
 
+    [Range(0f,1f)]
+    public float volume = 1f;
+
+    [Range(0f, 360f)]
+    public float spread = 150f;
+
+    public AudioRolloffMode rolloffMode;
+
+    public float minDistance = 3;
+    public float maxDistance = 10;
+
+    [Space]
     public ObjectSoundGroup[] soundGroups;
 
     // fade down (true) fade up (false). Used for Testing at the moment
@@ -35,71 +51,56 @@ public class ObjectAudioManager : MonoBehaviour
         foreach (ObjectSoundGroup sg in soundGroups)
         {
             int index = 0;
-            foreach (Sound s in sg.sounds)
-            {
-                s.index = index;                                    // set the index of the sound in the group
+            // foreach (Sound s in sg.sounds)
+            // {
+            //     s.index = index;                                    // set the index of the sound in the group
 
-                s.source = gameObject.AddComponent<AudioSource>();  // add the actual audio source
-                s.source.playOnAwake = false;                       // so clip won't immediately play
-                s.source.clip = s.clip;                             // set the source's sound clip
+            //     s.source = gameObject.AddComponent<AudioSource>();  // add the actual audio source
+            //     s.source.playOnAwake = false;                       // so clip won't immediately play
+            //     s.source.clip = s.clip;                             // set the source's sound clip
 
-                s.source.ignoreListenerPause = sg.ignorePause;      // if true, sound will continue to play when AudioListener is paused
-                s.source.outputAudioMixerGroup = sg.group;          // set the sound group from the audio mixer
+            //     s.source.ignoreListenerPause = sg.ignorePause;      // if true, sound will continue to play when AudioListener is paused
+            //     s.source.outputAudioMixerGroup = sg.group;          // set the sound group from the audio mixer
 
-                s.source.volume = sg.volume;                        // set the volume 0 - 1. NOT THE SAME AS THE MIXER GROUP'S VOLUME
+            //     s.source.volume = sg.volume;                        // set the volume 0 - 1. NOT THE SAME AS THE MIXER GROUP'S VOLUME
 
-                s.source.loop = sg.loopingClip == s.name;           // set whether the clip loops
+            //     s.source.loop = sg.loopingClip == s.name;           // set whether the clip loops
+            //     s.length = s.source.clip.samples / s.source.clip.frequency;
+            //     index++;
+            //     if (s.name == "") s.name = index.ToString();
+
+            //     s.source.spatialBlend = sg.spacialAudio ? 1.0f : 0.0f;
+            // }
+
+            foreach (Sound s in sg.sounds){
+                s.index = index; // set the index of the sound in the group
+                s.source = gameObject.AddComponent<AudioSource>(); // the actual audio source
+                s.source.playOnAwake = false; // clip will not play immediately
+                s.source.clip = s.clip;
+
+                s.source.outputAudioMixerGroup = audioMixerGroup; // set the mixer group from the audio mixer
+
+                s.source.volume = sg.overrideVolume ? sg.volume : volume; // set the volume 0 - 1. NOT THE SAME AS THE MIXER GROUP'S VOLUME
+
+                s.source.loop = (sg.loopingClip == s.name && s.name != ""); // set whether the clip loops
+
                 s.length = s.source.clip.samples / s.source.clip.frequency;
+
+                s.source.spatialBlend = 1f;
+
+                s.source.minDistance = sg.overrideDistances ? sg.minDistance : minDistance;
+                s.source.maxDistance = sg.overrideDistances ? sg.maxDistance : maxDistance;
+
                 index++;
                 if (s.name == "") s.name = index.ToString();
-
-                s.source.spatialBlend = sg.spacialAudio ? 1.0f : 0.0f;
             }
         }
     }
 
     private void Start()
     {
-        GameMaster.instance.OnGameOver += OnGameOver;
-        GameMaster.instance.OnGameRestart += OnGameRestart;
-
         // playGroupOnStart(playGroupOnStart);
         PlayGroup(playGroupOnStart);
-    }
-
-    private void OnDisable()
-    {
-        GameMaster.instance.OnGameOver -= OnGameOver;
-        GameMaster.instance.OnGameRestart -= OnGameRestart;
-    }
-
-    private void Update()
-    {
-        // Test the fad in and out of the music in the overworld group
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            float vol = test_fadeToggle ? 0.0f : 1.0f;
-            StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "volumeOverworld", 2.0f, vol));
-            test_fadeToggle = !test_fadeToggle;
-        }
-
-        // Test ending the loop on the overworld music
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            EndLoop("Overworld Music");
-        }
-    }
-
-    private void OnGameOver(bool win)
-    {
-        Debug.Log("AudioManager: OnGameOver");
-        // StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "volumeMusic", 1.0f, 0.0f));
-        // EndLoop("Overworld Music");
-    }
-
-    private void OnGameRestart()
-    {
-        // StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "volumeMusic", 0.1f, 1.0f));
     }
 
     // Purpose: Find sound group with given name
@@ -260,7 +261,6 @@ public class ObjectAudioManager : MonoBehaviour
     // and continue playing the rest of the sounds in the group
     // if there are any
     // Set continuePlaying to false if you don't want the clips after the looping clip to play
-    // TODO: currently only works if there is LOOPING clip playing
     public void EndLoop(string name, bool continuePlaying = true)
     {
         ObjectSoundGroup sg = FindSoundGroup(name);

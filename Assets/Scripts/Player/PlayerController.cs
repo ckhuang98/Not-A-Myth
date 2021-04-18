@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject slashCollider;
 
-    private ObjectAudioManager audioManager;
+    private ObjectAudioManager objectAudioManager;
 
     private bool isInvincible = false;
 
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour {
 
         CombatManager.instance.canReceiveInput = true;
         state = State.Normal;
-        audioManager = gameObject.GetComponent<ObjectAudioManager>();
+        objectAudioManager = gameObject.GetComponent<ObjectAudioManager>();
         playerSprite = this.GetComponent<SpriteRenderer>();
 
         healthBar = UI.instance.GetComponentInChildren<BarScript>();
@@ -334,7 +334,7 @@ public class PlayerController : MonoBehaviour {
     // Separate from TakeDamage(), because fire damage should not
     // have a camera shake, or allow temporary invincibility
     public void TakeFireDamage(int damage) {
-        playHurtSFX();
+        playSizzleSFX();
         stats.currentHealth.Value -= damage;
         // healthBar.SetValue(currentHealth);
     }
@@ -493,17 +493,22 @@ public class PlayerController : MonoBehaviour {
 
     private void playFootstepSFX()
     {
-        // audioManager.PlayRandomSoundInGroup("Footsteps");
+        objectAudioManager.PlayRandomSoundInGroup("footsteps");
     }
 
     private void playSlashSFX()
     {
-        // audioManager.PlayRandomSoundInGroup("Slashes");
+        objectAudioManager.PlayRandomSoundInGroup("slashes");
     }
 
     private void playHurtSFX()
     {
-        // audioManager.PlayRandomSoundInGroup("Hurt");
+        objectAudioManager.PlayRandomSoundInGroup("hurt");
+    }
+
+    private void playSizzleSFX()
+    {
+        objectAudioManager.PlayRandomSoundInGroup("sizzle");
     }
 
     private void OnTriggerEnter2D(Collider2D col) {

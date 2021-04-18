@@ -8,10 +8,11 @@ public class ObjectSoundGroup
 {
     public string name;
 
-    public AudioMixerGroup group;
+    // public AudioMixerGroup group;
 
     public bool ignorePause = false;
 
+    public bool overrideVolume;
     [Range(0f, 1f)]
     public float volume;
 
@@ -20,20 +21,17 @@ public class ObjectSoundGroup
 
     // [Range(0f, 1f)]
     // public float spacialBlend = 1.0f;
-    public bool spacialAudio = true;
+    // public bool spacialAudio = true;
 
-    [Range(0f, 360f)]
-    public float spread = 150.0f;
+    // [Range(0f, 360f)]
+    // public float spread = 150.0f;
 
-    public AudioRolloffMode rolloffMode;
+    // public AudioRolloffMode rolloffMode;
+
+    public bool overrideDistances;
     public int minDistance = 3;
     public int maxDistance = 10;
 
     [Space]
     public Sound[] sounds;
-}
-
-public class IntDrawer : PropertyDrawer
-{
-
 }

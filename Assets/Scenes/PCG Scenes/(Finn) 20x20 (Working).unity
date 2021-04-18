@@ -128,6 +128,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3110040948114809936, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
+      propertyPath: soundGroups.Array.data[0].volume
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5347535454852803138, guid: 05a9fabe763e72245a96751fa8d58aa3,
         type: 3}
       propertyPath: m_Name
@@ -419,6 +424,16 @@ PrefabInstance:
     - target: {fileID: 1757119509, guid: 9bc6f6206f5387c49b65d003f009bb84, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 193029220055394872, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193029220055394872, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 290801533072576747, guid: 9bc6f6206f5387c49b65d003f009bb84,
         type: 3}
@@ -1175,6 +1190,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3228769676823033361, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228769676823033361, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228769676823033361, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978384262367940979, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978384262367940979, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978384262367940979, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4271921161921583883, guid: 9bc6f6206f5387c49b65d003f009bb84,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1275,6 +1320,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2139165815}
+    - target: {fileID: 6525065473818642898, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525065473818642898, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6711563483117627010, guid: 9bc6f6206f5387c49b65d003f009bb84,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1604,6 +1659,31 @@ PrefabInstance:
     - target: {fileID: 726095169486400778, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642655493653333179, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200,
+        type: 3}
+      propertyPath: soundGroups.Array.data[1].volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642655493653333179, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200,
+        type: 3}
+      propertyPath: soundGroups.Array.data[2].volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642655493653333179, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200,
+        type: 3}
+      propertyPath: soundGroups.Array.data[1].overrideVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642655493653333179, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200,
+        type: 3}
+      propertyPath: soundGroups.Array.data[2].overrideVolume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642655493653333179, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200,
+        type: 3}
+      propertyPath: soundGroups.Array.data[2].overrideDistances
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

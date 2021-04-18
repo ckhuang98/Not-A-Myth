@@ -50,7 +50,7 @@ public class AudioManager : MonoBehaviour
 
                 s.source.volume = sg.volume;                        // set the volume 0 - 1. NOT THE SAME AS THE MIXER GROUP'S VOLUME
 
-                s.source.loop = sg.loopingClip == s.name;           // set whether the clip loops
+                s.source.loop = (sg.loopingClip == s.name && s.name != "");           // set whether the clip loops
                 s.length = s.source.clip.samples / s.source.clip.frequency;
                 index++;
             }
@@ -75,19 +75,24 @@ public class AudioManager : MonoBehaviour
 	private void Update()
 	{
 		// Test the fad in and out of the music in the overworld group
-        if (Input.GetKeyDown(KeyCode.P))
-		{
-            float vol = test_fadeToggle ? 0.0f : 1.0f;
-            StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "volumeOverworld", 2.0f, vol));
-            test_fadeToggle = !test_fadeToggle;
-		}
+        // if (Input.GetKeyDown(KeyCode.P))
+		// {
+        //     float vol = test_fadeToggle ? 0.0f : 1.0f;
+        //     StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "volumeOverworld", 2.0f, vol));
+        //     test_fadeToggle = !test_fadeToggle;
+		// }
 
         // Test ending the loop on the overworld music
-        if (Input.GetKeyDown(KeyCode.L))
-		{
-            EndLoop("Overworld Music");
-		}
+        // if (Input.GetKeyDown(KeyCode.L))
+		// {
+        //     EndLoop("Overworld Music");
+		// }
 	}
+
+    [ContextMenu("Testing EndLoop Overworld Music")]
+    private void Testing_EndLoop(){
+        EndLoop("Overworld Music");
+    }
 
     private void OnGameOver(bool win)
 	{
@@ -266,7 +271,7 @@ public class AudioManager : MonoBehaviour
 
         if (sg == null)
 		{
-            Debug.Log("AudioManager: EndLoop: Group not found: " + name);
+            Debug.LogError("AudioManager: EndLoop: Group not found: " + name);
             return;
 		}
 
@@ -275,11 +280,6 @@ public class AudioManager : MonoBehaviour
 
         Sound currentlyPlaying = GetCurrentlyPlayingSound(sg);
         List<double> delayList = GetDelaysFromPlaying(sg);
-
-        foreach(double d in delayList)
-		{
-            Debug.Log("delayList: " + d);
-		}
         
         for (int i = currentlyPlaying.index + 1; i < sg.sounds.Length; i++)
 		{
