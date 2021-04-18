@@ -52,6 +52,7 @@ public class Enemy : MonoBehaviour
     public bool goToWalk = false;
     public bool doAttack = false;
     public bool doLungeAttack = false;
+    public bool beenHit = false;
 
     [SerializeField]
     private GameObject deathSFXObject;
@@ -135,6 +136,10 @@ public class Enemy : MonoBehaviour
         }
         if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .5)
         {
+            if (this.tag == "Hammer Giant") {
+                enemyAnimator.SetTrigger("HammerHit");
+                beenHit = true;
+            }
             playHurtSFX();
             ////////////////////////////////////////////////////////////////////////////////////
             // Adds knockback to enemy
@@ -281,6 +286,13 @@ public class Enemy : MonoBehaviour
             enemyAnimator.SetTrigger("SwordWalking");
         }
         goToWalk = true;
+    }
+
+    public void HitToWalk () {
+        if (this.tag == "Hammer Giant") {
+            enemyAnimator.SetTrigger("Walking");
+        }
+        beenHit = false;
     }
 
     //Tell lungeattackstate to do the lunge attack
