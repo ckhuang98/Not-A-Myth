@@ -97,7 +97,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5494777218385843898}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 97528ac71e63ab8439b0992b3ccbabc7, type: 2}
   m_CullingMode: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
     type: 3}
   fireTrail: {fileID: 339167541854525883, guid: 1afd68a4b134d0042a8c2c1112ad19ba,
     type: 3}
+  slash: {fileID: 0}
   inBounds: 0
   hasCircled: 0
   enemyAnimator: {fileID: 5494777218385843897}

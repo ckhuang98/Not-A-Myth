@@ -85,15 +85,15 @@ public class SkillTree : MonoBehaviour
                         GameMaster.instance.gainStrength();
                         button.currentUses++;
                         a2 = true;
-                    } else{
-                        if(GameMaster.instance.getSkillPoints() > 0){
-                            GameMaster.instance.spendSkillPoints();
-                            updateSkillPoints();
-                            GameMaster.instance.gainStrength();
-                            button.currentUses++;
-                            a3 = true;
-                        }
-                    }
+                    }               
+                } else{
+                    if(GameMaster.instance.getSkillPoints() > 0){
+                        GameMaster.instance.spendSkillPoints();
+                        updateSkillPoints();
+                        GameMaster.instance.gainStrength();
+                        button.currentUses++;
+                        a3 = true;
+                    }                     
                 }
             }
         }
@@ -119,7 +119,7 @@ public class SkillTree : MonoBehaviour
                         updateSkillPoints();
                         GameMaster.instance.gainSpeed();
                         button.currentUses++;
-                        s2 = true;
+                        s3 = true;
                     }               
                 } else{
                     if(GameMaster.instance.getSkillPoints() > 0){
@@ -127,7 +127,7 @@ public class SkillTree : MonoBehaviour
                         updateSkillPoints();
                         GameMaster.instance.gainSpeed();
                         button.currentUses++;
-                        s3 = true;
+                        s2 = true;
                     }                     
                 }
             }

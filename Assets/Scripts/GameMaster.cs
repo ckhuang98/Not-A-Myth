@@ -146,7 +146,14 @@ public class GameMaster : MonoBehaviour
     }
 
     public void gainHealth(){
-        playerStats.maxHealth.Value += 15;
+        if(playerStats.currentHealth.Value < (playerStats.maxHealth.Value - 15)){
+            playerStats.maxHealth.Value += 15;
+            playerStats.currentHealth.Value += 15;
+        } else{
+            playerStats.maxHealth.Value += 15;
+            playerStats.currentHealth.Value = playerStats.maxHealth.Value;
+        }
+        
     }
 
     public void gainSpeed(){
@@ -211,7 +218,7 @@ public class GameMaster : MonoBehaviour
         resumeGame();
         if (fullHealth) //set player's health to max. Used for when restarting checkpoint after death
         {
-            //recordedPlayerHealth = playerStats.maxHealth.Value;
+            playerStats.currentHealth.Value = playerStats.maxHealth.Value;
         }
         OnGameRestart?.Invoke();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
