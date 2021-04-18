@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-public class AudioManager2 : MonoBehaviour
+public class AudioManagerDEPRECATED : MonoBehaviour
 {
     [TextArea(maxLines: 10, minLines: 4)] [SerializeField]
     private string description = @"!!!DO NOT OVERRIDE THIS PREFAB!!!
