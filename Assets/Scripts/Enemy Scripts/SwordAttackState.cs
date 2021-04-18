@@ -67,29 +67,27 @@ public class SwordAttackState : BaseState
     private void InstantiateSlash(float angle) {
         if (_enemy.doInstantiate == true) {
             slashAttack = GameObject.Instantiate(_enemy.slash) as GameObject;
+            //slashAttack.GetAngle(angle);
             _enemy.doInstantiate = false; 
             // UP
             if (315 > angle && angle > 225) {
                 slashAttack.transform.position = 
                 new Vector3(this.transform.position.x, this.transform.position.y + 1f, this.transform.position.z);
-                slashAttack.transform.localRotation = Quaternion.Euler(0f, 0f, 90f); 
             } 
             // RIGHT
             if (225 > angle && angle > 135) {
                 slashAttack.transform.position = 
-                new Vector3(this.transform.position.x + 1.5f, this.transform.position.y - 0.1f, this.transform.position.z);
+                new Vector3(this.transform.position.x + 1f, this.transform.position.y - 0.1f, this.transform.position.z);
             } 
             // DOWN
             if (135 > angle && angle > 45) {
                 slashAttack.transform.position = 
                 new Vector3(this.transform.position.x, this.transform.position.y - 1.5f, this.transform.position.z);
-                slashAttack.transform.localRotation = Quaternion.Euler(0f, 0f, 270f); 
             } 
             // LEFT
             if ((45 > angle && angle > 0) || (360 > angle && angle > 315)) {
                 slashAttack.transform.position = 
-                new Vector3(this.transform.position.x - 1.5f, this.transform.position.y - 0.1f, this.transform.position.z);
-                slashAttack.transform.localRotation = Quaternion.Euler(0f, 0f, 180f); 
+                new Vector3(this.transform.position.x - 1f, this.transform.position.y - 0.1f, this.transform.position.z);
             }
         }
     }
