@@ -56,7 +56,8 @@ public class WanderState : BaseState
             _enemy.enemyAnimator.SetFloat("EelWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         }        
         if (_enemy.tag == "Fire Imp") {
-            _enemy.enemyAnimator.SetTrigger("ImpIdle");
+            _enemy.enemyAnimator.SetFloat("ImpIdleHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("ImpIdleVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         }  
         if(_enemy.tag == "Sword Giant") {
             _enemy.enemyAnimator.SetFloat("SwordWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
@@ -78,7 +79,7 @@ public class WanderState : BaseState
 
         NPCDetection();
         WallDetection();
-        PlaceFire();
+        //PlaceFire();
 
         if (_enemy.inBounds == true && (_enemy.tag == "Hammer Giant" || _enemy.tag == "Sword Giant")) {
             _enemy.resetWeightsToZero();
