@@ -460,9 +460,8 @@ public class PlayerController : MonoBehaviour {
     // Purpose: damaging the player at a certain rate
     void ApplyFire() {
         if (fireDamageTimer >= 0.5f) {
-            TakeFireDamage(2);
+            TakeFireDamage(1);
             fireDamageTimer = 0f;
-            fireStacks -= 1;
         }
     }
 
