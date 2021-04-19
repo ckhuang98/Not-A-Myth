@@ -41,12 +41,18 @@ public class ChaseState : BaseState
     */
     public override Type Tick()
     { 
-        _enemy.inBounds = false;
-        transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
-        if (_enemy.tag == "Hammer Giant") {
+        if (_enemy.beenHit == false && _enemy.tag == "Hammer Giant") {
             _enemy.enemyAnimator.SetFloat("Horizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
             _enemy.enemyAnimator.SetFloat("Vertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            speed = 1f;
+        } else if (_enemy.beenHit == true && _enemy.tag == "Hammer Giant") {
+            _enemy.enemyAnimator.SetFloat("HammerHitHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("HammerHitVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            speed = .25f;
         }
+        _enemy.inBounds = false;
+        transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
+
         if (_enemy.tag == "Sword Giant") {
             _enemy.enemyAnimator.SetFloat("SwordWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
             _enemy.enemyAnimator.SetFloat("SwordWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
