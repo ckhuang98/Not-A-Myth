@@ -5389,8 +5389,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -88.07, y: 21}
-  m_SizeDelta: {x: 389.8537, y: 297.45}
+  m_AnchoredPosition: {x: -110.48, y: 35.2}
+  m_SizeDelta: {x: 516.28845, y: 348.90192}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &290801532697114575
 CanvasRenderer:
@@ -5421,7 +5421,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -5430,17 +5430,16 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "\t1. Move \r\n\t\t\ta. Use W, A, S, D to move around\r\n\t2. Attack\r\n\t\t\ta.
     Aim your Attacks by moving the Mouse\r\n\t\t\tb. Use Left Click to Attack\r\n\t3.
     Health\r\n\t\t\ta. If you run out of Health, you lose\r\n\t4. Combos\r\n\t\t\ta.
     Attack multiple times in a row to perform a Combo Slash\r\n\t5. Dashing\r\n\t\t\ta.
-    Use Spacebar to dash in your current move direction\r\n\t6. Inventory\r\n\t\t\ta.
-    Open inventory from previous menu\n\t\t\tb. You can Collect Gems, which will
-    then be stored in your Inventory\r\n\t\t\tc. Click on Gems to use them\r\n\t\t\td.
-    Gems increase your Damage\n\t7.Pause\n\t\t\ta. Press Escape to bring up pause
-    menu."
+    Use Spacebar to dash in your current move direction\r\n\t6. Skills\n\t\t\ta.
+    Collect Gems from defeating enemies to earn skill points.\n\t\t\tb. Press TAB
+    or click on Skill Tree button to open up the skill tree.\n\t7.Pause\n\t\t\ta.
+    Press Escape to bring up pause menu."
 --- !u!1 &290801533072576745
 GameObject:
   m_ObjectHideFlags: 0
@@ -6123,8 +6122,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035156, y: 19.550049}
-  m_SizeDelta: {x: 565.99976, y: 353.99997}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 765.99756, y: 479.08694}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &290801534094991022
 CanvasRenderer:
@@ -6199,7 +6198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -149}
+  m_AnchoredPosition: {x: 0, y: -169}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &290801534545267660
@@ -6733,8 +6732,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 195.9, y: 45.770004}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: 230.2, y: 105.1}
+  m_SizeDelta: {x: 199.96713, y: 22.46384}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2724907650339590884
 MonoBehaviour:
@@ -7768,8 +7767,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 195.9, y: 95.8}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: 230.19995, y: 161.29999}
+  m_SizeDelta: {x: 199.96713, y: 22.46384}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1012794066274366141
 MonoBehaviour:
@@ -8742,8 +8741,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 195.9, y: 117.13}
-  m_SizeDelta: {x: 98.162415, y: 22.668304}
+  m_AnchoredPosition: {x: 230.19995, y: 185.24998}
+  m_SizeDelta: {x: 122.68286, y: 25.460861}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4059898102487985221
 CanvasRenderer:
@@ -10273,8 +10272,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 195.9, y: 67.1}
-  m_SizeDelta: {x: 98.162415, y: 22.668304}
+  m_AnchoredPosition: {x: 230.19995, y: 129.06}
+  m_SizeDelta: {x: 122.68286, y: 25.460861}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2193044337975977073
 CanvasRenderer:
@@ -10316,7 +10315,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Music Volume
+  m_Text: SFX Volume
 --- !u!1 &8468997675579212754
 GameObject:
   m_ObjectHideFlags: 0
