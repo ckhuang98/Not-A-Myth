@@ -95,6 +95,7 @@ public class Boss : MonoBehaviour
             // //Debug.Log(knockback);
             // rb.AddForce(knockback.normalized * 4000f);
             healthAmount -= GameMaster.instance.playerStats.attackPower.Value;
+            audioManager.PlayRandomSoundInGroup("hurt");
             healthBar.SetValue(healthAmount);
             timer = 0;
         }

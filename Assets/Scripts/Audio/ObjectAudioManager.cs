@@ -80,13 +80,15 @@ public class ObjectAudioManager : MonoBehaviour
 
                 s.source.outputAudioMixerGroup = audioMixerGroup; // set the mixer group from the audio mixer
 
+                s.source.rolloffMode = rolloffMode;
+
                 s.source.volume = sg.overrideVolume ? sg.volume : volume; // set the volume 0 - 1. NOT THE SAME AS THE MIXER GROUP'S VOLUME
 
                 s.source.loop = (sg.loopingClip == s.name && s.name != ""); // set whether the clip loops
 
                 s.length = s.source.clip.samples / s.source.clip.frequency;
 
-                s.source.spatialBlend = 1f;
+                s.source.spatialBlend = 1.0f;
                 s.source.spread = spread;
 
                 s.source.minDistance = sg.overrideDistances ? sg.minDistance : minDistance;

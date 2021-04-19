@@ -798,11 +798,11 @@ MonoBehaviour:
   audioMixerGroup: {fileID: 999436064050034201, guid: 0652cb0a1baf2164ea5b6391384a55b5,
     type: 2}
   playGroupOnStart: 
-  volume: 0.2
+  volume: 0.3
   spread: 150
-  rolloffMode: 0
-  minDistance: 3
-  maxDistance: 6
+  rolloffMode: 1
+  minDistance: 2
+  maxDistance: 9
   soundGroups:
   - name: attacks
     ignorePause: 0

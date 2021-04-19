@@ -796,12 +796,13 @@ MonoBehaviour:
     maximum distance from which the source can still be heard\r\n    Sound Groups:
     Array of SoundGroups which hold the different Sounds\r\n                  ex.
     the 'footsteps' SoundGroup can hold all the footstep Sounds"
-  audioMixer: {fileID: 0}
-  audioMixerGroup: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  audioMixerGroup: {fileID: 7685793082683988513, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+    type: 2}
   playGroupOnStart: 
   volume: 0.5
   spread: 150
-  rolloffMode: 0
+  rolloffMode: 1
   minDistance: 3
   maxDistance: 10
   soundGroups:

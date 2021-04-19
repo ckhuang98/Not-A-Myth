@@ -128,6 +128,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3110040948114809936, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
+      propertyPath: soundGroups.Array.data[0].sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0056c6a18e13ce445967ca01212ec2c9, type: 3}
+    - target: {fileID: 3110040948114809936, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
+      propertyPath: soundGroups.Array.data[0].sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 726058b05a6293141acb2ddba17bbf7d, type: 3}
+    - target: {fileID: 3110040948114809936, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
+      propertyPath: soundGroups.Array.data[0].sounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c723539520ef244db23b759270d9f66, type: 3}
     - target: {fileID: 5347535454852803138, guid: 05a9fabe763e72245a96751fa8d58aa3,
         type: 3}
       propertyPath: m_Name
@@ -2336,6 +2351,176 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &534890211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5294693593410340269, guid: aaadc96c7c30a07438a1b9f8fe8f9c47,
+    type: 3}
+  m_PrefabInstance: {fileID: 7173620923196430453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &534890212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534890211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f022c857e6ec6ac4eb85d0a451860390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: "The Object Audio Manager is for sounds emitted from objects in the
+    scene (the player, enemies, environment, etc.)\r\n    \r\n    Properties:\r\n   
+    Audio Mixer: Should be set to SoundMixer\r\n    Play Group On Start: The name
+    of the group that will be played on Start\r\n    Volume: Volume of the clips
+    in the group. Can be overridden by the individual groups.\r\n            Value
+    0 - 1. NOT THE SAME AS THE MIXER'S VOLUME.\r\n    Spread: How the audio is balanced
+    in stereo. 180 is perfectly balanced.\r\n    AudioRolloffMode: How the audio
+    fades as the source gets further away\r\n    Min Distance: The minimum distance
+    from the source for the sound to be at full loudness\r\n    Max Distance: THe
+    maximum distance from which the source can still be heard\r\n    Sound Groups:
+    Array of SoundGroups which hold the different Sounds\r\n                  ex.
+    the 'footsteps' SoundGroup can hold all the footstep Sounds"
+  audioMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  audioMixerGroup: {fileID: 999436064050034201, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+    type: 2}
+  playGroupOnStart: 
+  volume: 0.55
+  spread: 150
+  rolloffMode: 0
+  minDistance: 10
+  maxDistance: 20
+  soundGroups:
+  - name: swordSwings
+    ignorePause: 0
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 
+      clip: {fileID: 8300000, guid: ff5aec20e27d09449b6b42880a0bb3cb, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 4a16b71d515e6684ea8f507651fc7e92, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 73a98567fd397f64c9822c5f1d31d253, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+  - name: hurt
+    ignorePause: 0
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 
+      clip: {fileID: 8300000, guid: f22e5b401a1d00140b95bc761f60db52, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: c7c530d157d4ed141aa2b165a932dd13, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 180bb83a90fe386428f61c793b80a8af, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 4959fa451727a0142ad45e8e5139a24d, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+  - name: hammerImpacts
+    ignorePause: 0
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 
+      clip: {fileID: 8300000, guid: 3609a25708eba9f47a57fdf19e2f70e4, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 915691fe6d5b3774eb7531d3123fb5ae, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 805dc9ee2d5bae142875388541987e70, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 363448fb564cbcf46bbc193f30cb3136, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+  - name: grunts
+    ignorePause: 0
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 
+      clip: {fileID: 8300000, guid: 276ebb5001f6c7c479268f1b18a8a648, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 573f6c78104abaa40814db8e482548a3, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 52159710618f87b42b469ddc2f5a0dbc, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 7df5f6afb3aaff14bb98eb16c066c9a8, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+  - name: fireWooshes
+    ignorePause: 0
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 
+      clip: {fileID: 8300000, guid: d27905be24fa5204d8cfad494515d189, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: e878849129637b44fb28efde582275c7, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
 --- !u!1 &613360667
 GameObject:
   m_ObjectHideFlags: 0
@@ -3791,6 +3976,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1472184324}
+    - target: {fileID: 193029220055394872, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193029220055394872, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 290801533072576747, guid: 9bc6f6206f5387c49b65d003f009bb84,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4511,6 +4706,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3228769676823033361, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228769676823033361, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228769676823033361, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978384262367940979, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978384262367940979, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978384262367940979, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4271921161921583883, guid: 9bc6f6206f5387c49b65d003f009bb84,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4551,6 +4776,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1472184324}
+    - target: {fileID: 6525065473818642898, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525065473818642898, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6711563483117627010, guid: 9bc6f6206f5387c49b65d003f009bb84,
         type: 3}
       propertyPath: m_AnchorMax.x
