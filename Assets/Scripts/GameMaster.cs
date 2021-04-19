@@ -111,7 +111,7 @@ public class GameMaster : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (paused)
             {
@@ -121,6 +121,11 @@ public class GameMaster : MonoBehaviour
                 pauseGame(false);
                 ui.hideHotbar();
                 ui.showSkillTree();
+            }
+        }
+        if(Input.GetKey(KeyCode.LeftShift)){
+            if(Input.GetKeyDown(KeyCode.P)){
+                loadScene(3);
             }
         }
     }
