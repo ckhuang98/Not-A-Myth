@@ -18,6 +18,10 @@ public class EelTrailAttack : MonoBehaviour
         ps = GetComponent<ParticleSystem>();
         pc = GameObject.FindGameObjectWithTag("Player");
         player = pc.GetComponent<PlayerController>();
+        //col = pc.GetComponent<BoxCollider2D>();
+
+        var trigger = ps.trigger;
+        trigger.SetCollider(0, pc.GetComponent<BoxCollider2D>());
     }
 
     void OnParticleTrigger()

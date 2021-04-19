@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     //GameObject armorBorderObject;
     public const float maxArmorAmount = 3f;
     private float alpha;
+    private float originalY;
+    public float floatStrength = 1;
 
     public float timer = 0;
 
@@ -115,7 +117,9 @@ public class Enemy : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-
+	    if (this.tag == "Fire Imp") { 
+            DoFloat();
+        }
         //enemyAnimator.SetFloat("Speed", moveDirections[currMoveDirection].sqrMagnitude);
         isDead(GameMaster.instance.getGameOver());
         stateMachine.Update();
@@ -341,6 +345,12 @@ public class Enemy : MonoBehaviour
             enemyAnimator.SetTrigger("Walking");
         }
         beenHit = false;
+    }
+
+    private void DoFloat() {
+        transform.position = new Vector3(transform.position.x,
+            originalY + ((float)Math.Sin(Time.time) * floatStrength),
+            transform.position.z);
     }
 
     //Tell lungeattackstate to do the lunge attack
