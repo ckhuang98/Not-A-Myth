@@ -80,6 +80,9 @@ public class PlayerController : MonoBehaviour {
 
     private Freezer freezer;
 
+    [SerializeField]
+    private GameObject dashBox;
+
     // Start is called before the first frame update
     void Start() {
         //slashAnimation.enabled = false;
@@ -106,7 +109,10 @@ public class PlayerController : MonoBehaviour {
         fireAlert = this.GetComponentInChildren<Image>();
         fireAlert.fillMethod = Image.FillMethod.Vertical;
         fireAlert.fillAmount = 0f;
-    }
+
+        // Grabs the hitbox used for dash attack and disable it until player unlock the skill
+        dashBox.SetActive(false);
+    }   
 
 
     // Update is called once per frame
@@ -120,13 +126,21 @@ public class PlayerController : MonoBehaviour {
 
         if (!gameMaster.getGameOver()) {
 
+            // Health Regen skill
+            if(stats.inCombat.Value == false && stats.unlockedRegen.Value == true){
+                StartCoroutine(regenHealth());
+            }
+
             // Stop character control when mousing over inventory
             // TODO: should stop player control, maybe pause the game, when inventory is open
             // if (EventSystem.current.IsPointerOverGameObject())
             //     return;
             switch (state){
                 case State.Normal:
-
+                    // Dash attack Skill
+                    if(stats.unlockedDashAttack.Value){
+                        dashBox.SetActive(false);
+                    }
                     movementManager();
                     dashManager();
 
@@ -151,7 +165,7 @@ public class PlayerController : MonoBehaviour {
                             colliders[i].enabled = false;
                         }
                     }
-                    if (Input.GetKeyDown(KeyCode.X)){
+                    if (Input.GetKeyDown(KeyCode.L)){
                         Debug.Log("death");
                         currentHealth = 0;
                     }
@@ -176,6 +190,10 @@ public class PlayerController : MonoBehaviour {
                         playerAnimator.SetFloat("attackDirY", attackDir.y);
                         //attack(attackDir);
                         CombatManager.instance.Attack();
+                    }
+                    // Dash attack Skill
+                    if(stats.unlockedDashAttack.Value){
+                        dashBox.SetActive(true);
                     }
                     break;
         }
@@ -238,12 +256,12 @@ public class PlayerController : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Space) && canDash){
             state = State.Dashing;
             Physics2D.IgnoreLayerCollision(9, 4, true);
-            dashSpeed = 20f;
+            dashSpeed = 28f;
         }
 
     }
     private void handleDash(){
-        rb.velocity = lastMoveDirection * dashSpeed;
+        rb.velocity = lastMoveDirection.normalized * dashSpeed;
         dashSpeed -= dashSpeed * 5f * Time.deltaTime;
         if(dashSpeed < 2f){
             canDash = false;
@@ -252,8 +270,8 @@ public class PlayerController : MonoBehaviour {
             Physics2D.IgnoreLayerCollision(9, 4, false);
         } else{
             if(stats.unlockedDoubleDash.Value && canDashTwice && Input.GetKeyDown(KeyCode.Space)){
-                dashSpeed = 20f;
-                rb.velocity = lastMoveDirection * dashSpeed;
+                dashSpeed = 28f;
+                rb.velocity = lastMoveDirection.normalized * dashSpeed;
                 dashSpeed -= dashSpeed * 5f * Time.deltaTime;
                 canDashTwice = false;
             }
@@ -265,6 +283,8 @@ public class PlayerController : MonoBehaviour {
         yield return new WaitForSeconds(0.7f);
         canDash = true;
      }
+
+
 
     public String getState(){
         if(state == State.Normal){
@@ -326,6 +346,10 @@ public class PlayerController : MonoBehaviour {
             if(stats.unlockedHealthDash.Value){
                 StartCoroutine(healthDashWindow(damage));
             }
+            if(stats.unlockedAttackRegen.Value){
+                StartCoroutine(attackRegenWindow(damage));
+            }
+            
         }
         
         // healthBar.SetValue(currentHealth);
@@ -339,18 +363,50 @@ public class PlayerController : MonoBehaviour {
         // healthBar.SetValue(currentHealth);
     }
 
+
+    // (Skill) Restores health if you dash right after getting hit by an attack. 
     private IEnumerator healthDashWindow(int damage){
         float tempTimer = 0;
-        while(!Input.GetKeyDown(KeyCode.Space) && tempTimer < 1f)
+        while(!Input.GetKeyDown(KeyCode.Space))
         {
             tempTimer += Time.deltaTime;
             yield return null;
         }
-        if(tempTimer < 1f){
+        if(tempTimer < 0.5f){
             stats.currentHealth.Value += damage;
         }
     }
 
+    private IEnumerator attackRegenWindow(int damage){
+        float tempTimer = 0;
+        while(!stats.attackRegenHit.Value)
+        {
+            tempTimer += Time.deltaTime;
+            yield return null;
+        }
+        if(tempTimer < 0.5f){
+            stats.currentHealth.Value += damage;
+        }
+        stats.attackRegenHit.Value = false;
+    }
+
+    private IEnumerator regenHealth(){
+        float threshold = stats.maxHealth.Value * 0.4f;
+        Debug.Log(threshold);
+        while(stats.inCombat.Value == false && stats.currentHealth.Value < threshold){
+            if(stats.currentHealth.Value <= threshold - 2.0f){
+                stats.currentHealth.Value += 2.0f;
+            } else{
+                stats.currentHealth.Value = threshold;
+            }
+            yield return new WaitForSeconds(1.0f);
+        }
+    }
+
+    // (Skill) Restores your health up to 40 percent when out of combat.
+    
+
+    // Co-routine that is called when the player is hit. Grants temporary invinciblility for 0.2 seconds. 
     private IEnumerator tempInvincible(){
         isInvincible = true;
         Color alpha = playerSprite.color;

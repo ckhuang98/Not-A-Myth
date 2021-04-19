@@ -53,6 +53,8 @@ public class GameMaster : MonoBehaviour
     public int recordedPlayerHealth;
     public float recordedPlayerStrength;
     public List<Item> recordedInventory = new List<Item>();
+    public List<GameObject> enemyList = new List<GameObject>();
+    public int numOfEnemies;
 
     private void OnEnable()
     {
@@ -74,6 +76,7 @@ public class GameMaster : MonoBehaviour
         assignReferences();
         ui.setUIForNewScene();
         ui.updateInventoryUI();
+        enemyList = new List<GameObject>();
         OnSceneLoad?.Invoke();
     }
 
@@ -158,7 +161,7 @@ public class GameMaster : MonoBehaviour
 
     public void gainSpeed(){
         playerStats.maxSpeed.Value++;
-        playerStats.speed.Value = playerStats.maxSpeed.Value;
+        playerStats.sprintSpeed.Value++;
     }
 
     public void gainDoubleDash(){
@@ -167,6 +170,22 @@ public class GameMaster : MonoBehaviour
 
     public void gainHealthDash(){
         playerStats.unlockedHealthDash.Value = true;
+    }
+
+    public void gainHealthRegen(){
+        playerStats.unlockedRegen.Value = true;
+    }
+
+    public void gainDashAttack(){
+        playerStats.unlockedDashAttack.Value = true;
+    }
+
+    public void gainAttackRegen(){
+        playerStats.unlockedAttackRegen.Value = true;
+    }
+
+    public void gainGroundSmash(){
+        playerStats.unlockedGroundSmash.Value = true;
     }
 
     //Get necessary references to objects in the scene

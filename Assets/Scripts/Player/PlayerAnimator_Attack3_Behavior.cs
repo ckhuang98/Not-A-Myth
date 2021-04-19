@@ -9,7 +9,11 @@ public class PlayerAnimator_Attack3_Behavior : StateMachineBehaviour
     {
        GameMaster.instance.playerStats.speed.Value = 0.6f;
        GameMaster.instance.playerStats.knockBackForce.Value = 1200f;
-       CombatManager.instance.player.slashAnimation.Play("SlashAnim3", -1, 0f);
+       if(GameMaster.instance.playerStats.unlockedGroundSmash.Value){
+            CombatManager.instance.player.slashAnimation.Play("GroundSmash", -1, 0f);
+       } else{
+           CombatManager.instance.player.slashAnimation.Play("SlashAnim3", -1, 0f);
+       }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

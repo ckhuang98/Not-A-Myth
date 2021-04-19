@@ -119,7 +119,7 @@ public class SkillTree : MonoBehaviour
                         updateSkillPoints();
                         GameMaster.instance.gainSpeed();
                         button.currentUses++;
-                        s3 = true;
+                        s2 = true;
                     }               
                 } else{
                     if(GameMaster.instance.getSkillPoints() > 0){
@@ -127,7 +127,7 @@ public class SkillTree : MonoBehaviour
                         updateSkillPoints();
                         GameMaster.instance.gainSpeed();
                         button.currentUses++;
-                        s2 = true;
+                        s3 = true;
                     }                     
                 }
             }
@@ -152,11 +152,62 @@ public class SkillTree : MonoBehaviour
     public void healthDashSkillUpgrade(SkillTreeButton button){
         if (button.currentUses < button.maxUses)
         {
-            Debug.Log(h2 + " " + s2);
             if(GameMaster.instance.getSkillPoints() > 0 && (h2 & s2)){
                 GameMaster.instance.spendSkillPoints();
                 updateSkillPoints();
                 GameMaster.instance.gainHealthDash();
+                button.currentUses++;
+            }
+        }
+        updateSkillDescription(button);
+    }
+
+    public void healthRegenSkillUpgrade(SkillTreeButton button){
+        if (button.currentUses < button.maxUses)
+        {
+            if(GameMaster.instance.getSkillPoints() > 0 && (h1 && h2 && h3)){
+                GameMaster.instance.spendSkillPoints();
+                updateSkillPoints();
+                GameMaster.instance.gainHealthRegen();
+                button.currentUses++;
+            }
+        }
+        updateSkillDescription(button);
+    }
+
+    public void dashAttackSkillUpgrade(SkillTreeButton button){
+        if (button.currentUses < button.maxUses)
+        {
+            if(GameMaster.instance.getSkillPoints() > 0 && (a3 & s3)){
+                GameMaster.instance.spendSkillPoints();
+                updateSkillPoints();
+                GameMaster.instance.gainDashAttack();
+                button.currentUses++;
+            }
+        }
+        updateSkillDescription(button);
+    }
+
+    public void attackRegenSkillUpgrade(SkillTreeButton button){
+        if (button.currentUses < button.maxUses)
+        {
+            if(GameMaster.instance.getSkillPoints() > 0 && (a2 & h3)){
+                GameMaster.instance.spendSkillPoints();
+                updateSkillPoints();
+                GameMaster.instance.gainAttackRegen();
+                button.currentUses++;
+            }
+        }
+        updateSkillDescription(button);
+    }
+
+    public void groundSmashSkillUpgrade(SkillTreeButton button){
+        if (button.currentUses < button.maxUses)
+        {
+            if(GameMaster.instance.getSkillPoints() > 0 && (a2 & a3)){
+                GameMaster.instance.spendSkillPoints();
+                updateSkillPoints();
+                GameMaster.instance.gainGroundSmash();
                 button.currentUses++;
             }
         }

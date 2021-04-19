@@ -85,7 +85,13 @@ public class Enemy : MonoBehaviour
         fireEelList = GameObject.FindGameObjectsWithTag("Fire Eel");
         swordGiantList = GameObject.FindGameObjectsWithTag("Sword Giant");
 
-        enemyAmount = hammerGiantList.Length + fireImpList.Length + fireEelList.Length + swordGiantList.Length;   
+        GameMaster.instance.enemyList.AddRange(hammerGiantList);
+        GameMaster.instance.enemyList.AddRange(fireImpList);
+        GameMaster.instance.enemyList.AddRange(fireEelList);
+        GameMaster.instance.enemyList.AddRange(swordGiantList);
+
+        enemyAmount = hammerGiantList.Length + fireImpList.Length + fireEelList.Length + swordGiantList.Length;
+        GameMaster.instance.numOfEnemies = enemyAmount;
         for (int i = 0; i < moveDirections.Count(); i ++) {
             weightList[i] = 0;
         }
@@ -165,7 +171,36 @@ public class Enemy : MonoBehaviour
                 }
                 
             }
+
+            GameMaster.instance.playerStats.attackRegenHit.Value = true;
             
+            var thisColor = this.GetComponent<Renderer>().material.color;
+            if (thisColor.a < 1f && thisColor.a > 0f) {
+                thisColor.a -= .1f;
+                this.GetComponent<Renderer>().material.color = thisColor;
+                Debug.Log(thisColor.a);
+            }
+            
+
+            timer = 0;
+            CameraShaker.Instance.ShakeOnce(2f, 1.5f, 0.1f, 1f);
+            freezer.Freeze();
+        }
+        // For the dash attack skill
+        if(collider.gameObject.name.Equals("DashBox") && timer >= .5){
+            playHurtSFX();
+            if (armorAmount > 0) {
+                armorAmount -= (GameMaster.instance.playerStats.attackPower.Value * .3f);
+            } else {
+                if (this.tag == "Fire Eel") {
+                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .25f);
+                } else if (this.tag == "Fire Imp") {
+                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * 0.4f);
+                } else if (this.tag == "Hammer Giant" || this.tag == "Sword Giant") {
+                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .3f);
+                }
+                
+            }
             var thisColor = this.GetComponent<Renderer>().material.color;
             if (thisColor.a < 1f && thisColor.a > 0f) {
                 thisColor.a -= .1f;
@@ -205,8 +240,10 @@ public class Enemy : MonoBehaviour
             if (healthAmount <= 0)
             {
                 playDeathSFX();
+                GameMaster.instance.enemyList.Remove(this.gameObject);
                 Destroy(this.gameObject);
                 enemyAmount -= 1;
+                GameMaster.instance.numOfEnemies -= 1;
                 spawnShard();
             }
             timer += Time.deltaTime; // Temporary

@@ -27,8 +27,13 @@ public class PlayerStats : ScriptableObject
 	public SharedBool unlockedDoubleDash;
 
 	public SharedBool unlockedHealthDash;
+	public SharedBool unlockedRegen;
+	public SharedBool unlockedDashAttack;
+	public SharedBool unlockedAttackRegen;
+	public SharedBool unlockedGroundSmash;
 
 	public SharedBool inCombat;
+	public SharedBool attackRegenHit;
 
 	public event Action OnStatsChanged;
 
@@ -56,7 +61,12 @@ public class PlayerStats : ScriptableObject
 		{
 			unlockedDoubleDash,
 			unlockedHealthDash,
+			unlockedRegen,
+			unlockedDashAttack,
+			unlockedAttackRegen,
+			unlockedGroundSmash,
 			inCombat,
+			attackRegenHit,
 		};
 
 		foreach (SharedBool sb in SharedBools)
