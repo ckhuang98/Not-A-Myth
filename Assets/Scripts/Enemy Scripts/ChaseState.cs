@@ -11,6 +11,7 @@ public class ChaseState : BaseState
     //This is the player
     private Transform target;
     public float speed = 3f;
+    public float turnTimer = 0f;
     private GameObject[] hammerGiants = GameObject.FindGameObjectsWithTag("Hammer Giant");
     private GameObject[] fireImps = GameObject.FindGameObjectsWithTag("Fire Imp");
     private GameObject[] fireEels = GameObject.FindGameObjectsWithTag("Fire Eel");
@@ -212,10 +213,15 @@ public class ChaseState : BaseState
     Returns: nothign
     */
     private void MoveDirection() {
+        turnTimer += Time.deltaTime;
         for (int i = 0; i < _enemy.moveDirections.Count(); i++) {
             //Debug.Log("in da mf loop");
             if (_enemy.weightList[i] == 1) {
-                _enemy.currMoveDirection = i;
+                
+                if (turnTimer >= 0.5f) {
+                    _enemy.currMoveDirection = i;
+                    turnTimer = 0f;
+                }
 
             }
         }
