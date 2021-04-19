@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SlashIdle
+  m_Name: Hammer Giant Hit W
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,22 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -8428112940521042947, guid: f5144ba8f9d3ca0448e76187f8b8e0c0,
+      value: {fileID: 2204851307446195286, guid: 6540e9572d88fea4ea7b83b50dd1defc,
+        type: 3}
+    - time: 0.0625
+      value: {fileID: -799103433999601802, guid: 6540e9572d88fea4ea7b83b50dd1defc,
+        type: 3}
+    - time: 0.125
+      value: {fileID: 2727512699593523143, guid: 6540e9572d88fea4ea7b83b50dd1defc,
+        type: 3}
+    - time: 0.1875
+      value: {fileID: -230484292397685933, guid: 6540e9572d88fea4ea7b83b50dd1defc,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 12
+  m_SampleRate: 16
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -41,13 +50,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -8428112940521042947, guid: f5144ba8f9d3ca0448e76187f8b8e0c0, type: 3}
+    - {fileID: 2204851307446195286, guid: 6540e9572d88fea4ea7b83b50dd1defc, type: 3}
+    - {fileID: -799103433999601802, guid: 6540e9572d88fea4ea7b83b50dd1defc, type: 3}
+    - {fileID: 2727512699593523143, guid: 6540e9572d88fea4ea7b83b50dd1defc, type: 3}
+    - {fileID: -230484292397685933, guid: 6540e9572d88fea4ea7b83b50dd1defc, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.083333336
+    m_StopTime: 0.25
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

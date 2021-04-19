@@ -1085,6 +1085,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6711563483117627010, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711563483117627010, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8439812502630407016, guid: 9bc6f6206f5387c49b65d003f009bb84,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1710,28 +1720,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   bossFight: 0
-  maxSpeed: 5
-  speed: 3
   dashSpeed: 0
   rb: {fileID: 211995276}
-  attackPosition: {fileID: 0}
   slashAnimation: {fileID: 561858610}
   playerAnimator: {fileID: 211995278}
-  attackStrength: 1
   agroRange: 0
   fireStacks: 0
   maxFireStacks: 10
   fireAlert: {fileID: 0}
-  stats: {fileID: 0}
+  stats: {fileID: 11400000, guid: d236f5f7720028c46ae6569c490ddcc9, type: 2}
   healthBar: {fileID: 1166475728}
   maxHealth: 100
   currentHealth: 100
-  isDashButtonDown: 0
   attacked: 0
   canDash: 1
   canDashTwice: 0
-  unlockedDashTwice: 0
-  hasKnockback: 0
   slashCollider: {fileID: 561858605}
 --- !u!50 &211995276
 Rigidbody2D:
@@ -1847,7 +1850,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &211995280
@@ -63949,6 +63952,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Sword Giant '
       objectReference: {fileID: 0}
+    - target: {fileID: 7304970924317746057, guid: aa47b51458fa8c6469866ca31e15d786,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7304970924317746059, guid: aa47b51458fa8c6469866ca31e15d786,
         type: 3}
       propertyPath: m_RootOrder
@@ -64004,6 +64012,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8154618888512411621, guid: aa47b51458fa8c6469866ca31e15d786,
+        type: 3}
+      propertyPath: slash
+      value: 
+      objectReference: {fileID: 7618146614613494682, guid: a6828a63938ca714fb3532903aea4a65,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa47b51458fa8c6469866ca31e15d786, type: 3}
 --- !u!1001 &8887195381389723030
