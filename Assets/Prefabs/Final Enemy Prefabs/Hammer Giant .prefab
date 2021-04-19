@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 3831496449369086244}
   - component: {fileID: -2846928315923067694}
   - component: {fileID: 3831496449369086266}
-  - component: {fileID: 948363859}
+  - component: {fileID: 1159567867176137211}
   m_Layer: 0
   m_Name: 'Hammer Giant '
   m_TagString: Hammer Giant
@@ -643,6 +643,7 @@ MonoBehaviour:
     type: 3}
   fireTrail: {fileID: 339167541854525883, guid: 1afd68a4b134d0042a8c2c1112ad19ba,
     type: 3}
+  slash: {fileID: 0}
   inBounds: 0
   hasCircled: 0
   enemyAnimator: {fileID: 6249455407112965223}
@@ -654,7 +655,7 @@ MonoBehaviour:
   doLungeAttack: 0
   deathSFXObject: {fileID: 6986382958281556572, guid: eb55799b3883de04086c3f34a5f3c139,
     type: 3}
---- !u!114 &948363859
+--- !u!114 &1159567867176137211
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -667,26 +668,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: "The Object Audio Manager is for sounds emitted from objects in the
-    scene (the player, enemies, environment, etc.)\r\n    \r\n    Audio Mixer: The
-    Audio Mixer for the game. Should be set to SoundMixer\r\n    Play Group On Start:
-    The name of the audio group that will automatically play on Start\r\n    Sound
-    Groups: An array containing SoundGroups\r\n    \r\n    Sound Groups categorize,
-    hold, and set parameters for individual Sounds\r\n    ex. The SoundGroup 'footsteps'
-    can hold all the object's footstep Sounds\r\n\r\n    Sounds each have a name
-    and an associated AudioClip"
+    scene (the player, enemies, environment, etc.)\r\n    \r\n    Properties:\r\n   
+    Audio Mixer: Should be set to SoundMixer\r\n    Play Group On Start: The name
+    of the group that will be played on Start\r\n    Volume: Volume of the clips
+    in the group. Can be overridden by the individual groups.\r\n            Value
+    0 - 1. NOT THE SAME AS THE MIXER'S VOLUME.\r\n    Spread: How the audio is balanced
+    in stereo. 180 is perfectly balanced.\r\n    AudioRolloffMode: How the audio
+    fades as the source gets further away\r\n    Min Distance: The minimum distance
+    from the source for the sound to be at full loudness\r\n    Max Distance: THe
+    maximum distance from which the source can still be heard\r\n    Sound Groups:
+    Array of SoundGroups which hold the different Sounds\r\n                  ex.
+    the 'footsteps' SoundGroup can hold all the footstep Sounds"
   audioMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  audioMixerGroup: {fileID: 999436064050034201, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+    type: 2}
   playGroupOnStart: 
+  volume: 0.3
+  spread: 150
+  rolloffMode: 0
+  minDistance: 1
+  maxDistance: 1
   soundGroups:
   - name: footsteps
-    group: {fileID: 999436064050034201, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
-    ignorePause: 1
-    volume: 0.3
+    ignorePause: 0
+    overrideVolume: 1
+    volume: 0
     loopingClip: 
-    spacialAudio: 1
-    spread: 150
-    rolloffMode: 0
-    minDistance: 1
-    maxDistance: 20
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
     sounds:
     - name: 2
       clip: {fileID: 8300000, guid: 2cad8d408349bdd4f8ec451ec4573d45, type: 3}
@@ -710,6 +720,142 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: 6
       clip: {fileID: 8300000, guid: 40b892bf070fc6f488e7b427b783967e, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+  - name: hammerSwings
+    ignorePause: 0
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 
+      clip: {fileID: 8300000, guid: 408ba9ba04c9f994387fa3a51f34ac4a, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 4f152c758c7038346ae05151092ce8bd, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: cb81338f9772e784dbbfb82534447d9d, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 2434b91dfc81e3f48a06dedb32b8a5fa, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+  - name: hammerImpacts
+    ignorePause: 0
+    overrideVolume: 1
+    volume: 0.55
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 
+      clip: {fileID: 8300000, guid: 3609a25708eba9f47a57fdf19e2f70e4, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 915691fe6d5b3774eb7531d3123fb5ae, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 805dc9ee2d5bae142875388541987e70, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 363448fb564cbcf46bbc193f30cb3136, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: c0a9098266c24ca4390ad2b98d7cadb2, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 9fad331dccfdcf54e88dd90d420dfd88, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+  - name: hurt
+    ignorePause: 0
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 
+      clip: {fileID: 8300000, guid: f22e5b401a1d00140b95bc761f60db52, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: c7c530d157d4ed141aa2b165a932dd13, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 180bb83a90fe386428f61c793b80a8af, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 4959fa451727a0142ad45e8e5139a24d, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 2b1760f4c2c867b4a9f65d3240e12885, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+  - name: grunts
+    ignorePause: 0
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 
+      clip: {fileID: 8300000, guid: 276ebb5001f6c7c479268f1b18a8a648, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 573f6c78104abaa40814db8e482548a3, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 52159710618f87b42b469ddc2f5a0dbc, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 7df5f6afb3aaff14bb98eb16c066c9a8, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 0962f2fece9671e4ea1a71ffd954511d, type: 3}
       index: 0
       length: 0
       source: {fileID: 0}

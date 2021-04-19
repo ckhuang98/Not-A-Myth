@@ -90,7 +90,18 @@ public class Enemy : MonoBehaviour
             weightList[i] = 0;
         }
         stateMachine = new StateMachine();
-        audioManager = gameObject.GetComponent<ObjectAudioManager>();
+
+        //TODO: Make it so that each individual enemy type has a different type of audio manager for ease of use. Should probably have different scripts for the different enemy types
+        if (this.tag == "Fire Eel") {
+            audioManager = gameObject.GetComponent<ObjectAudioManager>();
+        } else if (this.tag == "Fire Imp") {
+            audioManager = gameObject.GetComponent<ObjectAudioManager>();
+        } else if (this.tag == "Hammer Giant") {
+            audioManager = gameObject.GetComponent<ObjectAudioManager>();
+        } else if (this.tag == "Sword Giant") {
+            audioManager = gameObject.GetComponent<ObjectAudioManager>();
+        }
+
         InitializeStateMachine();
         alpha = this.GetComponent<Renderer>().material.color.a;
     }
@@ -288,24 +299,41 @@ public class Enemy : MonoBehaviour
         doLungeAttack = true;
     }
 
+    private void playAttackSFX(){
+        audioManager.PlayRandomSoundInGroup("attacks");
+    }
+
     private void playHammerImpactSFX()
     {
-        audioManager.PlayRandomSoundInGroup("Hammer Impact");
+        audioManager.PlayRandomSoundInGroup("hammerImpacts");
     }
 
     private void playHammerSwingSFX()
     {
-        audioManager.PlayRandomSoundInGroup("Hammer Swing");
+        audioManager.PlayRandomSoundInGroup("hammerSwings");
+    }
+
+    private void playSwordSwingSFX(){
+        audioManager.PlayRandomSoundInGroup("swordSwings");
     }
 
     private void playFootstepSFX()
     {
-        audioManager.PlayRandomSoundInGroup("Footsteps");
+        audioManager.PlayRandomSoundInGroup("footsteps");
     }
 
     private void playHurtSFX()
     {
-        audioManager.PlayRandomSoundInGroup("Hurt");
+        audioManager.PlayRandomSoundInGroup("hurt");
+    }
+
+    private void playGruntSFX()
+    {
+        audioManager.PlayRandomSoundInGroup("grunts");
+    }
+
+    private void playCrackSFX(){
+        audioManager.PlayRandomSoundInGroup("cracks");
     }
 
     private void playDeathSFX()

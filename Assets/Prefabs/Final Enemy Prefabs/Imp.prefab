@@ -213,18 +213,23 @@ MonoBehaviour:
     can hold all the object's footstep Sounds\r\n\r\n    Sounds each have a name
     and an associated AudioClip"
   audioMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  audioMixerGroup: {fileID: 999436064050034201, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+    type: 2}
   playGroupOnStart: 
+  volume: 0.4
+  spread: 150
+  rolloffMode: 0
+  minDistance: 3
+  maxDistance: 6
   soundGroups:
-  - name: damage
-    group: {fileID: 999436064050034201, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  - name: hurt
     ignorePause: 0
-    volume: 0.2
+    overrideVolume: 0
+    volume: 0
     loopingClip: 
-    spacialAudio: 1
-    spread: 160
-    rolloffMode: 0
-    minDistance: 4
-    maxDistance: 20
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
     sounds:
     - name: 1
       clip: {fileID: 8300000, guid: 04ce906b20d349040936c91dc21d4b0c, type: 3}

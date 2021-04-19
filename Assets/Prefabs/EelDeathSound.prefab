@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 341518278725175788}
   - component: {fileID: 6275299265385133717}
   m_Layer: 10
-  m_Name: ImpDeathSound
+  m_Name: EelDeathSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,17 +71,17 @@ MonoBehaviour:
     maxDistance: 0
     sounds:
     - name: 1
-      clip: {fileID: 8300000, guid: 1849eeabeb662684ead0c287baf7f87d, type: 3}
+      clip: {fileID: 8300000, guid: 8a811059b449dc347b769a87a4675b0a, type: 3}
       index: 0
       length: 0
       source: {fileID: 0}
     - name: 2
-      clip: {fileID: 8300000, guid: 8648ccc98a0287e469e26fac48626442, type: 3}
+      clip: {fileID: 8300000, guid: 0b772e552fc2d8a40b58b37720613428, type: 3}
       index: 0
       length: 0
       source: {fileID: 0}
     - name: 3
-      clip: {fileID: 8300000, guid: 9008c1712575e664c9e3a00a5fb00145, type: 3}
+      clip: {fileID: 8300000, guid: e593db0c403b1c24390c60d4e76c638c, type: 3}
       index: 0
       length: 0
       source: {fileID: 0}

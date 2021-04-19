@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 449503612592202966}
   - component: {fileID: 2207686455493674375}
   - component: {fileID: 2423584560005821208}
-  - component: {fileID: 2207686455493674378}
+  - component: {fileID: 5731158482388525565}
   m_Layer: 0
   m_Name: 'Fire Eel '
   m_TagString: Fire Eel
@@ -454,6 +454,7 @@ MonoBehaviour:
     type: 3}
   fireTrail: {fileID: 339167541854525883, guid: 1afd68a4b134d0042a8c2c1112ad19ba,
     type: 3}
+  slash: {fileID: 0}
   inBounds: 0
   hasCircled: 0
   enemyAnimator: {fileID: 4000617127544784163}
@@ -463,7 +464,7 @@ MonoBehaviour:
   goToWalk: 0
   doAttack: 0
   doLungeAttack: 0
-  deathSFXObject: {fileID: 6986382958281556572, guid: eb55799b3883de04086c3f34a5f3c139,
+  deathSFXObject: {fileID: 6986382958281556572, guid: fbe570b06266bcf44b8d2660c26a378e,
     type: 3}
 --- !u!50 &2207686455493674375
 Rigidbody2D:
@@ -769,7 +770,7 @@ PolygonCollider2D:
       - {x: 0.06311359, y: 0.7233873}
       - {x: 0.058113594, y: 0.7233873}
       - {x: 0.055613592, y: 0.7258873}
---- !u!114 &2207686455493674378
+--- !u!114 &5731158482388525565
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -778,178 +779,120 @@ MonoBehaviour:
   m_GameObject: {fileID: 4000617127544784166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7ecd75c01e16404aa4292dc739d8116, type: 3}
+  m_Script: {fileID: 11500000, guid: f022c857e6ec6ac4eb85d0a451860390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
-  soundMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  description: "The Object Audio Manager is for sounds emitted from objects in the
+    scene (the player, enemies, environment, etc.)\r\n    \r\n    Properties:\r\n   
+    Audio Mixer: Should be set to SoundMixer\r\n    Play Group On Start: The name
+    of the group that will be played on Start\r\n    Volume: Volume of the clips
+    in the group. Can be overridden by the individual groups.\r\n            Value
+    0 - 1. NOT THE SAME AS THE MIXER'S VOLUME.\r\n    Spread: How the audio is balanced
+    in stereo. 180 is perfectly balanced.\r\n    AudioRolloffMode: How the audio
+    fades as the source gets further away\r\n    Min Distance: The minimum distance
+    from the source for the sound to be at full loudness\r\n    Max Distance: THe
+    maximum distance from which the source can still be heard\r\n    Sound Groups:
+    Array of SoundGroups which hold the different Sounds\r\n                  ex.
+    the 'footsteps' SoundGroup can hold all the footstep Sounds"
+  audioMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  audioMixerGroup: {fileID: 999436064050034201, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+    type: 2}
+  playGroupOnStart: 
+  volume: 0.2
+  spread: 150
+  rolloffMode: 0
+  minDistance: 3
+  maxDistance: 6
   soundGroups:
-  - name: Footsteps
-    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
-      type: 2}
+  - name: attacks
     ignorePause: 0
-    volume: 0.3
-    spacialBlend: 1
-    spread: 1
+    overrideVolume: 0
+    volume: 0
     loopingClip: 
-    rolloffMode: 1
-    maxDistance: 10
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
     sounds:
-    - name: 2
-      clip: {fileID: 8300000, guid: c23093c7101f14a4a8d07f4fbbace0cd, type: 3}
+    - name: 
+      clip: {fileID: 8300000, guid: fb63751e8113905488cc8b4fcc18d96f, type: 3}
+      index: 0
+      length: 0
       source: {fileID: 0}
-    - name: 3
-      clip: {fileID: 8300000, guid: 8e98cbd092b332340863c915006e3868, type: 3}
+    - name: 
+      clip: {fileID: 8300000, guid: 632ebdff14cd8e344b166171e827a77a, type: 3}
+      index: 0
+      length: 0
       source: {fileID: 0}
-    - name: 4
-      clip: {fileID: 8300000, guid: 95a479f3b1474584193aba4c8e78a5e7, type: 3}
+    - name: 
+      clip: {fileID: 8300000, guid: 64f2cea5609b5be4ca62230d9895d5a0, type: 3}
+      index: 0
+      length: 0
       source: {fileID: 0}
-    - name: 5
-      clip: {fileID: 8300000, guid: b75ee9baf0a3f1642acff38d77f859be, type: 3}
+    - name: 
+      clip: {fileID: 8300000, guid: 4f97a80d7cd88494b9da51258cc72d53, type: 3}
+      index: 0
+      length: 0
       source: {fileID: 0}
-    - name: 6
-      clip: {fileID: 8300000, guid: e4cc334ccb5c4964b99e4878f7777f4b, type: 3}
-      source: {fileID: 0}
-  - name: Hammer Impact
-    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
-      type: 2}
+  - name: hurt
     ignorePause: 0
-    volume: 0.3
-    spacialBlend: 1
-    spread: 1
+    overrideVolume: 0
+    volume: 0
     loopingClip: 
-    rolloffMode: 1
-    maxDistance: 10
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
     sounds:
-    - name: 1
-      clip: {fileID: 8300000, guid: 3609a25708eba9f47a57fdf19e2f70e4, type: 3}
+    - name: 
+      clip: {fileID: 8300000, guid: fbebfcbfb997c26438c129a7264b28fb, type: 3}
+      index: 0
+      length: 0
       source: {fileID: 0}
-    - name: 2
-      clip: {fileID: 8300000, guid: 915691fe6d5b3774eb7531d3123fb5ae, type: 3}
+    - name: 
+      clip: {fileID: 8300000, guid: 12ff52fc043496c438d9c958578ce9c7, type: 3}
+      index: 0
+      length: 0
       source: {fileID: 0}
-    - name: 3
-      clip: {fileID: 8300000, guid: 805dc9ee2d5bae142875388541987e70, type: 3}
+    - name: 
+      clip: {fileID: 8300000, guid: 5e1936259ed8d384a93120f2f3c959d0, type: 3}
+      index: 0
+      length: 0
       source: {fileID: 0}
-    - name: 4
-      clip: {fileID: 8300000, guid: 363448fb564cbcf46bbc193f30cb3136, type: 3}
+    - name: 
+      clip: {fileID: 8300000, guid: 61f97c45e53b84f4aa78f8d230e8d3e9, type: 3}
+      index: 0
+      length: 0
       source: {fileID: 0}
-    - name: 5
-      clip: {fileID: 8300000, guid: c0a9098266c24ca4390ad2b98d7cadb2, type: 3}
+    - name: 
+      clip: {fileID: 8300000, guid: 2b1760f4c2c867b4a9f65d3240e12885, type: 3}
+      index: 0
+      length: 0
       source: {fileID: 0}
-    - name: Impact
-      clip: {fileID: 8300000, guid: 9fad331dccfdcf54e88dd90d420dfd88, type: 3}
-      source: {fileID: 0}
-  - name: Hammer Swing
-    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
-      type: 2}
+  - name: cracks
     ignorePause: 0
-    volume: 0.3
-    spacialBlend: 1
-    spread: 1
+    overrideVolume: 0
+    volume: 0
     loopingClip: 
-    rolloffMode: 1
-    maxDistance: 10
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
     sounds:
-    - name: 1
-      clip: {fileID: 8300000, guid: 408ba9ba04c9f994387fa3a51f34ac4a, type: 3}
+    - name: 
+      clip: {fileID: 8300000, guid: 3cd518f49ffa3444385e05f23ac9c46f, type: 3}
+      index: 0
+      length: 0
       source: {fileID: 0}
-    - name: 2
-      clip: {fileID: 8300000, guid: 4f152c758c7038346ae05151092ce8bd, type: 3}
+    - name: 
+      clip: {fileID: 8300000, guid: 251d6f14e2e092b4e93d70462d8c1d4c, type: 3}
+      index: 0
+      length: 0
       source: {fileID: 0}
-    - name: 3
-      clip: {fileID: 8300000, guid: cb81338f9772e784dbbfb82534447d9d, type: 3}
+    - name: 
+      clip: {fileID: 8300000, guid: 53cd8de58db9b8a499c0a093eef646e2, type: 3}
+      index: 0
+      length: 0
       source: {fileID: 0}
-    - name: 4
-      clip: {fileID: 8300000, guid: 2434b91dfc81e3f48a06dedb32b8a5fa, type: 3}
-      source: {fileID: 0}
-  - name: Hurt
-    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
-      type: 2}
-    ignorePause: 0
-    volume: 0.3
-    spacialBlend: 1
-    spread: 1
-    loopingClip: 
-    rolloffMode: 1
-    maxDistance: 10
-    sounds:
-    - name: 1
-      clip: {fileID: 8300000, guid: b14476758b3a11f458cbf5dc0a1fcae7, type: 3}
-      source: {fileID: 0}
-    - name: 2
-      clip: {fileID: 8300000, guid: 71efcd7199dcb9946a37240cca78dc6c, type: 3}
-      source: {fileID: 0}
-    - name: 3
-      clip: {fileID: 8300000, guid: 2e5856d2d4a4e4243968da026069798e, type: 3}
-      source: {fileID: 0}
-    - name: 4
-      clip: {fileID: 8300000, guid: 4e62314333be95049abcd1d8e9bd146b, type: 3}
-      source: {fileID: 0}
-    - name: 5
-      clip: {fileID: 8300000, guid: 3fedfdf4cc1c44045a5ff52f2d07c780, type: 3}
-      source: {fileID: 0}
-    - name: 6
-      clip: {fileID: 8300000, guid: 486b0913e72290845ab4a2809a4537c2, type: 3}
-      source: {fileID: 0}
-    - name: 7
-      clip: {fileID: 8300000, guid: fca14c8dd14a5694d98eb5668beafcf7, type: 3}
-      source: {fileID: 0}
-    - name: 8
-      clip: {fileID: 8300000, guid: b565e1210f702a64898f4edd90268ca0, type: 3}
-      source: {fileID: 0}
-    - name: 9
-      clip: {fileID: 8300000, guid: c441de1ad18032846b1fc268af46dddd, type: 3}
-      source: {fileID: 0}
-    - name: 10
-      clip: {fileID: 8300000, guid: 2ab570a15cf634a449de521bcb83fd82, type: 3}
-      source: {fileID: 0}
-    - name: 11
-      clip: {fileID: 8300000, guid: 9d6321b1ecf706443a3d9bb610c10c28, type: 3}
-      source: {fileID: 0}
-    - name: 12
-      clip: {fileID: 8300000, guid: 3ecddd10879066b4f98250d6f3a9f587, type: 3}
-      source: {fileID: 0}
-    - name: 13
-      clip: {fileID: 8300000, guid: 6b7de2badfdd91647b5603e15ff34be4, type: 3}
-      source: {fileID: 0}
-    - name: 14
-      clip: {fileID: 8300000, guid: 099614c3449fab7419fdc7d754c6370e, type: 3}
-      source: {fileID: 0}
-  - name: Death
-    group: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
-      type: 2}
-    ignorePause: 0
-    volume: 0.3
-    spacialBlend: 1
-    spread: 1
-    loopingClip: 
-    rolloffMode: 1
-    maxDistance: 10
-    sounds:
-    - name: 1
-      clip: {fileID: 8300000, guid: ef38ef69fae860e4eb4169e72297f22b, type: 3}
-      source: {fileID: 0}
-    - name: 2
-      clip: {fileID: 8300000, guid: 31a7a2fcdf88e0c4a8eb6354b43819f5, type: 3}
-      source: {fileID: 0}
-    - name: 3
-      clip: {fileID: 8300000, guid: 9a0c6f597562b78478f69d54132f2a84, type: 3}
-      source: {fileID: 0}
-    - name: 4
-      clip: {fileID: 8300000, guid: 1e67b2b85c90aee469ad24e6296fa91a, type: 3}
-      source: {fileID: 0}
-    - name: 5
-      clip: {fileID: 8300000, guid: 0f7c2b1bdc4820c4a8ee9d3075f0e021, type: 3}
-      source: {fileID: 0}
-    - name: 6
-      clip: {fileID: 8300000, guid: d5f20b107cdd52e45ab210407e239625, type: 3}
-      source: {fileID: 0}
-    - name: 7
-      clip: {fileID: 8300000, guid: 5259c90a9da84874f9d021312a4705cc, type: 3}
-      source: {fileID: 0}
-    - name: 8
-      clip: {fileID: 8300000, guid: 7a482a393e4f20948a9b4b808c3bbc21, type: 3}
-      source: {fileID: 0}
-    - name: 9
-      clip: {fileID: 8300000, guid: 11d6306d82e53ac41b98bb9f1460fd94, type: 3}
+    - name: 
+      clip: {fileID: 8300000, guid: f6182c6f1a61ca54684ac741641e1f3d, type: 3}
+      index: 0
+      length: 0
       source: {fileID: 0}

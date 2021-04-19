@@ -130,8 +130,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3110040948114809936, guid: 05a9fabe763e72245a96751fa8d58aa3,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110040948114809936, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
       propertyPath: soundGroups.Array.data[0].volume
-      value: 0.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5347535454852803138, guid: 05a9fabe763e72245a96751fa8d58aa3,
         type: 3}
@@ -1601,6 +1606,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1688951464, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200, type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+        type: 2}
+    - target: {fileID: 1688951464, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200, type: 3}
+      propertyPath: audioMixerGroup
+      value: 
+      objectReference: {fileID: 7685793082683988513, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+        type: 2}
     - target: {fileID: 726095169486400776, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200,
         type: 3}
       propertyPath: m_Name

@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject slashCollider;
 
-    private ObjectAudioManager objectAudioManager;
+    private PlayerAudioManager playerAudioManager;
 
     private bool isInvincible = false;
 
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour {
 
         CombatManager.instance.canReceiveInput = true;
         state = State.Normal;
-        objectAudioManager = gameObject.GetComponent<ObjectAudioManager>();
+        playerAudioManager = gameObject.GetComponent<PlayerAudioManager>();
         playerSprite = this.GetComponent<SpriteRenderer>();
 
         healthBar = UI.instance.GetComponentInChildren<BarScript>();
@@ -319,7 +319,7 @@ public class PlayerController : MonoBehaviour {
     // Reduces player's current health and updates the slider value of the health bar.
     public void TakeDamage(int damage){
         if(!isInvincible){
-            playHurtSFX();
+            playerAudioManager.playHurtSFX();
             stats.currentHealth.Value -= damage;
             CameraShaker.Instance.ShakeOnce(3f, 3f, 0.1f, 1f);
             StartCoroutine(tempInvincible());
@@ -334,7 +334,7 @@ public class PlayerController : MonoBehaviour {
     // Separate from TakeDamage(), because fire damage should not
     // have a camera shake, or allow temporary invincibility
     public void TakeFireDamage(int damage) {
-        playSizzleSFX();
+        playerAudioManager.playSizzleSFX();
         stats.currentHealth.Value -= damage;
         // healthBar.SetValue(currentHealth);
     }
@@ -491,25 +491,25 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void playFootstepSFX()
-    {
-        objectAudioManager.PlayRandomSoundInGroup("footsteps");
-    }
+    // private void playFootstepSFX()
+    // {
+    //     objectAudioManager.PlayRandomSoundInGroup("footsteps");
+    // }
 
-    private void playSlashSFX()
-    {
-        objectAudioManager.PlayRandomSoundInGroup("slashes");
-    }
+    // private void playSlashSFX()
+    // {
+    //     objectAudioManager.PlayRandomSoundInGroup("slashes");
+    // }
 
-    private void playHurtSFX()
-    {
-        objectAudioManager.PlayRandomSoundInGroup("hurt");
-    }
+    // private void playHurtSFX()
+    // {
+    //     objectAudioManager.PlayRandomSoundInGroup("hurt");
+    // }
 
-    private void playSizzleSFX()
-    {
-        objectAudioManager.PlayRandomSoundInGroup("sizzle");
-    }
+    // private void playSizzleSFX()
+    // {
+    //     objectAudioManager.PlayRandomSoundInGroup("sizzle");
+    // }
 
     private void OnTriggerEnter2D(Collider2D col) {
         if (col.CompareTag("Imp Damage Projectile")) {

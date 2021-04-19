@@ -87,6 +87,7 @@ public class ObjectAudioManager : MonoBehaviour
                 s.length = s.source.clip.samples / s.source.clip.frequency;
 
                 s.source.spatialBlend = 1f;
+                s.source.spread = spread;
 
                 s.source.minDistance = sg.overrideDistances ? sg.minDistance : minDistance;
                 s.source.maxDistance = sg.overrideDistances ? sg.maxDistance : maxDistance;
