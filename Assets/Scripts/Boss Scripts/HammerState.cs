@@ -26,24 +26,27 @@ public class HammerState : BaseState
     
     public override Type Tick()
     {
-
+        _boss.attacking = true;
         if (isCreated == false) {
             FCA = GameObject.Instantiate(_boss.fireConeArea) as GameObject;
 
-            if(_boss.targetLastPos == "Center"){
-                FCA.transform.position = new Vector3(0, -1, 1);
-                conePos.x = 0;
-                _boss.fireCone.transform.position = conePos;
-            } else if(_boss.targetLastPos == "Left"){
-                FCA.transform.position = new Vector3(-3, -1, 1);
-                conePos.x = -3;
-                _boss.fireCone.transform.position = conePos;
-            } else if(_boss.targetLastPos == "Right"){
-                FCA.transform.position = new Vector3(3, -1, 1);
-                conePos.x = 3;
-                _boss.fireCone.transform.position = conePos;
-            }
+            // if(_boss.targetLastPos == "Center"){
+            //     FCA.transform.position = new Vector3(0, -1, 1);
+            //     conePos.x = 0;
+            //     _boss.fireCone.transform.position = conePos;
+            // } else if(_boss.targetLastPos == "Left"){
+            //     FCA.transform.position = new Vector3(-3, -1, 1);
+            //     conePos.x = -3;
+            //     _boss.fireCone.transform.position = conePos;
+            // } else if(_boss.targetLastPos == "Right"){
+            //     FCA.transform.position = new Vector3(3, -1, 1);
+            //     conePos.x = 3;
+            //     _boss.fireCone.transform.position = conePos;
+            // }
 
+            FCA.transform.position = new Vector3(0, -1, 1);
+            conePos.x = transform.position.x;
+            _boss.fireCone.transform.position = conePos;
             isCreated = true;
         }
         

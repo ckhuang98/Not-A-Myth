@@ -18,6 +18,7 @@ public class ShockWave : MonoBehaviour
     
     void FixedUpdate()
     {
+        
         Vector3 newScale = transform.localScale;
         newScale *= 1.04f;
         transform.localScale = newScale;
