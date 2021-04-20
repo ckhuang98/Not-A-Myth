@@ -34,6 +34,7 @@ public class PlayerStats : ScriptableObject
 
 	public SharedBool inCombat;
 	public SharedBool attackRegenHit;
+	public SharedBool inBossFight;
 
 	public event Action OnStatsChanged;
 
@@ -67,6 +68,7 @@ public class PlayerStats : ScriptableObject
 			unlockedGroundSmash,
 			inCombat,
 			attackRegenHit,
+			inBossFight,
 		};
 
 		foreach (SharedBool sb in SharedBools)

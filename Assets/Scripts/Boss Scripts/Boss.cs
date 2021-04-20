@@ -52,6 +52,7 @@ public class Boss : MonoBehaviour
         audioManager = gameObject.GetComponent<ObjectAudioManager>();
         InitializeStateMachine();
         freezer = GameMaster.instance.GetComponent<Freezer>();
+        GameMaster.instance.playerStats.inBossFight.Value = true;
         
         if(fireCone.isPaused){
             Debug.Log("Paused Particle sys");

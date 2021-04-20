@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour {
         if (!gameMaster.getGameOver()) {
 
             // Health Regen skill
-            if(stats.inCombat.Value == false && stats.unlockedRegen.Value == true){
+            if(stats.inCombat.Value == false && stats.unlockedRegen.Value == true && stats.inBossFight.Value == false){
                 StartCoroutine(regenHealth());
             }
 

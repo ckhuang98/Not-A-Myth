@@ -125,7 +125,7 @@ public class GameMaster : MonoBehaviour
         }
         if(Input.GetKey(KeyCode.LeftShift)){
             if(Input.GetKeyDown(KeyCode.P)){
-                loadScene(3);
+                loadScene(5);
             }
         }
     }
