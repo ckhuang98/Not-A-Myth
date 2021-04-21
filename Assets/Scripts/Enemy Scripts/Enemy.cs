@@ -54,7 +54,6 @@ public class Enemy : MonoBehaviour
     public bool goToWalk = false;
     public bool doAttack = false;
     public bool doLungeAttack = false;
-    public bool beenHit = false;
 
     [SerializeField]
     private GameObject deathSFXObject;
@@ -76,6 +75,7 @@ public class Enemy : MonoBehaviour
         } else if (this.tag == "Hammer Giant" || this.tag == "Sword Giant") {
             healthAmount = 1.5f;
         }
+        originalY = this.transform.position.y;
         
         armorAmount = 0f;
         rb = GetComponent<Rigidbody2D>();
@@ -88,42 +88,26 @@ public class Enemy : MonoBehaviour
         fireEelList = GameObject.FindGameObjectsWithTag("Fire Eel");
         swordGiantList = GameObject.FindGameObjectsWithTag("Sword Giant");
 
-        GameMaster.instance.enemyList.AddRange(hammerGiantList);
-        GameMaster.instance.enemyList.AddRange(fireImpList);
-        GameMaster.instance.enemyList.AddRange(fireEelList);
-        GameMaster.instance.enemyList.AddRange(swordGiantList);
-
-        enemyAmount = hammerGiantList.Length + fireImpList.Length + fireEelList.Length + swordGiantList.Length;
-        GameMaster.instance.numOfEnemies = enemyAmount;
+        enemyAmount = hammerGiantList.Length + fireImpList.Length + fireEelList.Length + swordGiantList.Length;   
         for (int i = 0; i < moveDirections.Count(); i ++) {
             weightList[i] = 0;
         }
         stateMachine = new StateMachine();
-
-        //TODO: Make it so that each individual enemy type has a different type of audio manager for ease of use. Should probably have different scripts for the different enemy types
-        if (this.tag == "Fire Eel") {
-            audioManager = gameObject.GetComponent<ObjectAudioManager>();
-        } else if (this.tag == "Fire Imp") {
-            audioManager = gameObject.GetComponent<ObjectAudioManager>();
-        } else if (this.tag == "Hammer Giant") {
-            audioManager = gameObject.GetComponent<ObjectAudioManager>();
-        } else if (this.tag == "Sword Giant") {
-            audioManager = gameObject.GetComponent<ObjectAudioManager>();
-        }
-
+        audioManager = gameObject.GetComponent<ObjectAudioManager>();
         InitializeStateMachine();
         alpha = this.GetComponent<Renderer>().material.color.a;
     }
 
     // Update is called once per frame
     void Update() {
-	    if (this.tag == "Fire Imp") { 
-            DoFloat();
-        }
+
         //enemyAnimator.SetFloat("Speed", moveDirections[currMoveDirection].sqrMagnitude);
         isDead(GameMaster.instance.getGameOver());
         stateMachine.Update();
         DisplayRays();
+        if (this.tag == "Fire Imp") {
+            DoFloat();
+        }
 
         if (armorAmount > 1.5) {
             armorAmount = 1.5f;
@@ -157,10 +141,6 @@ public class Enemy : MonoBehaviour
         }
         if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .5)
         {
-            if (this.tag == "Hammer Giant") {
-                enemyAnimator.SetTrigger("HammerHit");
-                beenHit = true;
-            }
             playHurtSFX();
             ////////////////////////////////////////////////////////////////////////////////////
             // Adds knockback to enemy
@@ -180,36 +160,7 @@ public class Enemy : MonoBehaviour
                 }
                 
             }
-
-            GameMaster.instance.playerStats.attackRegenHit.Value = true;
             
-            var thisColor = this.GetComponent<Renderer>().material.color;
-            if (thisColor.a < 1f && thisColor.a > 0f) {
-                thisColor.a -= .1f;
-                this.GetComponent<Renderer>().material.color = thisColor;
-                Debug.Log(thisColor.a);
-            }
-            
-
-            timer = 0;
-            CameraShaker.Instance.ShakeOnce(2f, 1.5f, 0.1f, 1f);
-            freezer.Freeze();
-        }
-        // For the dash attack skill
-        if(collider.gameObject.name.Equals("DashBox") && timer >= .5){
-            playHurtSFX();
-            if (armorAmount > 0) {
-                armorAmount -= (GameMaster.instance.playerStats.attackPower.Value * .3f);
-            } else {
-                if (this.tag == "Fire Eel") {
-                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .25f);
-                } else if (this.tag == "Fire Imp") {
-                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * 0.4f);
-                } else if (this.tag == "Hammer Giant" || this.tag == "Sword Giant") {
-                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .3f);
-                }
-                
-            }
             var thisColor = this.GetComponent<Renderer>().material.color;
             if (thisColor.a < 1f && thisColor.a > 0f) {
                 thisColor.a -= .1f;
@@ -249,10 +200,8 @@ public class Enemy : MonoBehaviour
             if (healthAmount <= 0)
             {
                 playDeathSFX();
-                GameMaster.instance.enemyList.Remove(this.gameObject);
                 Destroy(this.gameObject);
                 enemyAmount -= 1;
-                GameMaster.instance.numOfEnemies -= 1;
                 spawnShard();
             }
             timer += Time.deltaTime; // Temporary
@@ -340,13 +289,6 @@ public class Enemy : MonoBehaviour
         goToWalk = true;
     }
 
-    public void HitToWalk () {
-        if (this.tag == "Hammer Giant") {
-            enemyAnimator.SetTrigger("Walking");
-        }
-        beenHit = false;
-    }
-
     private void DoFloat() {
         transform.position = new Vector3(transform.position.x,
             originalY + ((float)Math.Sin(Time.time) * floatStrength),
@@ -358,41 +300,24 @@ public class Enemy : MonoBehaviour
         doLungeAttack = true;
     }
 
-    private void playAttackSFX(){
-        audioManager.PlayRandomSoundInGroup("attacks");
-    }
-
     private void playHammerImpactSFX()
     {
-        audioManager.PlayRandomSoundInGroup("hammerImpacts");
+        audioManager.PlayRandomSoundInGroup("Hammer Impact");
     }
 
     private void playHammerSwingSFX()
     {
-        audioManager.PlayRandomSoundInGroup("hammerSwings");
-    }
-
-    private void playSwordSwingSFX(){
-        audioManager.PlayRandomSoundInGroup("swordSwings");
+        audioManager.PlayRandomSoundInGroup("Hammer Swing");
     }
 
     private void playFootstepSFX()
     {
-        audioManager.PlayRandomSoundInGroup("footsteps");
+        audioManager.PlayRandomSoundInGroup("Footsteps");
     }
 
     private void playHurtSFX()
     {
-        audioManager.PlayRandomSoundInGroup("hurt");
-    }
-
-    private void playGruntSFX()
-    {
-        audioManager.PlayRandomSoundInGroup("grunts");
-    }
-
-    private void playCrackSFX(){
-        audioManager.PlayRandomSoundInGroup("cracks");
+        audioManager.PlayRandomSoundInGroup("Hurt");
     }
 
     private void playDeathSFX()
@@ -401,7 +326,7 @@ public class Enemy : MonoBehaviour
 
         Vector3 pos = this.gameObject.transform.position;
         GameObject soundSource = Instantiate(deathSFXObject, pos, Quaternion.identity);
-        Sound sound = soundSource.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("death");
+        Sound sound = soundSource.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("Death");
         Destroy(soundSource, sound.source.clip.length);
 
     }

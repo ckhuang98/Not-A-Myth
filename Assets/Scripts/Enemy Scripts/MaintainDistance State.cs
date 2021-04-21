@@ -15,6 +15,7 @@ public class MaintainDistanceState : BaseState
     private float shiftSpeed = 2f;
     private float stoppingDistance = 4f;
     private float retreatDistance = 2.5f;
+    private int lookHere;
 
     private float timeBtwShots = 2f;
     private float shiftTime = 4f;
@@ -31,6 +32,18 @@ public class MaintainDistanceState : BaseState
     enemy gets close, then the type of the fire projectile state is returned
     */
     public override Type Tick() {
+        var delta_x = transform.position.x - target.position.x;
+        var delta_y = transform.position.y - target.position.y;
+        float angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+        if (angle < 0.0f) {
+            angle = angle + 360f;
+        } 
+
+        LookAtPlayer(angle);
+        if (_enemy.tag == "Fire Imp") {
+            _enemy.enemyAnimator.SetFloat("ImpIdleHorizontal", _enemy.moveDirections[lookHere].x);
+            _enemy.enemyAnimator.SetFloat("ImpIdleVertical", _enemy.moveDirections[lookHere].y);
+        } 
         //Uses movement directions to shift to the left or right of the player.
         transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * Time.deltaTime * shiftSpeed;
         //code to maintain distance
@@ -41,13 +54,6 @@ public class MaintainDistanceState : BaseState
         } else if (Vector2.Distance(transform.position, target.position) < retreatDistance) {
              transform.position = Vector2.MoveTowards(transform.position, target.position, -speed * Time.deltaTime);
         }
-
-        var delta_x = transform.position.x - target.position.x;
-        var delta_y = transform.position.y - target.position.y;
-        float angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
-        if (angle < 0.0f) {
-            angle = angle + 360f;
-        } 
         
     //Time for option shift side to side
         if (shiftTime >= 0)
@@ -142,6 +148,24 @@ public class MaintainDistanceState : BaseState
                 _enemy.currMoveDirection = 5;
             }
         }
+    }
+
+    void LookAtPlayer(float angle) {
+        if (315 > angle && angle > 225) {
+                lookHere = 0;
+            } 
+            // RIGHT
+            if (225 > angle && angle > 135) {
+                lookHere = 2;
+            } 
+            // DOWN
+            if (135 > angle && angle > 45) {
+                lookHere = 4;
+            } 
+            // LEFT
+            if ((45 > angle && angle > 0) || (360 > angle && angle > 315)) {
+                lookHere = 6;
+            }
     }
 
     /*

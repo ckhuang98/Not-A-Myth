@@ -9,8 +9,10 @@ public class PlayerAnimator_Idle_Behavior : StateMachineBehaviour
     {
         if(GameMaster.instance.playerStats.inCombat.Value == false){
             GameMaster.instance.playerStats.speed.Value = GameMaster.instance.playerStats.sprintSpeed.Value;
+            //Debug.Log("Out of combat");
         } else{
             GameMaster.instance.playerStats.speed.Value = GameMaster.instance.playerStats.maxSpeed.Value;
+            //Debug.Log("In Combat");
         }
         
     }
