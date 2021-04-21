@@ -76,6 +76,10 @@ public class Enemy : MonoBehaviour
         } else if (this.tag == "Hammer Giant" || this.tag == "Sword Giant") {
             healthAmount = 1.5f;
         }
+
+        if (this.tag == "Fire Imp") {
+            originalY = transform.position.y;
+        }
         
         armorAmount = 0f;
         rb = GetComponent<Rigidbody2D>();

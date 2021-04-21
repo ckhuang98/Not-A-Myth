@@ -54,7 +54,7 @@ public class WanderState : BaseState
             speed = .25f;
         }
         //Debug.Log("Wanderin'");
-        transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * Time.deltaTime * speed;
+
         if (_enemy.tag == "Hammer Giant") {
             _enemy.enemyAnimator.SetFloat("Horizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
             _enemy.enemyAnimator.SetFloat("Vertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
@@ -72,6 +72,8 @@ public class WanderState : BaseState
             _enemy.enemyAnimator.SetFloat("SwordWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
             _enemy.enemyAnimator.SetFloat("SwordWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         }
+
+        transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * Time.deltaTime * speed;
 
         if (decisionTimeCount >= 0)
         {
