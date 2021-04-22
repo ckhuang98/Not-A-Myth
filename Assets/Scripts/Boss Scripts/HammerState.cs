@@ -27,6 +27,7 @@ public class HammerState : BaseState
     public override Type Tick()
     {
         _boss.attacking = true;
+        _boss.coneAttack = true;
         if (isCreated == false) {
             FCA = GameObject.Instantiate(_boss.fireConeArea) as GameObject;
 

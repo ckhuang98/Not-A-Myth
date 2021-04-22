@@ -35,8 +35,13 @@ public class Boss : MonoBehaviour
     private Freezer freezer;
 
     public bool attacking = false;
+    public bool coneAttack = false;
     public bool goRight = true;
     public bool goLeft = false;
+
+    [SerializeField] private float smoothSpeed = 10f;
+
+    [SerializeField] private Vector3 offSet;
 
     Vector2 movement;
     Vector2 velocity = new Vector2(1.75f, 1.1f);
@@ -80,22 +85,26 @@ public class Boss : MonoBehaviour
 
     void FixedUpdate(){
         if(!attacking){
-            if(goRight && movement.x < 7.5f){
-                movement.x += 0.05f;
-                //rb.MovePosition(movement + velocity * Time.fixedDeltaTime);
-                bossTransform.position = movement;
-            } else{
-                goRight = false;
-                goLeft = true;
-            }
-            if(goLeft && movement.x > -7.5f){
-                movement.x -= 0.05f;
-                //rb.MovePosition(movement + velocity * Time.fixedDeltaTime);
-                bossTransform.position = movement;
-            } else{
-                goRight = true;
-                goLeft = false;
-            }
+            // if(goRight && movement.x < 7.5f){
+            //     movement.x += 0.05f;
+            //     //rb.MovePosition(movement + velocity * Time.fixedDeltaTime);
+            //     bossTransform.position = movement;
+            // } else{
+            //     goRight = false;
+            //     goLeft = true;
+            // }
+            // if(goLeft && movement.x > -7.5f){
+            //     movement.x -= 0.05f;
+            //     //rb.MovePosition(movement + velocity * Time.fixedDeltaTime);
+            //     bossTransform.position = movement;
+            // } else{
+            //     goRight = true;
+            //     goLeft = false;
+            // }
+            Vector3  desiredPos = target.position + offSet;
+            desiredPos.y = transform.position.y;
+            transform.position = Vector3.Lerp(transform.position, desiredPos, smoothSpeed * Time.deltaTime);
+
         } else{
             StartCoroutine(stopMovement());
         }
@@ -183,7 +192,13 @@ public class Boss : MonoBehaviour
 
     public IEnumerator stopMovement(){
         attacking = true;
-        yield return new WaitForSeconds(1.5f);
+        if(coneAttack == false){
+            yield return new WaitForSeconds(1.5f);
+        } else{
+            yield return new WaitForSeconds(2.5f);
+            coneAttack = false;
+        }
+        
         attacking = false;
     }
 
