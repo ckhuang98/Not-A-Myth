@@ -63,11 +63,17 @@ public class WanderState : BaseState
         if (_enemy.tag == "Fire Eel") {
             _enemy.enemyAnimator.SetFloat("EelWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
             _enemy.enemyAnimator.SetFloat("EelWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-        }        
-        if (_enemy.tag == "Fire Imp") {
+        }
+
+        if (_enemy.tag == "Fire Imp" && _enemy.beenHit == false) {
             _enemy.enemyAnimator.SetFloat("ImpIdleHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
             _enemy.enemyAnimator.SetFloat("ImpIdleVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+        } else if (_enemy.beenHit == true && _enemy.tag == "Fire Imp") {
+            _enemy.enemyAnimator.SetFloat("ImpHitHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("ImpHitVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            speed = .25f;
         }  
+
         if(_enemy.tag == "Sword Giant") {
             _enemy.enemyAnimator.SetFloat("SwordWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
             _enemy.enemyAnimator.SetFloat("SwordWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);

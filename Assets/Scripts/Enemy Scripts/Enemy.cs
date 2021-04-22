@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour
     public bool doAttack = false;
     public bool doLungeAttack = false;
     public bool beenHit = false;
+    public bool inAttackState = false;
 
     [SerializeField]
     private GameObject deathSFXObject;
@@ -161,8 +162,11 @@ public class Enemy : MonoBehaviour
         }
         if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .5)
         {
-            if (this.tag == "Hammer Giant") {
+            if (this.tag == "Hammer Giant" && inAttackState == false) {
                 enemyAnimator.SetTrigger("HammerHit");
+                beenHit = true;
+            } else if (this.tag == "Fire Imp" && inAttackState == false) {
+                enemyAnimator.SetTrigger("ImpHit");
                 beenHit = true;
             }
             playHurtSFX();
@@ -231,9 +235,7 @@ public class Enemy : MonoBehaviour
         if (collider.gameObject.name.Equals("View"))
         {
             inBounds = true;
-        }
-        
-        
+        }   
     }
 
 
@@ -345,10 +347,12 @@ public class Enemy : MonoBehaviour
     }
 
     public void HitToWalk () {
+        beenHit = false;
         if (this.tag == "Hammer Giant") {
             enemyAnimator.SetTrigger("Walking");
+        } else if (this.tag == "Fire Imp") {
+            enemyAnimator.SetTrigger("ImpIdle");
         }
-        beenHit = false;
     }
 
     private void DoFloat() {
