@@ -168,7 +168,10 @@ public class Enemy : MonoBehaviour
             } else if (this.tag == "Fire Imp" && inAttackState == false) {
                 enemyAnimator.SetTrigger("ImpHit");
                 beenHit = true;
-            }
+            } else if (this.tag == "Fire Eel" && inAttackState == false) {
+                enemyAnimator.SetTrigger("EelHit");
+                beenHit = true;
+            } 
             playHurtSFX();
             ////////////////////////////////////////////////////////////////////////////////////
             // Adds knockback to enemy
@@ -180,7 +183,7 @@ public class Enemy : MonoBehaviour
                 armorAmount -= (GameMaster.instance.playerStats.attackPower.Value * .3f);
             } else {
                 if (this.tag == "Fire Eel") {
-                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .25f);
+                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .01f);
                 } else if (this.tag == "Fire Imp") {
                     healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * 0.4f);
                 } else if (this.tag == "Hammer Giant" || this.tag == "Sword Giant") {
@@ -210,7 +213,7 @@ public class Enemy : MonoBehaviour
                 armorAmount -= (GameMaster.instance.playerStats.attackPower.Value * .3f);
             } else {
                 if (this.tag == "Fire Eel") {
-                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .25f);
+                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .01f);
                 } else if (this.tag == "Fire Imp") {
                     healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * 0.4f);
                 } else if (this.tag == "Hammer Giant" || this.tag == "Sword Giant") {
@@ -352,6 +355,8 @@ public class Enemy : MonoBehaviour
             enemyAnimator.SetTrigger("Walking");
         } else if (this.tag == "Fire Imp") {
             enemyAnimator.SetTrigger("ImpIdle");
+        } else if (this.tag == "Fire Eel") {
+            enemyAnimator.SetTrigger("FireEelWalking");
         }
     }
 

@@ -39,9 +39,14 @@ public class EelMaintainDistanceState : BaseState
             transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
         }
         
-        if (_enemy.tag == "Fire Eel") {
+        if (_enemy.tag == "Fire Eel" && _enemy.beenHit == false) {
             _enemy.enemyAnimator.SetFloat("EelWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
             _enemy.enemyAnimator.SetFloat("EelWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            speed = 1;
+        } else if (_enemy.beenHit == true && _enemy.tag == "Fire Eel") {
+            _enemy.enemyAnimator.SetFloat("EelHitHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("EelHitVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            speed = .25f;
         } 
 
         var delta_x = transform.position.x - target.position.x;
@@ -63,10 +68,10 @@ public class EelMaintainDistanceState : BaseState
         if (lungeAttackTimer > 0) {
             lungeAttackTimer -= Time.deltaTime;
         } else {
-            if (attackDistance == true) {
+            if (attackDistance == true && _enemy.beenHit == false) {
                 lungeAttackTimer = 3f;
-                _enemy.enemyAnimator.SetTrigger("FireEelAttacking");
-                return typeof(LungeAttackState);
+                //_enemy.enemyAnimator.SetTrigger("FireEelAttacking");
+                //return typeof(LungeAttackState);
             }
         }
 
