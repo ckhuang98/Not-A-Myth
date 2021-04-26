@@ -23,16 +23,18 @@ public class SwordState : BaseState
     
     public override Type Tick()
     {
+        _boss.attacking = true;
         slashAttack = GameObject.Instantiate(_boss.slash) as GameObject;
-        if (_boss.targetLastPos == "Center") { // Center
-            slashAttack.transform.position = slashPos;
-        } else if (_boss.targetLastPos == "Right") { // Right
-            slashPos.x += 5;
-            slashAttack.transform.position = slashPos;
-        } else if (_boss.targetLastPos == "Left") { // Left
-            slashPos.x -= 5;
-            slashAttack.transform.position = slashPos;
-        }
+        // if (_boss.targetLastPos == "Center") { // Center
+        //     slashAttack.transform.position = transform.position;
+        // } else if (_boss.targetLastPos == "Right") { // Right
+        //     slashPos.x += 5;
+        //     slashAttack.transform.position = slashPos;
+        // } else if (_boss.targetLastPos == "Left") { // Left
+        //     slashPos.x -= 5;
+        //     slashAttack.transform.position = slashPos;
+        // }
+        slashAttack.transform.position = transform.position;
         slashPos = bossPos;
         Debug.Log("Sword State!");
         return typeof(IdleState);

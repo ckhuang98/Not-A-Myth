@@ -33,4 +33,10 @@ public class CombatManager : MonoBehaviour
             canReceiveInput = false;
         }
     }
+
+    public IEnumerator attackCooldown(){
+        canReceiveInput = false;
+        yield return new WaitForSeconds(0.5f);
+        canReceiveInput = true;
+    }
 }

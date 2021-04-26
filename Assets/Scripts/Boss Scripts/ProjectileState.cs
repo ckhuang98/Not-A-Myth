@@ -16,9 +16,10 @@ public class ProjectileState : BaseState
 
     public override Type Tick()
     {
+        _boss.attacking = true;
         shockWaveAttack = GameObject.Instantiate(_boss.shockWave) as GameObject;
         shockWaveAttack.transform.position = transform.position;
-        Debug.Log("Projectile State!");
+        Debug.Log(transform.position);
         return typeof(IdleState);
     }
 }

@@ -27,7 +27,9 @@ public class PlayerAnimator_Attack2_Behavior : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        CombatManager.instance.player.attacked = true;
+        // if (!CombatManager.instance.inputReceived){
+        //     CombatManager.instance.StartCoroutine(CombatManager.instance.attackCooldown());
+        // }
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

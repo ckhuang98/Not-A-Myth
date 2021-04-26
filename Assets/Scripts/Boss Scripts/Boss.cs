@@ -9,10 +9,11 @@ using System.Linq;
 public class Boss : MonoBehaviour
 {
     //Variables regarding enemy stats
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     public float healthAmount;
 
     public Transform target;
+    public Transform bossTransform;
     public String targetLastPos;
 
     private float timer;
@@ -33,6 +34,18 @@ public class Boss : MonoBehaviour
 
     private Freezer freezer;
 
+    public bool attacking = false;
+    public bool coneAttack = false;
+    public bool goRight = true;
+    public bool goLeft = false;
+
+    [SerializeField] private float smoothSpeed = 10f;
+
+    [SerializeField] private Vector3 offSet;
+
+    Vector2 movement;
+    Vector2 velocity = new Vector2(1.75f, 1.1f);
+
     void Awake() {
         fireCone.GetComponent<ParticleSystem>();
         fireCone.Pause();
@@ -42,7 +55,6 @@ public class Boss : MonoBehaviour
     void Start()
     {
         healthAmount = 50f;
-        rb = GetComponent<Rigidbody2D>();
 
         healthBar.SetMaxValue(healthAmount);
 
@@ -58,6 +70,8 @@ public class Boss : MonoBehaviour
             Debug.Log("Paused Particle sys");
             fireCone.Pause();
         }
+
+        movement = bossTransform.position;
         
     }
 
@@ -69,6 +83,32 @@ public class Boss : MonoBehaviour
         isDead(GameMaster.instance.getGameOver());
     }
 
+    void FixedUpdate(){
+        if(!attacking){
+            // if(goRight && movement.x < 7.5f){
+            //     movement.x += 0.05f;
+            //     //rb.MovePosition(movement + velocity * Time.fixedDeltaTime);
+            //     bossTransform.position = movement;
+            // } else{
+            //     goRight = false;
+            //     goLeft = true;
+            // }
+            // if(goLeft && movement.x > -7.5f){
+            //     movement.x -= 0.05f;
+            //     //rb.MovePosition(movement + velocity * Time.fixedDeltaTime);
+            //     bossTransform.position = movement;
+            // } else{
+            //     goRight = true;
+            //     goLeft = false;
+            // }
+            Vector3  desiredPos = target.position + offSet;
+            desiredPos.y = transform.position.y;
+            transform.position = Vector3.Lerp(transform.position, desiredPos, smoothSpeed * Time.deltaTime);
+
+        } else{
+            StartCoroutine(stopMovement());
+        }
+    }
     /*
     Purpose: Initializes the state machine with all the states attached in
     the enemy scripts folder.
@@ -150,18 +190,30 @@ public class Boss : MonoBehaviour
             yield return new WaitForSeconds(3.0f);
     }
 
+    public IEnumerator stopMovement(){
+        attacking = true;
+        if(coneAttack == false){
+            yield return new WaitForSeconds(1.5f);
+        } else{
+            yield return new WaitForSeconds(2.5f);
+            coneAttack = false;
+        }
+        
+        attacking = false;
+    }
+
     /*******************************************************/
     // Called at the beginnging of an animation's key frame to make sure the attack lines up with animation. 
     /*******************************************************/
 
     public void targetRight(){
-        targetLastPos = "Right";
+        //targetLastPos = "Right";
     }
     public void targetCenter(){
         targetLastPos = "Center";
     }
     public void targetLeft(){
-        targetLastPos = "Left";
+        //targetLastPos = "Left";
     }
     /*******************************************************/
 }

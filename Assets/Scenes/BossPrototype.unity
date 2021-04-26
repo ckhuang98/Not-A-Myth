@@ -2521,6 +2521,33 @@ MonoBehaviour:
       index: 0
       length: 0
       source: {fileID: 0}
+--- !u!50 &534890213
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534890211}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!4 &534890219 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5294693593410340259, guid: aaadc96c7c30a07438a1b9f8fe8f9c47,
+    type: 3}
+  m_PrefabInstance: {fileID: 7173620923196430453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &613360667
 GameObject:
   m_ObjectHideFlags: 0
@@ -4889,6 +4916,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7173620923196430457, guid: aaadc96c7c30a07438a1b9f8fe8f9c47,
         type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 534890213}
+    - target: {fileID: 7173620923196430457, guid: aaadc96c7c30a07438a1b9f8fe8f9c47,
+        type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 330397619}
@@ -4897,5 +4929,15 @@ PrefabInstance:
       propertyPath: speechText
       value: 
       objectReference: {fileID: 982969645}
+    - target: {fileID: 7173620923196430457, guid: aaadc96c7c30a07438a1b9f8fe8f9c47,
+        type: 3}
+      propertyPath: smoothSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173620923196430457, guid: aaadc96c7c30a07438a1b9f8fe8f9c47,
+        type: 3}
+      propertyPath: bossTransform
+      value: 
+      objectReference: {fileID: 534890219}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaadc96c7c30a07438a1b9f8fe8f9c47, type: 3}

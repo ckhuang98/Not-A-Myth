@@ -26,14 +26,15 @@ public class LookAtMouse : MonoBehaviour
         //var newDirection = Vector3.RotateTowards(this.transform.position,  targetDirection, singleStep, 0f);
         //this.transform.rotation = Quaternion.LookRotation(newDirection);    
         //transform.forward = targetDirection;
-
-        var mousePos = Input.mousePosition;
-        mousePos.z = 3;
-        var objectPos = Camera.main.WorldToScreenPoint(transform.position);
-        mousePos.x = mousePos.x - objectPos.x;
-        mousePos.y = mousePos.y - objectPos.y;
-        var angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            if(!GameMaster.instance.playerStats.isAttacking.Value || this.gameObject.name.Equals("Pointer")){
+                var mousePos = Input.mousePosition;
+                mousePos.z = 3;
+                var objectPos = Camera.main.WorldToScreenPoint(transform.position);
+                mousePos.x = mousePos.x - objectPos.x;
+                mousePos.y = mousePos.y - objectPos.y;
+                var angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            }
         }
     }
 

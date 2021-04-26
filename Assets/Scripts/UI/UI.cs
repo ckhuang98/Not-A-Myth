@@ -39,6 +39,9 @@ public class UI : MonoBehaviour
     [SerializeField]
     private GameObject skillTree;
 
+    [SerializeField]
+    private GameObject devWindow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,6 +84,7 @@ public class UI : MonoBehaviour
         hideControlsMenu();
         hideInventoryMenu();
         hideSkillTree();
+        hideDevMenu();
     }
 
     // pause menu
@@ -139,6 +143,18 @@ public class UI : MonoBehaviour
         skillTree.GetComponent<SkillTree>().clearSkillDescription();
         
         skillTree.SetActive(false);
+    }
+
+    public void showDevMenu(){
+        devWindow.SetActive(true);
+    }
+
+    public void hideDevMenu(){
+        devWindow.SetActive(false);
+    }
+
+    public void loadDevScene(){
+        GameMaster.instance.loadDevScene();
     }
 
     //game over

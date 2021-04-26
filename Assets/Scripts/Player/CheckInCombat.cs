@@ -10,7 +10,7 @@ public class CheckInCombat : MonoBehaviour
 
     private void Update() {
         if(GameMaster.instance.numOfEnemies > 0){
-            if(FindClosestEnemy() < 50){
+            if(FindClosestEnemy() < 100){
                 stats.inCombat.Value = true;
             } else{
                 stats.inCombat.Value = false;
