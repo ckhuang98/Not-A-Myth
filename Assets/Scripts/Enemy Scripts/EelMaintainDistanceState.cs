@@ -70,8 +70,8 @@ public class EelMaintainDistanceState : BaseState
         } else {
             if (attackDistance == true && _enemy.beenHit == false) {
                 lungeAttackTimer = 3f;
-                //_enemy.enemyAnimator.SetTrigger("FireEelAttacking");
-                //return typeof(LungeAttackState);
+                _enemy.enemyAnimator.SetTrigger("FireEelAttacking");
+                return typeof(LungeAttackState);
             }
         }
 

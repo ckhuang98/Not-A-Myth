@@ -183,7 +183,7 @@ public class Enemy : MonoBehaviour
                 armorAmount -= (GameMaster.instance.playerStats.attackPower.Value * .3f);
             } else {
                 if (this.tag == "Fire Eel") {
-                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .01f);
+                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .4f);
                 } else if (this.tag == "Fire Imp") {
                     healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * 0.4f);
                 } else if (this.tag == "Hammer Giant" || this.tag == "Sword Giant") {
@@ -213,7 +213,7 @@ public class Enemy : MonoBehaviour
                 armorAmount -= (GameMaster.instance.playerStats.attackPower.Value * .3f);
             } else {
                 if (this.tag == "Fire Eel") {
-                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .01f);
+                    healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * .4f);
                 } else if (this.tag == "Fire Imp") {
                     healthAmount -= (GameMaster.instance.playerStats.attackPower.Value * 0.4f);
                 } else if (this.tag == "Hammer Giant" || this.tag == "Sword Giant") {
