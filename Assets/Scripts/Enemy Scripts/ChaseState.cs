@@ -80,7 +80,7 @@ public class ChaseState : BaseState
             _enemy.enemyAnimator.SetTrigger("SwordAttacking");
             return typeof(SwordAttackState);
         }
-        if (Vector2.Distance(transform.position, target.position) <= 2 && _enemy.tag == "Hammer Giant") {
+        if (Vector2.Distance(transform.position, target.position) <= 2 && _enemy.tag == "Hammer Giant" && _enemy.beenHit == false) {
             _enemy.enemyAnimator.SetTrigger("Attack");
             return typeof(AttackState);
         } else if (Vector2.Distance(transform.position, target.position) >= 20 ) {

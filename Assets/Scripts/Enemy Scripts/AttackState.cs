@@ -36,6 +36,7 @@ public class AttackState : BaseState
     */
     public override Type Tick()
     {
+        _enemy.inAttackState = true;
         var delta_x = transform.position.x - target.position.x;
         var delta_y = transform.position.y - target.position.y;
         if (gotAngle == false) {
@@ -52,6 +53,7 @@ public class AttackState : BaseState
         if (_enemy.goToWalk == true) {
             _enemy.goToWalk = false;
             gotAngle = false;
+            _enemy.inAttackState = false;
             return typeof(ChaseState);
         }
 

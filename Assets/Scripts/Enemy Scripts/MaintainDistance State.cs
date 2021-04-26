@@ -40,9 +40,13 @@ public class MaintainDistanceState : BaseState
         } 
 
         LookAtPlayer(angle);
-        if (_enemy.tag == "Fire Imp") {
+        if (_enemy.tag == "Fire Imp" && _enemy.beenHit == false) {
             _enemy.enemyAnimator.SetFloat("ImpIdleHorizontal", _enemy.moveDirections[lookHere].x);
             _enemy.enemyAnimator.SetFloat("ImpIdleVertical", _enemy.moveDirections[lookHere].y);
+        } else if (_enemy.beenHit == true && _enemy.tag == "Fire Imp") {
+            _enemy.enemyAnimator.SetFloat("ImpHitHorizontal", _enemy.moveDirections[lookHere].x);
+            _enemy.enemyAnimator.SetFloat("ImpHitVertical", _enemy.moveDirections[lookHere].y);
+            speed = .25f;
         } 
         //Uses movement directions to shift to the left or right of the player.
         transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * Time.deltaTime * shiftSpeed;
@@ -67,7 +71,7 @@ public class MaintainDistanceState : BaseState
         }
 
 
-        if (timeBtwShots <= 0) {
+        if (timeBtwShots <= 0 && _enemy.beenHit == false) {
             timeBtwShots = 2f;
             _enemy.enemyAnimator.SetTrigger("ImpAttacking");
             return typeof(FireProjectileState);
