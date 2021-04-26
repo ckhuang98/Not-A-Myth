@@ -381,7 +381,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     // Separate from TakeDamage(), because fire damage should not
-    // have a camera shake, or allow temporary invincibility
+    // have a camera shake, or allow temporary invincibility 
     public void TakeFireDamage(int damage) {
         playerAudioManager.playSizzleSFX();
         stats.currentHealth.Value -= damage;
