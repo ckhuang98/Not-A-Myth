@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour {
 
         if (stats == null) stats = ScriptableObject.CreateInstance("PlayerStats") as PlayerStats;
 
-        CombatManager.instance.canReceiveInput = true;
+        GameMaster.instance.combatManager.canReceiveInput = true;
         state = State.Normal;
         playerAudioManager = gameObject.GetComponent<PlayerAudioManager>();
         playerSprite = this.GetComponent<SpriteRenderer>();
@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour {
                         playerAnimator.SetFloat("attackDirX", attackDir.x);
                         playerAnimator.SetFloat("attackDirY", attackDir.y);
                         //attack(attackDir);
-                        CombatManager.instance.Attack();
+                        GameMaster.instance.combatManager.Attack();
                     }
                     timer += Time.deltaTime;
                     if (timer >= .5) {
@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour {
                         playerAnimator.SetFloat("attackDirX", attackDir.x);
                         playerAnimator.SetFloat("attackDirY", attackDir.y);
                         //attack(attackDir);
-                        CombatManager.instance.Attack();
+                        GameMaster.instance.combatManager.Attack();
                     }
                     // Dash attack Skill
                     if(stats.unlockedDashAttack.Value){

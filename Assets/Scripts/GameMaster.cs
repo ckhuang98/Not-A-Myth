@@ -37,7 +37,10 @@ public class GameMaster : MonoBehaviour
     public GMDelegateBool OnGameOver;
 
     [SerializeField]
-    private GameObject player;
+    public CombatManager combatManager;
+    public GameObject player;
+
+    
     private int skillPoints = 0;
     private int numOfShards = 0;
 
@@ -77,6 +80,7 @@ public class GameMaster : MonoBehaviour
         ui.setUIForNewScene();
         ui.updateInventoryUI();
         enemyList = new List<GameObject>();
+        combatManager.player = player.GetComponent<PlayerController>();
         OnSceneLoad?.Invoke();
     }
 

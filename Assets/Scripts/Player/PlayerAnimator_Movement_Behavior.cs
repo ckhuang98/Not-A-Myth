@@ -22,11 +22,11 @@ public class PlayerAnimator_Movement_Behavior : StateMachineBehaviour
         } else{
             GameMaster.instance.playerStats.speed.Value = GameMaster.instance.playerStats.maxSpeed.Value;
         }
-        if (CombatManager.instance.inputReceived){
+        if (GameMaster.instance.combatManager.inputReceived){
            Debug.Log("input receieved!");
            animator.SetTrigger("Attack1");
-           CombatManager.instance.InputManager();
-           CombatManager.instance.inputReceived = false;
+           GameMaster.instance.combatManager.InputManager();
+           GameMaster.instance.combatManager.inputReceived = false;
         }
     }
 

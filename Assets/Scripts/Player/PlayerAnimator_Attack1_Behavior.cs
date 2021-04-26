@@ -7,25 +7,25 @@ public class PlayerAnimator_Attack1_Behavior : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        CombatManager.instance.player.attacked = true;
-        CombatManager.instance.canReceiveInput = true;
-        if(CombatManager.instance.player.getState() == "Normal"){
+        GameMaster.instance.combatManager.player.attacked = true;
+        GameMaster.instance.combatManager.canReceiveInput = true;
+        if(GameMaster.instance.combatManager.player.getState() == "Normal"){
             GameMaster.instance.playerStats.speed.Value = 1f;
         }
         if(GameMaster.instance.playerStats.knockBackForce.Value != 300f){
             GameMaster.instance.playerStats.knockBackForce.Value = 300f;
         }
-        CombatManager.instance.player.slashAnimation.Play("SlashAnim1", -1, 0f);
+        GameMaster.instance.player.GetComponent<PlayerController>().slashAnimation.Play("SlashAnim1", -1, 0f);
 
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (CombatManager.instance.inputReceived){
+        if (GameMaster.instance.combatManager.inputReceived){
             animator.SetTrigger("Attack2");
-            CombatManager.instance.InputManager();
-            CombatManager.instance.inputReceived = false;
+            GameMaster.instance.combatManager.InputManager();
+            GameMaster.instance.combatManager.inputReceived = false;
         }
     }
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

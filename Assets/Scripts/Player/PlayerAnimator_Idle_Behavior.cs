@@ -18,11 +18,11 @@ public class PlayerAnimator_Idle_Behavior : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       if (CombatManager.instance.inputReceived){
+       if (GameMaster.instance.combatManager.inputReceived){
            Debug.Log("input receieved!");
            animator.SetTrigger("Attack1");
-           CombatManager.instance.InputManager();
-           CombatManager.instance.inputReceived = false;
+           GameMaster.instance.combatManager.InputManager();
+           GameMaster.instance.combatManager.inputReceived = false;
        }
     }
 

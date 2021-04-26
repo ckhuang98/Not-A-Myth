@@ -1288,7 +1288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 10}
+  m_AnchoredPosition: {x: 0, y: 8.592}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6882496495307225620
@@ -1331,7 +1331,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Breakable!
+  m_Text: 'Breakable
+
+    this side'
 --- !u!1 &2836061957495054725
 GameObject:
   m_ObjectHideFlags: 0
@@ -3954,7 +3956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -10}
+  m_AnchoredPosition: {x: 0, y: -12.27}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4921595575982898255
@@ -3997,7 +3999,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Breakable!
+  m_Text: 'Breakable
+
+    this side'
 --- !u!1 &2903196680590854585
 GameObject:
   m_ObjectHideFlags: 0
@@ -4032,7 +4036,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: 0}
+  m_AnchoredPosition: {x: 10.75, y: -1.72}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1484002313920582870
@@ -4075,7 +4079,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Breakable!
+  m_Text: 'Breakable
+
+    this side'
 --- !u!1 &2912707021485457337
 GameObject:
   m_ObjectHideFlags: 0
@@ -5622,7 +5628,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 0}
+  m_AnchoredPosition: {x: -10.74, y: -1.86}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8287583386623745617
@@ -5665,7 +5671,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Breakable!
+  m_Text: 'Breakable
+
+    this side'
 --- !u!1 &8575796245665493157
 GameObject:
   m_ObjectHideFlags: 0
@@ -5846,6 +5854,16 @@ PrefabInstance:
       propertyPath: label
       value: 
       objectReference: {fileID: 419521183788680544}
+    - target: {fileID: 7657339944754396029, guid: 8d70bcc7a7119cb48be0f401635cb349,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.49540138
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657339944754396029, guid: 8d70bcc7a7119cb48be0f401635cb349,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.7725706
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d70bcc7a7119cb48be0f401635cb349, type: 3}
 --- !u!4 &3383534077974316020 stripped
@@ -5920,6 +5938,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365114396795251328, guid: ad6f5b41f5f75ec4fb3c590c50ee8954,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.60220766
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365114396795251328, guid: ad6f5b41f5f75ec4fb3c590c50ee8954,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.7181723
       objectReference: {fileID: 0}
     - target: {fileID: 9186655824831899034, guid: ad6f5b41f5f75ec4fb3c590c50ee8954,
         type: 3}
@@ -6381,6 +6409,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3323464588198958664, guid: d5c17cc905acffc4ebb52f75b85a200d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.5435047
+      objectReference: {fileID: 0}
+    - target: {fileID: 3323464588198958664, guid: d5c17cc905acffc4ebb52f75b85a200d,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.73987675
+      objectReference: {fileID: 0}
     - target: {fileID: 8152531603391148868, guid: d5c17cc905acffc4ebb52f75b85a200d,
         type: 3}
       propertyPath: m_Name
@@ -6411,6 +6449,16 @@ PrefabInstance:
       propertyPath: label
       value: 
       objectReference: {fileID: 3656798307844866723}
+    - target: {fileID: 3393093131796091715, guid: 2211ae27f1777134eb514d6550180dad,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.59372616
+      objectReference: {fileID: 0}
+    - target: {fileID: 3393093131796091715, guid: 2211ae27f1777134eb514d6550180dad,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.7234082
+      objectReference: {fileID: 0}
     - target: {fileID: 6597447461910974851, guid: 2211ae27f1777134eb514d6550180dad,
         type: 3}
       propertyPath: m_Name

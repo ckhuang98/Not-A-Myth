@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
-    public static CombatManager instance;
-
     public PlayerController player;
 
     public bool canReceiveInput;
     public bool inputReceived;
 
-    private void Awake() {
-        instance = this;
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    private void Start() {
+        
     }
 
     public void Attack(){
@@ -36,6 +33,7 @@ public class CombatManager : MonoBehaviour
 
     public IEnumerator attackCooldown(){
         canReceiveInput = false;
+        Debug.Log("Coroutine called");
         yield return new WaitForSeconds(0.5f);
         canReceiveInput = true;
     }
