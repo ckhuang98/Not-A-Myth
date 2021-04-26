@@ -93,6 +93,7 @@ public class GameMaster : MonoBehaviour
     {
         Cursor.visible = true;
         paused = false;
+        //resumeGame();
 
         //playerStats.OnStatsChanged += Testing_PlayerStatsUpdated;
         //playerStats.currentHealth.Value += 1;
@@ -193,6 +194,14 @@ public class GameMaster : MonoBehaviour
         playerStats.unlockedGroundSmash.Value = true;
     }
 
+    public void toggleMovementOn(){
+        playerStats.toggleMovement.Value = true;
+    }
+
+    public void toggleMovementOff(){
+        playerStats.toggleMovement.Value = false;
+    }
+
     //Get necessary references to objects in the scene
     void assignReferences()
     {
@@ -281,6 +290,13 @@ public class GameMaster : MonoBehaviour
     public void loadMainMenuScene(){
         Destroy(gameObject);
         SceneManager.LoadScene(0);
+        resumeGame();
+    }
+
+    // Load the last scene in the build setting, which is the dev scene
+    public void loadDevScene(){
+        SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
+        resumeGame();
     }
 
     // Game over

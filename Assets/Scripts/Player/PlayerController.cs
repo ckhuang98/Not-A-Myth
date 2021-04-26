@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour {
             TakeDamage(26);
 		}
 
-        if (!gameMaster.getGameOver()) {
+        if (!gameMaster.getGameOver() && Time.timeScale == 1) {
 
             // Health Regen skill
             if(stats.inCombat.Value == false && stats.unlockedRegen.Value == true && stats.inBossFight.Value == false){
@@ -145,12 +145,12 @@ public class PlayerController : MonoBehaviour {
                     dashManager();
 
                     if (Input.GetMouseButtonDown(0)) {
-                        if(!CombatManager.instance.canReceiveInput){
-                            CombatManager.instance.InputManager();
-                        }
+                        // if(!CombatManager.instance.canReceiveInput){
+                        //     CombatManager.instance.InputManager();
+                        // }
                         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                         //Debug.Log(mousePosition);
-                        attackDir = (mousePosition - this.transform.position).normalized;
+                        attackDir = (mousePosition - this.transform.position);
                         timer = 0;
                         //slashAnimation.enabled = true;
                         playerAnimator.SetFloat("attackDirX", attackDir.x);
@@ -165,10 +165,10 @@ public class PlayerController : MonoBehaviour {
                             colliders[i].enabled = false;
                         }
                     }
-                    if (Input.GetKeyDown(KeyCode.L)){
-                        Debug.Log("death");
-                        currentHealth = 0;
-                    }
+                    // if (Input.GetKeyDown(KeyCode.L)){
+                    //     Debug.Log("death");
+                    //     currentHealth = 0;
+                    // }
 
                     hitDetection();
                     handleFire();
@@ -213,7 +213,11 @@ public class PlayerController : MonoBehaviour {
     void FixedUpdate() {
         switch(state){
             case State.Normal:
-                rb.velocity = movement * stats.speed.Value;
+                if(stats.toggleMovement.Value){
+                    rb.AddForce(movement * stats.speed.Value);
+                } else{
+                    rb.velocity = movement * stats.speed.Value;
+                }
                 break;
 
             case State.Dashing:
@@ -236,19 +240,6 @@ public class PlayerController : MonoBehaviour {
         // }
     }
 
-    // void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     Debug.Log(collision.gameObject.layer);
-    //     if(collision.gameObject.name == "Passable"){
-    //         Debug.Log(state);
-    //         if(state == State.Dashing){
-    //             Physics.IgnoreLayerCollision(0, 4, true);
-    //         } else{
-    //             Physics.IgnoreLayerCollision(0, 4, false);
-    //         }
-    //     }
-    // }
-
     private void dashManager(){
         if(stats.unlockedDoubleDash.Value){
            canDashTwice = true; 
@@ -256,23 +247,23 @@ public class PlayerController : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Space) && canDash){
             state = State.Dashing;
             Physics2D.IgnoreLayerCollision(9, 4, true);
-            dashSpeed = 28f;
+            dashSpeed = stats.sprintSpeed.Value * 4;
         }
 
     }
     private void handleDash(){
         rb.velocity = lastMoveDirection.normalized * dashSpeed;
-        dashSpeed -= dashSpeed * 5f * Time.deltaTime;
-        if(dashSpeed < 2f){
+        dashSpeed -= dashSpeed * stats.maxSpeed.Value * Time.deltaTime;
+        if(dashSpeed < 3f){
             canDash = false;
             StartCoroutine(DashTimer());
             state = State.Normal;
             Physics2D.IgnoreLayerCollision(9, 4, false);
         } else{
             if(stats.unlockedDoubleDash.Value && canDashTwice && Input.GetKeyDown(KeyCode.Space)){
-                dashSpeed = 28f;
+                dashSpeed = stats.sprintSpeed.Value * 4f;
                 rb.velocity = lastMoveDirection.normalized * dashSpeed;
-                dashSpeed -= dashSpeed * 5f * Time.deltaTime;
+                dashSpeed -= dashSpeed * stats.maxSpeed.Value * Time.deltaTime;
                 canDashTwice = false;
             }
         }
@@ -336,6 +327,40 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public void playSlashAnim1(){
+        slashAnimation.Play("SlashAnim1", -1, 0f);
+    }
+
+    public void playSlashAnim2(){
+        slashAnimation.Play("SlashAnim2", -1, 0f);
+    }
+
+    public void playSlashAnim3(){
+        slashAnimation.Play("SlashAnim3", -1, 0f);
+    }
+
+    public void cameraLungeLeft(){
+        stats.cameraOffsetX.Value -= 0.1f;
+    }
+
+    public void cameraLungeRight(){
+        stats.cameraOffsetX.Value += 0.1f;
+    }
+
+    public void cameraLungeUp(){
+        stats.cameraOffsetY.Value += 0.1f;
+    }
+
+    public void cameraLungeDown(){
+        stats.cameraOffsetY.Value -= 0.1f;
+        Debug.Log(stats.cameraOffsetY.Value);
+    }
+
+    public void cameraReset(){
+        stats.cameraOffsetX.Value = 0.0f;
+        stats.cameraOffsetY.Value = 0.5f;
+    }
+
     // Reduces player's current health and updates the slider value of the health bar.
     public void TakeDamage(int damage){
         if(!isInvincible){
@@ -395,7 +420,7 @@ public class PlayerController : MonoBehaviour {
         Debug.Log(threshold);
         while(stats.inCombat.Value == false && stats.currentHealth.Value < threshold){
             if(stats.currentHealth.Value <= threshold - 2.0f){
-                stats.currentHealth.Value += 2.0f;
+                stats.currentHealth.Value += 0.001f;
             } else{
                 stats.currentHealth.Value = threshold;
             }

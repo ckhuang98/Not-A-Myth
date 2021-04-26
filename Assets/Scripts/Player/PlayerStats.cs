@@ -22,6 +22,8 @@ public class PlayerStats : ScriptableObject
 	public SharedFloat dashSpeed;
 
 	public SharedFloat knockBackForce;
+	public SharedFloat cameraOffsetX;
+	public SharedFloat cameraOffsetY;
 
 	[Space]
 	public SharedBool unlockedDoubleDash;
@@ -35,6 +37,8 @@ public class PlayerStats : ScriptableObject
 	public SharedBool inCombat;
 	public SharedBool attackRegenHit;
 	public SharedBool inBossFight;
+	public SharedBool isAttacking;
+	public SharedBool toggleMovement;
 
 	public event Action OnStatsChanged;
 
@@ -52,6 +56,8 @@ public class PlayerStats : ScriptableObject
 			sprintSpeed,
 			dashSpeed,
 			knockBackForce,
+			cameraOffsetX,
+			cameraOffsetY,
 		};
 
 		foreach (SharedFloat sf in SharedFloats) {
@@ -69,6 +75,8 @@ public class PlayerStats : ScriptableObject
 			inCombat,
 			attackRegenHit,
 			inBossFight,
+			isAttacking,
+			toggleMovement,
 		};
 
 		foreach (SharedBool sb in SharedBools)

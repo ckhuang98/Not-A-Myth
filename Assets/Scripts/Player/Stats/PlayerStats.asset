@@ -22,6 +22,8 @@ MonoBehaviour:
   sprintSpeed: {fileID: 11400000, guid: a3ac31344d224f64fa691b64ca08a48e, type: 2}
   dashSpeed: {fileID: 11400000, guid: ff3bab585e17f05469e1cae1df53c262, type: 2}
   knockBackForce: {fileID: 11400000, guid: 24716b34742ffe044bff8412a8a3e996, type: 2}
+  cameraOffsetX: {fileID: 11400000, guid: d6ffa02e8026c7d44b532c46c5daab40, type: 2}
+  cameraOffsetY: {fileID: 11400000, guid: 5afaa480f83f31c42aa7e26663c05330, type: 2}
   unlockedDoubleDash: {fileID: 11400000, guid: d4840abac4f0d04498c3116ded3c9df2, type: 2}
   unlockedHealthDash: {fileID: 11400000, guid: 1cb8f0c2f6a398b4a9b6ed6548da191f, type: 2}
   unlockedRegen: {fileID: 11400000, guid: 30e70aa6674199a40b72bd80e6b5bf4c, type: 2}
@@ -33,3 +35,5 @@ MonoBehaviour:
   inCombat: {fileID: 11400000, guid: ec8bd7bdf43cd7644aac8fb9da41de38, type: 2}
   attackRegenHit: {fileID: 11400000, guid: 34cccc1479cd1ef4989c4824502e3a3d, type: 2}
   inBossFight: {fileID: 11400000, guid: b9dcf1b5bed3ba643890d089ee6e70b3, type: 2}
+  isAttacking: {fileID: 11400000, guid: a50e6bc560dbc7a44b86adcdb5ea12b6, type: 2}
+  toggleMovement: {fileID: 11400000, guid: 29c5daa3d96bdd7479e0681f7728039e, type: 2}

@@ -22,35 +22,35 @@ AnimationClip:
     - time: 0
       value: {fileID: -1480374814375199225, guid: a90afc45a32d2e542a7649913b631f0d,
         type: 3}
-    - time: 0.0625
+    - time: 0.05
       value: {fileID: -4344556752697330838, guid: a90afc45a32d2e542a7649913b631f0d,
         type: 3}
-    - time: 0.125
+    - time: 0.1
       value: {fileID: 1025459677322044653, guid: a90afc45a32d2e542a7649913b631f0d,
         type: 3}
-    - time: 0.1875
+    - time: 0.15
       value: {fileID: -750266461498484898, guid: a90afc45a32d2e542a7649913b631f0d,
         type: 3}
-    - time: 0.25
+    - time: 0.2
       value: {fileID: 4699600184117133311, guid: a90afc45a32d2e542a7649913b631f0d,
         type: 3}
-    - time: 0.3125
+    - time: 0.25
       value: {fileID: -2010540898832992741, guid: a90afc45a32d2e542a7649913b631f0d,
         type: 3}
-    - time: 0.375
+    - time: 0.3
       value: {fileID: -8448499270887827247, guid: a90afc45a32d2e542a7649913b631f0d,
         type: 3}
-    - time: 0.4375
+    - time: 0.35
       value: {fileID: 2772693926617881395, guid: a90afc45a32d2e542a7649913b631f0d,
         type: 3}
-    - time: 0.5
+    - time: 0.4
       value: {fileID: -2232409762032375666, guid: a90afc45a32d2e542a7649913b631f0d,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 16
+  m_SampleRate: 20
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -79,7 +79,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5625
+    m_StopTime: 0.45000002
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -99,7 +99,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.125
+  - time: 0.1
     functionName: playSlashSFX
     data: 
     objectReferenceParameter: {fileID: 0}

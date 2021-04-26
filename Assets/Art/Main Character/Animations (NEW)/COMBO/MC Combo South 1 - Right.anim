@@ -22,34 +22,34 @@ AnimationClip:
     - time: 0
       value: {fileID: -3655531983276992821, guid: be5f6944152432e46b9c9736feb19352,
         type: 3}
-    - time: 0.0625
+    - time: 0.05
       value: {fileID: -1039350350903530799, guid: be5f6944152432e46b9c9736feb19352,
         type: 3}
-    - time: 0.125
+    - time: 0.1
       value: {fileID: 2034832234761817787, guid: be5f6944152432e46b9c9736feb19352,
         type: 3}
-    - time: 0.1875
+    - time: 0.15
       value: {fileID: -1041216424851874570, guid: be5f6944152432e46b9c9736feb19352,
         type: 3}
-    - time: 0.25
+    - time: 0.2
       value: {fileID: 7541047736565587950, guid: be5f6944152432e46b9c9736feb19352,
         type: 3}
-    - time: 0.3125
+    - time: 0.25
       value: {fileID: -6090668213695670165, guid: be5f6944152432e46b9c9736feb19352,
         type: 3}
-    - time: 0.375
+    - time: 0.3
       value: {fileID: 917857896848666528, guid: be5f6944152432e46b9c9736feb19352,
         type: 3}
-    - time: 0.4375
+    - time: 0.35
       value: {fileID: 52393605853008653, guid: be5f6944152432e46b9c9736feb19352, type: 3}
-    - time: 0.5
+    - time: 0.4
       value: {fileID: -9213661712989047050, guid: be5f6944152432e46b9c9736feb19352,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 16
+  m_SampleRate: 20
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -78,7 +78,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5625
+    m_StopTime: 0.45000002
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -98,8 +98,36 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.125
+  - time: 0
+    functionName: cameraLungeUp
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.1
     functionName: playSlashSFX
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.1
+    functionName: cameraReset
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.2
+    functionName: cameraLungeDown
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.3
+    functionName: cameraReset
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
