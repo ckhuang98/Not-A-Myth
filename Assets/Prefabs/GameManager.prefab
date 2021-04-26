@@ -54,11 +54,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 0}
+  combatManager: {fileID: 1328983716725813090}
   player: {fileID: 0}
   gameOver: 0
   recordedPlayerHealth: 0
   recordedPlayerStrength: 0
   recordedInventory: []
+  enemyList: []
+  numOfEnemies: 0
   playerStats: {fileID: 11400000, guid: d236f5f7720028c46ae6569c490ddcc9, type: 2}
 --- !u!114 &8887195380250220360
 MonoBehaviour:

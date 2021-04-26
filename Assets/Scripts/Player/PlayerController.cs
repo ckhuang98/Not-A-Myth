@@ -340,19 +340,19 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void cameraLungeLeft(){
-        stats.cameraOffsetX.Value -= 0.1f;
+        stats.cameraOffsetX.Value -= 0.05f;
     }
 
     public void cameraLungeRight(){
-        stats.cameraOffsetX.Value += 0.1f;
+        stats.cameraOffsetX.Value += 0.05f;
     }
 
     public void cameraLungeUp(){
-        stats.cameraOffsetY.Value += 0.1f;
+        stats.cameraOffsetY.Value += 0.05f;
     }
 
     public void cameraLungeDown(){
-        stats.cameraOffsetY.Value -= 0.1f;
+        stats.cameraOffsetY.Value -= 0.05f;
         Debug.Log(stats.cameraOffsetY.Value);
     }
 
@@ -409,7 +409,7 @@ public class PlayerController : MonoBehaviour {
             tempTimer += Time.deltaTime;
             yield return null;
         }
-        if(tempTimer < 0.5f){
+        if(tempTimer < 1f){
             stats.currentHealth.Value += damage;
         }
         stats.attackRegenHit.Value = false;

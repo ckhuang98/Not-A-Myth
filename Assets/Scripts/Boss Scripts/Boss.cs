@@ -39,7 +39,7 @@ public class Boss : MonoBehaviour
     public bool goRight = true;
     public bool goLeft = false;
 
-    [SerializeField] private float smoothSpeed = 10f;
+    [SerializeField] private float smoothSpeed = 5f;
 
     [SerializeField] private Vector3 offSet;
 
@@ -195,7 +195,7 @@ public class Boss : MonoBehaviour
         if(coneAttack == false){
             yield return new WaitForSeconds(1.5f);
         } else{
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(3f);
             coneAttack = false;
         }
         
