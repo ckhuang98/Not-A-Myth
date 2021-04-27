@@ -51,7 +51,7 @@ public class AddRoom : MonoBehaviour
 
         foreach (GameObject tree in trees) {
             SpriteRenderer renderer = tree.GetComponent<SpriteRenderer>();
-            renderer.sprite = treeSprites[Random.Range(0, treeSprites.Length - 1)];
+            renderer.sprite = treeSprites[Random.Range(0, treeSprites.Length)];
             renderer.enabled = (Random.Range(1,11) <= 7);
         }
 
@@ -60,7 +60,7 @@ public class AddRoom : MonoBehaviour
             BoxCollider2D box = building.GetComponent<BoxCollider2D>();
             renderer.enabled = true;
             box.enabled = true;
-            renderer.sprite = buildingSprites[Random.Range(0, buildingSprites.Length - 1)];
+            renderer.sprite = buildingSprites[Random.Range(0, buildingSprites.Length)];
             if (Random.Range(1,11) <= 5) {
                 renderer.enabled = false;
                 box.enabled = false;
