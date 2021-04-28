@@ -56,8 +56,8 @@ public class AttackState : BaseState
         _enemy.enemyAnimator.SetFloat("AttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         horizontal = _enemy.enemyAnimator.GetFloat("AttackHorizontal");
         vertical = _enemy.enemyAnimator.GetFloat("AttackVertical");
-        Debug.Log("Horizontal: " + horizontal.ToString());
-        Debug.Log("Vertical: " + vertical.ToString());
+        //Debug.Log("Horizontal: " + horizontal.ToString());
+        //Debug.Log("Vertical: " + vertical.ToString());
         
         if (_enemy.goToWalk == true) {
             _enemy.goToWalk = false;
