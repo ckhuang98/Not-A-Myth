@@ -50,6 +50,7 @@ public class Enemy : MonoBehaviour
     public RaycastHit2D[] castList = new RaycastHit2D[8];
     public int[] weightList = new int[8];
     internal int currMoveDirection;
+    internal float attackAngle;
     public bool doInstantiate = false;
     public bool goToWalk = false;
     public bool doAttack = false;

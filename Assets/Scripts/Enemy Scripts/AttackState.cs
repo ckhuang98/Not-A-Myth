@@ -10,8 +10,10 @@ public class AttackState : BaseState
     private GameObject AoE;
     private GameObject fireParticles;
     private bool gotAngle = false;
-    private float angle;
+    //private float angle;
     private Transform target;
+    private float horizontal;
+    private float vertical;
 
     private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
@@ -23,7 +25,7 @@ public class AttackState : BaseState
     public AttackState(Enemy enemy) : base (enemy.gameObject)
     {
         _enemy = enemy; 
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        //target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     /*
@@ -37,6 +39,7 @@ public class AttackState : BaseState
     public override Type Tick()
     {
         _enemy.inAttackState = true;
+        /*
         var delta_x = transform.position.x - target.position.x;
         var delta_y = transform.position.y - target.position.y;
         if (gotAngle == false) {
@@ -46,10 +49,16 @@ public class AttackState : BaseState
             }
             gotAngle = true;
         }
+        */
         
-        InstantiateAoE(angle);
+        InstantiateAoE();
         _enemy.enemyAnimator.SetFloat("AttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
         _enemy.enemyAnimator.SetFloat("AttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+        horizontal = _enemy.enemyAnimator.GetFloat("AttackHorizontal");
+        vertical = _enemy.enemyAnimator.GetFloat("AttackVertical");
+        Debug.Log("Horizontal: " + horizontal.ToString());
+        Debug.Log("Vertical: " + vertical.ToString());
+        
         if (_enemy.goToWalk == true) {
             _enemy.goToWalk = false;
             gotAngle = false;
@@ -67,34 +76,34 @@ public class AttackState : BaseState
     the player.
     Returns: nothng
     */
-    private void InstantiateAoE(float angle) {
+    private void InstantiateAoE() {
         if (_enemy.doInstantiate == true) {
             AoE = GameObject.Instantiate(_enemy.AOE) as GameObject;
             fireParticles = GameObject.Instantiate(_enemy.fireParticle) as GameObject;
             _enemy.doInstantiate = false; 
             // UP
-            if (315 > angle && angle > 225) {
+            if (vertical > 0) {
                 AoE.transform.position = 
                 new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
                 fireParticles.transform.position = 
                 new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
             } 
             // RIGHT
-            if (225 > angle && angle > 135) {
+            if (horizontal > 0) {
                 AoE.transform.position = 
                 new Vector3(this.transform.position.x + 2, this.transform.position.y - 0.5f, this.transform.position.z);
                 fireParticles.transform.position = 
                 new Vector3(this.transform.position.x + 2, this.transform.position.y - 0.5f, this.transform.position.z);
             } 
             // DOWN
-            if (135 > angle && angle > 45) {
+            if (vertical < 0) {
                 AoE.transform.position = 
                 new Vector3(this.transform.position.x, this.transform.position.y - 2.75f, this.transform.position.z);
                 fireParticles.transform.position = 
                 new Vector3(this.transform.position.x, this.transform.position.y - 2.75f, this.transform.position.z);
             } 
             // LEFT
-            if ((45 > angle && angle > 0) || (360 > angle && angle > 315)) {
+            if (horizontal < 0) {
                 AoE.transform.position = 
                 new Vector3(this.transform.position.x - 2, this.transform.position.y - 0.5f, this.transform.position.z);
                 fireParticles.transform.position = 

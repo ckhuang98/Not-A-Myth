@@ -12,6 +12,7 @@ public class ChaseState : BaseState
     private Transform target;
     public float speed = 3f;
     public float turnTimer = 0f;
+    private float angle;
     private GameObject[] hammerGiants = GameObject.FindGameObjectsWithTag("Hammer Giant");
     private GameObject[] fireImps = GameObject.FindGameObjectsWithTag("Fire Imp");
     private GameObject[] fireEels = GameObject.FindGameObjectsWithTag("Fire Eel");
@@ -61,9 +62,11 @@ public class ChaseState : BaseState
         //Debug.DrawRay(transform.position, _enemy.moveDirections[_enemy.currMoveDirection] * 3.0f, Color.blue);
         var delta_x = transform.position.x - target.position.x;
         var delta_y = transform.position.y - target.position.y;
-        float angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
-        if (angle < 0.0f) {
+        angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+        _enemy.attackAngle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+        if (angle < 0.0f ) {
             angle = angle + 360f;
+            _enemy.attackAngle = _enemy.attackAngle + 360f;
         } 
         LocatePlayer(angle); 
         WallDetection();
