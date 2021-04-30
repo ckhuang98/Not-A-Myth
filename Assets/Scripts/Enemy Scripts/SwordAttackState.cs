@@ -11,6 +11,8 @@ public class SwordAttackState : BaseState
     private bool gotAngle = false;
     private float angle;
     private Transform target;
+    private float horizontal;
+    private float vertical;
 
     private GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
@@ -45,9 +47,11 @@ public class SwordAttackState : BaseState
             gotAngle = true;
         }
         
-        InstantiateSlash(angle);
+        InstantiateSlash();
         _enemy.enemyAnimator.SetFloat("SwordAttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
         _enemy.enemyAnimator.SetFloat("SwordAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+        horizontal = _enemy.enemyAnimator.GetFloat("SwordAttackHorizontal");
+        vertical = _enemy.enemyAnimator.GetFloat("SwordAttackVertical");
         if (_enemy.goToWalk == true) {
             _enemy.goToWalk = false;
             gotAngle = false;
@@ -64,28 +68,28 @@ public class SwordAttackState : BaseState
     the player.
     Returns: nothng
     */
-    private void InstantiateSlash(float angle) {
+    private void InstantiateSlash() {
         if (_enemy.doInstantiate == true) {
-            slashAttack = GameObject.Instantiate(_enemy.slash) as GameObject;
+            slashAttack = GameObject.Instantiate(_enemy.slash, this.transform) as GameObject;
             //slashAttack.GetAngle(angle);
             _enemy.doInstantiate = false; 
             // UP
-            if (315 > angle && angle > 225) {
+            if (vertical > 0) {
                 slashAttack.transform.position = 
                 new Vector3(this.transform.position.x, this.transform.position.y + 1f, this.transform.position.z);
             } 
             // RIGHT
-            if (225 > angle && angle > 135) {
+            if (horizontal > 0) {
                 slashAttack.transform.position = 
                 new Vector3(this.transform.position.x + 1f, this.transform.position.y - 0.1f, this.transform.position.z);
             } 
             // DOWN
-            if (135 > angle && angle > 45) {
+            if (vertical < 0) {
                 slashAttack.transform.position = 
                 new Vector3(this.transform.position.x, this.transform.position.y - 1.5f, this.transform.position.z);
             } 
             // LEFT
-            if ((45 > angle && angle > 0) || (360 > angle && angle > 315)) {
+            if (horizontal < 0) {
                 slashAttack.transform.position = 
                 new Vector3(this.transform.position.x - 1f, this.transform.position.y - 0.1f, this.transform.position.z);
             }

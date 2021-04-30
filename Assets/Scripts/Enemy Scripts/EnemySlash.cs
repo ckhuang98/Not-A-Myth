@@ -7,14 +7,21 @@ public class EnemySlash : MonoBehaviour
 {
     private float timer = 5f;
     public Animator slashAnimator;
+    private GameObject SG;
+    private Enemy SGS;
+
+    /*
     private float angle;
     private Transform target;
     internal Vector3[] moveDirections = new Vector3[] { Vector3.up, Vector3.Normalize(Vector3.right + Vector3.up), 
         Vector3.right, Vector3.Normalize(Vector3.right + Vector3.down), Vector3.down,
         Vector3.Normalize(Vector3.left + Vector3.down), Vector3.left, Vector3.Normalize(Vector3.left + Vector3.up) };
+    */
     // Start is called before the first frame update
     void Start()
     {
+        SGS = transform.parent.GetComponent<Enemy>();
+        /*
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         var delta_x = transform.position.x - target.position.x;
         var delta_y = transform.position.y - target.position.y;
@@ -22,20 +29,23 @@ public class EnemySlash : MonoBehaviour
         if (angle < 0.0f) {
             angle = angle + 360f;
         }  
+        */
        
     }
 
     // Update is called once per frame
     void Update()
     {
-        ChooseDirection(angle);
+        slashAnimator.SetFloat("SlashAttackVertical", SGS.moveDirections[SGS.currMoveDirection].y);
+        slashAnimator.SetFloat("SlashAttackHorizontal", SGS.moveDirections[SGS.currMoveDirection].x);
+        //ChooseDirection(angle);
         
     }
 
     public void RemoveSlash() {
         Destroy(this.gameObject);
     }
-
+    /*
     private void ChooseDirection(float angle) {
         // UP
         if (315 > angle && angle > 225) {
@@ -54,4 +64,5 @@ public class EnemySlash : MonoBehaviour
             slashAnimator.SetFloat("SlashAttackHorizontal", moveDirections[6].x);
         }
     }
+    */
 }

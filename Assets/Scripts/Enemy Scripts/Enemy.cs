@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
     public RaycastHit2D[] castList = new RaycastHit2D[8];
     public int[] weightList = new int[8];
     internal int currMoveDirection;
-    internal float attackAngle;
+    //internal float lookingAngle;
     public bool doInstantiate = false;
     public bool goToWalk = false;
     public bool doAttack = false;
@@ -126,7 +126,7 @@ public class Enemy : MonoBehaviour
 	    if (this.tag == "Fire Imp") { 
             DoFloat();
         }
-        //enemyAnimator.SetFloat("Speed", moveDirections[currMoveDirection].sqrMagnitude);
+
         isDead(GameMaster.instance.getGameOver());
         stateMachine.Update();
         DisplayRays();
