@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    private GameObject credits;
+    public GameObject credits;
     void Start()
     {
-        //Assigns the credits window to the credits variable.
-        credits = GameObject.FindWithTag("Credits");
 
         //SetActive to false so the window doesn't cover the buttons.
         credits.SetActive(false);
