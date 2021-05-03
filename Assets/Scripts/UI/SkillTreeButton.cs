@@ -10,4 +10,16 @@ public class SkillTreeButton : MonoBehaviour
     public int currentUses = 0;
     public string skillDescription;
 
+    public Image highlight;
+
+    private void Start() {
+        highlight.enabled = false;
+    }
+
+    private void Update() {
+        if(currentUses == maxUses){
+            highlight.enabled = true;
+        }
+    }
+
 }

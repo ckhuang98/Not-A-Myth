@@ -147,11 +147,6 @@ public class GameMaster : MonoBehaviour
 
     public void pickUpShard(){
         playerStats.currentXp.Value++;
-        if(playerStats.currentXp.Value == 5){
-            playerStats.currentXp.Value = 0;
-            playerStats.skillPoints.Value++;
-            StartCoroutine(UI.instance.displayerPlayerUpdate("Skill Point Availble!"));
-        }
     }
 
     public void gainStrength(){

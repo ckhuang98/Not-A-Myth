@@ -5,6 +5,15 @@ using UnityEngine;
 public class Shard : MonoBehaviour
 {
     private bool pickedUp = false;
+    public Rigidbody2D rb;
+
+    float timeStamp;
+
+    bool moveToPlayer;
+
+    Vector2 direction;
+
+    GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +23,10 @@ public class Shard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(moveToPlayer){
+            direction = -(transform.position - player.transform.position).normalized;
+            rb.velocity = new Vector2(direction.x, direction.y) * 20f * (Time.deltaTime / timeStamp);
+        }
     }
 
     public Item item; //scirptable object shard
@@ -44,6 +56,12 @@ public class Shard : MonoBehaviour
             Destroy(this.gameObject);
             pickedUp = true;
             GameMaster.instance.pickUpShard();
+        }
+
+        if(collider.gameObject.name.Equals("ItemMagnet")){
+            timeStamp = Time.deltaTime;
+            player = GameObject.Find("MC Prefab");
+            moveToPlayer = true;
         }
     }
 }

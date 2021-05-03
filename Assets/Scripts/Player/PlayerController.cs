@@ -83,6 +83,8 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private GameObject dashBox;
 
+    public GameObject magnet;
+
     // Start is called before the first frame update
     void Start() {
         //slashAnimation.enabled = false;
@@ -123,6 +125,8 @@ public class PlayerController : MonoBehaviour {
 		{
             TakeDamage(26);
 		}
+
+        magnet.transform.position = new Vector2(transform.position.x, transform.position.y);
 
         if (!gameMaster.getGameOver() && Time.timeScale == 1) {
 
@@ -214,9 +218,9 @@ public class PlayerController : MonoBehaviour {
         switch(state){
             case State.Normal:
                 if(stats.toggleMovement.Value){
-                    rb.AddForce(movement * stats.speed.Value);
+                    rb.AddForce(movement.normalized * stats.speed.Value);
                 } else{
-                    rb.velocity = movement * stats.speed.Value;
+                    rb.velocity = movement.normalized * stats.speed.Value;
                 }
                 break;
 
