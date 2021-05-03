@@ -38,6 +38,8 @@ public class ObjectAudioManager : MonoBehaviour
     public float minDistance = 3;
     public float maxDistance = 10;
 
+    public bool isPlayerSfx = false;
+
     [Space]
     public ObjectSoundGroup[] soundGroups;
 
@@ -93,6 +95,11 @@ public class ObjectAudioManager : MonoBehaviour
 
                 s.source.minDistance = sg.overrideDistances ? sg.minDistance : minDistance;
                 s.source.maxDistance = sg.overrideDistances ? sg.maxDistance : maxDistance;
+
+                if(isPlayerSfx){
+                    s.source.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+                }
+                
 
                 index++;
                 if (s.name == "") s.name = index.ToString();

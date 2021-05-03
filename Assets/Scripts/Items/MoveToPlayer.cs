@@ -1,0 +1,25 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MoveToPlayer : MonoBehaviour
+{
+    // Start is called before the first frame update
+
+    public GameObject parentItem;
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    void OnTriggerEnter2D(Collider2D collider){
+        if(collider.gameObject.CompareTag("Gem")){
+            parentItem.GetComponent<Shard>().rb.MovePosition(collider.transform.position);
+        }
+    }
+}
