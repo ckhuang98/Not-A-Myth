@@ -40,10 +40,14 @@ public class PlayerStats : ScriptableObject
 	public SharedBool isAttacking;
 	public SharedBool toggleMovement;
 
+	[Space]
+	public SharedStringList keys;
+
 	public event Action OnStatsChanged;
 
 	private void OnEnable()
 	{
+
 		SharedFloat[] SharedFloats =
 		{
 			currentHealth,
