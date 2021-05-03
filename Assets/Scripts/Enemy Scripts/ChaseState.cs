@@ -45,7 +45,7 @@ public class ChaseState : BaseState
         if (_enemy.beenHit == false && _enemy.tag == "Hammer Giant") {
             _enemy.enemyAnimator.SetFloat("Horizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
             _enemy.enemyAnimator.SetFloat("Vertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-            speed = 1f;
+            speed = 2.5f;
         } else if (_enemy.beenHit == true && _enemy.tag == "Hammer Giant") {
             _enemy.enemyAnimator.SetFloat("HammerHitHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
             _enemy.enemyAnimator.SetFloat("HammerHitVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);

@@ -476,8 +476,8 @@ GameObject:
   - component: {fileID: 726917523616048820}
   - component: {fileID: 726917523616048831}
   - component: {fileID: 4764937274653965035}
-  m_Layer: 0
-  m_Name: Sword Giant (1)
+  m_Layer: 13
+  m_Name: Sword Giant
   m_TagString: Sword Giant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -655,6 +655,7 @@ MonoBehaviour:
   doAttack: 0
   doLungeAttack: 0
   beenHit: 0
+  inAttackState: 0
   deathSFXObject: {fileID: 6986382958281556572, guid: eb55799b3883de04086c3f34a5f3c139,
     type: 3}
 --- !u!114 &4764937274653965035

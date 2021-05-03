@@ -46,7 +46,10 @@ public class Enemy : MonoBehaviour
     StateMachine stateMachine; 
 
     public float _rayDistance = 5.0f;
-    private int layerMask = 1 << 20;
+    private int wallLayer = 1 << 20;
+    private int waterLayer = 1 << 4;
+    private int enemyLayer = 1 << 10;
+    private int layerMask;
     public RaycastHit2D[] castList = new RaycastHit2D[8];
     public int[] weightList = new int[8];
     internal int currMoveDirection;
@@ -82,7 +85,10 @@ public class Enemy : MonoBehaviour
         if (this.tag == "Fire Imp") {
             originalY = transform.position.y;
         }
-        
+        layerMask |= waterLayer;
+        layerMask |= wallLayer;
+        layerMask = SetLayerMask(layerMask, waterLayer, wallLayer);
+ 
         armorAmount = 0f;
         rb = GetComponent<Rigidbody2D>();
         freezer = GameMaster.instance.GetComponent<Freezer>();
@@ -116,7 +122,7 @@ public class Enemy : MonoBehaviour
         } else if (this.tag == "Sword Giant") {
             audioManager = gameObject.GetComponent<ObjectAudioManager>();
         }
-
+        
         InitializeStateMachine();
         alpha = this.GetComponent<Renderer>().material.color.a;
     }
@@ -418,5 +424,28 @@ public class Enemy : MonoBehaviour
         Sound sound = soundSource.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("death");
         Destroy(soundSource, sound.source.clip.length);
 
+    }
+
+    private int SetLayerMask(int layerMask, int waterLayer, int wallLayer) {
+        if (this.tag == "Hammer Giant") {
+            layerMask |= 1 << 11;
+            layerMask |= 1 << 14;
+            layerMask |= 1 << 13;
+        } else if (this.tag == "Fire Eel") {
+            layerMask |= 1 << 12;
+            layerMask |= 1 << 14;
+            layerMask |= 1 << 13;
+        } else if (this.tag == "Fire Imp") {
+            layerMask |= 1 << 12;
+            layerMask |= 1 << 11;
+            layerMask |= 1 << 13;
+        } else if (this.tag == "Sword Giant") {
+            layerMask |= 1 << 12;
+            layerMask |= 1 << 14;
+            layerMask |= 1 << 11;
+        }
+        return layerMask;
+        //layerMask |= wallLayer;
+        //layerMask |= waterLayer;
     }
 }

@@ -5103,7 +5103,7 @@ GameObject:
   - component: {fileID: 4634391877745089002}
   - component: {fileID: 9174290562358144885}
   - component: {fileID: 1259538672914267536}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fire Eel
   m_TagString: Fire Eel
   m_Icon: {fileID: 0}
@@ -5235,6 +5235,7 @@ MonoBehaviour:
   doAttack: 0
   doLungeAttack: 0
   beenHit: 0
+  inAttackState: 0
   deathSFXObject: {fileID: 6986382958281556572, guid: fbe570b06266bcf44b8d2660c26a378e,
     type: 3}
 --- !u!50 &4634391877745089002

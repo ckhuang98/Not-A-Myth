@@ -11,6 +11,7 @@ public class WanderState : BaseState
     private Vector2 decisionTime = new Vector2(1, 4);
     internal float decisionTimeCount = 0f;
     private bool choice;
+    private bool safeChoice;
     private float fireTrailTimer = 1f;
     private GameObject fireBall;
 
@@ -94,9 +95,10 @@ public class WanderState : BaseState
             decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
             ChooseMoveDirection();
         }
-
+        MoveDirection();
         NPCDetection();
         WallDetection();
+        FailSafeDirection();
         //PlaceFire();
 
         if (_enemy.inBounds == true && (_enemy.tag == "Hammer Giant" || _enemy.tag == "Sword Giant")) {
@@ -241,12 +243,13 @@ public class WanderState : BaseState
             }
             
         }
-
+    /*
         for (int i = 0; i < _enemy.moveDirections.Count(); i++) {
             if (_enemy.weightList[i] == 1) {
                 _enemy.currMoveDirection = i;
             }
         }
+        */
         return;
     }
 
@@ -258,37 +261,83 @@ public class WanderState : BaseState
     */
     private void WallDetection() {
         for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
-            if (_enemy.castList[i].collider != null) {
-                
-                if (_enemy.castList[i].distance <= 1) {          
+            if (_enemy.castList[i].collider != null && (_enemy.castList[i].collider.name == "Walls" 
+            || _enemy.castList[i].collider.name == "Passable")) {
+                //Debug.Log(_enemy.castList[i].collider.name);                 
+                if (_enemy.castList[i].distance <= 1.25) {          
                     var about_face = i;
                     if (about_face >= 4) {
                         about_face -= 4;
                     } else if (about_face < 4) {
                         about_face += 4;
                     }
-                    _enemy.weightList[about_face] = 1;
-                    _enemy.currMoveDirection = about_face;
-                } else if (_enemy.tag == "Fire Eel" && _enemy.castList[i].distance <= 2.5f) {
-                    var about_face = i;
-                    if (about_face >= 4) {
-                        about_face -= 4;
-                    } else if (about_face < 4) {
-                        about_face += 4;
-                    }
+                    _enemy.weightList[_enemy.currMoveDirection] = 0;
                     _enemy.weightList[about_face] = 1;
                     _enemy.currMoveDirection = about_face;
                 }
             }
         }
     }
+    
+    private void NPCDetection() {
+        for (int i = 0; i < _enemy.moveDirections.Count(); i++) {
+            if (_enemy.castList[i].collider != null && (_enemy.castList[i].collider.name == "Hammer Giant (Clone)" ||
+            _enemy.castList[i].collider.name == "Sword Giant(Clone)" || _enemy.castList[i].collider.name == "Fire Eel(Clone)" ||
+            _enemy.castList[i].collider.name == "Imp(Clone)")) {
+                if (_enemy.castList[i].distance <= 2) {  
+                    _enemy.weightList[i] = -1;
+                } else {
+                    _enemy.weightList[i] = 0;
+                }
+            }
+        }
+    }
+    private void FailSafeDirection() {
+        if (_enemy.weightList[_enemy.currMoveDirection] == -1) {
+            //If the array is at the end or beginning the choice will be made for them
+            if (_enemy.currMoveDirection == 7) {
+                safeChoice = false;
+            } else if (_enemy.currMoveDirection == 0) {
+                safeChoice = true;
+            } else {
+                safeChoice = (UnityEngine.Random.value > 0.5f);
+            }
+            if (safeChoice == true) {
+                for (int i = _enemy.currMoveDirection; i < _enemy.moveDirections.Count(); i++) {
+                    if (_enemy.weightList[i] == 0) {
+                        _enemy.weightList[_enemy.currMoveDirection] = 0;
+                        _enemy.weightList[i] = 1;
+                        break;
+                    }
+                }
+            } else if (safeChoice == false) {
+                for (int i = _enemy.currMoveDirection; i >= 0; i--) {
+                    if (_enemy.weightList[i] == 0) {
+                        _enemy.weightList[_enemy.currMoveDirection] = 0;
+                        _enemy.weightList[i] = 1;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    private void MoveDirection() {
+        for (int i = 0; i < _enemy.moveDirections.Count(); i++) {
+            //Debug.Log("in da mf loop");
+            if (_enemy.weightList[i] == 1) {
+                _enemy.currMoveDirection = i;
+            }
+        }
+    }
+
 
     /*
     Purpose: If another enemy if detected they will slowly avoid each other. Different
     distances are based on the enemies different sizes.
     Recieves: nothing.
     Returns: nothing
-    */
+    
     private void NPCDetection() {
         foreach (GameObject _hammerGiant in hammerGiants) {
             if (_hammerGiant != null) {
@@ -332,6 +381,7 @@ public class WanderState : BaseState
             }
         }
     }
+    */
 
     /*
     Purpose: Drops a fireball every half second

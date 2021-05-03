@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1690567018603341783}
   - component: {fileID: 8442706466582509323}
   - component: {fileID: 6568578558366793575}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Imp
   m_TagString: Fire Imp
   m_Icon: {fileID: 0}
@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthAmount: 0
   armorAmount: 0
+  floatStrength: 1
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
   AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
@@ -190,6 +191,8 @@ MonoBehaviour:
   goToWalk: 0
   doAttack: 0
   doLungeAttack: 0
+  beenHit: 0
+  inAttackState: 0
   deathSFXObject: {fileID: 6986382958281556572, guid: d9be9552e6357e541867aba52d80d88a,
     type: 3}
 --- !u!114 &6568578558366793575

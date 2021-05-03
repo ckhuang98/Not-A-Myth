@@ -63,6 +63,7 @@ public class EelMaintainDistanceState : BaseState
         MaintainDistance();
         MoveDirection();   
         NPCDetection();
+        FailSafeDirection();
         //PlaceFire();
 
         if (lungeAttackTimer > 0) {
