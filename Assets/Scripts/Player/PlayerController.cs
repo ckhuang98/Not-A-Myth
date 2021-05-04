@@ -123,7 +123,8 @@ public class PlayerController : MonoBehaviour {
         // test take damage
         if (Input.GetKeyDown(KeyCode.G))
 		{
-            TakeDamage(26);
+            TakeDamage(20);
+            GameMaster.instance.loadScene();
 		}
 
         magnet.transform.position = new Vector2(transform.position.x, transform.position.y);

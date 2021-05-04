@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
@@ -41,6 +42,17 @@ public class UI : MonoBehaviour
 
     [SerializeField]
     private GameObject devWindow;
+    [SerializeField]
+    private GameObject playerHud;
+    [SerializeField]
+    private GameObject playerHpBar;
+    [SerializeField]
+    private GameObject playerXpBar;
+    [SerializeField]
+    public GameObject menuBackground;
+
+
+    private string sceneName;
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +67,18 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        sceneName = SceneManager.GetActiveScene().name;
+        if(sceneName.Substring(0,3) == "Cut"){
+            playerHud.SetActive(false);
+            playerHpBar.SetActive(false);
+            playerXpBar.SetActive(false);
+            hotbar.SetActive(false);
+        } else{
+            playerHud.SetActive(true);
+            playerHpBar.SetActive(true);
+            playerXpBar.SetActive(true);
+            hotbar.SetActive(true);
+        }
     }
 
     private void testing_OnGameResumed()
@@ -91,6 +114,7 @@ public class UI : MonoBehaviour
     public void showPauseMenu()
     {
         pauseMenu.SetActive(true);
+
     }
     public void hidePauseMenu()
     {

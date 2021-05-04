@@ -21,17 +21,26 @@ public class CutsceneCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(nextScene);
         if(Input.GetKeyDown(KeyCode.Space)){
             if(sceneNum == views.Length - 1){
-                SceneManager.LoadScene(nextScene);
+                if(nextScene == 10){
+                    SceneManager.LoadScene(0);
+                } else{
+                    SceneManager.LoadScene(nextScene);
+                }
             } else{
                 sceneNum++;
                 resetZoom();
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape)){
-            SceneManager.LoadScene(nextScene);
+        if(Input.GetKeyDown(KeyCode.Backspace)){
+            if(nextScene == 10){
+                SceneManager.LoadScene(0);
+            } else{
+                SceneManager.LoadScene(nextScene);
+            }
         }
         zoomOut();
     }

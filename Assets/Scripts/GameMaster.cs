@@ -80,7 +80,10 @@ public class GameMaster : MonoBehaviour
         ui.setUIForNewScene();
         ui.updateInventoryUI();
         enemyList = new List<GameObject>();
-        combatManager.player = player.GetComponent<PlayerController>();
+        if(player != null){
+            combatManager.player = player.GetComponent<PlayerController>();
+        }
+        
         OnSceneLoad?.Invoke();
     }
 
@@ -223,7 +226,11 @@ public class GameMaster : MonoBehaviour
         Time.timeScale = 0;
         AudioListener.pause = true;
         paused = true;
-        if (showMenu) ui.showPauseMenu();
+        if (showMenu) {
+            ui.showPauseMenu();
+            ui.menuBackground.SetActive(true);
+        }
+
         ui.updateInventoryUI();
 
         OnGamePuased?.Invoke();
@@ -235,6 +242,7 @@ public class GameMaster : MonoBehaviour
         AudioListener.pause = false;
         paused = false;
         ui.hideAllPauseMenus();
+        ui.menuBackground.SetActive(false);
         ui.showHotbar();
 
         // OnGameResumed?.Invoke();
