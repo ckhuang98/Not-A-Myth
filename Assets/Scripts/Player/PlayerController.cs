@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour {
     public bool attacked = false;
     public bool canDash = true;
     public bool canDashTwice = false;
+    private bool inAoE = false;
 
     ///////////////////////////////////
 
@@ -209,19 +210,20 @@ public class PlayerController : MonoBehaviour {
 
             //PUT IDLE ANIMATION HERE IF POSSIBLE
         }
-
-
-
-        
     }
 
     void FixedUpdate() {
         switch(state){
             case State.Normal:
+                //Debug.Log(stats.speed.Value);
                 if(stats.toggleMovement.Value){
                     rb.AddForce(movement.normalized * stats.speed.Value);
                 } else{
-                    rb.velocity = movement.normalized * stats.speed.Value;
+                    if (inAoE == false) {
+                        rb.velocity = movement.normalized * stats.speed.Value;
+                    } else {
+                        rb.velocity = (movement.normalized * stats.speed.Value) * 0.5f;
+                    }
                 }
                 break;
 
@@ -474,14 +476,14 @@ public class PlayerController : MonoBehaviour {
 
             // If one of the colliders is an AoE circle (from a giant)
             if (withinAggroColliders.CompareTag("Fire Giant AoE")) {
-
+                inAoE = true;
                 fireAddTimer += Time.deltaTime;
                 fireRemoveTimer = Mathf.Max(0f, fireRemoveTimer - Time.deltaTime);
                 
                 // If AoE is new (< 0.25 secs after creation), 10 dmg for hammer swing
                 var AoE = withinAggroColliders.GetComponent<AreaofEffectTime>();
                 if (AoE.CanHit() && healthTimer >= 1) {
-                    TakeDamage(10);
+                    //TakeDamage(10);
                     healthTimer = 0;
                 }
 
@@ -491,7 +493,7 @@ public class PlayerController : MonoBehaviour {
                     if (fireStacks == maxFireStacks) { onFire = true; }
                     fireAddTimer = 0f;
                 }
-            }
+            } 
 
             // If player collides with boss slash attack, 15 damage
             if (withinAggroColliders.CompareTag("Boss Slash")) { TakeDamage(15); }
@@ -523,6 +525,8 @@ public class PlayerController : MonoBehaviour {
         //
         // If not within an AoE circle, adjust timers, stacks, onFire
         else {
+            //stats.speed.Value = 5f;
+            inAoE = false;
             fireRemoveTimer += Time.deltaTime;
             fireAddTimer = Mathf.Max(0f, fireAddTimer - Time.deltaTime);
                     
@@ -602,4 +606,13 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public IEnumerator HammerKnockBack(float duration, float power, Transform obj) {
+        float timer = 0;
+        while (timer < duration) {
+            timer += Time.deltaTime;
+            Vector2 direction = (obj.transform.position - this.transform.position).normalized;
+            rb.AddForce(-direction * power);
+        }
+        yield return 0;
+    }
 }

@@ -23,7 +23,8 @@ public class Enemy : MonoBehaviour
     public GameObject shard;
     //Area of Effect
     public GameObject AOE;
-    public GameObject fireParticle;
+    public GameObject AOEWarning;
+    //public GameObject fireParticle;
     public GameObject damageProjectile;
     public GameObject healingProjectile;
     public GameObject fireTrail;
@@ -55,6 +56,7 @@ public class Enemy : MonoBehaviour
     internal int currMoveDirection;
     //internal float lookingAngle;
     public bool doInstantiate = false;
+    public bool instantiateWarning = false;
     public bool goToWalk = false;
     public bool doAttack = false;
     public bool doLungeAttack = false;
@@ -332,6 +334,10 @@ public class Enemy : MonoBehaviour
         //Debug.Log("Here");
         doInstantiate = true;
     }
+
+    public void AreaWarning() {
+        instantiateWarning = true;
+    } 
 
     public void ProjectileThrow() {
         doInstantiate = true;

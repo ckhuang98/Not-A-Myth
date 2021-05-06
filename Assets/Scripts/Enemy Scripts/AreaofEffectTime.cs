@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class AreaofEffectTime : MonoBehaviour
 {
-    private float destroyTime = 5f;
+    private float destroyTime = 10f;
     private float hitTimer = 0.25f;
     public bool canHit = true;
+    //public PlayerStats stats;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,17 @@ public class AreaofEffectTime : MonoBehaviour
             canHit = false;
         }
     }
+    /*
+    void OnTriggerStay2D(Collider2D col) {
+        stats.speed.Value = 0.5f;
+    }
+    
+    void OnTriggerExit2D(Collider2D col) {
+        stats.speed.Value = 5f;
+        Debug.Log("Exit");
+    }
+    */
+    
 
     // Called in PlayerController to determine if AoE circle is new
     public bool CanHit() { return canHit; }

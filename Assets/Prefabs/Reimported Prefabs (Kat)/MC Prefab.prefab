@@ -731,7 +731,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &2558569842908750872
 MonoBehaviour:
@@ -766,6 +766,7 @@ MonoBehaviour:
   canDashTwice: 0
   slashCollider: {fileID: 561858605}
   dashBox: {fileID: 89815224}
+  magnet: {fileID: 0}
 --- !u!81 &4869283209196162237
 AudioListener:
   m_ObjectHideFlags: 0
