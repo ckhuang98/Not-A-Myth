@@ -98,7 +98,7 @@ public class AttackState : BaseState
             // UP
             if (vertical > 0) {
                 AoE.transform.position = 
-                new Vector3(this.transform.position.x + 0.35f, this.transform.position.y + 4.73f, this.transform.position.z);
+                new Vector3(this.transform.position.x + 0.28f, this.transform.position.y + 5.04f, this.transform.position.z);
                 AoE.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
                 if (hammerDown == true && inAOEWarning == true) {
                     target.StartCoroutine(target.HammerKnockBack(1f, 30f, this.transform));
@@ -109,7 +109,7 @@ public class AttackState : BaseState
             // RIGHT
             if (horizontal > 0) {
                 AoE.transform.position = 
-                new Vector3(this.transform.position.x + 5.9f, this.transform.position.y - 0.97f, this.transform.position.z);
+                new Vector3(this.transform.position.x + 6.84f, this.transform.position.y - 1.04f, this.transform.position.z);
                 AoE.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
                 if (hammerDown == true && inAOEWarning == true) {
                     target.StartCoroutine(target.HammerKnockBack(1f, 30f, this.transform));
@@ -120,7 +120,7 @@ public class AttackState : BaseState
             // DOWN
             if (vertical < 0) {
                 AoE.transform.position = 
-                new Vector3(this.transform.position.x - 0.23f, this.transform.position.y - 6.27f, this.transform.position.z);
+                new Vector3(this.transform.position.x - 0.2f, this.transform.position.y - 7.049995f, this.transform.position.z);
                 if (hammerDown == true && inAOEWarning == true) {
                     target.StartCoroutine(target.HammerKnockBack(1f, 30f, this.transform));
                 }
@@ -130,7 +130,7 @@ public class AttackState : BaseState
             // LEFT
             if (horizontal < 0) {
                 AoE.transform.position = 
-                new Vector3(this.transform.position.x - 5.9f, this.transform.position.y - 1.05f, this.transform.position.z);
+                new Vector3(this.transform.position.x - 6.71f, this.transform.position.y - 1.09f, this.transform.position.z);
                 AoE.transform.localRotation = Quaternion.Euler(0f, 0f, 270f);
                 if (hammerDown == true && inAOEWarning == true) {
                     target.StartCoroutine(target.HammerKnockBack(1f, 30f, this.transform));
@@ -149,27 +149,27 @@ public class AttackState : BaseState
             if (vertical > 0) {
                 //Debug.Log("Up");
                 AoEWarning.transform.position = 
-                new Vector3(this.transform.position.x + 0.35f, this.transform.position.y + 4.73f, this.transform.position.z);
+                new Vector3(this.transform.position.x + 0.28f, this.transform.position.y + 5.04f, this.transform.position.z);
                 AoEWarning.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
             } 
             // RIGHT
             if (horizontal > 0) {
                 //Debug.Log("Right");
                 AoEWarning.transform.position = 
-                new Vector3(this.transform.position.x + 5.9f, this.transform.position.y - 0.97f, this.transform.position.z);
+                new Vector3(this.transform.position.x + 6.84f, this.transform.position.y - 1.04f, this.transform.position.z);
                 AoEWarning.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
             }
             // DOWN
             if (vertical < 0) {
                 //Debug.Log("Down");
                 AoEWarning.transform.position = 
-                new Vector3(this.transform.position.x - 0.23f, this.transform.position.y - 6.27f, this.transform.position.z);
+                new Vector3(this.transform.position.x - 0.2f, this.transform.position.y - 7.049995f, this.transform.position.z);
             } 
             // LEFT
             if (horizontal < 0) {
                 //Debug.Log("Left");
                 AoEWarning.transform.position = 
-                new Vector3(this.transform.position.x - 5.9f, this.transform.position.y - 1.05f, this.transform.position.z);
+                new Vector3(this.transform.position.x - 6.71f, this.transform.position.y - 1.09f, this.transform.position.z);
                 AoEWarning.transform.localRotation = Quaternion.Euler(0f, 0f, 270f);
             }
         }
