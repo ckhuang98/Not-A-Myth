@@ -498,13 +498,13 @@ public class PlayerController : MonoBehaviour {
             // // If player collides with boss slash attack, 15 damage
             if (withinAggroColliders.CompareTag("Boss Slash") && !isInvincible) { 
                 TakeDamage(15);
-                StartCoroutine(HammerKnockBack(GameMaster.instance.enemyKnockbackDuration, GameMaster.instance.enemyKnockbackPower, GameMaster.instance.boss.transform));
+                StartCoroutine(HammerKnockBack(GameMaster.instance.enemyKnockbackPower, GameMaster.instance.boss.transform));
             }
 
             // // If the player collides with boss shockwave attack, 10 damage
             if (withinAggroColliders.CompareTag("Shockwave") && !isInvincible) { 
                 TakeDamage(10); 
-                StartCoroutine(HammerKnockBack(GameMaster.instance.enemyKnockbackDuration, GameMaster.instance.enemyKnockbackPower, GameMaster.instance.boss.transform));
+                StartCoroutine(HammerKnockBack(GameMaster.instance.enemyKnockbackPower, GameMaster.instance.boss.transform));
             }
 
             if (withinAggroColliders.CompareTag("Fireball")) { TakeDamage(10); }
@@ -619,6 +619,12 @@ public class PlayerController : MonoBehaviour {
             Vector2 direction = (obj.transform.position - this.transform.position).normalized;
             rb.AddForce(-direction * power);
         }
+        yield return 0;
+    }
+
+    public IEnumerator HammerKnockBack(float power, Transform obj) {
+        Vector2 direction = (obj.transform.position - this.transform.position).normalized;
+        rb.AddForce(-direction * power);
         yield return 0;
     }
 }
