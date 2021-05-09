@@ -42,6 +42,9 @@ public class GameMaster : MonoBehaviour
 
     public GameObject boss;
 
+    public float enemyKnockbackDuration = 0.5f;
+    public float enemyKnockbackPower = 2f;
+
     
     private int skillPoints = 0;
     private int numOfShards = 0;
