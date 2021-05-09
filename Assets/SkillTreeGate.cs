@@ -25,8 +25,9 @@ public class SkillTreeGate : MonoBehaviour
         if(playerStats.skillPoints.Value == 1) {
             gainedSkill = true;
         }
-        if(gems == true && playerStats.skillPoints.Value == 0 && gainedSkill == true) {
+        if(playerStats.skillPoints.Value == 0 && gainedSkill == true) {
             gate.unlocked = true;
         }
+        Debug.Log("Gems: " + gems + ", Skill Points Value: " + playerStats.skillPoints.Value + ", GainedSkill: " + gainedSkill);
     }
 }
