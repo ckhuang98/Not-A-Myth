@@ -75,6 +75,8 @@ public class PlayerController : MonoBehaviour {
 
     public bool isInvincible = false;
 
+    bool beingKnockedback = false;
+
     private SpriteRenderer playerSprite;
 
     private GameMaster gameMaster;
@@ -219,9 +221,9 @@ public class PlayerController : MonoBehaviour {
                 if(stats.toggleMovement.Value){
                     rb.AddForce(movement.normalized * stats.speed.Value);
                 } else{
-                    if (inAoE == false) {
+                    if (inAoE == false && !beingKnockedback) {
                         rb.velocity = movement.normalized * stats.speed.Value;
-                    } else {
+                    } else if(!beingKnockedback){
                         rb.velocity = (movement.normalized * stats.speed.Value) * 0.5f;
                     }
                 }
@@ -443,11 +445,11 @@ public class PlayerController : MonoBehaviour {
         isInvincible = true;
         Color alpha = playerSprite.color;
         for(float i = 0; i < 1f; i += 0.2f){
-            if(playerSprite.color.a == 0){
+            if(playerSprite.color.a == 0.5f){
                 alpha.a = 255;
                 playerSprite.color = alpha;
             } else{
-                alpha.a = 0;
+                alpha.a = 0.5f;
                 playerSprite.color = alpha;
             }
             yield return new WaitForSeconds(0.15f);
@@ -498,13 +500,13 @@ public class PlayerController : MonoBehaviour {
             // // If player collides with boss slash attack, 15 damage
             if (withinAggroColliders.CompareTag("Boss Slash") && !isInvincible) { 
                 TakeDamage(15);
-                StartCoroutine(HammerKnockBack(GameMaster.instance.enemyKnockbackPower, GameMaster.instance.boss.transform));
+                StartCoroutine(HammerKnockBack(GameMaster.instance.enemyKnockbackDuration, GameMaster.instance.enemyKnockbackPower, GameMaster.instance.boss.transform));
             }
 
             // // If the player collides with boss shockwave attack, 10 damage
             if (withinAggroColliders.CompareTag("Shockwave") && !isInvincible) { 
                 TakeDamage(10); 
-                StartCoroutine(HammerKnockBack(GameMaster.instance.enemyKnockbackPower, GameMaster.instance.boss.transform));
+                StartCoroutine(HammerKnockBack(GameMaster.instance.enemyKnockbackDuration, GameMaster.instance.enemyKnockbackPower, GameMaster.instance.boss.transform));
             }
 
             if (withinAggroColliders.CompareTag("Fireball")) { TakeDamage(10); }
@@ -614,12 +616,15 @@ public class PlayerController : MonoBehaviour {
 
     public IEnumerator HammerKnockBack(float duration, float power, Transform obj) {
         float timer = 0;
+        beingKnockedback = true;
         while (timer < duration) {
             timer += Time.deltaTime;
             Vector2 direction = (obj.transform.position - this.transform.position).normalized;
             rb.AddForce(-direction * power);
+            yield return null;
         }
-        yield return 0;
+        beingKnockedback = false;
+        //yield return 0;
     }
 
     public IEnumerator HammerKnockBack(float power, Transform obj) {

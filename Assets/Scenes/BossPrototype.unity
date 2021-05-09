@@ -419,6 +419,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 561858609, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 561858609, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 726095169486400776, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200,
         type: 3}
       propertyPath: m_Name
@@ -484,6 +492,11 @@ PrefabInstance:
       propertyPath: magnet
       value: 
       objectReference: {fileID: 1036278768}
+    - target: {fileID: 4029913715696956789, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200, type: 3}
 --- !u!1001 &279416484
@@ -3195,6 +3208,16 @@ PrefabInstance:
       propertyPath: ui
       value: 
       objectReference: {fileID: 2111096874}
+    - target: {fileID: 5655418097560348885, guid: 7aaa8d7b05ae8de4492656f887f3fff0,
+        type: 3}
+      propertyPath: enemyKnockbackPower
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655418097560348885, guid: 7aaa8d7b05ae8de4492656f887f3fff0,
+        type: 3}
+      propertyPath: enemyKnockbackDuration
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 8887195380250220360, guid: 7aaa8d7b05ae8de4492656f887f3fff0,
         type: 3}
       propertyPath: space

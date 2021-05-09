@@ -35,7 +35,7 @@ public class ParticleAttack : MonoBehaviour
             //enter[i] = p;
             if(!player.isInvincible){
                 player.TakeDamage(10);
-                player.StartCoroutine(player.HammerKnockBack(GameMaster.instance.enemyKnockbackPower, boss.transform));
+                player.StartCoroutine(player.HammerKnockBack(GameMaster.instance.enemyKnockbackDuration, GameMaster.instance.enemyKnockbackPower, boss.transform));
             }
             
         }
