@@ -22,7 +22,8 @@ public class Gate : MonoBehaviour
     {
         animator.SetBool("Unlocked", unlocked);
         if(unlocked){
-            box.enabled = false;
+            //box.enabled = false;
+            Destroy(this.gameObject);
         }
     }
 }
