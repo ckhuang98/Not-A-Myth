@@ -20,7 +20,7 @@ public class Gate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool("Unlocked", unlocked);
+        //animator.SetBool("Unlocked", unlocked);
         if(unlocked){
             //box.enabled = false;
             Destroy(this.gameObject);
