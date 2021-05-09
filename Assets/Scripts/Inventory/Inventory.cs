@@ -37,11 +37,7 @@ public class Inventory : MonoBehaviour
         item.name.Replace("(Clone)", "");
         if (!item.isDefaultItem)
         {
-            if (items.Count >= space)
-            {
-                Debug.Log("Not Enough Room");
-                return false;
-            }
+            
 
             bool itemFound = false;
             foreach(Item i in items)
@@ -54,10 +50,21 @@ public class Inventory : MonoBehaviour
                 }
             }
 
+            // if (items.Count >= space)
+            // {
+            //     Debug.Log("Not Enough Room");
+            //     return false;
+            // }
+
             if (itemFound == false)
             {
-                item.amount = 1;
-                items.Add(item);
+                if(items.Count < space){
+                    item.amount = 1;
+                    items.Add(item);
+                } else{
+                    return false;
+                }
+                
             }
 
             if (onItemChangedCallback != null)

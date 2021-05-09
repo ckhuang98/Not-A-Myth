@@ -12,9 +12,8 @@ public class HealthPlant : MonoBehaviour
         if (collider.gameObject.name.Equals("MC Prefab") && pickedUp == false)
         {
             bool wasPickedUp = false;
-            if(item.amount < 5){
-                wasPickedUp = Inventory.instance.Add(Instantiate(item)); //Returns true if the player can add item to the inventroy
-            }
+            
+            wasPickedUp = Inventory.instance.Add(Instantiate(item)); //Returns true if the player can add item to the inventroy
             
             if (wasPickedUp)
             {
