@@ -26,7 +26,7 @@ public class Inventory : MonoBehaviour
     public OnItemChanged onItemChangedCallback;
 
    //The amount of items that can be carried in the inventory
-    public int space = 20;
+    public int space = 5;
 
     //The actual List of inventory items
     public List<Item> items = new List<Item>();

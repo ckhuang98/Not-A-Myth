@@ -33,4 +33,9 @@ public class Slash : MonoBehaviour
         Debug.Log("touched");
     }
     */
+    // private void OnTriggerEnter2D(Collider2D other) {
+    //     if(other.CompareTag("Player")){
+    //         GameMaster.instance.combatManager.player.TakeDamage(15);
+    //     }
+    // }
 }

@@ -7,6 +7,8 @@ public class ParticleAttack : MonoBehaviour
      ParticleSystem ps;
      private GameObject pc;
      PlayerController player;
+     
+     private GameObject boss;
 
     // these lists are used to contain the particles which match
     // the trigger conditions each frame.
@@ -18,6 +20,7 @@ public class ParticleAttack : MonoBehaviour
         ps = GetComponent<ParticleSystem>();
         pc = GameObject.FindGameObjectWithTag("Player");
         player = pc.GetComponent<PlayerController>();
+        boss = GameObject.FindGameObjectWithTag("Boss");
     }
 
     void OnParticleTrigger()
@@ -30,7 +33,11 @@ public class ParticleAttack : MonoBehaviour
             //ParticleSystem.Particle p = enter[i];
             //p.startColor = new Color32(255, 0, 0, 255);
             //enter[i] = p;
-            player.TakeDamage(10);
+            if(!player.isInvincible){
+                player.TakeDamage(10);
+                player.StartCoroutine(player.HammerKnockBack(0.5f, 1.5f, boss.transform));
+            }
+            
         }
 
         // re-assign the modified particles back into the particle system

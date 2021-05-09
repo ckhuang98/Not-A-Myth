@@ -40,6 +40,8 @@ public class GameMaster : MonoBehaviour
     public CombatManager combatManager;
     public GameObject player;
 
+    public GameObject boss;
+
     
     private int skillPoints = 0;
     private int numOfShards = 0;
@@ -83,6 +85,8 @@ public class GameMaster : MonoBehaviour
         if(player != null){
             combatManager.player = player.GetComponent<PlayerController>();
         }
+
+
         
         OnSceneLoad?.Invoke();
     }
@@ -207,8 +211,9 @@ public class GameMaster : MonoBehaviour
     //Get necessary references to objects in the scene
     void assignReferences()
     {
-        Debug.Log("Assigned Ref");
+        //Debug.Log("Assigned Ref");
         player = GameObject.FindGameObjectWithTag("Player");
+        boss = GameObject.FindGameObjectWithTag("Boss");
     }
 
     public GameObject getPlayer()

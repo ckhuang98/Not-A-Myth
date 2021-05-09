@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour {
 
     private PlayerAudioManager playerAudioManager;
 
-    private bool isInvincible = false;
+    public bool isInvincible = false;
 
     private SpriteRenderer playerSprite;
 
@@ -495,11 +495,17 @@ public class PlayerController : MonoBehaviour {
                 }
             } 
 
-            // If player collides with boss slash attack, 15 damage
-            if (withinAggroColliders.CompareTag("Boss Slash")) { TakeDamage(15); }
+            // // If player collides with boss slash attack, 15 damage
+            if (withinAggroColliders.CompareTag("Boss Slash") && !isInvincible) { 
+                TakeDamage(15);
+                StartCoroutine(HammerKnockBack(0.51f, 1.5f, GameMaster.instance.boss.transform));
+            }
 
-            // If the player collides with boss shockwave attack, 10 damage
-            if (withinAggroColliders.CompareTag("Shockwave")) { TakeDamage(10); }
+            // // If the player collides with boss shockwave attack, 10 damage
+            if (withinAggroColliders.CompareTag("Shockwave") && !isInvincible) { 
+                TakeDamage(10); 
+                StartCoroutine(HammerKnockBack(0.5f, 1.5f, GameMaster.instance.boss.transform));
+            }
 
             if (withinAggroColliders.CompareTag("Fireball")) { TakeDamage(10); }
 
