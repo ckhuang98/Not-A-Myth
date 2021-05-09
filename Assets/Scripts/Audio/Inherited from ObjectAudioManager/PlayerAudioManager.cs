@@ -3,11 +3,11 @@
 public class PlayerAudioManager : ObjectAudioManager
 {
     public void playFootstepSFX(){
-        PlayRandomSoundInGroup("footsteps");
+        PlayRandomPlayerSoundInGroup("footsteps");
     }
     public void playSlashSFX()
     {
-        PlayRandomSoundInGroup("slashes");
+        PlayRandomPlayerSoundInGroup("slashes");
     }
     public void playHurtSFX()
     {
