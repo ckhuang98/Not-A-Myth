@@ -126,9 +126,11 @@ public class PlayerController : MonoBehaviour {
         // test take damage
         if (Input.GetKeyDown(KeyCode.G))
 		{
-            TakeDamage(20);
             GameMaster.instance.loadScene();
 		}
+        if (Input.GetKeyDown(KeyCode.H)){
+            TakeDamage(25);
+        }
 
         //magnet.transform.position = new Vector2(transform.position.x, transform.position.y);
 
@@ -263,6 +265,9 @@ public class PlayerController : MonoBehaviour {
     private void handleDash(){
         rb.velocity = lastMoveDirection.normalized * dashSpeed;
         dashSpeed -= dashSpeed * stats.maxSpeed.Value * Time.deltaTime;
+        if(stats.unlockedDashMovement.Value){
+            movementManager();
+        }
         if(dashSpeed < 3f){
             canDash = false;
             StartCoroutine(DashTimer());
@@ -280,7 +285,7 @@ public class PlayerController : MonoBehaviour {
 
     private IEnumerator DashTimer()
      {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(stats.dashCooldown.Value);
         canDash = true;
      }
 
@@ -296,7 +301,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     //restore current health
-    public void restoreHealth(int restoreHealthBy = 10)
+    public void restoreHealth(float restoreHealthBy)
     {
         stats.currentHealth.Value = Math.Min(stats.currentHealth.Value + restoreHealthBy, stats.maxHealth.Value);
         // healthBar.SetValue(currentHealth);

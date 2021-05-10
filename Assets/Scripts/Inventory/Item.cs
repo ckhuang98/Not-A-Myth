@@ -61,7 +61,7 @@ public class Item : ScriptableObject
                 break;
 
             case "Health Plant":
-                player.GetComponent<PlayerController>().restoreHealth(this.restoreHealth);
+                player.GetComponent<PlayerController>().restoreHealth(GameMaster.instance.playerStats.healAmount.Value);
                 Inventory.instance.Remove(this);
                 break;
         }

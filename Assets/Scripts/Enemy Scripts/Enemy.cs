@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour
     public float timer = 0;
 
     public GameObject shard;
+
+    public GameObject plant;
     //Area of Effect
     public GameObject AOE;
     public GameObject AOEWarning;
@@ -262,6 +264,15 @@ public class Enemy : MonoBehaviour
         //}
     }
 
+    void spawnPlant(){
+        if(UnityEngine.Random.value > .66){
+            GameObject go = (GameObject)Instantiate(plant);
+            Vector3 temp = this.transform.position;
+            temp.y += 1f;
+            go.transform.position = temp;
+        }
+    }
+
     void isDead(bool gameOver){
         if (!gameOver) { 
             if (healthAmount <= 0)
@@ -272,6 +283,9 @@ public class Enemy : MonoBehaviour
                 enemyAmount -= 1;
                 GameMaster.instance.numOfEnemies -= 1;
                 spawnShard();
+                if(GameMaster.instance.playerStats.unlockedPlantDrop.Value){
+                    spawnPlant();
+                }
             }
             timer += Time.deltaTime; // Temporary
         }
