@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour {
             GameMaster.instance.loadScene();
 		}
 
-        magnet.transform.position = new Vector2(transform.position.x, transform.position.y);
+        //magnet.transform.position = new Vector2(transform.position.x, transform.position.y);
 
         if (!gameMaster.getGameOver() && Time.timeScale == 1) {
 
