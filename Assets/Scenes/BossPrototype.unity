@@ -3221,7 +3221,7 @@ PrefabInstance:
     - target: {fileID: 8887195380250220360, guid: 7aaa8d7b05ae8de4492656f887f3fff0,
         type: 3}
       propertyPath: space
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8887195380250220361, guid: 7aaa8d7b05ae8de4492656f887f3fff0,
         type: 3}
@@ -5377,6 +5377,16 @@ PrefabInstance:
       propertyPath: TriggerModule.collisionShape0
       value: 
       objectReference: {fileID: 1434600838}
+    - target: {fileID: 99655992013598280, guid: aaadc96c7c30a07438a1b9f8fe8f9c47,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 99655992013598283, guid: aaadc96c7c30a07438a1b9f8fe8f9c47,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5294693593410340259, guid: aaadc96c7c30a07438a1b9f8fe8f9c47,
         type: 3}
       propertyPath: m_RootOrder
@@ -5390,7 +5400,7 @@ PrefabInstance:
     - target: {fileID: 5294693593410340259, guid: aaadc96c7c30a07438a1b9f8fe8f9c47,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.17
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 5294693593410340259, guid: aaadc96c7c30a07438a1b9f8fe8f9c47,
         type: 3}

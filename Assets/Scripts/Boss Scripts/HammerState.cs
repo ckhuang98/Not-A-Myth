@@ -64,7 +64,7 @@ public class HammerState : BaseState
             GameObject.Destroy(FCA.gameObject);
             em.enabled = false;
             isCreated = false;
-            timer = 5.0f;
+            timer = 1.25f;
             return typeof(IdleState);
         }
         return typeof(HammerState);

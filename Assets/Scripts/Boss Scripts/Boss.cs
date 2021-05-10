@@ -67,7 +67,7 @@ public class Boss : MonoBehaviour
         GameMaster.instance.playerStats.inBossFight.Value = true;
         
         if(fireCone.isPaused){
-            Debug.Log("Paused Particle sys");
+            //Debug.Log("Paused Particle sys");
             fireCone.Pause();
         }
 
@@ -169,21 +169,23 @@ public class Boss : MonoBehaviour
 
     private IEnumerator animationHandler(int num){
             if(num == 1){
-                if (target.position.x > -3 && target.position.x < 3) { // Center
-                    animator.SetTrigger("ConeCenter");
-                } else if (target.position.x >= 3 && target.position.x < 9) { // Right
-                    animator.SetTrigger("ConeRight");
-                } else if (target.position.x > -9 && target.position.x <=-3) { // Left
-                    animator.SetTrigger("ConeLeft");
-                }
+                // if (target.position.x > -3 && target.position.x < 3) { // Center
+                //     animator.SetTrigger("ConeCenter");
+                // } else if (target.position.x >= 3 && target.position.x < 9) { // Right
+                //     animator.SetTrigger("ConeRight");
+                // } else if (target.position.x > -9 && target.position.x <=-3) { // Left
+                //     animator.SetTrigger("ConeLeft");
+                // }
+                animator.SetTrigger("ConeCenter");
             } else if(num == 2){ 
-                if (target.position.x > -3 && target.position.x < 3) { // Center
-                    animator.SetTrigger("SlashCenter");
-                } else if (target.position.x >= 3 && target.position.x < 9) { // Right
-                    animator.SetTrigger("SlashRight");
-                } else if (target.position.x > -9 && target.position.x <=-3) { // Left
-                    animator.SetTrigger("SlashLeft");
-                }
+                // if (target.position.x > -3 && target.position.x < 3) { // Center
+                //     animator.SetTrigger("SlashCenter");
+                // } else if (target.position.x >= 3 && target.position.x < 9) { // Right
+                //     animator.SetTrigger("SlashRight");
+                // } else if (target.position.x > -9 && target.position.x <=-3) { // Left
+                //     animator.SetTrigger("SlashLeft");
+                // }
+                animator.SetTrigger("SlashCenter");
             } else if(num == 3){
                 animator.SetTrigger("Shockwave");
             }
@@ -216,4 +218,16 @@ public class Boss : MonoBehaviour
         //targetLastPos = "Left";
     }
     /*******************************************************/
+
+    public void moveUp(){
+        Vector3 temp = transform.position;
+        temp.y += 0.125f;
+        transform.position = temp;
+    }
+
+    public void moveDown(){
+        Vector3 temp = transform.position;
+        temp.y -= 0.125f;
+        transform.position = temp;
+    }
 }
