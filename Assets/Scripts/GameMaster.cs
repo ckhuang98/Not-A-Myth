@@ -168,8 +168,8 @@ public class GameMaster : MonoBehaviour
     }
 
     public void gainMoreKnockback(){
-        playerStats.freezeDuration.Value = 0.12f;
-        playerStats.knockBackForce.Value = 1000f;
+        // playerStats.freezeDuration.Value = 0.12f;
+        playerStats.knockBackForce.Value = 1500f;
     }
 
     public void gainHealth(){
