@@ -1121,6 +1121,7 @@ GameObject:
   - component: {fileID: 552630128}
   - component: {fileID: 552630127}
   - component: {fileID: 552630126}
+  - component: {fileID: 717569603}
   m_Layer: 5
   m_Name: Button_Inventory
   m_TagString: MainMenu_Instructions
@@ -1250,6 +1251,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2666250989214459104}
+        m_MethodName: playMenuSound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: menuSelect
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &717569603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552630124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2666250989214459104}
+          m_MethodName: playMenuSound
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: pointerEnterButton
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &554552953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,6 +1302,7 @@ GameObject:
   - component: {fileID: 554552957}
   - component: {fileID: 554552956}
   - component: {fileID: 554552955}
+  - component: {fileID: 390633387}
   m_Layer: 5
   m_Name: Skill_Tree_Button
   m_TagString: MainMenu_Instructions
@@ -1402,6 +1443,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2666250989214459104}
+        m_MethodName: playMenuSound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: menuSelect
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &390633387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554552953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2666250989214459104}
+          m_MethodName: playMenuSound
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: pointerEnterButton
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &568151823
 GameObject:
   m_ObjectHideFlags: 0
@@ -2330,6 +2410,7 @@ GameObject:
   - component: {fileID: 817462655}
   - component: {fileID: 817462654}
   - component: {fileID: 817462653}
+  - component: {fileID: 1314232085}
   m_Layer: 5
   m_Name: Button_Controls
   m_TagString: Untagged
@@ -2459,6 +2540,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2666250989214459104}
+        m_MethodName: playMenuSound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: menuSelect
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1314232085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817462651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2666250989214459104}
+          m_MethodName: playMenuSound
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: pointerEnterButton
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &905015124
 GameObject:
   m_ObjectHideFlags: 0
@@ -4849,6 +4969,7 @@ GameObject:
   - component: {fileID: 1901745544}
   - component: {fileID: 1901745543}
   - component: {fileID: 1901745542}
+  - component: {fileID: 236838542}
   m_Layer: 5
   m_Name: Main_Menu_Button
   m_TagString: MainMenu_Instructions
@@ -4967,6 +5088,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2666250989214459104}
+        m_MethodName: playMenuSound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: menuSelect
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &236838542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901745540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2666250989214459104}
+          m_MethodName: playMenuSound
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: pointerEnterButton
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1916406738
 GameObject:
   m_ObjectHideFlags: 0
@@ -5602,6 +5762,7 @@ GameObject:
   - component: {fileID: 290801533072576757}
   - component: {fileID: 290801533072576756}
   - component: {fileID: 290801533072576747}
+  - component: {fileID: 1812211027}
   m_Layer: 5
   m_Name: Button_Resume
   m_TagString: Untagged
@@ -5720,6 +5881,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2666250989214459104}
+        m_MethodName: playMenuSound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: menuSelect
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1812211027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290801533072576745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2666250989214459104}
+          m_MethodName: playMenuSound
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: pointerEnterButton
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &290801533114595130
 GameObject:
   m_ObjectHideFlags: 0
@@ -5810,6 +6010,7 @@ GameObject:
   - component: {fileID: 290801533379162466}
   - component: {fileID: 290801533379162465}
   - component: {fileID: 290801533379162464}
+  - component: {fileID: 1194783170}
   m_Layer: 5
   m_Name: Button_Exit
   m_TagString: Untagged
@@ -5928,6 +6129,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2666250989214459104}
+        m_MethodName: playMenuSound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: menuSelect
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1194783170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290801533379162470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2666250989214459104}
+          m_MethodName: playMenuSound
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: pointerEnterButton
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &290801533397881156
 GameObject:
   m_ObjectHideFlags: 0
@@ -6020,6 +6260,7 @@ GameObject:
   - component: {fileID: 290801533937406122}
   - component: {fileID: 2666250989214459104}
   - component: {fileID: 428609063}
+  - component: {fileID: 1285750115}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -6143,6 +6384,7 @@ MonoBehaviour:
   playerHpBar: {fileID: 367596753}
   playerXpBar: {fileID: 7053008599876281335}
   menuBackground: {fileID: 6236146934464503680}
+  oam: {fileID: 1285750115}
 --- !u!114 &428609063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6158,6 +6400,66 @@ MonoBehaviour:
   itemsParent: {fileID: 1577710982}
   inventoryUI: {fileID: 1757119509}
   hotbarParent: {fileID: 539808888}
+--- !u!114 &1285750115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290801533937406121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f022c857e6ec6ac4eb85d0a451860390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: "The Object Audio Manager is for sounds emitted from objects in the
+    scene (the player, enemies, environment, etc.)\r\n    \r\n    Properties:\r\n   
+    Audio Mixer: Should be set to SoundMixer\r\n    Play Group On Start: The name
+    of the group that will be played on Start\r\n    Volume: Volume of the clips
+    in the group. Can be overridden by the individual groups.\r\n            Value
+    0 - 1. NOT THE SAME AS THE MIXER'S VOLUME.\r\n    Spread: How the audio is balanced
+    in stereo. 180 is perfectly balanced.\r\n    AudioRolloffMode: How the audio
+    fades as the source gets further away\r\n    Min Distance: The minimum distance
+    from the source for the sound to be at full loudness\r\n    Max Distance: THe
+    maximum distance from which the source can still be heard\r\n    Sound Groups:
+    Array of SoundGroups which hold the different Sounds\r\n                  ex.
+    the 'footsteps' SoundGroup can hold all the footstep Sounds"
+  audioMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  audioMixerGroup: {fileID: -7469457441268515264, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+    type: 2}
+  spacialBlend: 0
+  playGroupOnStart: 
+  volume: 1
+  spread: 180
+  rolloffMode: 0
+  minDistance: 3
+  maxDistance: 10
+  isPlayerSfx: 0
+  soundGroups:
+  - name: buttons
+    ignorePause: 1
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: pointerEnterButton
+      clip: {fileID: 8300000, guid: c978e1f3e1aba9f4e8bdd3608d4e7f7e, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: menuSelect
+      clip: {fileID: 8300000, guid: 29484ec4a9619b740a8d9217a2b32bdc, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: menuNoise
+      clip: {fileID: 8300000, guid: 6b322c2e1a01e53498806500de04e298, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
 --- !u!1 &290801534010950686
 GameObject:
   m_ObjectHideFlags: 0
@@ -7863,6 +8165,7 @@ GameObject:
   - component: {fileID: 72766785355578630}
   - component: {fileID: 3413224744432389099}
   - component: {fileID: 4271921161921583883}
+  - component: {fileID: 159885925}
   m_Layer: 5
   m_Name: Button_Restart
   m_TagString: Untagged
@@ -7981,6 +8284,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2666250989214459104}
+        m_MethodName: playMenuSound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: menuSelect
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &159885925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2208908280765756340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2666250989214459104}
+          m_MethodName: playMenuSound
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: pointerEnterButton
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2307310650967493313
 GameObject:
   m_ObjectHideFlags: 0
@@ -11893,6 +12235,7 @@ GameObject:
   - component: {fileID: 690025199824027272}
   - component: {fileID: 1963356120172967552}
   - component: {fileID: 4381154037314417933}
+  - component: {fileID: 1390729160}
   m_Layer: 5
   m_Name: Button_Dev
   m_TagString: MainMenu_Instructions
@@ -12033,6 +12376,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1390729160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386347883321202391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2666250989214459104}
+          m_MethodName: playMenuSound
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: pointerEnterButton
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7745061351916899309
 GameObject:
   m_ObjectHideFlags: 0

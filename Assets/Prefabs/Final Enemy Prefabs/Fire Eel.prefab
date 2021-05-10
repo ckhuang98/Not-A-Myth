@@ -5575,6 +5575,7 @@ MonoBehaviour:
   rolloffMode: 1
   minDistance: 2
   maxDistance: 9
+  isPlayerSfx: 0
   soundGroups:
   - name: attacks
     ignorePause: 0
@@ -5631,11 +5632,6 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: 
       clip: {fileID: 8300000, guid: 61f97c45e53b84f4aa78f8d230e8d3e9, type: 3}
-      index: 0
-      length: 0
-      source: {fileID: 0}
-    - name: 
-      clip: {fileID: 8300000, guid: 2b1760f4c2c867b4a9f65d3240e12885, type: 3}
       index: 0
       length: 0
       source: {fileID: 0}

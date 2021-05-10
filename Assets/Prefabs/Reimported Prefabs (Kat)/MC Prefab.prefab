@@ -766,6 +766,7 @@ MonoBehaviour:
   canDashTwice: 0
   slashCollider: {fileID: 561858605}
   dashBox: {fileID: 89815224}
+  magnet: {fileID: 0}
 --- !u!81 &4869283209196162237
 AudioListener:
   m_ObjectHideFlags: 0
@@ -801,6 +802,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
   audioMixerGroup: {fileID: 7685793082683988513, guid: 0652cb0a1baf2164ea5b6391384a55b5,
     type: 2}
+  spacialBlend: 1
   playGroupOnStart: 
   volume: 0.5
   spread: 150
@@ -811,8 +813,8 @@ MonoBehaviour:
   soundGroups:
   - name: footsteps
     ignorePause: 0
-    overrideVolume: 0
-    volume: 0
+    overrideVolume: 1
+    volume: 0.3
     loopingClip: 
     overrideDistances: 0
     minDistance: 0
@@ -851,7 +853,7 @@ MonoBehaviour:
   - name: hurt
     ignorePause: 0
     overrideVolume: 1
-    volume: 0.3
+    volume: 0.15
     loopingClip: 
     overrideDistances: 0
     minDistance: 0
@@ -899,8 +901,8 @@ MonoBehaviour:
       source: {fileID: 0}
   - name: sizzle
     ignorePause: 0
-    overrideVolume: 0
-    volume: 0
+    overrideVolume: 1
+    volume: 0.15
     loopingClip: 
     overrideDistances: 0
     minDistance: 0

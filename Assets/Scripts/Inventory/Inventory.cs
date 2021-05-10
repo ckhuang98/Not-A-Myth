@@ -21,6 +21,9 @@ public class Inventory : MonoBehaviour
 
     }
 
+    [SerializeField]
+    private ObjectAudioManager oam;
+
     //delegate called for calling subscibed methods when inventory is updated
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
@@ -47,7 +50,8 @@ public class Inventory : MonoBehaviour
             foreach(Item i in items)
             {
                 if (i.Equals(item) && i.amount < i.stackSize)
-                {
+                {   
+                    oam.PlayRandomSoundInGroup("nab", true);
                     i.amount++;
                     itemFound = true;
                     break;
@@ -56,14 +60,12 @@ public class Inventory : MonoBehaviour
 
             if (itemFound == false)
             {
+                oam.PlayRandomSoundInGroup("nab", true);
                 item.amount = 1;
                 items.Add(item);
             }
 
-            if (onItemChangedCallback != null)
-            {
-                onItemChangedCallback.Invoke();
-            }
+            onItemChangedCallback?.Invoke();
         }
 
         return true;
@@ -73,23 +75,18 @@ public class Inventory : MonoBehaviour
     public void Remove (Item item)
     {
         item.amount--;
+        oam.PlayRandomSoundInGroup("nom", true);
         if (item.amount <= 0)
         {
             items.Remove(item);
         }
 
-        if (onItemChangedCallback != null)
-        {
-            onItemChangedCallback.Invoke();
-        }
+        onItemChangedCallback?.Invoke();
     }
 
     public void Delete (Item item)
     {
         items.Remove(item);
-        if (onItemChangedCallback != null)
-        {
-            onItemChangedCallback.Invoke();
-        }
+        onItemChangedCallback?.Invoke();
     }
 }

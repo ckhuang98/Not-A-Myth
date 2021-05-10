@@ -52,13 +52,15 @@ MonoBehaviour:
     can hold all the object's footstep Sounds\r\n\r\n    Sounds each have a name
     and an associated AudioClip"
   audioMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
-  audioMixerGroup: {fileID: 0}
+  audioMixerGroup: {fileID: 999436064050034201, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+    type: 2}
   playGroupOnStart: 
   volume: 0.3
   spread: 150
   rolloffMode: 0
   minDistance: 3
   maxDistance: 10
+  isPlayerSfx: 0
   soundGroups:
   - name: death
     ignorePause: 0

@@ -60,6 +60,7 @@ MonoBehaviour:
   rolloffMode: 0
   minDistance: 3
   maxDistance: 7
+  isPlayerSfx: 0
   soundGroups:
   - name: death
     ignorePause: 0
@@ -82,6 +83,50 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: 3
       clip: {fileID: 8300000, guid: e593db0c403b1c24390c60d4e76c638c, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+  - name: hurt
+    ignorePause: 0
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: fbebfcbfb997c26438c129a7264b28fb, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 2
+      clip: {fileID: 8300000, guid: 12ff52fc043496c438d9c958578ce9c7, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 3
+      clip: {fileID: 8300000, guid: 5e1936259ed8d384a93120f2f3c959d0, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 4
+      clip: {fileID: 8300000, guid: 61f97c45e53b84f4aa78f8d230e8d3e9, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 5
+      clip: {fileID: 8300000, guid: 911fc43a3f752de4e8e1c7341d126624, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 6
+      clip: {fileID: 8300000, guid: f580930be5e102b44822483ae558ec15, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 7
+      clip: {fileID: 8300000, guid: cbcf344bc3dcde84f96067e3fcfc0e8e, type: 3}
       index: 0
       length: 0
       source: {fileID: 0}

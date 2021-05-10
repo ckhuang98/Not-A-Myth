@@ -691,6 +691,7 @@ MonoBehaviour:
   rolloffMode: 1
   minDistance: 3
   maxDistance: 9
+  isPlayerSfx: 0
   soundGroups:
   - name: footsteps
     ignorePause: 0
@@ -728,8 +729,8 @@ MonoBehaviour:
       source: {fileID: 0}
   - name: swordSwings
     ignorePause: 0
-    overrideVolume: 0
-    volume: 0
+    overrideVolume: 1
+    volume: 0.5
     loopingClip: 
     overrideDistances: 0
     minDistance: 0
