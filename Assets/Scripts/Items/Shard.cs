@@ -34,7 +34,7 @@ public class Shard : MonoBehaviour
             direction = -(transform.position - player.transform.position).normalized;
             rb.velocity = new Vector2(direction.x, direction.y) * 20f * (Time.deltaTime / timeStamp);
         } else{
-            position.y = position.y + 0.0005f * Mathf.Sin(speed * Time.time);
+            position.y = position.y + 0.001f * Mathf.Sin(speed * Time.time);
             transform.position = position;
         }
     }

@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 84014815}
   - component: {fileID: 84014814}
   m_Layer: 5
-  m_Name: Increase Max Health Button 3
+  m_Name: Add Plant Drop Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,7 +258,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1664965573}
-        m_MethodName: increaseTotalHealth
+        m_MethodName: increaseHealth
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 84014816}
@@ -1497,7 +1497,7 @@ GameObject:
   - component: {fileID: 568151826}
   - component: {fileID: 568151825}
   m_Layer: 5
-  m_Name: Increase Max Health Button 2
+  m_Name: Increase Heal Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1574,7 +1574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxUses: 1
   currentUses: 0
-  skillDescription: Increase Total Health
+  skillDescription: Increase Heal Amount From Plants
   highlight: {fileID: 5402549314225174321}
 --- !u!114 &568151826
 MonoBehaviour:
@@ -1620,7 +1620,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1664965573}
-        m_MethodName: increaseTotalHealth
+        m_MethodName: increaseHealth
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 568151827}
@@ -2053,7 +2053,7 @@ GameObject:
   - component: {fileID: 607791229}
   - component: {fileID: 607791228}
   m_Layer: 5
-  m_Name: Increase Max Speed Button 1
+  m_Name: Increase Walk Speed Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2130,7 +2130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxUses: 1
   currentUses: 0
-  skillDescription: Increase Speed
+  skillDescription: Increase Walk Speed
   highlight: {fileID: 7550285473386936841}
 --- !u!114 &607791229
 MonoBehaviour:
@@ -2858,7 +2858,7 @@ GameObject:
   - component: {fileID: 1011848417}
   - component: {fileID: 1011848416}
   m_Layer: 5
-  m_Name: Increase Max Speed Button 2
+  m_Name: Increase Dash Rate Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2935,7 +2935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxUses: 1
   currentUses: 0
-  skillDescription: Increase Speed
+  skillDescription: Dash Cooldown is reduced
   highlight: {fileID: 3969328824844598592}
 --- !u!114 &1011848417
 MonoBehaviour:
@@ -3262,7 +3262,7 @@ GameObject:
   - component: {fileID: 1102149338}
   - component: {fileID: 1102149337}
   m_Layer: 5
-  m_Name: Increase Max Strength Button 2
+  m_Name: Increase Attack Range Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3339,7 +3339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxUses: 1
   currentUses: 0
-  skillDescription: Increase Strength
+  skillDescription: Increase Weapon Range
   highlight: {fileID: 8105979438871835143}
 --- !u!114 &1102149338
 MonoBehaviour:
@@ -3538,7 +3538,7 @@ GameObject:
   - component: {fileID: 1269432551}
   - component: {fileID: 1269432550}
   m_Layer: 5
-  m_Name: Increase Max Speed Button 3
+  m_Name: Increase Dash Control Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3615,7 +3615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxUses: 1
   currentUses: 0
-  skillDescription: Increase Speed
+  skillDescription: Unlock Movement During Dash
   highlight: {fileID: 1005111618308581374}
 --- !u!114 &1269432551
 MonoBehaviour:
@@ -3818,7 +3818,7 @@ GameObject:
   - component: {fileID: 1352145005}
   - component: {fileID: 1352145004}
   m_Layer: 5
-  m_Name: Increase Max Strength Button 1
+  m_Name: Increase Max Strength Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4770,7 +4770,7 @@ GameObject:
   - component: {fileID: 1859485567}
   - component: {fileID: 1859485564}
   m_Layer: 5
-  m_Name: Increase Max Health Button 1
+  m_Name: Increase Max Health Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4893,7 +4893,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1664965573}
-        m_MethodName: increaseTotalHealth
+        m_MethodName: increaseHealth
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1859485568}
@@ -7892,7 +7892,7 @@ GameObject:
   - component: {fileID: 7643033820925892119}
   - component: {fileID: 8897154081321959735}
   m_Layer: 5
-  m_Name: Increase Max Strength Button 3
+  m_Name: Increase Stun&Knockback Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7969,7 +7969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxUses: 1
   currentUses: 0
-  skillDescription: Increase Strength
+  skillDescription: Increase Stun & Knockback
   highlight: {fileID: 3471397058086229258}
 --- !u!114 &7643033820925892119
 MonoBehaviour:
