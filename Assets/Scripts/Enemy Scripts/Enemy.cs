@@ -428,7 +428,12 @@ public class Enemy : MonoBehaviour
         Vector3 pos = this.gameObject.transform.position;
         GameObject soundSource = Instantiate(deathSFXObject, pos, Quaternion.identity);
         Sound sound = soundSource.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("death");
-        Destroy(soundSource, sound.source.clip.length);
+        if (this.tag == "Fire Eel"){
+            Sound soundHurt = soundSource.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("hurt");
+            Destroy(soundSource, Math.Max(sound.source.clip.length, soundHurt.source.clip.length));
+        }else {
+            Destroy(soundSource, sound.source.clip.length);
+        }
 
     }
 

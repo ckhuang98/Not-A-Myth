@@ -3,7 +3,31 @@ guid: a82fed81b176f4f4e8fa09ffdd17c70f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - currentHealth: {fileID: 11400000, guid: 72a378abc2b21a349a440606ec646bf0, type: 2}
+  - maxHealth: {fileID: 11400000, guid: 7abf97d8bd7ddbe46bf9a3fbffa1db06, type: 2}
+  - currentXp: {fileID: 11400000, guid: 9eb4267a42bc4324bbef3bcbf4882d1b, type: 2}
+  - skillPoints: {fileID: 11400000, guid: 20d45668473cbd34db86aa9dc4757580, type: 2}
+  - attackPower: {fileID: 11400000, guid: 43c6bd8324ebc2444a07fe7c1a992205, type: 2}
+  - speed: {fileID: 11400000, guid: f0e5b1bf2090f9c4d8bdda3e62532f76, type: 2}
+  - maxSpeed: {fileID: 11400000, guid: 6d3cd4c02f1a3d241819ddc2675f92c6, type: 2}
+  - sprintSpeed: {instanceID: 0}
+  - dashSpeed: {instanceID: 0}
+  - knockBackForce: {instanceID: 0}
+  - cameraOffsetX: {instanceID: 0}
+  - cameraOffsetY: {instanceID: 0}
+  - unlockedDoubleDash: {instanceID: 0}
+  - unlockedHealthDash: {instanceID: 0}
+  - unlockedRegen: {instanceID: 0}
+  - unlockedDashAttack: {instanceID: 0}
+  - unlockedAttackRegen: {instanceID: 0}
+  - unlockedGroundSmash: {instanceID: 0}
+  - inCombat: {instanceID: 0}
+  - attackRegenHit: {instanceID: 0}
+  - inBossFight: {instanceID: 0}
+  - isAttacking: {instanceID: 0}
+  - toggleMovement: {instanceID: 0}
+  - keys: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

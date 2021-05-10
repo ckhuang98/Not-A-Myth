@@ -97,6 +97,9 @@ public class AudioManager : MonoBehaviour
     private void OnGameOver(bool win)
 	{
         Debug.Log("AudioManager: OnGameOver");
+        StopAll();
+        string clipToPlay = win ? "Game Victory Music" : "Game Over Music";
+        PlaySoundInGroup(clipToPlay, clipToPlay);
         // StartCoroutine(FadeMixerGroup.StartFade(audioMixer, "volumeMusic", 1.0f, 0.0f));
         // EndLoop("Overworld Music");
 	}

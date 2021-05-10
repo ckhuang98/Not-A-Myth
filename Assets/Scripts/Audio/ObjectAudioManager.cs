@@ -24,6 +24,8 @@ public class ObjectAudioManager : MonoBehaviour
     public AudioMixer audioMixer;
     public AudioMixerGroup audioMixerGroup;
 
+    public bool spacialBlend = true;
+
     [Tooltip("Name of group to play on Start")]
     public string playGroupOnStart;
 
@@ -90,8 +92,10 @@ public class ObjectAudioManager : MonoBehaviour
 
                 s.length = s.source.clip.samples / s.source.clip.frequency;
 
-                s.source.spatialBlend = 1.0f;
+                s.source.spatialBlend = spacialBlend ? 1.0f: 0.0f;
                 s.source.spread = spread;
+
+                s.source.ignoreListenerPause = sg.ignorePause;
 
                 s.source.minDistance = sg.overrideDistances ? sg.minDistance : minDistance;
                 s.source.maxDistance = sg.overrideDistances ? sg.maxDistance : maxDistance;
@@ -215,9 +219,15 @@ public class ObjectAudioManager : MonoBehaviour
         return delayList;
     }
 
-    public Sound Play(Sound s)
+    public Sound Play(Sound s, bool alterPitch = false)
     {
         if (s == null) return null;
+
+        if (alterPitch){
+            s.source.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+        } else {
+            s.source.pitch = 1.0f;
+        }
 
         s.source.Play();
 
@@ -308,18 +318,18 @@ public class ObjectAudioManager : MonoBehaviour
     }
 
     // Purpose: Play a random sound in a sound group
-    public Sound PlayRandomSoundInGroup(string name)
+    public Sound PlayRandomSoundInGroup(string name, bool alterPitch = false)
     {
-        return PlayRandomSoundInGroup(FindSoundGroup(name));
+        return PlayRandomSoundInGroup(FindSoundGroup(name), alterPitch);
     }
 
-    public Sound PlayRandomSoundInGroup(ObjectSoundGroup sg)
+    public Sound PlayRandomSoundInGroup(ObjectSoundGroup sg, bool alterPitch = false)
     {
         if (sg == null || sg.sounds.Length == 0) return null;
 
         Sound randomSound = sg.sounds[UnityEngine.Random.Range(0, sg.sounds.Length)];
 
-        Play(randomSound);
+        Play(randomSound, alterPitch);
 
         return randomSound;
     }

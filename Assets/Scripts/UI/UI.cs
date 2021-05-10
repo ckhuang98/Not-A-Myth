@@ -51,6 +51,9 @@ public class UI : MonoBehaviour
     [SerializeField]
     public GameObject menuBackground;
 
+    [SerializeField]
+    private ObjectAudioManager oam;
+
 
     private string sceneName;
 
@@ -204,4 +207,8 @@ public class UI : MonoBehaviour
         playerUpdates.GetComponent<Text>().text = "";
     }
 
+    public void playMenuSound(string name){
+        Debug.Log(name);
+        oam.PlaySoundInGroup("buttons", name);
+    }
 }

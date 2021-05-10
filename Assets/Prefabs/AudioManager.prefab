@@ -92,3 +92,25 @@ MonoBehaviour:
       index: 1
       length: 21
       source: {fileID: 0}
+  - name: Game Over Music
+    group: {fileID: 1948652533155611144, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+    ignorePause: 1
+    volume: 0.4
+    loopingClip: 
+    sounds:
+    - name: Game Over Music
+      clip: {fileID: 8300000, guid: ba8f2b9d0db6829478897efd3426fe17, type: 3}
+      index: 0
+      length: 76
+      source: {fileID: 0}
+  - name: Game Victory Music
+    group: {fileID: 1948652533155611144, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+    ignorePause: 1
+    volume: 0.4
+    loopingClip: 
+    sounds:
+    - name: Game Victory Music
+      clip: {fileID: 8300000, guid: cb65c527aa3765b44a03a19fdff68f47, type: 3}
+      index: 0
+      length: 76
+      source: {fileID: 0}
