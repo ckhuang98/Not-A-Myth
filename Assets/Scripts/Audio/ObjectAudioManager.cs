@@ -234,6 +234,15 @@ public class ObjectAudioManager : MonoBehaviour
         return s;
     }
 
+    public Sound PlayPlayerSound (Sound s)
+	{
+        if (s == null) return null;
+        s.source.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+        s.source.Play();
+
+        return s;
+	}
+
     // Purpose: Begin playing a sound group with given name
     // Will play all the sounds in a group in a row
     // If there is a sound in the group set to loop, it will begin to loop and will NOT play the following sounds
@@ -324,6 +333,21 @@ public class ObjectAudioManager : MonoBehaviour
 
         return randomSound;
     }
+    public Sound PlayRandomPlayerSoundInGroup(string name)
+    {
+        return PlayRandomPlayerSoundInGroup(FindSoundGroup(name));
+    }
+
+    public Sound PlayRandomPlayerSoundInGroup(ObjectSoundGroup sg)
+	{
+        if (sg == null || sg.sounds.Length == 0) return null;
+
+        Sound randomSound = sg.sounds[UnityEngine.Random.Range(0, sg.sounds.Length)];
+
+        PlayPlayerSound(randomSound);
+
+        return randomSound;
+	}
 
     public Sound PlaySoundInGroup(string sgName, string sName)
     {

@@ -13,6 +13,7 @@ public class Freezer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        duration = GameMaster.instance.playerStats.freezeDuration.Value;
         if(pendingFreezeDuration > 0 && !isFrozen){
             StartCoroutine(DoFreeze());
             Debug.Log("Froze");

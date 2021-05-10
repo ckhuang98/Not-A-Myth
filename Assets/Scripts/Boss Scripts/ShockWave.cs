@@ -44,4 +44,10 @@ public class ShockWave : MonoBehaviour
         }
         Destroy(this.gameObject);
     }
+
+    // private void OnTriggerEnter2D(Collider2D other) {
+    //     if(other.CompareTag("Player")){
+    //         GameMaster.instance.combatManager.player.TakeDamage(10);
+    //     }
+    // }
 }

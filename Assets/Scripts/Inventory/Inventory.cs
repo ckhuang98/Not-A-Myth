@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
     public OnItemChanged onItemChangedCallback;
 
    //The amount of items that can be carried in the inventory
-    public int space = 20;
+    public int space = 50;
 
     //The actual List of inventory items
     public List<Item> items = new List<Item>();
@@ -40,11 +40,7 @@ public class Inventory : MonoBehaviour
         item.name.Replace("(Clone)", "");
         if (!item.isDefaultItem)
         {
-            if (items.Count >= space)
-            {
-                Debug.Log("Not Enough Room");
-                return false;
-            }
+            
 
             bool itemFound = false;
             foreach(Item i in items)
@@ -58,8 +54,21 @@ public class Inventory : MonoBehaviour
                 }
             }
 
+            // if (items.Count >= space)
+            // {
+            //     Debug.Log("Not Enough Room");
+            //     return false;
+            // }
+
             if (itemFound == false)
             {
+                if(items.Count < space){
+                    item.amount = 1;
+                    items.Add(item);
+                } else{
+                    return false;
+                }
+                
                 oam.PlayRandomSoundInGroup("nab", true);
                 item.amount = 1;
                 items.Add(item);

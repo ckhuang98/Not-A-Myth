@@ -14,18 +14,28 @@ public class Shard : MonoBehaviour
     Vector2 direction;
 
     GameObject player;
+
+    float speed = 2;
+    float timer;
+
+    Vector3 position;
     // Start is called before the first frame update
     void Start()
     {
-        
+        position = transform.position;
+        timer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(moveToPlayer){
+        timer += Time.deltaTime;
+        if(moveToPlayer && timer > 1){
             direction = -(transform.position - player.transform.position).normalized;
             rb.velocity = new Vector2(direction.x, direction.y) * 20f * (Time.deltaTime / timeStamp);
+        } else{
+            position.y = position.y + 0.0005f * Mathf.Sin(speed * Time.time);
+            transform.position = position;
         }
     }
 

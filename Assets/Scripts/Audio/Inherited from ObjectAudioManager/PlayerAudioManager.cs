@@ -7,7 +7,7 @@ public class PlayerAudioManager : ObjectAudioManager
     }
     public void playSlashSFX()
     {
-        PlayRandomSoundInGroup("slashes");
+        PlayRandomPlayerSoundInGroup("slashes");
     }
     public void playHurtSFX()
     {

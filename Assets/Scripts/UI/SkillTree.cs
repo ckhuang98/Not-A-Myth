@@ -28,11 +28,11 @@ public class SkillTree : MonoBehaviour
         skillPointsText.text = "Skill Points: " + GameMaster.instance.getSkillPoints();
     }
 
-    public void increaseTotalHealth(SkillTreeButton button)
+    public void increaseHealth(SkillTreeButton button)
     {
         if (button.currentUses < button.maxUses)
         {
-            if(button.ToString() == "Increase Max Health Button 1 (SkillTreeButton)"){
+            if(button.ToString() == "Increase Max Health Button (SkillTreeButton)"){
                 if(GameMaster.instance.getSkillPoints() > 0){
                 GameMaster.instance.spendSkillPoints();
                 updateSkillPoints();
@@ -41,11 +41,11 @@ public class SkillTree : MonoBehaviour
                 h1 = true;
                 }
             } else if(h1){
-                if(button.ToString() == "Increase Max Health Button 2 (SkillTreeButton)"){
+                if(button.ToString() == "Increase Heal Button (SkillTreeButton)"){
                     if(GameMaster.instance.getSkillPoints() > 0){
                         GameMaster.instance.spendSkillPoints();
                         updateSkillPoints();
-                        GameMaster.instance.gainHealth();
+                        GameMaster.instance.gainHealAmount();
                         button.currentUses++;
                         h2 = true;
                     }
@@ -53,7 +53,7 @@ public class SkillTree : MonoBehaviour
                     if(GameMaster.instance.getSkillPoints() > 0){
                         GameMaster.instance.spendSkillPoints();
                         updateSkillPoints();
-                        GameMaster.instance.gainHealth();
+                        GameMaster.instance.gainPlantDrop();
                         button.currentUses++;
                         h3 = true;
                     }
@@ -69,7 +69,7 @@ public class SkillTree : MonoBehaviour
     {
         if (button.currentUses < button.maxUses){
 
-            if(button.ToString() == "Increase Max Strength Button 1 (SkillTreeButton)"){
+            if(button.ToString() == "Increase Max Strength Button (SkillTreeButton)"){
                 if(GameMaster.instance.getSkillPoints() > 0){
                     GameMaster.instance.spendSkillPoints();
                     updateSkillPoints();
@@ -78,11 +78,11 @@ public class SkillTree : MonoBehaviour
                     a1 = true;
                 }
             } else if(a1){
-                if(button.ToString() == "Increase Max Strength Button 2 (SkillTreeButton)"){
+                if(button.ToString() == "Increase Attack Range Button (SkillTreeButton)"){
                     if(GameMaster.instance.getSkillPoints() > 0){
                         GameMaster.instance.spendSkillPoints();
                         updateSkillPoints();
-                        GameMaster.instance.gainStrength();
+                        GameMaster.instance.gainRange();
                         button.currentUses++;
                         a2 = true;
                     }               
@@ -90,7 +90,7 @@ public class SkillTree : MonoBehaviour
                     if(GameMaster.instance.getSkillPoints() > 0){
                         GameMaster.instance.spendSkillPoints();
                         updateSkillPoints();
-                        GameMaster.instance.gainStrength();
+                        GameMaster.instance.gainMoreKnockback();
                         button.currentUses++;
                         a3 = true;
                     }                     
@@ -104,7 +104,7 @@ public class SkillTree : MonoBehaviour
     {
         if (button.currentUses < button.maxUses)
         {
-            if(button.ToString() == "Increase Max Speed Button 1 (SkillTreeButton)"){
+            if(button.ToString() == "Increase Walk Speed Button (SkillTreeButton)"){
                 if(GameMaster.instance.getSkillPoints() > 0){
                     GameMaster.instance.spendSkillPoints();
                     updateSkillPoints();
@@ -113,11 +113,11 @@ public class SkillTree : MonoBehaviour
                     s1 = true;
                 }
             } else if(s1){
-                if(button.ToString() == "Increase Max Speed Button 2 (SkillTreeButton)"){
+                if(button.ToString() == "Increase Dash Rate Button (SkillTreeButton)"){
                     if(GameMaster.instance.getSkillPoints() > 0){
                         GameMaster.instance.spendSkillPoints();
                         updateSkillPoints();
-                        GameMaster.instance.gainSpeed();
+                        GameMaster.instance.reduceDashCooldown();
                         button.currentUses++;
                         s2 = true;
                     }               
@@ -125,7 +125,7 @@ public class SkillTree : MonoBehaviour
                     if(GameMaster.instance.getSkillPoints() > 0){
                         GameMaster.instance.spendSkillPoints();
                         updateSkillPoints();
-                        GameMaster.instance.gainSpeed();
+                        GameMaster.instance.unlockDashMovement();
                         button.currentUses++;
                         s3 = true;
                     }                     

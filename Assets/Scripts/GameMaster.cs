@@ -40,6 +40,11 @@ public class GameMaster : MonoBehaviour
     public CombatManager combatManager;
     public GameObject player;
 
+    public GameObject boss;
+
+    public float enemyKnockbackDuration = 0.25f;
+    public float enemyKnockbackPower = 40f;
+
     
     private int skillPoints = 0;
     private int numOfShards = 0;
@@ -83,6 +88,8 @@ public class GameMaster : MonoBehaviour
         if(player != null){
             combatManager.player = player.GetComponent<PlayerController>();
         }
+
+
         
         OnSceneLoad?.Invoke();
     }
@@ -153,23 +160,42 @@ public class GameMaster : MonoBehaviour
     }
 
     public void gainStrength(){
-        playerStats.attackPower.Value += 0.75f;
+        playerStats.attackPower.Value += 1.15f;
+    }
+
+    public void gainRange(){
+        playerStats.increaseWeaponScale.Value = true;
+    }
+
+    public void gainMoreKnockback(){
+        // playerStats.freezeDuration.Value = 0.12f;
+        playerStats.knockBackForce.Value = 1500f;
     }
 
     public void gainHealth(){
-        if(playerStats.currentHealth.Value < (playerStats.maxHealth.Value - 15)){
-            playerStats.maxHealth.Value += 15;
-            playerStats.currentHealth.Value += 15;
-        } else{
-            playerStats.maxHealth.Value += 15;
-            playerStats.currentHealth.Value = playerStats.maxHealth.Value;
-        }
-        
+        playerStats.maxHealth.Value += 25;
+        playerStats.currentHealth.Value = playerStats.maxHealth.Value;
+    }
+
+    public void gainHealAmount(){
+        playerStats.healAmount.Value = 15;
+    }
+
+    public void gainPlantDrop(){
+        playerStats.unlockedPlantDrop.Value = true;
     }
 
     public void gainSpeed(){
-        playerStats.maxSpeed.Value++;
-        playerStats.sprintSpeed.Value++;
+        playerStats.maxSpeed.Value += 1.5f;
+        playerStats.sprintSpeed.Value += 1.5f;
+    }
+
+    public void reduceDashCooldown(){
+        playerStats.dashCooldown.Value /= 2;
+    }
+
+    public void unlockDashMovement(){
+        playerStats.unlockedDashMovement.Value = true;
     }
 
     public void gainDoubleDash(){
@@ -207,8 +233,9 @@ public class GameMaster : MonoBehaviour
     //Get necessary references to objects in the scene
     void assignReferences()
     {
-        Debug.Log("Assigned Ref");
+        //Debug.Log("Assigned Ref");
         player = GameObject.FindGameObjectWithTag("Player");
+        boss = GameObject.FindGameObjectWithTag("Boss");
     }
 
     public GameObject getPlayer()

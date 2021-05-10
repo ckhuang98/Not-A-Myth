@@ -183,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 561858605}
   m_LocalRotation: {x: 0, y: 0, z: -0.6561907, w: 0.7545951}
-  m_LocalPosition: {x: 1.15, y: -0.15, z: 0}
+  m_LocalPosition: {x: 1.15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1852756903}
@@ -765,6 +765,7 @@ MonoBehaviour:
   canDash: 1
   canDashTwice: 0
   slashCollider: {fileID: 561858605}
+  isInvincible: 0
   dashBox: {fileID: 89815224}
   magnet: {fileID: 0}
 --- !u!81 &4869283209196162237

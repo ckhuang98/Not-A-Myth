@@ -25,6 +25,11 @@ public class PlayerStats : ScriptableObject
 	public SharedFloat cameraOffsetX;
 	public SharedFloat cameraOffsetY;
 
+	public SharedFloat dashCooldown;
+	public SharedFloat healAmount;
+	public SharedFloat weaponRange;
+	public SharedFloat freezeDuration;
+
 	[Space]
 	public SharedBool unlockedDoubleDash;
 
@@ -33,12 +38,17 @@ public class PlayerStats : ScriptableObject
 	public SharedBool unlockedDashAttack;
 	public SharedBool unlockedAttackRegen;
 	public SharedBool unlockedGroundSmash;
+	public SharedBool unlockedDashMovement;
+	public SharedBool unlockedPlantDrop;
 
 	public SharedBool inCombat;
 	public SharedBool attackRegenHit;
 	public SharedBool inBossFight;
 	public SharedBool isAttacking;
 	public SharedBool toggleMovement;
+	public SharedBool increaseWeaponScale;
+
+	
 
 	[Space]
 	public SharedStringList keys;
@@ -62,6 +72,10 @@ public class PlayerStats : ScriptableObject
 			knockBackForce,
 			cameraOffsetX,
 			cameraOffsetY,
+			dashCooldown,
+			healAmount,
+			weaponRange,
+			freezeDuration,
 		};
 
 		foreach (SharedFloat sf in SharedFloats) {
@@ -76,11 +90,14 @@ public class PlayerStats : ScriptableObject
 			unlockedDashAttack,
 			unlockedAttackRegen,
 			unlockedGroundSmash,
+			unlockedDashMovement,
+			unlockedPlantDrop,
 			inCombat,
 			attackRegenHit,
 			inBossFight,
 			isAttacking,
 			toggleMovement,
+			increaseWeaponScale,
 		};
 
 		foreach (SharedBool sb in SharedBools)

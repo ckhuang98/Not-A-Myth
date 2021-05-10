@@ -24,6 +24,10 @@ MonoBehaviour:
   knockBackForce: {fileID: 11400000, guid: 24716b34742ffe044bff8412a8a3e996, type: 2}
   cameraOffsetX: {fileID: 11400000, guid: d6ffa02e8026c7d44b532c46c5daab40, type: 2}
   cameraOffsetY: {fileID: 11400000, guid: 5afaa480f83f31c42aa7e26663c05330, type: 2}
+  dashCooldown: {fileID: 11400000, guid: e2ad0961a55f8de4cb26b85d9f00a800, type: 2}
+  healAmount: {fileID: 11400000, guid: f8551db1ce2c620489760fd106776135, type: 2}
+  weaponRange: {fileID: 11400000, guid: 71a108a3d875f01419ca683557b654ac, type: 2}
+  freezeDuration: {fileID: 11400000, guid: ce5b90a0d9480ad4d8114024649c490e, type: 2}
   unlockedDoubleDash: {fileID: 11400000, guid: d4840abac4f0d04498c3116ded3c9df2, type: 2}
   unlockedHealthDash: {fileID: 11400000, guid: 1cb8f0c2f6a398b4a9b6ed6548da191f, type: 2}
   unlockedRegen: {fileID: 11400000, guid: 30e70aa6674199a40b72bd80e6b5bf4c, type: 2}
@@ -32,9 +36,14 @@ MonoBehaviour:
     type: 2}
   unlockedGroundSmash: {fileID: 11400000, guid: 5378627ea58ce2046ad63c2f2d57e1ca,
     type: 2}
+  unlockedDashMovement: {fileID: 11400000, guid: 62bd38db1d06c7544b3b0a49c06fe287,
+    type: 2}
+  unlockedPlantDrop: {fileID: 11400000, guid: 9ead6044eb842c1428c112540bf78624, type: 2}
   inCombat: {fileID: 11400000, guid: ec8bd7bdf43cd7644aac8fb9da41de38, type: 2}
   attackRegenHit: {fileID: 11400000, guid: 34cccc1479cd1ef4989c4824502e3a3d, type: 2}
   inBossFight: {fileID: 11400000, guid: b9dcf1b5bed3ba643890d089ee6e70b3, type: 2}
   isAttacking: {fileID: 11400000, guid: a50e6bc560dbc7a44b86adcdb5ea12b6, type: 2}
   toggleMovement: {fileID: 11400000, guid: 29c5daa3d96bdd7479e0681f7728039e, type: 2}
+  increaseWeaponScale: {fileID: 11400000, guid: 499a90b37a5d42d42a81ee199a68accb,
+    type: 2}
   keys: {fileID: 11400000, guid: 515aeb957d8fc6a47b37fbae62e65116, type: 2}

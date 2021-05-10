@@ -20,18 +20,23 @@ public class IdleState : BaseState
     
     public override Type Tick()
     {
+        if(transform.position.y != 6.5){
+            // Vector3 temp = transform.position;
+            // temp.y = 6.5f;
+            // transform.position = temp;
+        }
         timer += Time.deltaTime;
         if(timer < 2.7f && timer > 1.5f){
                 if(num == 0){
                     num = UnityEngine.Random.Range(1,4);
                 }
-                if(num == 1){
-                    _boss.speechText.text = "Cone";
-                } else if(num == 2){
-                    _boss.speechText.text = "Slash";
-                } else if(num ==3){
-                    _boss.speechText.text = "Shockwave";
-                }
+                // if(num == 1){
+                //     _boss.speechText.text = "Cone";
+                // } else if(num == 2){
+                //     _boss.speechText.text = "Slash";
+                // } else if(num ==3){
+                //     _boss.speechText.text = "Shockwave";
+                // }
                 if(calledAnim == false){
                     _boss.startAnimation(num);
                     calledAnim = true;
