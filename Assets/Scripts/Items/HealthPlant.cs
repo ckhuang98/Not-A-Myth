@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthPlant : MonoBehaviour
 {
-    private bool pickedUp = false;
+    public bool pickedUp = false;
     public Item item; //scirptable object healt plant
 
     void OnTriggerEnter2D(Collider2D collider)
