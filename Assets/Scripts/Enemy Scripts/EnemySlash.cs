@@ -30,14 +30,14 @@ public class EnemySlash : MonoBehaviour
             angle = angle + 360f;
         }  
         */
+        slashAnimator.SetFloat("SlashAttackVertical", SGS.moveDirections[SGS.currMoveDirection].y);
+        slashAnimator.SetFloat("SlashAttackHorizontal", SGS.moveDirections[SGS.currMoveDirection].x);
        
     }
 
     // Update is called once per frame
     void Update()
     {
-        slashAnimator.SetFloat("SlashAttackVertical", SGS.moveDirections[SGS.currMoveDirection].y);
-        slashAnimator.SetFloat("SlashAttackHorizontal", SGS.moveDirections[SGS.currMoveDirection].x);
         //ChooseDirection(angle);
         
     }

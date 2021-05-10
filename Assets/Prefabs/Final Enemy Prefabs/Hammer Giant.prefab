@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 1c89b68bcfaeeb14c86f07eb4eb32b8a, type: 3}
   m_Color: {r: 0.19164926, g: 0.94509804, b: 0.039215684, a: 1}
   m_FlipX: 0
@@ -399,7 +399,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1c89b68bcfaeeb14c86f07eb4eb32b8a, type: 3}
   m_Color: {r: 0.9433962, g: 0.04004982, b: 0.04004982, a: 1}
   m_FlipX: 0
@@ -492,7 +492,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1c89b68bcfaeeb14c86f07eb4eb32b8a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -574,7 +574,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 1c89b68bcfaeeb14c86f07eb4eb32b8a, type: 3}
   m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
   m_FlipX: 0
@@ -677,7 +677,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 4f6b7b9ad8467714097342e5e1eaa00b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -772,8 +772,8 @@ MonoBehaviour:
   floatStrength: 1
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
-  AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
-  fireParticle: {fileID: 4134660265265764570, guid: 934ed514cdb78564f967f70ba41b202c,
+  AOE: {fileID: 6825911353487110933, guid: b9d409187e08bf1468b6f4959d5107be, type: 3}
+  AOEWarning: {fileID: 6825911353487110933, guid: 7690d93758e466e49a6d12a9bb87c566,
     type: 3}
   damageProjectile: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
     type: 3}
@@ -788,6 +788,7 @@ MonoBehaviour:
   _rayDistance: 5
   weightList: 0000000000000000000000000000000000000000000000000000000000000000
   doInstantiate: 0
+  instantiateWarning: 0
   goToWalk: 0
   doAttack: 0
   doLungeAttack: 0
@@ -828,6 +829,7 @@ MonoBehaviour:
   rolloffMode: 1
   minDistance: 3
   maxDistance: 9
+  isPlayerSfx: 0
   soundGroups:
   - name: footsteps
     ignorePause: 0
