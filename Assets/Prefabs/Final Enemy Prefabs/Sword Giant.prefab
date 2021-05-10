@@ -644,6 +644,8 @@ MonoBehaviour:
   fireTrail: {fileID: 339167541854525883, guid: 1afd68a4b134d0042a8c2c1112ad19ba,
     type: 3}
   slash: {fileID: 7618146614613494682, guid: a6828a63938ca714fb3532903aea4a65, type: 3}
+  slashWarning: {fileID: 5448024029295194144, guid: db9b05aa9ea1e1345bec9035578c9488,
+    type: 3}
   inBounds: 0
   hasCircled: 0
   enemyAnimator: {fileID: 2188179134601564886}
@@ -685,6 +687,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
   audioMixerGroup: {fileID: 999436064050034201, guid: 0652cb0a1baf2164ea5b6391384a55b5,
     type: 2}
+  spacialBlend: 1
   playGroupOnStart: 
   volume: 0.4
   spread: 150

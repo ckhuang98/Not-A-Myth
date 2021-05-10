@@ -773,7 +773,7 @@ MonoBehaviour:
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
   AOE: {fileID: 6825911353487110933, guid: b9d409187e08bf1468b6f4959d5107be, type: 3}
-  AOEWarning: {fileID: 6825911353487110933, guid: 7690d93758e466e49a6d12a9bb87c566,
+  AOEWarning: {fileID: 6825911353487110933, guid: 58745e2f361a01541aad67d9b7194c18,
     type: 3}
   damageProjectile: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
     type: 3}
@@ -782,6 +782,7 @@ MonoBehaviour:
   fireTrail: {fileID: 339167541854525883, guid: 1afd68a4b134d0042a8c2c1112ad19ba,
     type: 3}
   slash: {fileID: 0}
+  slashWarning: {fileID: 0}
   inBounds: 0
   hasCircled: 0
   enemyAnimator: {fileID: 8853464190746555230}
@@ -823,6 +824,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
   audioMixerGroup: {fileID: 999436064050034201, guid: 0652cb0a1baf2164ea5b6391384a55b5,
     type: 2}
+  spacialBlend: 1
   playGroupOnStart: 
   volume: 0.4
   spread: 150
