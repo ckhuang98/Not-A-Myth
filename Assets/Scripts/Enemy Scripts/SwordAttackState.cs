@@ -8,6 +8,7 @@ public class SwordAttackState : BaseState
 {
     private Enemy _enemy;
     private GameObject slashAttack;
+    private GameObject warning;
     private bool gotAngle = false;
     private float angle;
     private Transform target;
@@ -47,11 +48,12 @@ public class SwordAttackState : BaseState
             gotAngle = true;
         }
         
-        InstantiateSlash();
         _enemy.enemyAnimator.SetFloat("SwordAttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
         _enemy.enemyAnimator.SetFloat("SwordAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         horizontal = _enemy.enemyAnimator.GetFloat("SwordAttackHorizontal");
         vertical = _enemy.enemyAnimator.GetFloat("SwordAttackVertical");
+        InstantiateWarning();
+        InstantiateSlash();
         if (_enemy.goToWalk == true) {
             _enemy.goToWalk = false;
             gotAngle = false;
@@ -76,22 +78,53 @@ public class SwordAttackState : BaseState
             // UP
             if (vertical > 0) {
                 slashAttack.transform.position = 
-                new Vector3(this.transform.position.x, this.transform.position.y + 1f, this.transform.position.z);
+                new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
             } 
             // RIGHT
             if (horizontal > 0) {
                 slashAttack.transform.position = 
-                new Vector3(this.transform.position.x + 1f, this.transform.position.y - 0.1f, this.transform.position.z);
+                new Vector3(this.transform.position.x + 1.5f, this.transform.position.y - 0.1f, this.transform.position.z);
             } 
             // DOWN
             if (vertical < 0) {
                 slashAttack.transform.position = 
-                new Vector3(this.transform.position.x, this.transform.position.y - 1.5f, this.transform.position.z);
+                new Vector3(this.transform.position.x, this.transform.position.y - 2.5f, this.transform.position.z);
             } 
             // LEFT
             if (horizontal < 0) {
                 slashAttack.transform.position = 
-                new Vector3(this.transform.position.x - 1f, this.transform.position.y - 0.1f, this.transform.position.z);
+                new Vector3(this.transform.position.x - 1.5f, this.transform.position.y - 0.1f, this.transform.position.z);
+            }
+        }
+    }
+
+    private void InstantiateWarning() {
+        if (_enemy.instantiateWarning == true) {
+            warning = GameObject.Instantiate(_enemy.slashWarning) as GameObject;
+            //Debug.Log("Instantiating");
+            _enemy.instantiateWarning = false; 
+            // UP
+            if (vertical > 0) {
+                warning.transform.position = 
+                new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+            } 
+            // RIGHT
+            if (horizontal > 0) {
+                warning.transform.position = 
+                new Vector3(this.transform.position.x + 1.5f, this.transform.position.y - 0.1f, this.transform.position.z);
+            } 
+            // DOWN
+            if (vertical < 0) {
+                warning.transform.position = 
+                new Vector3(this.transform.position.x, this.transform.position.y - 2.5f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, 270f);
+            } 
+            // LEFT
+            if (horizontal < 0) {
+                warning.transform.position = 
+                new Vector3(this.transform.position.x - 1.5f, this.transform.position.y - 0.1f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
             }
         }
     }

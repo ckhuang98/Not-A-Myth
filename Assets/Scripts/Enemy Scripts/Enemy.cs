@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     public GameObject healingProjectile;
     public GameObject fireTrail;
     public GameObject slash;
+    public GameObject slashWarning;
     
     //Target is the players' current location
     private Transform target;
@@ -336,8 +337,13 @@ public class Enemy : MonoBehaviour
     }
 
     public void AreaWarning() {
+        //Debug.Log("Calling");
         instantiateWarning = true;
     } 
+
+    public void SlashWarning() {
+        instantiateWarning = true;
+    }
 
     public void ProjectileThrow() {
         doInstantiate = true;
