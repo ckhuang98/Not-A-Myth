@@ -127,12 +127,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1447279110}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &37007857 stripped
+--- !u!4 &37007857
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6249455407112965216, guid: 2f3cf01bf6a98434286655b9dbca6ede,
     type: 3}
   m_PrefabInstance: {fileID: 2013342846}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362068496}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1248121123}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &38216674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3916534169070301588, guid: decf8b17ba4b0df4d9dc5c9d47b9e0f0,
@@ -404,6 +413,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &75298167
@@ -542,6 +556,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &122761090
@@ -610,6 +629,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -680,6 +704,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &135530119
@@ -748,6 +777,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -957,6 +991,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (61)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1 &221217900
@@ -1077,6 +1116,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -1215,6 +1259,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -1476,9 +1525,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 36824592}
-  - {fileID: 1269620425}
-  - {fileID: 1425344684}
-  - {fileID: 37007857}
+  - {fileID: 1135013313}
+  - {fileID: 892886451}
+  - {fileID: 1248121123}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1765,8 +1814,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
+--- !u!1 &362068496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 2013342846}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 37007857}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &387105816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1833,6 +1903,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -1978,6 +2053,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (78)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &424731385
@@ -2047,6 +2127,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (77)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &427057638
@@ -2115,6 +2200,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -2254,6 +2344,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (71)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!4 &478019773 stripped
@@ -2328,6 +2423,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -2549,6 +2649,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (70)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1 &549293275
@@ -2766,6 +2871,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -3159,6 +3269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enterInstructions: {fileID: 0}
+  keyNames: []
+  playerStats: {fileID: 0}
 --- !u!212 &646908982
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3223,6 +3335,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &654067548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 322928300}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1425344684}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &658077736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3429,6 +3557,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (69)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1 &709333127
@@ -3579,6 +3712,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &759196397
@@ -3647,6 +3785,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -3717,6 +3860,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &764708149
@@ -3785,6 +3933,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -3855,6 +4008,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &794320783
@@ -3923,6 +4081,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -3993,6 +4156,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &801272160
@@ -4061,6 +4229,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (64)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -4209,6 +4382,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &815638940
@@ -4277,6 +4455,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -4415,6 +4598,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -4610,6 +4798,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1 &892433399
@@ -4692,6 +4885,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892433399}
   m_CullTransparentMesh: 0
+--- !u!1 &892886450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1172194609}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 892886451}
+  m_Layer: 0
+  m_Name: Hammer Giant (4) (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &892886451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1172194609}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892886450}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1269620425}
+  m_Father: {fileID: 310123243}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &905911432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3916534169070301588, guid: decf8b17ba4b0df4d9dc5c9d47b9e0f0,
@@ -4840,6 +5064,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &952626920
@@ -4908,6 +5137,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (67)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -5072,6 +5306,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -5285,6 +5524,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (55)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!4 &1104972500 stripped
@@ -5293,6 +5537,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 414250397}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1135013312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 322928300}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1135013313}
+  m_Layer: 0
+  m_Name: Hammer Giant (3) (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1135013313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 322928300}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135013312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1425344684}
+  m_Father: {fileID: 310123243}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1172194609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5434,6 +5709,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -20769,6 +21049,37 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1120
   m_ExtrusionFactor: 0.00001
+--- !u!1 &1248121122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 2013342846}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1248121123}
+  m_Layer: 0
+  m_Name: Hammer Giant (2) (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1248121123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 2013342846}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248121122}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 37007857}
+  m_Father: {fileID: 310123243}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1258031363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20836,14 +21147,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (76)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
---- !u!4 &1269620425 stripped
+--- !u!4 &1269620425
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6249455407112965216, guid: 2f3cf01bf6a98434286655b9dbca6ede,
     type: 3}
   m_PrefabInstance: {fileID: 1172194609}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645178290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 892886451}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1292850682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20910,6 +21235,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -21049,6 +21379,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &1358528831
@@ -21117,6 +21452,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -21187,14 +21527,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
---- !u!4 &1425344684 stripped
+--- !u!4 &1425344684
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6249455407112965216, guid: 2f3cf01bf6a98434286655b9dbca6ede,
     type: 3}
   m_PrefabInstance: {fileID: 322928300}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654067548}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1135013313}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1445593191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21261,6 +21615,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (65)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -21330,6 +21689,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -21660,6 +22024,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &1557437352
@@ -21797,6 +22166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (75)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -21936,6 +22310,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &1606470954
@@ -22074,6 +22453,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &1616531449
@@ -22143,6 +22527,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &1619635507
@@ -22211,6 +22600,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -22327,8 +22721,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
+--- !u!1 &1645178290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1172194609}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1269620425}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &1664275366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23651,6 +24066,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -53794,6 +54214,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &1766266958
@@ -53862,6 +54287,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (62)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -54023,6 +54453,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!4 &1812956076 stripped
@@ -54098,6 +54533,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (72)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &1829392137
@@ -54166,6 +54606,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -54236,6 +54681,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &1896550977
@@ -54304,6 +54754,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -54374,6 +54829,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &1916922131
@@ -54442,6 +54902,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -54590,6 +55055,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &1927968207
@@ -54658,6 +55128,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -54728,6 +55203,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &1945383901
@@ -54797,6 +55277,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (68)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &1946450840
@@ -54865,6 +55350,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (63)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -55205,6 +55695,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (73)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &1993237126
@@ -55273,6 +55768,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -55579,6 +56079,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (74)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &2126366101
@@ -55648,6 +56153,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Shard (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
 --- !u!1001 &2127038938
@@ -55716,6 +56226,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gem Shard (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -55818,12 +56333,12 @@ PrefabInstance:
     - target: {fileID: 726095169486400778, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -67.92
+      value: -62.95
       objectReference: {fileID: 0}
     - target: {fileID: 726095169486400778, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -142.85
+      value: -139.92
       objectReference: {fileID: 0}
     - target: {fileID: 726095169486400778, guid: 48c2d9425d3ff6f4f8ccd3fa94c04200,
         type: 3}
@@ -55892,12 +56407,12 @@ PrefabInstance:
     - target: {fileID: 2669481844531157001, guid: 5e48f9acd2c32004bbd40b48a3fcd41d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -67.92
+      value: -62.95
       objectReference: {fileID: 0}
     - target: {fileID: 2669481844531157001, guid: 5e48f9acd2c32004bbd40b48a3fcd41d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -142.85
+      value: -139.92
       objectReference: {fileID: 0}
     - target: {fileID: 2669481844531157001, guid: 5e48f9acd2c32004bbd40b48a3fcd41d,
         type: 3}
