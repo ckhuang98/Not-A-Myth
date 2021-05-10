@@ -34,7 +34,7 @@ public class ParticleAttack : MonoBehaviour
             //p.startColor = new Color32(255, 0, 0, 255);
             //enter[i] = p;
             if(!player.isInvincible){
-                player.TakeDamage(10);
+                player.TakeDamage(15);
                 player.StartCoroutine(player.HammerKnockBack(GameMaster.instance.enemyKnockbackDuration, GameMaster.instance.enemyKnockbackPower, boss.transform));
             }
             

@@ -230,4 +230,10 @@ public class Boss : MonoBehaviour
         temp.y -= 0.125f;
         transform.position = temp;
     }
+
+    public void resetPos(){
+        Vector3 temp = transform.position;
+        temp.y = 6.5f;
+        transform.position = temp;
+    }
 }

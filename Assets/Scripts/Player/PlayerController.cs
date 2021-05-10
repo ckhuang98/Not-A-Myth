@@ -505,7 +505,7 @@ public class PlayerController : MonoBehaviour {
 
             // // If the player collides with boss shockwave attack, 10 damage
             if (withinAggroColliders.CompareTag("Shockwave") && !isInvincible) { 
-                TakeDamage(10); 
+                TakeDamage(15); 
                 StartCoroutine(HammerKnockBack(GameMaster.instance.enemyKnockbackDuration, GameMaster.instance.enemyKnockbackPower, GameMaster.instance.boss.transform));
             }
 
