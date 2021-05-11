@@ -43,7 +43,7 @@ public class GameMaster : MonoBehaviour
     public GameObject boss;
 
     public float enemyKnockbackDuration = 0.25f;
-    public float enemyKnockbackPower = 40f;
+    public float enemyKnockbackPower = 10f;
 
     
     private int skillPoints = 0;
