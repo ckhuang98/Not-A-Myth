@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
     public OnItemChanged onItemChangedCallback;
 
    //The amount of items that can be carried in the inventory
-    public int space = 50;
+    public int space = 1;
 
     //The actual List of inventory items
     public List<Item> items = new List<Item>();
@@ -63,15 +63,14 @@ public class Inventory : MonoBehaviour
             if (itemFound == false)
             {
                 if(items.Count < space){
+                    oam.PlayRandomSoundInGroup("nab", true);
                     item.amount = 1;
                     items.Add(item);
                 } else{
                     return false;
                 }
                 
-                oam.PlayRandomSoundInGroup("nab", true);
-                item.amount = 1;
-                items.Add(item);
+                
             }
 
             onItemChangedCallback?.Invoke();
