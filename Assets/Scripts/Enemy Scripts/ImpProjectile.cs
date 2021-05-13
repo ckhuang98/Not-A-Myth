@@ -13,6 +13,7 @@ public class ImpProjectile : MonoBehaviour
     private Transform hammerTarget;
     private GameObject[] hammerGiants;
     private SpriteRenderer sr;
+    private Vector2 healMoveDirection;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +35,9 @@ public class ImpProjectile : MonoBehaviour
         if (this.tag == "Healing Projectile") {
             sr.color = Color.green;
             if (hammerGiants.Length > 0) {
-                transform.position = Vector2.MoveTowards(transform.position, hammerTarget.position, projectileSpeed * Time.deltaTime);
+                //transform.position = Vector2.MoveTowards(transform.position, hammerTarget.position, projectileSpeed * Time.deltaTime);
+                healMoveDirection = (hammerTarget.transform.position - transform.position).normalized * projectileSpeed;
+                rb.velocity = new Vector2(healMoveDirection.x, healMoveDirection.y);
             } 
         
             foreach (GameObject _hammerGiant in hammerGiants) {
