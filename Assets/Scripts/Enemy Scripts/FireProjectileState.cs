@@ -44,15 +44,14 @@ public class FireProjectileState : BaseState
         _enemy.enemyAnimator.SetFloat("ImpAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         
         if (_enemy.goToWalk == true) {
-            
             instantiated = false;
-            _enemy.goToWalk = false;
             gotColor = false;
             gotAngle = false;
             warning.transform.parent = null;
             GameObject.Destroy(warning.gameObject);
             //GameObject.Destroy(otherProjectile.gameObject);
             _enemy.inAttackState = false;
+            _enemy.goToWalk = false;
             return typeof(MaintainDistanceState);
         }
         return typeof(FireProjectileState);   
@@ -85,6 +84,7 @@ public class FireProjectileState : BaseState
         }
         if (_enemy.doInstantiate == true) {
             projectile = GameObject.Instantiate(_enemy.impProjectile) as GameObject;
+            _enemy.doInstantiate = false;
             projectile.tag = projectileType; 
             projectile.transform.position = this.transform.position;
             /*
@@ -96,7 +96,6 @@ public class FireProjectileState : BaseState
                 //damage.transform.position = this.transform.position;
             }
             */
-            _enemy.doInstantiate = false;
             // UP
             if (315 > angle && angle > 225) {
                 _enemy.currMoveDirection = 0;
