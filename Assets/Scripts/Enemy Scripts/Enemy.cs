@@ -27,8 +27,10 @@ public class Enemy : MonoBehaviour
     public GameObject AOE;
     public GameObject AOEWarning;
     //public GameObject fireParticle;
+    public GameObject impProjectile;
     public GameObject damageProjectile;
     public GameObject healingProjectile;
+    public GameObject projectileWarning;
     public GameObject fireTrail;
     public GameObject slash;
     public GameObject slashWarning;
