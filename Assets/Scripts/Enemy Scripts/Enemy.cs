@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
 {
     //Variables regarding enemy stats
     Rigidbody2D rb;
+    internal string attackDir = "Not Set";
     public float healthAmount;
     public float armorAmount;
     //GameObject armorBorderObject;
@@ -150,6 +151,7 @@ public class Enemy : MonoBehaviour
             armorAmount = 0;
         }
         alpha = .2f;
+        //Debug.Log(attackDir);
         
     }
 
@@ -480,5 +482,9 @@ public class Enemy : MonoBehaviour
         return layerMask;
         //layerMask |= wallLayer;
         //layerMask |= waterLayer;
+    }
+
+    public void SetAttackDir(string s) {
+        attackDir = s;
     }
 }
