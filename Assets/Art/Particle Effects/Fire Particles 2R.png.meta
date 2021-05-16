@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: 722d2a255eb77024b83f0155a1b998e3
+guid: 3a6d32e7c3514d345b255ec91fa730b4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8190699977588082832
-    second: Fire Particles_0
+      213: 5900728898543168191
+    second: Fire Particles 2R_0
   - first:
-      213: 1644330395485074812
-    second: Fire Particles_1
+      213: -2760512892141743096
+    second: Fire Particles 2R_1
   - first:
-      213: -6988274067851045086
-    second: Fire Particles_2
+      213: 6002207346909187374
+    second: Fire Particles 2R_2
+  - first:
+      213: 6053666141507921242
+    second: Fire Particles 2R_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -96,13 +99,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fire Particles_0
+      name: Fire Particles 2R_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 181
-        width: 107
-        height: 79
+        y: 212
+        width: 87
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -110,20 +113,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 077ff0e34c9c45e80800000000000000
-      internalID: -8190699977588082832
+      spriteID: fba2c897ba993e150800000000000000
+      internalID: 5900728898543168191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire Particles_1
+      name: Fire Particles 2R_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 89
-        width: 107
-        height: 86
+        y: 156
+        width: 87
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +134,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c75f34c58c5d1d610800000000000000
-      internalID: 1644330395485074812
+      spriteID: 80451028620b0b9d0800000000000000
+      internalID: -2760512892141743096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire Particles_2
+      name: Fire Particles 2R_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 94
+        width: 87
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d03cce7cf1c4350800000000000000
+      internalID: 6002207346909187374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire Particles 2R_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 107
-        height: 85
+        width: 87
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2271aa0c2c9a40f90800000000000000
-      internalID: -6988274067851045086
+      spriteID: a55a3613841f20450800000000000000
+      internalID: 6053666141507921242
       vertices: []
       indices: 
       edges: []
