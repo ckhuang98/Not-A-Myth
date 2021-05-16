@@ -8,13 +8,18 @@ public class FireProjectileState : BaseState
 {
     private Enemy _enemy;
 
-    private GameObject damage;
-    private GameObject healing;
+    //private GameObject damage;
+    //private GameObject healing;
+    private GameObject projectile;
+    //private GameObject otherProjectile;
+    private GameObject warning;
     private bool instantiated = false;
+    private bool gotAngle = false;
+    private bool gotColor = false;
+    private string projectileType = "nothing";
     private float pauseTimer = 1f;
     private float angle;
-    private bool gotAngle = false;
-    private Transform target;
+    private Transform target; 
 
     public FireProjectileState(Enemy enemy) : base(enemy.gameObject) {
         _enemy = enemy;
@@ -39,24 +44,58 @@ public class FireProjectileState : BaseState
         _enemy.enemyAnimator.SetFloat("ImpAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         
         if (_enemy.goToWalk == true) {
-            _enemy.goToWalk = false;
+            instantiated = false;
+            gotColor = false;
             gotAngle = false;
+            warning.transform.parent = null;
+            GameObject.Destroy(warning.gameObject);
+            //GameObject.Destroy(otherProjectile.gameObject);
             _enemy.inAttackState = false;
+            _enemy.goToWalk = false;
             return typeof(MaintainDistanceState);
         }
         return typeof(FireProjectileState);   
     }
 
     private void ThrowProjectile(float angle) {
-        if (_enemy.doInstantiate == true) {
+        if (gotColor == false) {
+            gotColor = true;
             if (UnityEngine.Random.value > 0.5) {
-            healing = GameObject.Instantiate(_enemy.healingProjectile) as GameObject;
-            healing.transform.position = this.transform.position;
+                projectileType = "Healing Projectile";
             } else {
-                damage = GameObject.Instantiate(_enemy.damageProjectile) as GameObject;
-                damage.transform.position = this.transform.position;
+                projectileType = "Imp Damage Projectile";
             }
+        }
+        if (instantiated == false) {
+            Debug.Log("Back here");
+            instantiated = true;
+            warning = GameObject.Instantiate(_enemy.projectileWarning, this.transform) as GameObject;
+            //otherProjectile = GameObject.Instantiate(_enemy.impProjectile, this.transform) as GameObject;
+            var ps = warning.GetComponent<ParticleSystem>();
+            var main = ps.main;
+            var em = ps.emission;
+            if (projectileType == "Healing Projectile") {
+                main.startColor = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+            } else if (projectileType == "Imp Damage Projectile") {
+                main.startColor = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+            }
+            ps.Play();
+            em.enabled = true;
+        }
+        if (_enemy.doInstantiate == true) {
+            projectile = GameObject.Instantiate(_enemy.impProjectile) as GameObject;
             _enemy.doInstantiate = false;
+            projectile.tag = projectileType; 
+            projectile.transform.position = this.transform.position;
+            /*
+            if (projectileType == "Healing") {
+                //healing = GameObject.Instantiate(_enemy.healingProjectile) as GameObject;
+                //healing.transform.position = this.transform.position;
+            } else if (projectileType == "Damage") {
+                //damage = GameObject.Instantiate(_enemy.damageProjectile) as GameObject;
+                //damage.transform.position = this.transform.position;
+            }
+            */
             // UP
             if (315 > angle && angle > 225) {
                 _enemy.currMoveDirection = 0;
