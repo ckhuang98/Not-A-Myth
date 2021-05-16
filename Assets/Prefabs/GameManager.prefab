@@ -57,6 +57,9 @@ MonoBehaviour:
   ui: {fileID: 0}
   combatManager: {fileID: 1328983716725813090}
   player: {fileID: 0}
+  boss: {fileID: 0}
+  enemyKnockbackDuration: 0.25
+  enemyKnockbackPower: 10
   gameOver: 0
   recordedPlayerHealth: 0
   recordedPlayerStrength: 0
@@ -77,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oam: {fileID: 1586802761}
-  space: 20
+  space: 1
   items: []
 --- !u!222 &8887195380250220363
 CanvasRenderer:
