@@ -27,32 +27,34 @@ public class FireProjectileState : BaseState
     }
 
     public override Type Tick() {
-        //Debug.Log("FIRING");
-        _enemy.inAttackState = true;
-        var delta_x = transform.position.x - target.position.x;
-        var delta_y = transform.position.y - target.position.y;
-        if (gotAngle == false) {
-            angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
-            if (angle < 0.0f) {
-                angle = angle + 360f;
+        if (_enemy.healthAmount > 0){
+            //Debug.Log("FIRING");
+            _enemy.inAttackState = true;
+            var delta_x = transform.position.x - target.position.x;
+            var delta_y = transform.position.y - target.position.y;
+            if (gotAngle == false) {
+                angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+                if (angle < 0.0f) {
+                    angle = angle + 360f;
+                }
+                gotAngle = true;
             }
-            gotAngle = true;
-        }
 
-        ThrowProjectile(angle);
-        _enemy.enemyAnimator.SetFloat("ImpAttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-        _enemy.enemyAnimator.SetFloat("ImpAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-        
-        if (_enemy.goToWalk == true) {
-            instantiated = false;
-            gotColor = false;
-            gotAngle = false;
-            warning.transform.parent = null;
-            GameObject.Destroy(warning.gameObject);
-            //GameObject.Destroy(otherProjectile.gameObject);
-            _enemy.inAttackState = false;
-            _enemy.goToWalk = false;
-            return typeof(MaintainDistanceState);
+            ThrowProjectile(angle);
+            _enemy.enemyAnimator.SetFloat("ImpAttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("ImpAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            
+            if (_enemy.goToWalk == true) {
+                instantiated = false;
+                gotColor = false;
+                gotAngle = false;
+                warning.transform.parent = null;
+                GameObject.Destroy(warning.gameObject);
+                //GameObject.Destroy(otherProjectile.gameObject);
+                _enemy.inAttackState = false;
+                _enemy.goToWalk = false;
+                return typeof(MaintainDistanceState);
+            }
         }
         return typeof(FireProjectileState);   
     }
