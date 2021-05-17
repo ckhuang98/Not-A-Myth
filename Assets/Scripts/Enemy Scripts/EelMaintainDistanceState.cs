@@ -34,45 +34,47 @@ public class EelMaintainDistanceState : BaseState
     enemy gets close, then the type of the attack state is returned
     */
     public override Type Tick() {
-        //Debug.Log("I'm here");
-        if (stop == false) {
-            transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
-        }
-        
-        if (_enemy.tag == "Fire Eel" && _enemy.beenHit == false) {
-            _enemy.enemyAnimator.SetFloat("EelWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-            _enemy.enemyAnimator.SetFloat("EelWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-            speed = 1;
-        } else if (_enemy.beenHit == true && _enemy.tag == "Fire Eel") {
-            _enemy.enemyAnimator.SetFloat("EelHitHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-            _enemy.enemyAnimator.SetFloat("EelHitVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-            speed = .25f;
-        } 
+        if (_enemy.healthAmount > 0){
+            //Debug.Log("I'm here");
+            if (stop == false) {
+                transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
+            }
+            
+            if (_enemy.tag == "Fire Eel" && _enemy.beenHit == false) {
+                _enemy.enemyAnimator.SetFloat("EelWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+                _enemy.enemyAnimator.SetFloat("EelWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+                speed = 1;
+            } else if (_enemy.beenHit == true && _enemy.tag == "Fire Eel") {
+                _enemy.enemyAnimator.SetFloat("EelHitHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+                _enemy.enemyAnimator.SetFloat("EelHitVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+                speed = .25f;
+            } 
 
-        var delta_x = transform.position.x - target.position.x;
-        var delta_y = transform.position.y - target.position.y;
-        float angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
-        if (angle < 0.0f) {
-            angle = angle + 360f;
-        }
-        if (movingBack == false) {
-            LocatePlayer(angle); 
+            var delta_x = transform.position.x - target.position.x;
+            var delta_y = transform.position.y - target.position.y;
+            float angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+            if (angle < 0.0f) {
+                angle = angle + 360f;
+            }
+            if (movingBack == false) {
+                LocatePlayer(angle); 
+                FailSafeDirection();
+            }
+            WallDetection();  
+            MaintainDistance();
+            MoveDirection();   
+            NPCDetection();
             FailSafeDirection();
-        }
-        WallDetection();  
-        MaintainDistance();
-        MoveDirection();   
-        NPCDetection();
-        FailSafeDirection();
-        //PlaceFire();
+            //PlaceFire();
 
-        if (lungeAttackTimer > 0) {
-            lungeAttackTimer -= Time.deltaTime;
-        } else {
-            if (attackDistance == true && _enemy.beenHit == false) {
-                lungeAttackTimer = 3f;
-                _enemy.enemyAnimator.SetTrigger("FireEelAttacking");
-                return typeof(LungeAttackState);
+            if (lungeAttackTimer > 0) {
+                lungeAttackTimer -= Time.deltaTime;
+            } else {
+                if (attackDistance == true && _enemy.beenHit == false) {
+                    lungeAttackTimer = 3f;
+                    _enemy.enemyAnimator.SetTrigger("FireEelAttacking");
+                    return typeof(LungeAttackState);
+                }
             }
         }
 

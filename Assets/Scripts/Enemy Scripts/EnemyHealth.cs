@@ -5,11 +5,10 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     Vector3 localScale;
-    Transform transform;
+
     // Start is called before the first frame update
     void Start()
     {
-        transform = GetComponent<Transform>();
         localScale = transform.localScale;
     }
 
@@ -18,7 +17,9 @@ public class EnemyHealth : MonoBehaviour
     {
 
         localScale.x = gameObject.transform.parent.gameObject.GetComponent<Enemy>().healthAmount;
-        
+        if(localScale.x < 0){
+            localScale.x = 0;
+        }
         transform.localScale = localScale;
     }
 }
