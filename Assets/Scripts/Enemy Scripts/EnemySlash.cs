@@ -9,7 +9,8 @@ public class EnemySlash : MonoBehaviour
     public Animator slashAnimator;
     private GameObject SG;
     private Enemy SGS;
-
+    private float xAttack;
+    private float yAttack;
     /*
     private float angle;
     private Transform target;
@@ -30,8 +31,10 @@ public class EnemySlash : MonoBehaviour
             angle = angle + 360f;
         }  
         */
-        slashAnimator.SetFloat("SlashAttackVertical", SGS.moveDirections[SGS.currMoveDirection].y);
-        slashAnimator.SetFloat("SlashAttackHorizontal", SGS.moveDirections[SGS.currMoveDirection].x);
+        xAttack = SGS.enemyAnimator.GetFloat("SwordAttackHorizontal");
+        yAttack = SGS.enemyAnimator.GetFloat("SwordAttackVertical");
+        slashAnimator.SetFloat("SlashAttackVertical", yAttack);
+        slashAnimator.SetFloat("SlashAttackHorizontal", xAttack);
        
     }
 

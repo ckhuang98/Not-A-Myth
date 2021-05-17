@@ -51,13 +51,14 @@ public class ChaseState : BaseState
             _enemy.enemyAnimator.SetFloat("HammerHitVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
             speed = .25f;
         }
-        _enemy.inBounds = false;
-        transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
 
         if (_enemy.tag == "Sword Giant") {
             _enemy.enemyAnimator.SetFloat("SwordWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
             _enemy.enemyAnimator.SetFloat("SwordWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
         }
+        _enemy.inBounds = false;
+        transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
+        Debug.Log("In Chase State");
 
         //Debug.DrawRay(transform.position, _enemy.moveDirections[_enemy.currMoveDirection] * 3.0f, Color.blue);
         
@@ -73,21 +74,21 @@ public class ChaseState : BaseState
         FailSafeDirection();  
         MoveDirection();   
         NPCDetection();
-
+        
         if (Vector3.Distance(transform.position, walls.transform.position) < 2.0f) {
             Vector3 dist = transform.position - walls.transform.position;
             transform.position += dist * Time.deltaTime;
         }
 
-        if (Vector2.Distance(transform.position, target.position) <= 2 && _enemy.tag == "Sword Giant") {
+        if (_enemy.attackDir != "Not Set" && _enemy.tag == "Sword Giant") {
             _enemy.enemyAnimator.SetTrigger("SwordAttacking");
             return typeof(SwordAttackState);
         }
-        if (Vector2.Distance(transform.position, target.position) <= 2 && _enemy.tag == "Hammer Giant" && _enemy.beenHit == false) {
+        if (_enemy.attackDir != "Not Set" &&_enemy.tag == "Hammer Giant" && _enemy.beenHit == false) {
             _enemy.enemyAnimator.SetTrigger("Attack");
             return typeof(AttackState);
         } else if (Vector2.Distance(transform.position, target.position) >= 20 ) {
-            Debug.Log("Moving to wander state");
+            //Debug.Log("Moving to wander state");
             return typeof(WanderState);
         } 
 

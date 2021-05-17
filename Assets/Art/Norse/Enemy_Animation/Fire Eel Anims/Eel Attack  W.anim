@@ -46,7 +46,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.42857143
+        time: 1.0714285
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -55,7 +55,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.78571427
+        time: 1.3571428
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -78,16 +78,16 @@ AnimationClip:
     - time: 0.14285715
       value: {fileID: 744493309695570547, guid: 272b4824d9d5f8e4d90dd4c91ab9e7a1,
         type: 3}
-    - time: 0.2857143
+    - time: 0.9285714
       value: {fileID: -1060763562892550125, guid: 272b4824d9d5f8e4d90dd4c91ab9e7a1,
         type: 3}
-    - time: 0.42857143
+    - time: 1.0714285
       value: {fileID: -8534499467530932960, guid: 272b4824d9d5f8e4d90dd4c91ab9e7a1,
         type: 3}
-    - time: 0.5714286
+    - time: 1.2142857
       value: {fileID: 1652857839652559353, guid: 272b4824d9d5f8e4d90dd4c91ab9e7a1,
         type: 3}
-    - time: 0.78571427
+    - time: 1.3571428
       value: {fileID: 2007728186909469078, guid: 272b4824d9d5f8e4d90dd4c91ab9e7a1,
         type: 3}
     attribute: m_Sprite
@@ -134,7 +134,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.85714287
+    m_StopTime: 1.4285715
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -220,7 +220,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.42857143
+        time: 1.0714285
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -229,7 +229,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.78571427
+        time: 1.3571428
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -248,21 +248,21 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.2857143
+  - time: 0.9285714
     functionName: LungeAttackActivation
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.2857143
+  - time: 0.9285714
     functionName: playAttackSFX
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.85714287
+  - time: 1.4285715
     functionName: moveToWalk
     data: 
     objectReferenceParameter: {fileID: 0}
