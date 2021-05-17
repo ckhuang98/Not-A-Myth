@@ -42,41 +42,43 @@ public class AttackState : BaseState
     */
     public override Type Tick()
     {
-        _enemy.inAttackState = true;
-        /*
-        var delta_x = transform.position.x - target.position.x;
-        var delta_y = transform.position.y - target.position.y;
-        if (gotAngle == false) {
-            angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
-            if (angle < 0.0f) {
-                angle = angle + 360f;
+        if (_enemy.healthAmount > 0){
+            _enemy.inAttackState = true;
+            /*
+            var delta_x = transform.position.x - target.position.x;
+            var delta_y = transform.position.y - target.position.y;
+            if (gotAngle == false) {
+                angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+                if (angle < 0.0f) {
+                    angle = angle + 360f;
+                }
+                gotAngle = true;
             }
-            gotAngle = true;
+            */
+            //Debug.Log("Her");
+            _enemy.enemyAnimator.SetFloat("AttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("AttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            horizontal = _enemy.enemyAnimator.GetFloat("AttackHorizontal");
+            vertical = _enemy.enemyAnimator.GetFloat("AttackVertical");
+            if (AoEWarning != null) {
+                inAOEWarning = AoEWarning.GetComponent<AOEWarning>().getWarning();
+            } else {
+                inAOEWarning = false;
+            }
+            InstantiateWarning();
+            InstantiateAoE();
+            //Debug.Log("Horizontal: " + horizontal.ToString());
+            //Debug.Log("Vertical: " + vertical.ToString());
+            
+            if (_enemy.goToWalk == true) {
+                _enemy.goToWalk = false;
+                gotAngle = false;
+                _enemy.inAttackState = false;
+                return typeof(ChaseState);
+            }
         }
-        */
-        //Debug.Log("Her");
-        _enemy.enemyAnimator.SetFloat("AttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-        _enemy.enemyAnimator.SetFloat("AttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-        horizontal = _enemy.enemyAnimator.GetFloat("AttackHorizontal");
-        vertical = _enemy.enemyAnimator.GetFloat("AttackVertical");
-        if (AoEWarning != null) {
-            inAOEWarning = AoEWarning.GetComponent<AOEWarning>().getWarning();
-        } else {
-            inAOEWarning = false;
-        }
-        InstantiateWarning();
-        InstantiateAoE();
-        //Debug.Log("Horizontal: " + horizontal.ToString());
-        //Debug.Log("Vertical: " + vertical.ToString());
-        
-        if (_enemy.goToWalk == true) {
-            _enemy.goToWalk = false;
-            gotAngle = false;
-            _enemy.inAttackState = false;
-            return typeof(ChaseState);
-        }
-
         return typeof(AttackState);
+        
     }
 
     /*

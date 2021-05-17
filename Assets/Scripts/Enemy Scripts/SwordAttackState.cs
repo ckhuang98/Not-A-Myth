@@ -38,28 +38,29 @@ public class SwordAttackState : BaseState
     */
     public override Type Tick()
     {
-        var delta_x = transform.position.x - target.position.x;
-        var delta_y = transform.position.y - target.position.y;
-        if (gotAngle == false) {
-            angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
-            if (angle < 0.0f) {
-                angle = angle + 360f;
+        if (_enemy.healthAmount > 0){
+            var delta_x = transform.position.x - target.position.x;
+            var delta_y = transform.position.y - target.position.y;
+            if (gotAngle == false) {
+                angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+                if (angle < 0.0f) {
+                    angle = angle + 360f;
+                }
+                gotAngle = true;
             }
-            gotAngle = true;
+            
+            _enemy.enemyAnimator.SetFloat("SwordAttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("SwordAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            horizontal = _enemy.enemyAnimator.GetFloat("SwordAttackHorizontal");
+            vertical = _enemy.enemyAnimator.GetFloat("SwordAttackVertical");
+            InstantiateWarning();
+            InstantiateSlash();
+            if (_enemy.goToWalk == true) {
+                _enemy.goToWalk = false;
+                gotAngle = false;
+                return typeof(ChaseState);
+            }
         }
-        
-        _enemy.enemyAnimator.SetFloat("SwordAttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-        _enemy.enemyAnimator.SetFloat("SwordAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-        horizontal = _enemy.enemyAnimator.GetFloat("SwordAttackHorizontal");
-        vertical = _enemy.enemyAnimator.GetFloat("SwordAttackVertical");
-        InstantiateWarning();
-        InstantiateSlash();
-        if (_enemy.goToWalk == true) {
-            _enemy.goToWalk = false;
-            gotAngle = false;
-            return typeof(ChaseState);
-        }
-
         return typeof(SwordAttackState);
     }
 
