@@ -625,6 +625,7 @@ GameObject:
   - component: {fileID: 326910262}
   - component: {fileID: 326910261}
   - component: {fileID: 326910260}
+  - component: {fileID: 326910264}
   m_Layer: 5
   m_Name: World Canvas
   m_TagString: WorldCanvas
@@ -722,6 +723,20 @@ RectTransform:
   m_AnchoredPosition: {x: 493, y: 277.5}
   m_SizeDelta: {x: 986, y: 555}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &326910264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326910259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 400e3a2737e0f1545a8692781d4b6d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveText: Go forth and find your friend.
+  displayTimer: 3
 --- !u!1 &343250665
 GameObject:
   m_ObjectHideFlags: 0
