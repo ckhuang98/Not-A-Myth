@@ -45,76 +45,75 @@ public class WanderState : BaseState
     */
     public override Type Tick()
     {
-        if (_enemy.healthAmount > 0){
-            if (_enemy.beenHit == false && _enemy.tag == "Hammer Giant") {
-                _enemy.enemyAnimator.SetFloat("Horizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-                _enemy.enemyAnimator.SetFloat("Vertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-                speed = 1f;
-            } else if (_enemy.beenHit == true && _enemy.tag == "Hammer Giant") {
-                _enemy.enemyAnimator.SetFloat("HammerHitHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-                _enemy.enemyAnimator.SetFloat("HammerHitVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-                speed = .25f;
-            }
-            //Debug.Log("Wanderin'");
-
-            if (_enemy.tag == "Fire Eel" && _enemy.beenHit == false) {
-                _enemy.enemyAnimator.SetFloat("EelWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-                _enemy.enemyAnimator.SetFloat("EelWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-                speed = 1;
-            } else if (_enemy.beenHit == true && _enemy.tag == "Fire Eel") {
-                _enemy.enemyAnimator.SetFloat("EelHitHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-                _enemy.enemyAnimator.SetFloat("EelHitVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-                speed = .25f;
-            } 
-
-            if (_enemy.tag == "Fire Imp" && _enemy.beenHit == false) {
-                _enemy.enemyAnimator.SetFloat("ImpIdleHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-                _enemy.enemyAnimator.SetFloat("ImpIdleVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-                speed = 1;
-            } else if (_enemy.beenHit == true && _enemy.tag == "Fire Imp") {
-                _enemy.enemyAnimator.SetFloat("ImpHitHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-                _enemy.enemyAnimator.SetFloat("ImpHitVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-                speed = .25f;
-            }  
-
-            if(_enemy.tag == "Sword Giant") {
-                _enemy.enemyAnimator.SetFloat("SwordWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-                _enemy.enemyAnimator.SetFloat("SwordWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-            }
-
-            transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * Time.deltaTime * speed;
-
-            if (decisionTimeCount >= 0)
-            {
-                decisionTimeCount -= Time.deltaTime;
-                
-            } else
-            {
-                if (hasMoved == false) {
-                    hasMoved = true;
-                }
-                decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
-                ChooseMoveDirection();
-            }
-            MoveDirection();
-            NPCDetection();
-            WallDetection();
-            FailSafeDirection();
-            //PlaceFire();
-
-            if (_enemy.inBounds == true && (_enemy.tag == "Hammer Giant" || _enemy.tag == "Sword Giant")) {
-                _enemy.resetWeightsToZero();
-                return typeof(ChaseState);
-            }
-            if (_enemy.inBounds == true && _enemy.tag == "Fire Eel") {
-                _enemy.resetWeightsToZero();
-                return typeof(EelMaintainDistanceState);
-            }
-            if (_enemy.inBounds == true && _enemy.tag == "Fire Imp") {
-                _enemy.resetWeightsToZero();
-                return typeof(MaintainDistanceState);
-            }
+        if (_enemy.beenHit == false && _enemy.tag == "Hammer Giant") {
+            _enemy.enemyAnimator.SetFloat("Horizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("Vertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            speed = 1f;
+        } else if (_enemy.beenHit == true && _enemy.tag == "Hammer Giant") {
+            _enemy.enemyAnimator.SetFloat("HammerHitHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("HammerHitVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            speed = .25f;
         }
+        //Debug.Log("Wanderin'");
+
+        if (_enemy.tag == "Fire Eel" && _enemy.beenHit == false) {
+            _enemy.enemyAnimator.SetFloat("EelWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("EelWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            speed = 1;
+        } else if (_enemy.beenHit == true && _enemy.tag == "Fire Eel") {
+            _enemy.enemyAnimator.SetFloat("EelHitHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("EelHitVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            speed = .25f;
+        } 
+
+        if (_enemy.tag == "Fire Imp" && _enemy.beenHit == false) {
+            _enemy.enemyAnimator.SetFloat("ImpIdleHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("ImpIdleVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            speed = 1;
+        } else if (_enemy.beenHit == true && _enemy.tag == "Fire Imp") {
+            _enemy.enemyAnimator.SetFloat("ImpHitHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("ImpHitVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            speed = .25f;
+        }  
+
+        if(_enemy.tag == "Sword Giant") {
+            _enemy.enemyAnimator.SetFloat("SwordWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("SwordWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+        }
+
+        transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * Time.deltaTime * speed;
+
+        if (decisionTimeCount >= 0)
+        {
+            decisionTimeCount -= Time.deltaTime;
+            
+        } else
+        {
+            if (hasMoved == false) {
+                hasMoved = true;
+            }
+            decisionTimeCount = UnityEngine.Random.Range(decisionTime.x, decisionTime.y);
+            ChooseMoveDirection();
+        }
+        MoveDirection();
+        NPCDetection();
+        WallDetection();
+        FailSafeDirection();
+        //PlaceFire();
+
+        if (_enemy.inBounds == true && (_enemy.tag == "Hammer Giant" || _enemy.tag == "Sword Giant")) {
+            _enemy.resetWeightsToZero();
+            return typeof(ChaseState);
+        }
+        if (_enemy.inBounds == true && _enemy.tag == "Fire Eel") {
+            _enemy.resetWeightsToZero();
+            return typeof(EelMaintainDistanceState);
+        }
+        if (_enemy.inBounds == true && _enemy.tag == "Fire Imp") {
+            _enemy.resetWeightsToZero();
+            return typeof(MaintainDistanceState);
+        }
+
         return typeof(WanderState);
     }
 

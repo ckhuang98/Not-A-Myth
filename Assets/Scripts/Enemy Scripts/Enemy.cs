@@ -24,8 +24,6 @@ public class Enemy : MonoBehaviour
     public GameObject shard;
 
     public GameObject plant;
-
-    public GameObject corpse;
     //Area of Effect
     public GameObject AOE;
     public GameObject AOEWarning;
@@ -77,14 +75,6 @@ public class Enemy : MonoBehaviour
 
     private Freezer freezer;
     private ObjectAudioManager audioManager;
-    public bool deadState = false;
-    ////////////////////////////////////////////
-    // Animators for hit vfx
-    public Animator giantVFX;
-    public Animator impVFX;
-    public Animator eelVFX;
-
-    ////////////////////////////////////////////
     
     internal Vector3[] moveDirections = new Vector3[] { Vector3.up, Vector3.Normalize(Vector3.right + Vector3.up), 
         Vector3.right, Vector3.Normalize(Vector3.right + Vector3.down), Vector3.down,
@@ -95,11 +85,11 @@ public class Enemy : MonoBehaviour
     {
         if (this.tag == "Fire Eel") {
             fireTrail = gameObject.GetComponent<ParticleSystem>();
-            healthAmount = 1.3f;
-        } else if (this.tag == "Fire Imp") {
             healthAmount = 1f;
+        } else if (this.tag == "Fire Imp") {
+            healthAmount = .8f;
         } else if (this.tag == "Hammer Giant" || this.tag == "Sword Giant") {
-            healthAmount = 1.8f;
+            healthAmount = 1.5f;
         }
 
         if (this.tag == "Fire Imp") {
@@ -190,13 +180,6 @@ public class Enemy : MonoBehaviour
         }
         if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .5)
         {
-            if(this.tag == "Hammer Giant" || this.tag == "Sword Giant"){
-                giantVFX.SetTrigger("Hit");
-            } else if (this.tag == "Fire Imp") {
-                impVFX.SetTrigger("Hit");
-            } else if (this.tag == "Fire Eel" ) {
-                eelVFX.SetTrigger("Hit");
-            }
             if (this.tag == "Hammer Giant" && inAttackState == false) {
                 enemyAnimator.SetTrigger("HammerHit");
                 beenHit = true;
@@ -206,9 +189,7 @@ public class Enemy : MonoBehaviour
             } else if (this.tag == "Fire Eel" && inAttackState == false) {
                 enemyAnimator.SetTrigger("EelHit");
                 beenHit = true;
-            }
-
-            
+            } 
             playHurtSFX();
             ////////////////////////////////////////////////////////////////////////////////////
             // Adds knockback to enemy
@@ -244,7 +225,7 @@ public class Enemy : MonoBehaviour
             freezer.Freeze();
         }
         // For the dash attack skill
-        if(collider.gameObject.name.Equals("DashBox") && timer >= .5 && healthAmount > 0){
+        if(collider.gameObject.name.Equals("DashBox") && timer >= .5){
             playHurtSFX();
             if (armorAmount > 0) {
                 armorAmount -= (GameMaster.instance.playerStats.attackPower.Value * .3f);
@@ -290,13 +271,6 @@ public class Enemy : MonoBehaviour
         //}
     }
 
-    void spawnCorpse(){
-        GameObject go = (GameObject)Instantiate(corpse);
-        Vector3 temp = this.transform.position;
-        temp.y += 0.5f;
-        go.transform.position = temp;
-    }
-
     void spawnPlant(){
         if(UnityEngine.Random.value > .66){
             GameObject go = (GameObject)Instantiate(plant);
@@ -310,52 +284,19 @@ public class Enemy : MonoBehaviour
         if (!gameOver) { 
             if (healthAmount <= 0)
             {
-                if(deadState == false){
-                    playDeathSFX();
-                    if (tag == "Hammer Giant") {
-                        enemyAnimator.SetFloat("HammerHitHorizontal", moveDirections[currMoveDirection].x);
-                        enemyAnimator.SetFloat("HammerHitVertical", moveDirections[currMoveDirection].y);
-                    }
-                    if (beenHit == true && tag == "Fire Eel") {
-                        enemyAnimator.SetFloat("EelHitHorizontal", moveDirections[currMoveDirection].x);
-                        enemyAnimator.SetFloat("EelHitVertical", moveDirections[currMoveDirection].y);
-                    } 
-                    if (tag == "Fire Imp") {
-                        enemyAnimator.SetFloat("ImpHitHorizontal", moveDirections[currMoveDirection].x);
-                        enemyAnimator.SetFloat("ImpHitVertical", moveDirections[currMoveDirection].y);
-                    }  
-                    if(tag == "Sword Giant") {
-                        enemyAnimator.SetFloat("SwordWalkHorizontal", moveDirections[currMoveDirection].x);
-                        enemyAnimator.SetFloat("SwordWalkVertical", moveDirections[currMoveDirection].y);
-                    }                    
-                    StartCoroutine(deathAnim());
+                playDeathSFX();
+                //fireTrail.transform.parent = null;
+                GameMaster.instance.enemyList.Remove(this.gameObject);
+                Destroy(this.gameObject);
+                enemyAmount -= 1;
+                GameMaster.instance.numOfEnemies -= 1;
+                spawnShard();
+                if(GameMaster.instance.playerStats.unlockedPlantDrop.Value){
+                    spawnPlant();
                 }
-
-                //StartCoroutine(deathAnim());    
             }
             timer += Time.deltaTime; // Temporary
         }
-    }
-
-    private IEnumerator deathAnim(){
-        deadState = true;
-        float fadeTime = 1f;
-        var thisColor = this.GetComponent<Renderer>().material.color;
-        while(thisColor.a > 0){
-            thisColor.a -= Time.deltaTime / fadeTime;
-            this.GetComponent<Renderer>().material.color = thisColor;
-            yield return null;
-        }
-        GameMaster.instance.enemyList.Remove(this.gameObject);
-        Destroy(this.gameObject);
-        spawnCorpse();
-        enemyAmount -= 1;
-        GameMaster.instance.numOfEnemies -= 1;
-        spawnShard();
-        if(GameMaster.instance.playerStats.unlockedPlantDrop.Value){
-            spawnPlant();
-        }
-        
     }
 
     /*
@@ -376,8 +317,7 @@ public class Enemy : MonoBehaviour
             { typeof(FireProjectileState), new FireProjectileState(this) },
             { typeof(LungeAttackState), new LungeAttackState(this) },
             { typeof(EelMaintainDistanceState), new EelMaintainDistanceState(this) },
-            { typeof(SwordAttackState), new SwordAttackState(this) },
-            { typeof(DeathState), new DeathState(this)}
+            { typeof(SwordAttackState), new SwordAttackState(this) }
         };
 
         stateMachine.SetStates(states);
