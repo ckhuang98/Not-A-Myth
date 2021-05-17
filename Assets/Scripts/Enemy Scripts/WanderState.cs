@@ -388,6 +388,7 @@ public class WanderState : BaseState
     Recieves: nothing
     Returns: nothing
     */
+    /*
     private void PlaceFire() {
         if (_enemy.tag == "Fire Eel") {
             if (fireTrailTimer > 0) {
@@ -399,5 +400,5 @@ public class WanderState : BaseState
             }
         }
     }
-    
+    */
 }

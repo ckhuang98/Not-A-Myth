@@ -32,7 +32,8 @@ public class Enemy : MonoBehaviour
     public GameObject damageProjectile;
     public GameObject healingProjectile;
     public GameObject projectileWarning;
-    public GameObject fireTrail;
+    //public GameObject fireTrail;
+    private ParticleSystem fireTrail;
     public GameObject slash;
     public GameObject slashWarning;
     
@@ -83,6 +84,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         if (this.tag == "Fire Eel") {
+            fireTrail = gameObject.GetComponent<ParticleSystem>();
             healthAmount = 1f;
         } else if (this.tag == "Fire Imp") {
             healthAmount = .8f;
@@ -283,6 +285,7 @@ public class Enemy : MonoBehaviour
             if (healthAmount <= 0)
             {
                 playDeathSFX();
+                //fireTrail.transform.parent = null;
                 GameMaster.instance.enemyList.Remove(this.gameObject);
                 Destroy(this.gameObject);
                 enemyAmount -= 1;
