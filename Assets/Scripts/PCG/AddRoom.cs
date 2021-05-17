@@ -53,7 +53,6 @@ public class AddRoom : MonoBehaviour
             SpriteRenderer renderer = tree.GetComponent<SpriteRenderer>();
             renderer.sprite = treeSprites[Random.Range(0, treeSprites.Length - 1)];
             renderer.enabled = (Random.Range(1,11) <= 7);
-
         }
 
         foreach (GameObject building in buildings) {

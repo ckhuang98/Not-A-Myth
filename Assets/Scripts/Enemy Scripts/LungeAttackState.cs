@@ -25,29 +25,27 @@ public class LungeAttackState : BaseState
     the type of the ell maintain distance state when the animation is over.
     */
     public override Type Tick() {
-        if (_enemy.healthAmount > 0){
-            _enemy.inAttackState = true;
-            var delta_x = transform.position.x - target.position.x;
-            var delta_y = transform.position.y - target.position.y;
-            if (gotAngle == false) {
-                angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
-                if (angle < 0.0f) {
-                    angle = angle + 360f;
-                }
-                gotAngle = true;
+        _enemy.inAttackState = true;
+        var delta_x = transform.position.x - target.position.x;
+        var delta_y = transform.position.y - target.position.y;
+        if (gotAngle == false) {
+            angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+            if (angle < 0.0f) {
+                angle = angle + 360f;
             }
-            LungeAttack();
-            _enemy.enemyAnimator.SetFloat("EelAttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-            _enemy.enemyAnimator.SetFloat("EelAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-            if (_enemy.doLungeAttack == true) {
-                transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
-            }
-            if (_enemy.goToWalk == true) {
-                _enemy.goToWalk = false;
-                gotAngle = false;
-                _enemy.inAttackState = false;
-                return typeof(EelMaintainDistanceState);
-            }
+            gotAngle = true;
+        }
+        LungeAttack();
+        _enemy.enemyAnimator.SetFloat("EelAttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+        _enemy.enemyAnimator.SetFloat("EelAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+        if (_enemy.doLungeAttack == true) {
+            transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
+        }
+        if (_enemy.goToWalk == true) {
+            _enemy.goToWalk = false;
+            gotAngle = false;
+            _enemy.inAttackState = false;
+            return typeof(EelMaintainDistanceState);
         }
         return typeof(LungeAttackState);
     }

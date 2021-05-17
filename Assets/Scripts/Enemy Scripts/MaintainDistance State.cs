@@ -32,53 +32,51 @@ public class MaintainDistanceState : BaseState
     enemy gets close, then the type of the fire projectile state is returned
     */
     public override Type Tick() {
-        if (_enemy.healthAmount > 0){
-            var delta_x = transform.position.x - target.position.x;
-            var delta_y = transform.position.y - target.position.y;
-            float angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
-            if (angle < 0.0f) {
-                angle = angle + 360f;
-            } 
+        var delta_x = transform.position.x - target.position.x;
+        var delta_y = transform.position.y - target.position.y;
+        float angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+        if (angle < 0.0f) {
+            angle = angle + 360f;
+        } 
 
-            LookAtPlayer(angle);
-            if (_enemy.tag == "Fire Imp" && _enemy.beenHit == false) {
-                _enemy.enemyAnimator.SetFloat("ImpIdleHorizontal", _enemy.moveDirections[lookHere].x);
-                _enemy.enemyAnimator.SetFloat("ImpIdleVertical", _enemy.moveDirections[lookHere].y);
-            } else if (_enemy.beenHit == true && _enemy.tag == "Fire Imp") {
-                _enemy.enemyAnimator.SetFloat("ImpHitHorizontal", _enemy.moveDirections[lookHere].x);
-                _enemy.enemyAnimator.SetFloat("ImpHitVertical", _enemy.moveDirections[lookHere].y);
-                speed = .25f;
-            } 
-            //Uses movement directions to shift to the left or right of the player.
-            transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * Time.deltaTime * shiftSpeed;
-            //code to maintain distance
-            if (Vector2.Distance(transform.position, target.position) > stoppingDistance) {
-                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            } else if (Vector2.Distance(transform.position, target.position) < stoppingDistance && Vector2.Distance(transform.position, target.position) > retreatDistance) {
-                transform.position = this.transform.position;
-            } else if (Vector2.Distance(transform.position, target.position) < retreatDistance) {
-                transform.position = Vector2.MoveTowards(transform.position, target.position, -speed * Time.deltaTime);
-            }
+        LookAtPlayer(angle);
+        if (_enemy.tag == "Fire Imp" && _enemy.beenHit == false) {
+            _enemy.enemyAnimator.SetFloat("ImpIdleHorizontal", _enemy.moveDirections[lookHere].x);
+            _enemy.enemyAnimator.SetFloat("ImpIdleVertical", _enemy.moveDirections[lookHere].y);
+        } else if (_enemy.beenHit == true && _enemy.tag == "Fire Imp") {
+            _enemy.enemyAnimator.SetFloat("ImpHitHorizontal", _enemy.moveDirections[lookHere].x);
+            _enemy.enemyAnimator.SetFloat("ImpHitVertical", _enemy.moveDirections[lookHere].y);
+            speed = .25f;
+        } 
+        //Uses movement directions to shift to the left or right of the player.
+        transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * Time.deltaTime * shiftSpeed;
+        //code to maintain distance
+        if (Vector2.Distance(transform.position, target.position) > stoppingDistance) {
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        } else if (Vector2.Distance(transform.position, target.position) < stoppingDistance && Vector2.Distance(transform.position, target.position) > retreatDistance) {
+            transform.position = this.transform.position;
+        } else if (Vector2.Distance(transform.position, target.position) < retreatDistance) {
+             transform.position = Vector2.MoveTowards(transform.position, target.position, -speed * Time.deltaTime);
+        }
+        
+    //Time for option shift side to side
+        if (shiftTime >= 0)
+        {
+            shiftTime -= Time.deltaTime;
             
-        //Time for option shift side to side
-            if (shiftTime >= 0)
-            {
-                shiftTime -= Time.deltaTime;
-                
-            } else
-            {
-                shiftTime = 4f;
-                LocatePlayer(angle);
-            }
+        } else
+        {
+            shiftTime = 4f;
+            LocatePlayer(angle);
+        }
 
 
-            if (timeBtwShots <= 0 && _enemy.beenHit == false) {
-                timeBtwShots = 2f;
-                _enemy.enemyAnimator.SetTrigger("ImpAttacking");
-                return typeof(FireProjectileState);
-            } else {
-                timeBtwShots -= Time.deltaTime;
-            }
+        if (timeBtwShots <= 0 && _enemy.beenHit == false) {
+            timeBtwShots = 2f;
+            _enemy.enemyAnimator.SetTrigger("ImpAttacking");
+            return typeof(FireProjectileState);
+        } else {
+            timeBtwShots -= Time.deltaTime;
         }
         return typeof(MaintainDistanceState);
     }
