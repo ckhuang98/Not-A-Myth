@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,7 +17,7 @@ public class Panner : MonoBehaviour
     [SerializeField] private Transform[] pan_trans = new Transform[4];
 
     CameraFollow follower;          // Camera follower script
-    float panTimer = 4.0f;          // Pan once per 4 seconds
+    float panTimer = 1.0f;          // Start cam on player for 1.5s (2.5-1)
     int cam_point = 0;              // Integer for camera iteration
 
     // Start is called before the first frame update
@@ -44,8 +44,8 @@ public class Panner : MonoBehaviour
     {
         // Debug.Log("timer: " + panTimer + "     pan_count: " + cam_point);
 
-        // Only pan once per 4 seconds
-        if (panTimer >= 4.0f) {
+        // Only pan once per 2.5 seconds
+        if (panTimer >= 2.5f) {
 
             // Maximum of four pans
             if (cam_point < 4) {
@@ -66,8 +66,12 @@ public class Panner : MonoBehaviour
             cam_point++;
             panTimer = 0f;
             follower.target = player;
-            follower.smoothSpeed = 10f;
             ZoomIn();
+        }
+
+        // Reset the follower's smooth speed after return to player
+        if (cam_point == 6 && follower.smoothSpeed == 3f) {
+            follower.smoothSpeed = 10f;
         }
     }
 
