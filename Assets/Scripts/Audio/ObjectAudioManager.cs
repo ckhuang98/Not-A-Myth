@@ -249,7 +249,7 @@ public class ObjectAudioManager : MonoBehaviour
     // Set noLoop to true if you want the group to play through without any looping
     public ObjectSoundGroup PlayGroup(string name, bool noLoop = false)
     {
-        Debug.Log("Playing SoundGroup: " + name);
+        // Debug.Log("Playing SoundGroup: " + name);
 
         // find the SoundGroup with the given name
         ObjectSoundGroup sg = FindSoundGroup(name);
