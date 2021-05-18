@@ -40,46 +40,47 @@ public class SwordAttackState : BaseState
     */
     public override Type Tick()
     {
-        /*
-        var delta_x = transform.position.x - target.position.x;
-        var delta_y = transform.position.y - target.position.y;
-        if (gotAngle == false) {
-            angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
-            if (angle < 0.0f) {
-                angle = angle + 360f;
+        if (_enemy.healthAmount > 0) {
+            /*
+            var delta_x = transform.position.x - target.position.x;
+            var delta_y = transform.position.y - target.position.y;
+            if (gotAngle == false) {
+                angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+                if (angle < 0.0f) {
+                    angle = angle + 360f;
+                }
+                gotAngle = true;
             }
-            gotAngle = true;
-        }
-        */
-        if (gotAngle == false) {
-            gotAngle = true;
-            if (_enemy.attackDir == "Bottom") {
-                xAttack = 0f;
-                yAttack = -1f;
-            } else if (_enemy.attackDir == "Right") {
-                xAttack = 1f;
-                yAttack = 0f;
-            } else if (_enemy.attackDir == "Top") {
-                xAttack = 0f;
-                yAttack = 1f;
-            } else if (_enemy.attackDir == "Left") {
-                xAttack = -1f;
-                yAttack = 0f;
+            */
+            if (gotAngle == false) {
+                gotAngle = true;
+                if (_enemy.attackDir == "Bottom") {
+                    xAttack = 0f;
+                    yAttack = -1f;
+                } else if (_enemy.attackDir == "Right") {
+                    xAttack = 1f;
+                    yAttack = 0f;
+                } else if (_enemy.attackDir == "Top") {
+                    xAttack = 0f;
+                    yAttack = 1f;
+                } else if (_enemy.attackDir == "Left") {
+                    xAttack = -1f;
+                    yAttack = 0f;
+                }
+                _enemy.attackDir = "Not Set";
             }
-            _enemy.attackDir = "Not Set";
+            _enemy.enemyAnimator.SetFloat("SwordAttackHorizontal", xAttack);
+            _enemy.enemyAnimator.SetFloat("SwordAttackVertical", yAttack);
+            //horizontal = _enemy.enemyAnimator.GetFloat("SwordAttackHorizontal");
+            //vertical = _enemy.enemyAnimator.GetFloat("SwordAttackVertical");
+            InstantiateWarning();
+            InstantiateSlash();
+            if (_enemy.goToWalk == true) {
+                _enemy.goToWalk = false;
+                gotAngle = false;
+                return typeof(ChaseState);
+            }
         }
-        _enemy.enemyAnimator.SetFloat("SwordAttackHorizontal", xAttack);
-        _enemy.enemyAnimator.SetFloat("SwordAttackVertical", yAttack);
-        //horizontal = _enemy.enemyAnimator.GetFloat("SwordAttackHorizontal");
-        //vertical = _enemy.enemyAnimator.GetFloat("SwordAttackVertical");
-        InstantiateWarning();
-        InstantiateSlash();
-        if (_enemy.goToWalk == true) {
-            _enemy.goToWalk = false;
-            gotAngle = false;
-            return typeof(ChaseState);
-        }
-
         return typeof(SwordAttackState);
     }
 

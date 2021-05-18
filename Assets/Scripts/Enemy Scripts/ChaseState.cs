@@ -42,56 +42,57 @@ public class ChaseState : BaseState
     */
     public override Type Tick()
     { 
-        if (_enemy.beenHit == false && _enemy.tag == "Hammer Giant") {
-            _enemy.enemyAnimator.SetFloat("Horizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-            _enemy.enemyAnimator.SetFloat("Vertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-            speed = 2.5f;
-        } else if (_enemy.beenHit == true && _enemy.tag == "Hammer Giant") {
-            _enemy.enemyAnimator.SetFloat("HammerHitHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-            _enemy.enemyAnimator.SetFloat("HammerHitVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-            speed = .25f;
-        }
+        if (_enemy.healthAmount > 0) {
+            if (_enemy.beenHit == false && _enemy.tag == "Hammer Giant") {
+                _enemy.enemyAnimator.SetFloat("Horizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+                _enemy.enemyAnimator.SetFloat("Vertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+                speed = 2.5f;
+            } else if (_enemy.beenHit == true && _enemy.tag == "Hammer Giant") {
+                _enemy.enemyAnimator.SetFloat("HammerHitHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+                _enemy.enemyAnimator.SetFloat("HammerHitVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+                speed = .25f;
+            }
 
-        if (_enemy.tag == "Sword Giant") {
-            _enemy.enemyAnimator.SetFloat("SwordWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-            _enemy.enemyAnimator.SetFloat("SwordWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-        }
-        _enemy.inBounds = false;
-        transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
-        Debug.Log("In Chase State");
+            if (_enemy.tag == "Sword Giant") {
+                _enemy.enemyAnimator.SetFloat("SwordWalkHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+                _enemy.enemyAnimator.SetFloat("SwordWalkVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            }
+            _enemy.inBounds = false;
+            transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
+            Debug.Log("In Chase State");
 
-        //Debug.DrawRay(transform.position, _enemy.moveDirections[_enemy.currMoveDirection] * 3.0f, Color.blue);
-        
-        var delta_x = transform.position.x - target.position.x;
-        var delta_y = transform.position.y - target.position.y;
-        angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
-        if (angle < 0.0f ) {
-            angle = angle + 360f;
-        } 
-        
-        LocatePlayer(angle); 
-        WallDetection();
-        FailSafeDirection();  
-        MoveDirection();   
-        NPCDetection();
-        
-        if (Vector3.Distance(transform.position, walls.transform.position) < 2.0f) {
-            Vector3 dist = transform.position - walls.transform.position;
-            transform.position += dist * Time.deltaTime;
-        }
+            //Debug.DrawRay(transform.position, _enemy.moveDirections[_enemy.currMoveDirection] * 3.0f, Color.blue);
+            
+            var delta_x = transform.position.x - target.position.x;
+            var delta_y = transform.position.y - target.position.y;
+            angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+            if (angle < 0.0f ) {
+                angle = angle + 360f;
+            } 
+            
+            LocatePlayer(angle); 
+            WallDetection();
+            FailSafeDirection();  
+            MoveDirection();   
+            NPCDetection();
+            
+            if (Vector3.Distance(transform.position, walls.transform.position) < 2.0f) {
+                Vector3 dist = transform.position - walls.transform.position;
+                transform.position += dist * Time.deltaTime;
+            }
 
-        if (_enemy.attackDir != "Not Set" && _enemy.tag == "Sword Giant") {
-            _enemy.enemyAnimator.SetTrigger("SwordAttacking");
-            return typeof(SwordAttackState);
+            if (_enemy.attackDir != "Not Set" && _enemy.tag == "Sword Giant") {
+                _enemy.enemyAnimator.SetTrigger("SwordAttacking");
+                return typeof(SwordAttackState);
+            }
+            if (_enemy.attackDir != "Not Set" &&_enemy.tag == "Hammer Giant" && _enemy.beenHit == false) {
+                _enemy.enemyAnimator.SetTrigger("Attack");
+                return typeof(AttackState);
+            } else if (Vector2.Distance(transform.position, target.position) >= 20 ) {
+                //Debug.Log("Moving to wander state");
+                return typeof(WanderState);
+            } 
         }
-        if (_enemy.attackDir != "Not Set" &&_enemy.tag == "Hammer Giant" && _enemy.beenHit == false) {
-            _enemy.enemyAnimator.SetTrigger("Attack");
-            return typeof(AttackState);
-        } else if (Vector2.Distance(transform.position, target.position) >= 20 ) {
-            //Debug.Log("Moving to wander state");
-            return typeof(WanderState);
-        } 
-
         return typeof(ChaseState);
     }
 

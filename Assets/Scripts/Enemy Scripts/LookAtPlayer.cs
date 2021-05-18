@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class LookAtPlayer : MonoBehaviour
 {
-    public Transform target;
+    Transform target;
     public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        target = GameMaster.instance.player.transform;
     }
 
     // Update is called once per frame

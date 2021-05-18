@@ -44,58 +44,59 @@ public class AttackState : BaseState
     */
     public override Type Tick()
     {
-        _enemy.inAttackState = true;
-        /*
-        var delta_x = transform.position.x - target.position.x;
-        var delta_y = transform.position.y - target.position.y;
-        if (gotAngle == false) {
-            angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
-            if (angle < 0.0f) {
-                angle = angle + 360f;
+        if (_enemy.healthAmount > 0) {
+            _enemy.inAttackState = true;
+            /*
+            var delta_x = transform.position.x - target.position.x;
+            var delta_y = transform.position.y - target.position.y;
+            if (gotAngle == false) {
+                angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+                if (angle < 0.0f) {
+                    angle = angle + 360f;
+                }
+                gotAngle = true;
             }
-            gotAngle = true;
-        }
-        */
-        //Debug.Log("Her");
-        if (gotAngle == false) {
-            gotAngle = true;
-            if (_enemy.attackDir == "Bottom") {
-                xAttack = 0f;
-                yAttack = -1f;
-            } else if (_enemy.attackDir == "Right") {
-                xAttack = 1f;
-                yAttack = 0f;
-            } else if (_enemy.attackDir == "Top") {
-                xAttack = 0f;
-                yAttack = 1f;
-            } else if (_enemy.attackDir == "Left") {
-                xAttack = -1f;
-                yAttack = 0f;
+            */
+            //Debug.Log("Her");
+            if (gotAngle == false) {
+                gotAngle = true;
+                if (_enemy.attackDir == "Bottom") {
+                    xAttack = 0f;
+                    yAttack = -1f;
+                } else if (_enemy.attackDir == "Right") {
+                    xAttack = 1f;
+                    yAttack = 0f;
+                } else if (_enemy.attackDir == "Top") {
+                    xAttack = 0f;
+                    yAttack = 1f;
+                } else if (_enemy.attackDir == "Left") {
+                    xAttack = -1f;
+                    yAttack = 0f;
+                }
+                _enemy.attackDir = "Not Set";
             }
-            _enemy.attackDir = "Not Set";
+            
+            _enemy.enemyAnimator.SetFloat("AttackHorizontal", xAttack);
+            _enemy.enemyAnimator.SetFloat("AttackVertical", yAttack);
+            //horizontal = _enemy.enemyAnimator.GetFloat("AttackHorizontal");
+            //vertical = _enemy.enemyAnimator.GetFloat("AttackVertical");
+            if (AoEWarning != null) {
+                inAOEWarning = AoEWarning.GetComponent<AOEWarning>().getWarning();
+            } else {
+                inAOEWarning = false;
+            }
+            InstantiateWarning();
+            InstantiateAoE();
+            //Debug.Log("Horizontal: " + horizontal.ToString());
+            //Debug.Log("Vertical: " + vertical.ToString());
+            
+            if (_enemy.goToWalk == true) {
+                _enemy.goToWalk = false;
+                gotAngle = false;
+                _enemy.inAttackState = false;
+                return typeof(ChaseState);
+            }
         }
-        
-        _enemy.enemyAnimator.SetFloat("AttackHorizontal", xAttack);
-        _enemy.enemyAnimator.SetFloat("AttackVertical", yAttack);
-        //horizontal = _enemy.enemyAnimator.GetFloat("AttackHorizontal");
-        //vertical = _enemy.enemyAnimator.GetFloat("AttackVertical");
-        if (AoEWarning != null) {
-            inAOEWarning = AoEWarning.GetComponent<AOEWarning>().getWarning();
-        } else {
-            inAOEWarning = false;
-        }
-        InstantiateWarning();
-        InstantiateAoE();
-        //Debug.Log("Horizontal: " + horizontal.ToString());
-        //Debug.Log("Vertical: " + vertical.ToString());
-        
-        if (_enemy.goToWalk == true) {
-            _enemy.goToWalk = false;
-            gotAngle = false;
-            _enemy.inAttackState = false;
-            return typeof(ChaseState);
-        }
-
         return typeof(AttackState);
     }
 
