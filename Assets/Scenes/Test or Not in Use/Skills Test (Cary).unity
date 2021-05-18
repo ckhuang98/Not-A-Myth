@@ -2813,21 +2813,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 673476236363260816, guid: b3573d805370239499e77606ee87aa5c,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 673476236363260816, guid: b3573d805370239499e77606ee87aa5c,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287994674146027245, guid: b3573d805370239499e77606ee87aa5c,
+    - target: {fileID: 4397100962981005111, guid: b3573d805370239499e77606ee87aa5c,
         type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1964770962}
+    - target: {fileID: 6399360940701644987, guid: b3573d805370239499e77606ee87aa5c,
+        type: 3}
+      propertyPath: corpse
+      value: 
+      objectReference: {fileID: 3601893936117176940, guid: cd220dd20cad9cd4ea174ba4ed236f05,
+        type: 3}
     - target: {fileID: 7599509831077157193, guid: b3573d805370239499e77606ee87aa5c,
         type: 3}
       propertyPath: m_RootOrder
@@ -4546,12 +4542,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
---- !u!95 &536674524 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3550189716775031612, guid: 259f884aa9a31ab4797dbc1893fdb2c0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1889197318}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &542362793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24684,6 +24674,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Imp
       objectReference: {fileID: 0}
+    - target: {fileID: 6569274669008317252, guid: d4a19b75165a7eb4fbc82e03040d0aa0,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1964770962}
+    - target: {fileID: 8442706466582509323, guid: d4a19b75165a7eb4fbc82e03040d0aa0,
+        type: 3}
+      propertyPath: projectileWarning
+      value: 
+      objectReference: {fileID: 8334829081535124408, guid: 76fcd713e77f95b4bbb69dedf93f7da9,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4a19b75165a7eb4fbc82e03040d0aa0, type: 3}
 --- !u!213 &1288813027
@@ -25756,6 +25757,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 185456305, guid: 0753267facfdad74398f4d58c715ccd3, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1964770962}
     - target: {fileID: 2188179134601564881, guid: 0753267facfdad74398f4d58c715ccd3,
         type: 3}
       propertyPath: m_RootOrder
@@ -25816,19 +25821,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword Giant
       objectReference: {fileID: 0}
-    - target: {fileID: 2920852590026929226, guid: 0753267facfdad74398f4d58c715ccd3,
+    - target: {fileID: 3550189715580862252, guid: 0753267facfdad74398f4d58c715ccd3,
         type: 3}
-      propertyPath: target
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1964770962}
-    - target: {fileID: 3996315545310362137, guid: 0753267facfdad74398f4d58c715ccd3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3996315545310362137, guid: 0753267facfdad74398f4d58c715ccd3,
+    - target: {fileID: 3550189715580862252, guid: 0753267facfdad74398f4d58c715ccd3,
         type: 3}
-      propertyPath: m_LocalPosition.y
+      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -59851,14 +59851,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 137331780, guid: 259f884aa9a31ab4797dbc1893fdb2c0, type: 3}
+    - target: {fileID: 4169460189149696167, guid: 259f884aa9a31ab4797dbc1893fdb2c0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169460189149696167, guid: 259f884aa9a31ab4797dbc1893fdb2c0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777993756558939610, guid: 259f884aa9a31ab4797dbc1893fdb2c0,
+        type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1964770962}
-    - target: {fileID: 137331780, guid: 259f884aa9a31ab4797dbc1893fdb2c0, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 536674524}
     - target: {fileID: 8853464190746555225, guid: 259f884aa9a31ab4797dbc1893fdb2c0,
         type: 3}
       propertyPath: m_RootOrder
@@ -63014,11 +63021,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8134334213111640739, guid: aaf35ebb4e3e6834e84284e0e5c58283,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8438229448440691626, guid: aaf35ebb4e3e6834e84284e0e5c58283,
         type: 3}
       propertyPath: m_Pivot.x

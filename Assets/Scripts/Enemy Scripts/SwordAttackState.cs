@@ -98,7 +98,7 @@ public class SwordAttackState : BaseState
             // UP
             if (xAttack == 0f && yAttack == 1f) {
                 slashAttack.transform.position = 
-                new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
+                new Vector3(this.transform.position.x, this.transform.position.y + 2.5f, this.transform.position.z);
             } 
             // RIGHT
             if (xAttack == 1f && yAttack == 0f) {
@@ -126,7 +126,7 @@ public class SwordAttackState : BaseState
             // UP
             if (xAttack == 0f && yAttack == 1f) {
                 warning.transform.position = 
-                new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
+                new Vector3(this.transform.position.x, this.transform.position.y + 2.5f, this.transform.position.z);
                 warning.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
             } 
             // RIGHT
