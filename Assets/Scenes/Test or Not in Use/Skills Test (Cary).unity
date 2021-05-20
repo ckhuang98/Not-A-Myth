@@ -2884,6 +2884,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire Eel
       objectReference: {fileID: 0}
+    - target: {fileID: 7599509831077157195, guid: b3573d805370239499e77606ee87aa5c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3573d805370239499e77606ee87aa5c, type: 3}
 --- !u!1 &344496072
@@ -24674,6 +24679,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Imp
       objectReference: {fileID: 0}
+    - target: {fileID: 5494777218385843898, guid: d4a19b75165a7eb4fbc82e03040d0aa0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6569274669008317252, guid: d4a19b75165a7eb4fbc82e03040d0aa0,
         type: 3}
       propertyPath: target
@@ -25820,6 +25830,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sword Giant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188179134601564883, guid: 0753267facfdad74398f4d58c715ccd3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3550189715580862252, guid: 0753267facfdad74398f4d58c715ccd3,
         type: 3}
@@ -59300,7 +59315,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -59925,6 +59940,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hammer Giant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853464190746555227, guid: 259f884aa9a31ab4797dbc1893fdb2c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 259f884aa9a31ab4797dbc1893fdb2c0, type: 3}
@@ -63104,12 +63124,12 @@ PrefabInstance:
     - target: {fileID: 8438229448440691626, guid: aaf35ebb4e3e6834e84284e0e5c58283,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -62.18
+      value: -79.73
       objectReference: {fileID: 0}
     - target: {fileID: 8438229448440691626, guid: aaf35ebb4e3e6834e84284e0e5c58283,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -138.36
+      value: -121.8
       objectReference: {fileID: 0}
     - target: {fileID: 8438229448440691626, guid: aaf35ebb4e3e6834e84284e0e5c58283,
         type: 3}

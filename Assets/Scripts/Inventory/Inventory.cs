@@ -33,6 +33,7 @@ public class Inventory : MonoBehaviour
 
     //The actual List of inventory items
     public List<Item> items = new List<Item>();
+    public int count = 0;
 
     //Purpose: Add the item to the inventory list if it is not a default item and there is room in the inventory for it
     public bool Add(Item item)
@@ -72,7 +73,7 @@ public class Inventory : MonoBehaviour
                 
                 
             }
-
+            count++;
             onItemChangedCallback?.Invoke();
         }
 
@@ -87,6 +88,7 @@ public class Inventory : MonoBehaviour
         if (item.amount <= 0)
         {
             items.Remove(item);
+            count--;
         }
 
         onItemChangedCallback?.Invoke();
@@ -95,6 +97,8 @@ public class Inventory : MonoBehaviour
     public void Delete (Item item)
     {
         items.Remove(item);
+        count--;
         onItemChangedCallback?.Invoke();
+        
     }
 }
