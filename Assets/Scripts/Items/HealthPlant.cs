@@ -4,8 +4,24 @@ using UnityEngine;
 
 public class HealthPlant : MonoBehaviour
 {
+    float timeStamp;
+    public Rigidbody2D rb;
+    bool moveToPlayer;
+
+    Vector2 direction;
+
+    GameObject player;    
     public bool pickedUp = false;
     public Item item; //scirptable object healt plant
+
+    void Update(){
+        if(moveToPlayer && Inventory.instance.count < 5){
+            direction = -(transform.position - player.transform.position).normalized;
+            rb.velocity = new Vector2(direction.x, direction.y) * 10f * (Time.deltaTime / timeStamp);
+        } else{
+            rb.velocity = new Vector2(0,0);
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -17,12 +33,18 @@ public class HealthPlant : MonoBehaviour
             
             if (wasPickedUp)
             {
-                Debug.Log("Picking up " + item.itemName);
+                
+                Debug.Log(Inventory.instance.count);
                 // collider.GetComponent<PlayerController>().gainStrength();
                 this.gameObject.GetComponent<Renderer>().enabled = false;
                 Destroy(this.gameObject);
                 pickedUp = true;
             }
+        }
+        if(collider.gameObject.name.Equals("ItemMagnet") && Inventory.instance.count < 5){
+                timeStamp = Time.deltaTime;
+                player = GameObject.Find("MC Prefab");
+                moveToPlayer = true;
         }
     }
 }

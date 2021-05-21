@@ -9,6 +9,8 @@ public class SwordAttackState : BaseState
     private Enemy _enemy;
     private GameObject slashAttack;
     private GameObject warning;
+    private float xAttack;
+    private float yAttack;
     private bool gotAngle = false;
     private float angle;
     private Transform target;
@@ -38,28 +40,47 @@ public class SwordAttackState : BaseState
     */
     public override Type Tick()
     {
-        var delta_x = transform.position.x - target.position.x;
-        var delta_y = transform.position.y - target.position.y;
-        if (gotAngle == false) {
-            angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
-            if (angle < 0.0f) {
-                angle = angle + 360f;
+        if (_enemy.healthAmount > 0) {
+            /*
+            var delta_x = transform.position.x - target.position.x;
+            var delta_y = transform.position.y - target.position.y;
+            if (gotAngle == false) {
+                angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+                if (angle < 0.0f) {
+                    angle = angle + 360f;
+                }
+                gotAngle = true;
             }
-            gotAngle = true;
+            */
+            if (gotAngle == false) {
+                gotAngle = true;
+                if (_enemy.attackDir == "Bottom") {
+                    xAttack = 0f;
+                    yAttack = -1f;
+                } else if (_enemy.attackDir == "Right") {
+                    xAttack = 1f;
+                    yAttack = 0f;
+                } else if (_enemy.attackDir == "Top") {
+                    xAttack = 0f;
+                    yAttack = 1f;
+                } else if (_enemy.attackDir == "Left") {
+                    xAttack = -1f;
+                    yAttack = 0f;
+                }
+                _enemy.attackDir = "Not Set";
+            }
+            _enemy.enemyAnimator.SetFloat("SwordAttackHorizontal", xAttack);
+            _enemy.enemyAnimator.SetFloat("SwordAttackVertical", yAttack);
+            //horizontal = _enemy.enemyAnimator.GetFloat("SwordAttackHorizontal");
+            //vertical = _enemy.enemyAnimator.GetFloat("SwordAttackVertical");
+            InstantiateWarning();
+            InstantiateSlash();
+            if (_enemy.goToWalk == true) {
+                _enemy.goToWalk = false;
+                gotAngle = false;
+                return typeof(ChaseState);
+            }
         }
-        
-        _enemy.enemyAnimator.SetFloat("SwordAttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-        _enemy.enemyAnimator.SetFloat("SwordAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-        horizontal = _enemy.enemyAnimator.GetFloat("SwordAttackHorizontal");
-        vertical = _enemy.enemyAnimator.GetFloat("SwordAttackVertical");
-        InstantiateWarning();
-        InstantiateSlash();
-        if (_enemy.goToWalk == true) {
-            _enemy.goToWalk = false;
-            gotAngle = false;
-            return typeof(ChaseState);
-        }
-
         return typeof(SwordAttackState);
     }
 
@@ -76,22 +97,22 @@ public class SwordAttackState : BaseState
             //slashAttack.GetAngle(angle);
             _enemy.doInstantiate = false; 
             // UP
-            if (vertical > 0) {
+            if (xAttack == 0f && yAttack == 1f) {
                 slashAttack.transform.position = 
-                new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
+                new Vector3(this.transform.position.x, this.transform.position.y + 2.5f, this.transform.position.z);
             } 
             // RIGHT
-            if (horizontal > 0) {
+            if (xAttack == 1f && yAttack == 0f) {
                 slashAttack.transform.position = 
                 new Vector3(this.transform.position.x + 1.5f, this.transform.position.y - 0.1f, this.transform.position.z);
             } 
             // DOWN
-            if (vertical < 0) {
+            if (xAttack == 0f && yAttack == -1f) {
                 slashAttack.transform.position = 
                 new Vector3(this.transform.position.x, this.transform.position.y - 2.5f, this.transform.position.z);
             } 
             // LEFT
-            if (horizontal < 0) {
+            if (xAttack == -1f && yAttack == 0f) {
                 slashAttack.transform.position = 
                 new Vector3(this.transform.position.x - 1.5f, this.transform.position.y - 0.1f, this.transform.position.z);
             }
@@ -104,24 +125,24 @@ public class SwordAttackState : BaseState
             //Debug.Log("Instantiating");
             _enemy.instantiateWarning = false; 
             // UP
-            if (vertical > 0) {
+            if (xAttack == 0f && yAttack == 1f) {
                 warning.transform.position = 
-                new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
+                new Vector3(this.transform.position.x, this.transform.position.y + 2.5f, this.transform.position.z);
                 warning.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
             } 
             // RIGHT
-            if (horizontal > 0) {
+            if (xAttack == 1f && yAttack == 0f) {
                 warning.transform.position = 
                 new Vector3(this.transform.position.x + 1.5f, this.transform.position.y - 0.1f, this.transform.position.z);
             } 
             // DOWN
-            if (vertical < 0) {
+            if (xAttack == 0f && yAttack == -1f) {
                 warning.transform.position = 
                 new Vector3(this.transform.position.x, this.transform.position.y - 2.5f, this.transform.position.z);
                 warning.transform.localRotation = Quaternion.Euler(0f, 0f, 270f);
             } 
             // LEFT
-            if (horizontal < 0) {
+            if (xAttack == -1f && yAttack == 0f) {
                 warning.transform.position = 
                 new Vector3(this.transform.position.x - 1.5f, this.transform.position.y - 0.1f, this.transform.position.z);
                 warning.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);

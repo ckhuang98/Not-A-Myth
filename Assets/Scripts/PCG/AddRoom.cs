@@ -21,40 +21,28 @@ public class AddRoom : MonoBehaviour
 
     private void Decorate(GameObject room)
     {
-        /*
-        List<GameObject> trees = new List<GameObject>();
-        List<GameObject> buildings = new List<GameObject>();
-
-        int i = 0, j = 0;
-        GameObject[] gameobjs = GetComponents<GameObject>();
-        foreach (GameObject child in gameobjs) {
-            Debug.Log(child.name);
-            if (child.name.Contains("TreeSpawnPoint")) {
-                trees.Insert(i, child);
-                i += 1;
-            }
-            if (child.name.Contains("BuildingSpawnPoint")) {
-                buildings.Insert(j, child);
-                j += 1;
-            }
-        }
-        */
-        
+        // Grab all of the trees & building spawn points
         GameObject[] trees = GameObject.FindGameObjectsWithTag("TreeSpawnPoint");
-        // GameObject[] trees = GameObject.Find("Tree/TreeSpawnPoint");
-
         GameObject[] buildings = GameObject.FindGameObjectsWithTag("BuildingSpawnPoint");
-        // GameObject[] buildings = GameObject.Find("BuildingSpawnPoint");
 
+        // Load all the sprites for trees & buildings (Prefabs->Resources)
         Sprite[] treeSprites = Resources.LoadAll<Sprite>("Trees");
         Sprite[] buildingSprites = Resources.LoadAll<Sprite>("Buildings");
 
+        // For each tree, either set sprite & collider, or set nothing
         foreach (GameObject tree in trees) {
             SpriteRenderer renderer = tree.GetComponent<SpriteRenderer>();
+            BoxCollider2D box = tree.GetComponent<BoxCollider2D>();
+            renderer.enabled = true;
+            box.enabled = true;
             renderer.sprite = treeSprites[Random.Range(0, treeSprites.Length - 1)];
-            renderer.enabled = (Random.Range(1,11) <= 7);
+            if (Random.Range(1,11) <= 5) {
+                renderer.enabled = false;
+                box.enabled = false;
+            }
         }
 
+        // For each building, either set sprite & collider, or set nothing
         foreach (GameObject building in buildings) {
             SpriteRenderer renderer = building.GetComponent<SpriteRenderer>();
             BoxCollider2D box = building.GetComponent<BoxCollider2D>();

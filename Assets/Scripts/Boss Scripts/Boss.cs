@@ -38,6 +38,9 @@ public class Boss : MonoBehaviour
     public bool coneAttack = false;
     public bool goRight = true;
     public bool goLeft = false;
+    public bool hammer = false;
+    public bool sword = false;
+    public bool shock = false;
 
     [SerializeField] private float smoothSpeed = 5f;
 

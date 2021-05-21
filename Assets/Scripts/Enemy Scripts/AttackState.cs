@@ -10,6 +10,8 @@ public class AttackState : BaseState
     private Enemy _enemy;
     private GameObject AoE;
     private GameObject AoEWarning;
+    private float xAttack;
+    private float yAttack;
     //private GameObject fireParticles;
     private bool gotAngle = false;
     //private float angle;
@@ -42,40 +44,59 @@ public class AttackState : BaseState
     */
     public override Type Tick()
     {
-        _enemy.inAttackState = true;
-        /*
-        var delta_x = transform.position.x - target.position.x;
-        var delta_y = transform.position.y - target.position.y;
-        if (gotAngle == false) {
-            angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
-            if (angle < 0.0f) {
-                angle = angle + 360f;
+        if (_enemy.healthAmount > 0) {
+            _enemy.inAttackState = true;
+            /*
+            var delta_x = transform.position.x - target.position.x;
+            var delta_y = transform.position.y - target.position.y;
+            if (gotAngle == false) {
+                angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+                if (angle < 0.0f) {
+                    angle = angle + 360f;
+                }
+                gotAngle = true;
             }
-            gotAngle = true;
+            */
+            //Debug.Log("Her");
+            if (gotAngle == false) {
+                gotAngle = true;
+                if (_enemy.attackDir == "Bottom") {
+                    xAttack = 0f;
+                    yAttack = -1f;
+                } else if (_enemy.attackDir == "Right") {
+                    xAttack = 1f;
+                    yAttack = 0f;
+                } else if (_enemy.attackDir == "Top") {
+                    xAttack = 0f;
+                    yAttack = 1f;
+                } else if (_enemy.attackDir == "Left") {
+                    xAttack = -1f;
+                    yAttack = 0f;
+                }
+                _enemy.attackDir = "Not Set";
+            }
+            
+            _enemy.enemyAnimator.SetFloat("AttackHorizontal", xAttack);
+            _enemy.enemyAnimator.SetFloat("AttackVertical", yAttack);
+            //horizontal = _enemy.enemyAnimator.GetFloat("AttackHorizontal");
+            //vertical = _enemy.enemyAnimator.GetFloat("AttackVertical");
+            if (AoEWarning != null) {
+                inAOEWarning = AoEWarning.GetComponent<AOEWarning>().getWarning();
+            } else {
+                inAOEWarning = false;
+            }
+            InstantiateWarning();
+            InstantiateAoE();
+            //Debug.Log("Horizontal: " + horizontal.ToString());
+            //Debug.Log("Vertical: " + vertical.ToString());
+            
+            if (_enemy.goToWalk == true) {
+                _enemy.goToWalk = false;
+                gotAngle = false;
+                _enemy.inAttackState = false;
+                return typeof(ChaseState);
+            }
         }
-        */
-        //Debug.Log("Her");
-        _enemy.enemyAnimator.SetFloat("AttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-        _enemy.enemyAnimator.SetFloat("AttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-        horizontal = _enemy.enemyAnimator.GetFloat("AttackHorizontal");
-        vertical = _enemy.enemyAnimator.GetFloat("AttackVertical");
-        if (AoEWarning != null) {
-            inAOEWarning = AoEWarning.GetComponent<AOEWarning>().getWarning();
-        } else {
-            inAOEWarning = false;
-        }
-        InstantiateWarning();
-        InstantiateAoE();
-        //Debug.Log("Horizontal: " + horizontal.ToString());
-        //Debug.Log("Vertical: " + vertical.ToString());
-        
-        if (_enemy.goToWalk == true) {
-            _enemy.goToWalk = false;
-            gotAngle = false;
-            _enemy.inAttackState = false;
-            return typeof(ChaseState);
-        }
-
         return typeof(AttackState);
     }
 
@@ -96,7 +117,7 @@ public class AttackState : BaseState
             var target = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
             _enemy.doInstantiate = false; 
             // UP
-            if (vertical > 0) {
+            if (xAttack == 0f && yAttack == 1f) {
                 AoE.transform.position = 
                 new Vector3(this.transform.position.x + 0.28f, this.transform.position.y + 5.04f, this.transform.position.z);
                 AoE.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
@@ -107,7 +128,7 @@ public class AttackState : BaseState
                 //new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
             } 
             // RIGHT
-            if (horizontal > 0) {
+            if (xAttack == 1f && yAttack == 0f) {
                 AoE.transform.position = 
                 new Vector3(this.transform.position.x + 6.84f, this.transform.position.y - 1.04f, this.transform.position.z);
                 AoE.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
@@ -118,7 +139,7 @@ public class AttackState : BaseState
                 //new Vector3(this.transform.position.x + 2, this.transform.position.y - 0.5f, this.transform.position.z);
             } 
             // DOWN
-            if (vertical < 0) {
+            if (xAttack == 0f && yAttack == -1f) {
                 AoE.transform.position = 
                 new Vector3(this.transform.position.x - 0.2f, this.transform.position.y - 7.049995f, this.transform.position.z);
                 if (hammerDown == true && inAOEWarning == true) {
@@ -128,7 +149,7 @@ public class AttackState : BaseState
                 //new Vector3(this.transform.position.x - 0.229f, this.transform.position.y - 1.59f, this.transform.position.z);
             } 
             // LEFT
-            if (horizontal < 0) {
+            if (xAttack == -1f && yAttack == 0f) {
                 AoE.transform.position = 
                 new Vector3(this.transform.position.x - 6.71f, this.transform.position.y - 1.09f, this.transform.position.z);
                 AoE.transform.localRotation = Quaternion.Euler(0f, 0f, 270f);
@@ -146,27 +167,27 @@ public class AttackState : BaseState
             AoEWarning = GameObject.Instantiate(_enemy.AOEWarning) as GameObject;
             _enemy.instantiateWarning = false; 
             // UP
-            if (vertical > 0) {
+            if (xAttack == 0f && yAttack == 1f) {
                 //Debug.Log("Up");
                 AoEWarning.transform.position = 
                 new Vector3(this.transform.position.x + 0.28f, this.transform.position.y + 5.04f, this.transform.position.z);
                 AoEWarning.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
             } 
             // RIGHT
-            if (horizontal > 0) {
+            if (xAttack == 1f && yAttack == 0f) {
                 //Debug.Log("Right");
                 AoEWarning.transform.position = 
                 new Vector3(this.transform.position.x + 6.84f, this.transform.position.y - 1.04f, this.transform.position.z);
                 AoEWarning.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
             }
             // DOWN
-            if (vertical < 0) {
+            if (xAttack == 0f && yAttack == -1f) {
                 //Debug.Log("Down");
                 AoEWarning.transform.position = 
                 new Vector3(this.transform.position.x - 0.2f, this.transform.position.y - 7.049995f, this.transform.position.z);
             } 
             // LEFT
-            if (horizontal < 0) {
+            if (xAttack == -1f && yAttack == 0f) {
                 //Debug.Log("Left");
                 AoEWarning.transform.position = 
                 new Vector3(this.transform.position.x - 6.71f, this.transform.position.y - 1.09f, this.transform.position.z);

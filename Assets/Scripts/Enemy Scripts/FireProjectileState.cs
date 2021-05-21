@@ -8,13 +8,18 @@ public class FireProjectileState : BaseState
 {
     private Enemy _enemy;
 
-    private GameObject damage;
-    private GameObject healing;
+    //private GameObject damage;
+    //private GameObject healing;
+    private GameObject projectile;
+    //private GameObject otherProjectile;
+    private GameObject warning;
     private bool instantiated = false;
+    private bool gotAngle = false;
+    private bool gotColor = false;
+    private string projectileType = "nothing";
     private float pauseTimer = 1f;
     private float angle;
-    private bool gotAngle = false;
-    private Transform target;
+    private Transform target; 
 
     public FireProjectileState(Enemy enemy) : base(enemy.gameObject) {
         _enemy = enemy;
@@ -22,41 +27,77 @@ public class FireProjectileState : BaseState
     }
 
     public override Type Tick() {
-        //Debug.Log("FIRING");
-        _enemy.inAttackState = true;
-        var delta_x = transform.position.x - target.position.x;
-        var delta_y = transform.position.y - target.position.y;
-        if (gotAngle == false) {
-            angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
-            if (angle < 0.0f) {
-                angle = angle + 360f;
+        if (_enemy.healthAmount > 0){
+            //Debug.Log("FIRING");
+            _enemy.inAttackState = true;
+            var delta_x = transform.position.x - target.position.x;
+            var delta_y = transform.position.y - target.position.y;
+            if (gotAngle == false) {
+                angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+                if (angle < 0.0f) {
+                    angle = angle + 360f;
+                }
+                gotAngle = true;
             }
-            gotAngle = true;
-        }
 
-        ThrowProjectile(angle);
-        _enemy.enemyAnimator.SetFloat("ImpAttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-        _enemy.enemyAnimator.SetFloat("ImpAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
-        
-        if (_enemy.goToWalk == true) {
-            _enemy.goToWalk = false;
-            gotAngle = false;
-            _enemy.inAttackState = false;
-            return typeof(MaintainDistanceState);
+            ThrowProjectile(angle);
+            _enemy.enemyAnimator.SetFloat("ImpAttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
+            _enemy.enemyAnimator.SetFloat("ImpAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            
+            if (_enemy.goToWalk == true) {
+                instantiated = false;
+                gotColor = false;
+                gotAngle = false;
+                warning.transform.parent = null;
+                GameObject.Destroy(warning.gameObject);
+                //GameObject.Destroy(otherProjectile.gameObject);
+                _enemy.inAttackState = false;
+                _enemy.goToWalk = false;
+                return typeof(MaintainDistanceState);
+            }
         }
         return typeof(FireProjectileState);   
     }
 
     private void ThrowProjectile(float angle) {
-        if (_enemy.doInstantiate == true) {
+        if (gotColor == false) {
+            gotColor = true;
             if (UnityEngine.Random.value > 0.5) {
-            healing = GameObject.Instantiate(_enemy.healingProjectile) as GameObject;
-            healing.transform.position = this.transform.position;
+                projectileType = "Healing Projectile";
             } else {
-                damage = GameObject.Instantiate(_enemy.damageProjectile) as GameObject;
-                damage.transform.position = this.transform.position;
+                projectileType = "Imp Damage Projectile";
             }
+        }
+        if (instantiated == false) {
+            Debug.Log("Back here");
+            instantiated = true;
+            warning = GameObject.Instantiate(_enemy.projectileWarning, this.transform) as GameObject;
+            //otherProjectile = GameObject.Instantiate(_enemy.impProjectile, this.transform) as GameObject;
+            var ps = warning.GetComponent<ParticleSystem>();
+            var main = ps.main;
+            var em = ps.emission;
+            if (projectileType == "Healing Projectile") {
+                main.startColor = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+            } else if (projectileType == "Imp Damage Projectile") {
+                main.startColor = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+            }
+            ps.Play();
+            em.enabled = true;
+        }
+        if (_enemy.doInstantiate == true) {
+            projectile = GameObject.Instantiate(_enemy.impProjectile) as GameObject;
             _enemy.doInstantiate = false;
+            projectile.tag = projectileType; 
+            projectile.transform.position = this.transform.position;
+            /*
+            if (projectileType == "Healing") {
+                //healing = GameObject.Instantiate(_enemy.healingProjectile) as GameObject;
+                //healing.transform.position = this.transform.position;
+            } else if (projectileType == "Damage") {
+                //damage = GameObject.Instantiate(_enemy.damageProjectile) as GameObject;
+                //damage.transform.position = this.transform.position;
+            }
+            */
             // UP
             if (315 > angle && angle > 225) {
                 _enemy.currMoveDirection = 0;

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3916534169070301586}
   - component: {fileID: 2457862189561011340}
   - component: {fileID: 1816146657}
+  - component: {fileID: -7196015147084221268}
   m_Layer: 0
   m_Name: Health Plant
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3916534169070301584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.87, y: -2.86, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -171,8 +172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950e5c8f4244d3b4b9571712085dce0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: -7196015147084221268}
+  pickedUp: 0
   item: {fileID: 11400000, guid: ae4399c31c5c67046b8765819b982772, type: 2}
-  audioManager: {fileID: 1816146657}
 --- !u!114 &1816146657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +202,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
   audioMixerGroup: {fileID: 7685793082683988513, guid: 0652cb0a1baf2164ea5b6391384a55b5,
     type: 2}
+  spacialBlend: 1
   playGroupOnStart: 
   volume: 0.1
   spread: 170
@@ -222,3 +225,24 @@ MonoBehaviour:
       index: 0
       length: 0
       source: {fileID: 0}
+--- !u!50 &-7196015147084221268
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3916534169070301584}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
