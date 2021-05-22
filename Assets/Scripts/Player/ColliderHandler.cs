@@ -45,9 +45,9 @@ public class ColliderHandler : MonoBehaviour
         PolygonCollider2D spriteCollider = gameObject.AddComponent<PolygonCollider2D>();
         spriteCollider.isTrigger = iStrigger;
         //    spriteCollider.sharedMaterial = _material;
-        if(spriteColliders.Count() < 6) {
+        //if(spriteColliders.Count() < 6) {
             spriteColliders.Add(index, spriteCollider);
-        }
+        //}
         
         yield return new WaitForEndOfFrame();
         Frame = index;
@@ -76,12 +76,12 @@ public class ColliderHandler : MonoBehaviour
     }
 
     private void LateUpdate() {
-        if (spritesList.Count() == 7) {
+        //if (spritesList.Count() == 7) {
                 spritesList.RemoveAt(spritesList.Count() - 1);
-        }
-        if (spritesList.Count() == 8) {
-            Debug.Log("removing last element");
-        } 
+        //}
+        //if (spritesList.Count() == 8) {
+           // Debug.Log("removing last element");
+        //} 
         if (!_processing)
             Frame = spritesList.IndexOf(spriteRenderer.sprite);
         
