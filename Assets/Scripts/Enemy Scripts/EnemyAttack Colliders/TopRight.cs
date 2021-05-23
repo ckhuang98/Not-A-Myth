@@ -2,26 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bottom : MonoBehaviour
+public class TopRight : MonoBehaviour
 {
     private Enemy enemyScript;
     // Start is called before the first frame update
     void Start()
     {
         enemyScript = GetComponentInParent<Enemy>();
-        //GetComponent<PolygonCollider2D>().attachedRigidbody = null;
     }
 
     void OnTriggerEnter2D(Collider2D col) {
         if (col.CompareTag("Player")) {
-            enemyScript.SetAttackDir("Bottom");
+            enemyScript.SetAttackDir("TopRight");
         }
-        
     }
 
     void OnTriggerStay2D(Collider2D col) {
         if (col.CompareTag("Player")) {
-            enemyScript.SetAttackDir("Bottom");
+            enemyScript.SetAttackDir("TopRight");
         }
     }
 

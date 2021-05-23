@@ -8,9 +8,11 @@ public class LungeAttackState : BaseState
 {
     Enemy _enemy;
     private Transform target;
-    private float speed = 5;
+    private float speed = 7.5f;
     private bool gotAngle = false;
     private float angle;
+    private float xAttack;
+    private float yAttack;
 
     public LungeAttackState(Enemy enemy) : base (enemy.gameObject) {
         _enemy = enemy;
@@ -27,6 +29,7 @@ public class LungeAttackState : BaseState
     public override Type Tick() {
         if (_enemy.healthAmount > 0){
             _enemy.inAttackState = true;
+            /*
             var delta_x = transform.position.x - target.position.x;
             var delta_y = transform.position.y - target.position.y;
             if (gotAngle == false) {
@@ -36,9 +39,47 @@ public class LungeAttackState : BaseState
                 }
                 gotAngle = true;
             }
-            LungeAttack();
-            _enemy.enemyAnimator.SetFloat("EelAttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-            _enemy.enemyAnimator.SetFloat("EelAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            */
+            if (gotAngle == false) {
+                gotAngle = true;
+                if (_enemy.attackDir == "Bottom") {
+                    xAttack = 0f;
+                    yAttack = -1f;
+                    _enemy.currMoveDirection = 4;
+                }else if (_enemy.attackDir == "BottomRight") {
+                    xAttack = 1f;
+                    yAttack = -1f;
+                    _enemy.currMoveDirection = 3;
+                } else if (_enemy.attackDir == "Right") {
+                    xAttack = 1f;
+                    yAttack = 0f;
+                    _enemy.currMoveDirection = 2;
+                } else if (_enemy.attackDir == "TopRight") {
+                    xAttack = 1f;
+                    yAttack = 11f;
+                    _enemy.currMoveDirection = 1;
+                } else if (_enemy.attackDir == "Top") {
+                    xAttack = 0f;
+                    yAttack = 1f;
+                    _enemy.currMoveDirection = 0;
+                } else if (_enemy.attackDir == "TopLeft") {
+                    xAttack = -1f;
+                    yAttack = 1f;
+                    _enemy.currMoveDirection = 7;
+                } else if (_enemy.attackDir == "Left") {
+                    xAttack = -1f;
+                    yAttack = 0f;
+                    _enemy.currMoveDirection = 6;
+                } else if (_enemy.attackDir == "BottomLeft") {
+                    xAttack = -1f;
+                    yAttack = -1f;
+                    _enemy.currMoveDirection = 5;
+                }
+                _enemy.attackDir = "Not Set";
+            }
+            //LungeAttack();
+            _enemy.enemyAnimator.SetFloat("EelAttackHorizontal", xAttack);
+            _enemy.enemyAnimator.SetFloat("EelAttackVertical", yAttack);
             if (_enemy.doLungeAttack == true) {
                 transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
             }
@@ -57,6 +98,7 @@ public class LungeAttackState : BaseState
     Recieves: nothing.
     Returns: nothing.
     */
+    /*
     private void LungeAttack() {
         // UP
         if (315 > angle && angle > 225) {
@@ -75,4 +117,5 @@ public class LungeAttackState : BaseState
             _enemy.currMoveDirection = 6;
         }
     }
+    */
 }
