@@ -568,6 +568,7 @@ GameObject:
   - component: {fileID: 807261716}
   - component: {fileID: 807261715}
   - component: {fileID: 807261718}
+  - component: {fileID: 807261719}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -663,6 +664,56 @@ MonoBehaviour:
   - {fileID: 810122850}
   - {fileID: 616544638}
   - {fileID: 1892592076}
+--- !u!114 &807261719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807261714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f022c857e6ec6ac4eb85d0a451860390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: "The Object Audio Manager is for sounds emitted from objects in the
+    scene (the player, enemies, environment, etc.)\r\n    \r\n    Properties:\r\n   
+    Audio Mixer: Should be set to SoundMixer\r\n    Play Group On Start: The name
+    of the group that will be played on Start\r\n    Volume: Volume of the clips
+    in the group. Can be overridden by the individual groups.\r\n            Value
+    0 - 1. NOT THE SAME AS THE MIXER'S VOLUME.\r\n    Spread: How the audio is balanced
+    in stereo. 180 is perfectly balanced.\r\n    AudioRolloffMode: How the audio
+    fades as the source gets further away\r\n    Min Distance: The minimum distance
+    from the source for the sound to be at full loudness\r\n    Max Distance: THe
+    maximum distance from which the source can still be heard\r\n    Sound Groups:
+    Array of SoundGroups which hold the different Sounds\r\n                  ex.
+    the 'footsteps' SoundGroup can hold all the footstep Sounds"
+  audioMixer: {fileID: 24100000, guid: 0652cb0a1baf2164ea5b6391384a55b5, type: 2}
+  audioMixerGroup: {fileID: 1948652533155611144, guid: 0652cb0a1baf2164ea5b6391384a55b5,
+    type: 2}
+  spacialBlend: 1
+  playGroupOnStart: transform
+  volume: 0.51
+  spread: 150
+  rolloffMode: 0
+  minDistance: 3
+  maxDistance: 10
+  isPlayerSfx: 0
+  soundGroups:
+  - name: transform
+    ignorePause: 0
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: transform
+      clip: {fileID: 8300000, guid: b5fdfa33809f4dd4595cac3dbd929023, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
 --- !u!1 &810122850
 GameObject:
   m_ObjectHideFlags: 0

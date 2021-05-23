@@ -77,7 +77,7 @@ public class ColliderHandler : MonoBehaviour
 
     private void LateUpdate() {
         //if (spritesList.Count() == 7) {
-                spritesList.RemoveAt(spritesList.Count() - 1);
+                //spritesList.RemoveAt(spritesList.Count() - 1);
         //}
         //if (spritesList.Count() == 8) {
            // Debug.Log("removing last element");
