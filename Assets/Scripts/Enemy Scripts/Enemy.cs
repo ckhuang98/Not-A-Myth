@@ -72,6 +72,8 @@ public class Enemy : MonoBehaviour
     public bool doLungeAttack = false;
     public bool beenHit = false;
     public bool inAttackState = false;
+    bool movingRight = true;
+    bool movingLeft = false;
 
     [SerializeField]
     private GameObject deathSFXObject;
@@ -101,6 +103,8 @@ public class Enemy : MonoBehaviour
             healthAmount = 1f;
         } else if (this.tag == "Hammer Giant" || this.tag == "Sword Giant") {
             healthAmount = 1.8f;
+        } else if (this.tag == "Fire Spirit") {
+            healthAmount = 1.5f;
         }
 
         if (this.tag == "Fire Imp") {
@@ -165,7 +169,12 @@ public class Enemy : MonoBehaviour
         }
         alpha = .2f;
         //Debug.Log(attackDir);
-        
+
+        if (moveDirections[currMoveDirection].x < 0 && this.tag == "Fire Spirit") {
+            FlipLeft();
+        } else if (moveDirections[currMoveDirection].x > 0 && this.tag == "Fire Spirit") {
+            FlipRight();
+        }        
     }
 
 
@@ -379,7 +388,8 @@ public class Enemy : MonoBehaviour
             { typeof(LungeAttackState), new LungeAttackState(this) },
             { typeof(EelMaintainDistanceState), new EelMaintainDistanceState(this) },
             { typeof(SwordAttackState), new SwordAttackState(this) },
-            { typeof(DeathState), new DeathState(this)}
+            { typeof(DeathState), new DeathState(this) },
+            { typeof(LocateHostState), new LocateHostState(this) }
         };
 
         stateMachine.SetStates(states);
@@ -555,5 +565,23 @@ public class Enemy : MonoBehaviour
 
     public void SetAttackDir(string s) {
         attackDir = s;
+    }
+
+    private void FlipLeft() {
+        if (movingLeft) {
+            return;
+        }
+        transform.localScale = new Vector3(-this.transform.localScale.x, this.transform.localScale.y, this.transform.localScale.z);
+        movingLeft = true;
+        movingRight = false;
+    }
+
+    private void FlipRight() {
+        if (movingRight) {
+            return;
+        }
+        transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
+        movingRight = true;
+        movingLeft = false;
     }
 }
