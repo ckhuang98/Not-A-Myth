@@ -86,7 +86,7 @@ public class CutsceneCamera : MonoBehaviour
     }
 
     void LateUpdate(){
-        mainCam.transform.position = Vector3.Lerp(transform.position, views[sceneNum].transform.position, Time.deltaTime * 5f);
+        mainCam.transform.position = Vector3.Lerp(transform.position, views[sceneNum].transform.position, Time.deltaTime * 2f);
     }
 
     void zoomOut(){

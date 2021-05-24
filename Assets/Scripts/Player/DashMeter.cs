@@ -15,6 +15,10 @@ public class DashMeter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(player.dashMeterEmpty){
+            localScale.x = 0;
+            transform.localScale = localScale;       
+        }
         if(player.canDash == false){
             StartCoroutine(dashMeterFill());
         }
@@ -22,12 +26,15 @@ public class DashMeter : MonoBehaviour
 
     private IEnumerator dashMeterFill(){
         float tempTimer = 0;
-        while(tempTimer < 0.7f)
+        while(player.canDash == false)
         {
             localScale.x = tempTimer;
             transform.localScale = localScale;
+            
             tempTimer += Time.deltaTime;
             yield return null;
         }
+        localScale.x = 0.7f;
+        transform.localScale = localScale;
     }
 }

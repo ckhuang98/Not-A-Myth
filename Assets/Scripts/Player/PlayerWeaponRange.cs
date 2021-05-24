@@ -10,7 +10,7 @@ public class PlayerWeaponRange : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scale = new Vector3(2f, 2f , 0);
+        scale = new Vector3(4f, 4f , 0);
     }
 
     // Update is called once per frame

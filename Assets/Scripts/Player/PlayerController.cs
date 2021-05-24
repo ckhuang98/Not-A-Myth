@@ -88,6 +88,8 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject magnet;
 
+    public bool dashMeterFull = true;
+    public bool dashMeterEmpty = false;
     // Start is called before the first frame update
     void Start() {
         //slashAnimation.enabled = false;
@@ -263,6 +265,7 @@ public class PlayerController : MonoBehaviour {
 
     }
     private void handleDash(){
+        dashMeterEmpty = true;
         rb.velocity = lastMoveDirection.normalized * dashSpeed;
         dashSpeed -= dashSpeed * stats.maxSpeed.Value * Time.deltaTime;
         if(stats.unlockedDashMovement.Value){
@@ -285,6 +288,7 @@ public class PlayerController : MonoBehaviour {
 
     private IEnumerator DashTimer()
      {
+        dashMeterEmpty = false;
         yield return new WaitForSeconds(stats.dashCooldown.Value);
         canDash = true;
      }
