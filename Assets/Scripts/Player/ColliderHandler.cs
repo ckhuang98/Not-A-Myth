@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-public class ColliderHandler : MonoBehaviour
-{
+public class ColliderHandler : MonoBehaviour {
 
     //Shamelessly stolen from 
 
@@ -39,20 +37,15 @@ public class ColliderHandler : MonoBehaviour
     }
 
     private IEnumerator AddSpriteCollider(Sprite sprite) {
-        //if(spritesList.Count() < 7) { 
         spritesList.Add(sprite);
         int index = spritesList.IndexOf(sprite);
         PolygonCollider2D spriteCollider = gameObject.AddComponent<PolygonCollider2D>();
         spriteCollider.isTrigger = iStrigger;
         //    spriteCollider.sharedMaterial = _material;
-        //if(spriteColliders.Count() < 6) {
-            spriteColliders.Add(index, spriteCollider);
-        //}
-        
+        spriteColliders.Add(index, spriteCollider);
         yield return new WaitForEndOfFrame();
         Frame = index;
         _processing = false;
-        //}
     }
 
     private void OnEnable() {
@@ -70,26 +63,17 @@ public class ColliderHandler : MonoBehaviour
 
         spriteColliders = new Dictionary<int, PolygonCollider2D>();
 
-        
-
         Frame = spritesList.IndexOf(spriteRenderer.sprite);
     }
 
     private void LateUpdate() {
-        //if (spritesList.Count() == 7) {
-                //spritesList.RemoveAt(spritesList.Count() - 1);
-        //}
-        //if (spritesList.Count() == 8) {
-           // Debug.Log("removing last element");
-        //} 
         if (!_processing)
             Frame = spritesList.IndexOf(spriteRenderer.sprite);
-        
     }
 
 
 
-    
+
 
 
 }
