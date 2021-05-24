@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HealthPlant : MonoBehaviour
 {
@@ -14,11 +13,6 @@ public class HealthPlant : MonoBehaviour
     GameObject player;    
     public bool pickedUp = false;
     public Item item; //scirptable object healt plant
-    public Image icon;
-
-    void Start(){
-        icon = UI.instance.icon;
-    }
 
     void Update(){
         if(moveToPlayer && Inventory.instance.count < 5){
@@ -45,8 +39,6 @@ public class HealthPlant : MonoBehaviour
                 this.gameObject.GetComponent<Renderer>().enabled = false;
                 Destroy(this.gameObject);
                 pickedUp = true;
-            } else{
-                StartCoroutine(flashRed());
             }
         }
         if(collider.gameObject.name.Equals("ItemMagnet") && Inventory.instance.count < 5){
@@ -54,21 +46,5 @@ public class HealthPlant : MonoBehaviour
                 player = GameObject.Find("MC Prefab");
                 moveToPlayer = true;
         }
-    }
-
-    private IEnumerator flashRed(){
-        Color alpha = icon.color;
-        for(float i = 0; i < 1f; i += 0.2f){
-            if(icon.color.a == 0.1f){
-                alpha.a = 255;
-                icon.color = alpha;
-            } else{
-                alpha.a = 0.1f;
-                icon.color = alpha;
-            }
-            yield return new WaitForSeconds(0.15f);
-        }
-        alpha.a = 255;
-        icon.color = alpha;
     }
 }

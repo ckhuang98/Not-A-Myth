@@ -549,6 +549,7 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2066851118}
+<<<<<<< HEAD
     - target: {fileID: 5398397902633411759, guid: 9bc6f6206f5387c49b65d003f009bb84,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -579,6 +580,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 55664e4 (Merge branch 'dev' of https://github.com/ckhuang98/Not-A-Myth into dev)
     - target: {fileID: 5646550992879659479, guid: 9bc6f6206f5387c49b65d003f009bb84,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2873,11 +2876,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire Eel
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 7599509831077157195, guid: b3573d805370239499e77606ee87aa5c,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 55664e4 (Merge branch 'dev' of https://github.com/ckhuang98/Not-A-Myth into dev)
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3573d805370239499e77606ee87aa5c, type: 3}
 --- !u!1 &344496072
@@ -3312,7 +3318,7 @@ PrefabInstance:
     - target: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
@@ -24668,11 +24674,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Imp
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 5494777218385843898, guid: d4a19b75165a7eb4fbc82e03040d0aa0,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 55664e4 (Merge branch 'dev' of https://github.com/ckhuang98/Not-A-Myth into dev)
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4a19b75165a7eb4fbc82e03040d0aa0, type: 3}
 --- !u!213 &1288813027
@@ -25805,11 +25814,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword Giant
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 2188179134601564883, guid: 0753267facfdad74398f4d58c715ccd3,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 55664e4 (Merge branch 'dev' of https://github.com/ckhuang98/Not-A-Myth into dev)
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0753267facfdad74398f4d58c715ccd3, type: 3}
 --- !u!114 &1432340460
@@ -59823,18 +59835,6 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
---- !u!114 &1877289514 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5398397901883789787, guid: 9bc6f6206f5387c49b65d003f009bb84,
-    type: 3}
-  m_PrefabInstance: {fileID: 49533600}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1889197318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59902,11 +59902,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hammer Giant
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 8853464190746555227, guid: 259f884aa9a31ab4797dbc1893fdb2c0,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 55664e4 (Merge branch 'dev' of https://github.com/ckhuang98/Not-A-Myth into dev)
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 259f884aa9a31ab4797dbc1893fdb2c0, type: 3}
 --- !u!213 &1893600513
@@ -62629,11 +62632,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 221217901}
     m_Modifications:
-    - target: {fileID: 2457862189561011340, guid: decf8b17ba4b0df4d9dc5c9d47b9e0f0,
-        type: 3}
-      propertyPath: icon
-      value: 
-      objectReference: {fileID: 1877289514}
     - target: {fileID: 3916534169070301584, guid: decf8b17ba4b0df4d9dc5c9d47b9e0f0,
         type: 3}
       propertyPath: m_Name
@@ -62694,7 +62692,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3916534169070301587, guid: decf8b17ba4b0df4d9dc5c9d47b9e0f0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: decf8b17ba4b0df4d9dc5c9d47b9e0f0, type: 3}
 --- !u!1001 &2109379794
 PrefabInstance:
