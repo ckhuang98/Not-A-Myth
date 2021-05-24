@@ -34,8 +34,9 @@ public class Enemy : MonoBehaviour
     public GameObject damageProjectile;
     public GameObject healingProjectile;
     public GameObject projectileWarning;
+    public GameObject lungeWarning;
     //public GameObject fireTrail;
-    private ParticleSystem fireTrail;
+    private Transform fireTrail;
     public GameObject slash;
     public GameObject slashWarning;
     
@@ -94,7 +95,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         if (this.tag == "Fire Eel") {
-            fireTrail = gameObject.GetComponent<ParticleSystem>();
+            fireTrail = this.gameObject.transform.GetChild(4);
             healthAmount = 1.3f;
         } else if (this.tag == "Fire Imp") {
             healthAmount = 1f;
@@ -235,7 +236,7 @@ public class Enemy : MonoBehaviour
             if (thisColor.a < 1f && thisColor.a > 0f) {
                 thisColor.a -= .1f;
                 this.GetComponent<Renderer>().material.color = thisColor;
-                Debug.Log(thisColor.a);
+                //Debug.Log(thisColor.a);
             }
             
 
@@ -317,6 +318,7 @@ public class Enemy : MonoBehaviour
                         enemyAnimator.SetFloat("HammerHitVertical", moveDirections[currMoveDirection].y);
                     }
                     if (beenHit == true && tag == "Fire Eel") {
+                        fireTrail.parent = null;
                         enemyAnimator.SetFloat("EelHitHorizontal", moveDirections[currMoveDirection].x);
                         enemyAnimator.SetFloat("EelHitVertical", moveDirections[currMoveDirection].y);
                     } 
@@ -423,6 +425,10 @@ public class Enemy : MonoBehaviour
     } 
 
     public void SlashWarning() {
+        instantiateWarning = true;
+    }
+
+    public void LungeWarning() {
         instantiateWarning = true;
     }
 

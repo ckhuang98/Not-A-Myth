@@ -8,9 +8,12 @@ public class LungeAttackState : BaseState
 {
     Enemy _enemy;
     private Transform target;
-    private float speed = 5;
+    private float speed = 7.5f;
     private bool gotAngle = false;
     private float angle;
+    private float xAttack;
+    private float yAttack;
+    private GameObject warning;
 
     public LungeAttackState(Enemy enemy) : base (enemy.gameObject) {
         _enemy = enemy;
@@ -27,6 +30,7 @@ public class LungeAttackState : BaseState
     public override Type Tick() {
         if (_enemy.healthAmount > 0){
             _enemy.inAttackState = true;
+            /*
             var delta_x = transform.position.x - target.position.x;
             var delta_y = transform.position.y - target.position.y;
             if (gotAngle == false) {
@@ -36,9 +40,50 @@ public class LungeAttackState : BaseState
                 }
                 gotAngle = true;
             }
-            LungeAttack();
-            _enemy.enemyAnimator.SetFloat("EelAttackHorizontal", _enemy.moveDirections[_enemy.currMoveDirection].x);
-            _enemy.enemyAnimator.SetFloat("EelAttackVertical", _enemy.moveDirections[_enemy.currMoveDirection].y);
+            */
+            if (gotAngle == false) {
+                gotAngle = true;
+                if (_enemy.attackDir == "Bottom") {
+                    xAttack = 0f;
+                    yAttack = -1f;
+                    _enemy.currMoveDirection = 4;
+                }else if (_enemy.attackDir == "BottomRight") {
+                    xAttack = 1f;
+                    yAttack = -1f;
+                    _enemy.currMoveDirection = 3;
+                } else if (_enemy.attackDir == "Right") {
+                    xAttack = 1f;
+                    yAttack = 0f;
+                    _enemy.currMoveDirection = 2;
+                } else if (_enemy.attackDir == "TopRight") {
+                    xAttack = 1f;
+                    yAttack = 11f;
+                    _enemy.currMoveDirection = 1;
+                } else if (_enemy.attackDir == "Top") {
+                    xAttack = 0f;
+                    yAttack = 1f;
+                    _enemy.currMoveDirection = 0;
+                } else if (_enemy.attackDir == "TopLeft") {
+                    xAttack = -1f;
+                    yAttack = 1f;
+                    _enemy.currMoveDirection = 7;
+                } else if (_enemy.attackDir == "Left") {
+                    xAttack = -1f;
+                    yAttack = 0f;
+                    _enemy.currMoveDirection = 6;
+                } else if (_enemy.attackDir == "BottomLeft") {
+                    xAttack = -1f;
+                    yAttack = -1f;
+                    _enemy.currMoveDirection = 5;
+                }
+                _enemy.attackDir = "Not Set";
+            }
+            //LungeAttack();
+            _enemy.enemyAnimator.SetFloat("EelAttackHorizontal", xAttack);
+            _enemy.enemyAnimator.SetFloat("EelAttackVertical", yAttack);
+
+            InstantiateWarning();
+
             if (_enemy.doLungeAttack == true) {
                 transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
             }
@@ -52,27 +97,58 @@ public class LungeAttackState : BaseState
         return typeof(LungeAttackState);
     }
 
-    /*
-    Purpose: uses the angle of the player to pick what direction to attack.
-    Recieves: nothing.
-    Returns: nothing.
-    */
-    private void LungeAttack() {
-        // UP
-        if (315 > angle && angle > 225) {
-            _enemy.currMoveDirection = 0;
-        } 
-        // RIGHT
-        if (225 > angle && angle > 135) {
-            _enemy.currMoveDirection = 2;
-        } 
-        // DOWN
-        if (135 > angle && angle > 45) {
-            _enemy.currMoveDirection = 4;
-        } 
-        // LEFT
-        if ((45 > angle && angle > 0) || (360 > angle && angle > 315)) {
-            _enemy.currMoveDirection = 6;
+    private void InstantiateWarning() {
+        if (_enemy.instantiateWarning == true) {
+            warning = GameObject.Instantiate(_enemy.lungeWarning) as GameObject;
+            _enemy.instantiateWarning = false;
+            //UP
+            if (xAttack == 0f && yAttack == 1f) {
+                warning.transform.position = 
+                    new Vector3(this.transform.position.x - 0.18f, this.transform.position.y + 3.02f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, -149.4f);
+            } 
+            //UP RIGHT
+            if (xAttack == 1f && yAttack == 1f) {
+                warning.transform.position = 
+                    new Vector3(this.transform.position.x + 1.55f, this.transform.position.y + 2.17f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, -189.7f);
+            }
+            // RIGHT
+            if (xAttack == 1f && yAttack == 0f) {
+                warning.transform.position = 
+                    new Vector3(this.transform.position.x + 2.27f, this.transform.position.y + 0.49f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, -241.3f);
+            }
+            //DOWN RIGHT
+            if (xAttack == 1f && yAttack == -1f) {
+                warning.transform.position = 
+                    new Vector3(this.transform.position.x + 1.45f, this.transform.position.y - 1.24f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, -283.2f);
+            } 
+            // DOWN
+            if (xAttack == 0f && yAttack == -1f) {
+                warning.transform.position = 
+                    new Vector3(this.transform.position.x + 0.04f, this.transform.position.y - 1.7f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, -329.7f);
+            } 
+            //DOWN LEFT
+            if (xAttack == -1f && yAttack == -1f) {
+                warning.transform.position = 
+                    new Vector3(this.transform.position.x - 1.5f, this.transform.position.y - 1.21f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, -6.48f);
+            }
+            // LEFT
+            if (xAttack == -1f && yAttack == 0f) {
+                warning.transform.position = 
+                    new Vector3(this.transform.position.x - 2.23f, this.transform.position.y + 0.26f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, -61.11f);
+            }
+            //UP LEFT
+            if (xAttack == -1f && yAttack == 1f) {
+                warning.transform.position = 
+                    new Vector3(this.transform.position.x - 1.67f, this.transform.position.y + 1.85f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, -105.99f);
+            }
         }
     }
 }
