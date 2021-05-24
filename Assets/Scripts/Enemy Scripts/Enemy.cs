@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
     public GameObject damageProjectile;
     public GameObject healingProjectile;
     public GameObject projectileWarning;
+    public GameObject lungeWarning;
     //public GameObject fireTrail;
     private Transform fireTrail;
     public GameObject slash;
@@ -424,6 +425,10 @@ public class Enemy : MonoBehaviour
     } 
 
     public void SlashWarning() {
+        instantiateWarning = true;
+    }
+
+    public void LungeWarning() {
         instantiateWarning = true;
     }
 
