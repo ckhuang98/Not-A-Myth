@@ -54,6 +54,7 @@ public class UI : MonoBehaviour
     private GameObject playerXpBar;
     [SerializeField]
     public GameObject menuBackground;
+    public Image icon;
 
     [SerializeField]
     private ObjectAudioManager oam;
