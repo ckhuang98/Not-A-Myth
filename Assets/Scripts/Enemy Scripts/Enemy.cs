@@ -299,7 +299,7 @@ public class Enemy : MonoBehaviour
     }
 
     void spawnPlant(){
-        if(UnityEngine.Random.value > .66){
+        if(UnityEngine.Random.value > .2){
             GameObject go = (GameObject)Instantiate(plant);
             Vector3 temp = this.transform.position;
             temp.y += 1f;

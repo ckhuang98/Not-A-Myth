@@ -412,10 +412,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 823405015, guid: 9bc6f6206f5387c49b65d003f009bb84, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 928022982, guid: 9bc6f6206f5387c49b65d003f009bb84, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -548,16 +544,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2666250989214459104, guid: 9bc6f6206f5387c49b65d003f009bb84,
-        type: 3}
-      propertyPath: icon
-      value: 
-      objectReference: {fileID: 1877289514}
-    - target: {fileID: 2666250989214459104, guid: 9bc6f6206f5387c49b65d003f009bb84,
-        type: 3}
-      propertyPath: exitGameConfirmationMenu
-      value: 
-      objectReference: {fileID: 401935303}
     - target: {fileID: 4271921161921583883, guid: 9bc6f6206f5387c49b65d003f009bb84,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -593,21 +579,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5398397902633411761, guid: 9bc6f6206f5387c49b65d003f009bb84,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5398397902633411761, guid: 9bc6f6206f5387c49b65d003f009bb84,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5398397902633411761, guid: 9bc6f6206f5387c49b65d003f009bb84,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5646550992879659479, guid: 9bc6f6206f5387c49b65d003f009bb84,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -618,11 +589,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2066851118}
-    - target: {fileID: 8754855511229970088, guid: 9bc6f6206f5387c49b65d003f009bb84,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc6f6206f5387c49b65d003f009bb84, type: 3}
 --- !u!114 &49533601 stripped
@@ -2910,7 +2876,7 @@ PrefabInstance:
     - target: {fileID: 7599509831077157195, guid: b3573d805370239499e77606ee87aa5c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3573d805370239499e77606ee87aa5c, type: 3}
@@ -3350,12 +3316,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
---- !u!1 &401935303 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 823405015, guid: 9bc6f6206f5387c49b65d003f009bb84,
-    type: 3}
-  m_PrefabInstance: {fileID: 49533600}
-  m_PrefabAsset: {fileID: 0}
 --- !u!213 &406217115
 Sprite:
   m_ObjectHideFlags: 0
@@ -24711,7 +24671,7 @@ PrefabInstance:
     - target: {fileID: 5494777218385843898, guid: d4a19b75165a7eb4fbc82e03040d0aa0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4a19b75165a7eb4fbc82e03040d0aa0, type: 3}
@@ -25848,7 +25808,7 @@ PrefabInstance:
     - target: {fileID: 2188179134601564883, guid: 0753267facfdad74398f4d58c715ccd3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0753267facfdad74398f4d58c715ccd3, type: 3}
@@ -59945,7 +59905,7 @@ PrefabInstance:
     - target: {fileID: 8853464190746555227, guid: 259f884aa9a31ab4797dbc1893fdb2c0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 259f884aa9a31ab4797dbc1893fdb2c0, type: 3}
