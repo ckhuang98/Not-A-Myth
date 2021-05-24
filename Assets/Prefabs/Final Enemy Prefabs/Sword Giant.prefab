@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e162dabb846f7b340b410bfc6ab23c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1653344395945077638, guid: 9f267558bd7f3954ebf71708323ecbdf, type: 3}
   animator: {fileID: 0}
 --- !u!1 &215370151575892224
 GameObject:
@@ -741,7 +740,7 @@ MonoBehaviour:
   timer: 0
   shard: {fileID: 6592983018062342613, guid: e0ea65fa9871a744db37c34c778d0657, type: 3}
   plant: {fileID: 3916534169070301584, guid: decf8b17ba4b0df4d9dc5c9d47b9e0f0, type: 3}
-  corpse: {fileID: 3601893936117176940, guid: cd220dd20cad9cd4ea174ba4ed236f05, type: 3}
+  corpse: {fileID: 8228130627359780382, guid: aa4dbc4c0b45fb64e83c706a37e62ffe, type: 3}
   AOE: {fileID: 8286795400845437626, guid: 304a2b7a831ef7949be9b04d8a8427df, type: 3}
   AOEWarning: {fileID: 0}
   impProjectile: {fileID: 0}
@@ -750,6 +749,7 @@ MonoBehaviour:
   healingProjectile: {fileID: 1784459308356860432, guid: 75d0e9f0d46da384593561680f5929f6,
     type: 3}
   projectileWarning: {fileID: 0}
+  lungeWarning: {fileID: 0}
   slash: {fileID: 7618146614613494682, guid: a6828a63938ca714fb3532903aea4a65, type: 3}
   slashWarning: {fileID: 5448024029295194144, guid: db9b05aa9ea1e1345bec9035578c9488,
     type: 3}

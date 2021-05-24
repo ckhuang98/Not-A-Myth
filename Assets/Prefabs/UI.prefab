@@ -5701,7 +5701,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2666250989214459104}
+      - m_Target: {fileID: 0}
         m_MethodName: showMainMenuConfirmationMenu
         m_Mode: 1
         m_Arguments:
@@ -6831,7 +6831,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2666250989214459104}
+      - m_Target: {fileID: 0}
         m_MethodName: showExitGameConfirmationMenu
         m_Mode: 1
         m_Arguments:
@@ -7100,7 +7100,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 290801534010950686}
   controlsMenu: {fileID: 290801534094991011}
   mainMenuConfirmationMenu: {fileID: 2891007349132076870}
-  exitGameConfirmationMenu: {fileID: 0}
+  exitGameConfirmationMenu: {fileID: 823405015}
   inventoryMenu: {fileID: 1757119509}
   inventoryUIComponent: {fileID: 428609063}
   hotbar: {fileID: 1641315672}
@@ -14637,7 +14637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6950323198315979925
 RectTransform:
   m_ObjectHideFlags: 0

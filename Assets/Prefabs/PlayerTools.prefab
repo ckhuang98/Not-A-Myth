@@ -138,6 +138,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hurtBox: {fileID: 2054322768}
+  extendedHurtBox: {fileID: 2626030135053692333}
+--- !u!60 &2626030135053692333
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8134334213111641887}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.92, y: 0.495}
+    newSize: {x: 0.92, y: 0.495}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.0063456297, y: 0.2602767}
+      - {x: -0.61905473, y: 0.20277539}
+      - {x: -0.4722309, y: -0.91192913}
+      - {x: 0.31254297, y: -0.9244995}
+      - {x: 0.53176194, y: 0.15253149}
 --- !u!1 &8438229448440691629
 GameObject:
   m_ObjectHideFlags: 0
