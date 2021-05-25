@@ -488,23 +488,38 @@ public class PlayerController : MonoBehaviour {
             // If one of the colliders is an AoE circle (from a giant)
             if (withinAggroColliders.CompareTag("Fire Giant AoE")) {
                 inAoE = true;
+                /*
                 fireAddTimer += Time.deltaTime;
                 fireRemoveTimer = Mathf.Max(0f, fireRemoveTimer - Time.deltaTime);
-                
+            
                 // If AoE is new (< 0.25 secs after creation), 10 dmg for hammer swing
+                */
                 var AoE = withinAggroColliders.GetComponent<AreaofEffectTime>();
                 if (AoE.CanHit() && healthTimer >= 1) {
                     //TakeDamage(10);
                     healthTimer = 0;
                 }
-
+                /*
                 // Increment fireStacks every 0.1 secs (onFire = T if stacks == 10)
                 if (fireAddTimer >= 0.1f) {
                     if (fireStacks != maxFireStacks) { fireStacks += 1; }
                     if (fireStacks == maxFireStacks) { onFire = true; }
                     fireAddTimer = 0f;
                 }
-            } 
+                */
+            }
+            
+
+            if (withinAggroColliders.CompareTag("EnemySlash")) {
+                fireAddTimer += Time.deltaTime;
+                fireRemoveTimer = Mathf.Max(0f, fireRemoveTimer - Time.deltaTime);
+
+                if (fireAddTimer >= 0.1f) {
+                    if (fireStacks != maxFireStacks) { fireStacks = 10; }
+                    if (fireStacks == maxFireStacks) { onFire = true; }
+                    fireAddTimer = 0f;
+                }
+            }
 
             // // If player collides with boss slash attack, 15 damage
             if (withinAggroColliders.CompareTag("Boss Slash") && !isInvincible) { 
