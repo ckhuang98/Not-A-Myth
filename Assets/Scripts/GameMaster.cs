@@ -322,7 +322,8 @@ public class GameMaster : MonoBehaviour
     }
 
     public void loadMainMenuScene(){
-        Destroy(gameObject);
+        DestroyImmediate(UI.instance, true);
+        DestroyImmediate(gameObject, true);
         SceneManager.LoadScene(0);
         resumeGame();
     }

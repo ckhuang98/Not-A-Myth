@@ -154,6 +154,7 @@ public class UI : MonoBehaviour
 
     public void showExitGameConfirmationMenu(){
         exitGameConfirmationMenu.SetActive(true);
+        Debug.Log("HI");
     }
 
     public void hideExitGameConfirmationMenu(){

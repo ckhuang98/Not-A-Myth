@@ -189,7 +189,7 @@ public class Enemy : MonoBehaviour
                 }
             }            
         }
-        if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .4)
+        if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .5)
         {
             if(this.tag == "Hammer Giant" || this.tag == "Sword Giant"){
                 giantVFX.SetTrigger("Hit");
