@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 488678353788450516}
   - component: {fileID: 7997021407014767008}
+  - component: {fileID: 6910735953155790758}
+  - component: {fileID: 8513963049136627029}
   m_Layer: 0
-  m_Name: Fire Sprite E
+  m_Name: Fire Spirit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,8 +28,9 @@ Transform:
   m_GameObject: {fileID: 1736711982519352394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -44.08, y: -117.95, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_Children:
+  - {fileID: 1726526073319301677}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -81,3 +84,118 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &6910735953155790758
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736711982519352394}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 7
+  m_LinearDrag: 1
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &8513963049136627029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736711982519352394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d095abe629e71044a0f72155e72e2fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthAmount: 0
+  armorAmount: 0
+  floatStrength: 1
+  timer: 0
+  shard: {fileID: 0}
+  plant: {fileID: 0}
+  corpse: {fileID: 0}
+  AOE: {fileID: 0}
+  AOEWarning: {fileID: 0}
+  impProjectile: {fileID: 0}
+  damageProjectile: {fileID: 5869915446600589459, guid: 26c9ded20a1870848a9ae9461f4e8558,
+    type: 3}
+  healingProjectile: {fileID: 0}
+  projectileWarning: {fileID: 0}
+  lungeWarning: {fileID: 0}
+  slash: {fileID: 0}
+  slashWarning: {fileID: 0}
+  inBounds: 0
+  hasCircled: 0
+  enemyAnimator: {fileID: 0}
+  _rayDistance: 5
+  weightList: 0000000000000000000000000000000000000000000000000000000000000000
+  doInstantiate: 0
+  instantiateWarning: 0
+  goToWalk: 0
+  doAttack: 0
+  doLungeAttack: 0
+  beenHit: 0
+  inAttackState: 0
+  deathSFXObject: {fileID: 6986382958281556572, guid: fbe570b06266bcf44b8d2660c26a378e,
+    type: 3}
+  deadState: 0
+  giantVFX: {fileID: 0}
+  impVFX: {fileID: 0}
+  eelVFX: {fileID: 0}
+--- !u!1 &4278996470018325393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1726526073319301677}
+  - component: {fileID: 4938273661798851976}
+  m_Layer: 15
+  m_Name: WallCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1726526073319301677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278996470018325393}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.043, y: -0.163, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 488678353788450516}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &4938273661798851976
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278996470018325393}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.09015274}
+  serializedVersion: 2
+  m_Radius: 0.59015274
