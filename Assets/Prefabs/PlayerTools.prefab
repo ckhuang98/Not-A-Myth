@@ -125,20 +125,6 @@ PolygonCollider2D:
       - {x: -0.4722309, y: -0.91192913}
       - {x: 0.31254297, y: -0.9244995}
       - {x: 0.53176194, y: 0.15253149}
---- !u!114 &2054322767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8134334213111641887}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31e0a1e0c66aeff4ebee10909b93a0e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hurtBox: {fileID: 2054322768}
-  extendedHurtBox: {fileID: 2626030135053692333}
 --- !u!60 &2626030135053692333
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -169,6 +155,37 @@ PolygonCollider2D:
       - {x: -0.4722309, y: -0.91192913}
       - {x: 0.31254297, y: -0.9244995}
       - {x: 0.53176194, y: 0.15253149}
+--- !u!114 &2054322767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8134334213111641887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e0a1e0c66aeff4ebee10909b93a0e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hurtBox: {fileID: 2054322768}
+  extendedHurtBox: {fileID: 2626030135053692333}
+  groundSmash: {fileID: 1046337479}
+--- !u!58 &1046337479
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8134334213111641887}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.1, y: 0.09}
+  serializedVersion: 2
+  m_Radius: 0.8
 --- !u!1 &8438229448440691629
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,12 +442,12 @@ PrefabInstance:
     - target: {fileID: 1653344395945077463, guid: 9f267558bd7f3954ebf71708323ecbdf,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.92
+      value: 8.091429
       objectReference: {fileID: 0}
     - target: {fileID: 1653344395945077463, guid: 9f267558bd7f3954ebf71708323ecbdf,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.495
+      value: 3.84
       objectReference: {fileID: 0}
     - target: {fileID: 1653344395945077483, guid: 9f267558bd7f3954ebf71708323ecbdf,
         type: 3}
