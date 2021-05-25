@@ -186,8 +186,8 @@ public class GameMaster : MonoBehaviour
     }
 
     public void gainSpeed(){
-        playerStats.maxSpeed.Value += 1.5f;
-        playerStats.sprintSpeed.Value += 1.5f;
+        playerStats.maxSpeed.Value += 2f;
+        playerStats.sprintSpeed.Value += 2f;
     }
 
     public void reduceDashCooldown(){
