@@ -7,27 +7,70 @@ using System.Linq;
 public class LocateHostState : BaseState
 {
     private Enemy _enemy;
-    private Dictionary<string, float> badGuys = new Dictionary<string, float>();
-    private GameObject[] hammerGiants = GameObject.FindGameObjectsWithTag("Hammer Giant");
-    private GameObject[] fireImps = GameObject.FindGameObjectsWithTag("Fire Imp");
-    private GameObject[] fireEels = GameObject.FindGameObjectsWithTag("Fire Eel");
-    private GameObject[] swordGiants = GameObject.FindGameObjectsWithTag("Sword Giant");
-    private Transform closestHammer, closestImp, closestEel, closestSword;
+    private Transform parent;
+    bool movingRight = true;
+    bool movingLeft = false;
+    private Transform target;
+    private float angle;
+    private float shootTimer = .5f;
+    private GameObject projectile;
 
     //private GameObject[] fullList;
     public LocateHostState(Enemy enemy) : base(enemy.gameObject)
     {
         _enemy = enemy;
-        badGuys["Hammer Giant"] = Mathf.Infinity;
-        badGuys["Fire Imp"] = Mathf.Infinity;
-        badGuys["Fire Eel"] = Mathf.Infinity;
-        badGuys["Sword Giant"] = Mathf.Infinity;
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     public override Type Tick() {
+        if (_enemy.spiritParent != null) {
+            if (_enemy.inBounds == true) {
+                var delta_x = transform.position.x - target.position.x;
+                var delta_y = transform.position.y - target.position.y;
+                angle = Mathf.Atan2(delta_y, delta_x) * 180 / Mathf.PI;
+                if (angle < 0.0f) {
+                    angle = angle + 360f;
+                }
+                if (angle >= 90f && angle <= 270) {
+                    FlipRight();
+                } else {
+                    FlipLeft();
+                }
+
+                if (shootTimer >= 0f) {
+                    shootTimer -= Time.deltaTime;
+                } else {
+                    projectile = GameObject.Instantiate(_enemy.damageProjectile) as GameObject;
+                    projectile.transform.position = new Vector3(transform.position.x, transform.position.y,
+                        transform.position.z);
+                    shootTimer = .5f;
+                }
+            }
+        } else {
+            return typeof(DeathState);
+        }
+        
         return typeof(LocateHostState);
     }
-    
+
+    private void FlipLeft() {
+        if (movingLeft) {
+            return;
+        }
+        transform.localScale = new Vector3(-this.transform.localScale.x, this.transform.localScale.y, this.transform.localScale.z);
+        movingLeft = true;
+        movingRight = false;
+    }
+
+    private void FlipRight() {
+        if (movingRight) {
+            return;
+        }
+        transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
+        movingRight = true;
+        movingLeft = false;
+    }
+    /*
     private void NPCDetection() { 
         foreach (GameObject _hammerGiant in hammerGiants) {
             if (_hammerGiant != null) {
@@ -71,4 +114,5 @@ public class LocateHostState : BaseState
             }
         }
     }
+    */
 }

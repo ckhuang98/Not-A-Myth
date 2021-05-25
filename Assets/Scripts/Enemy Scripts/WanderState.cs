@@ -114,7 +114,7 @@ public class WanderState : BaseState
                 _enemy.resetWeightsToZero();
                 return typeof(MaintainDistanceState);
             }
-            if (_enemy.inBounds == true && _enemy.tag == "Fire Spirit") {
+            if (_enemy.tag == "Fire Spirit") {
                 _enemy.resetWeightsToZero();
                 return typeof(LocateHostState);
             }
