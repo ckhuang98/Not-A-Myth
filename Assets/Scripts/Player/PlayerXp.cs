@@ -41,7 +41,7 @@ public class PlayerXp : MonoBehaviour
 
     private IEnumerator levelUp(){
         yellowHighlight[4].SetActive(true);
-        StartCoroutine(UI.instance.displayerPlayerUpdate("Skill Point Availble!"));
+        StartCoroutine(UI.instance.displayerPlayerUpdate("Skill Point Earned. \nPress Tab to Open the Skill Tree!"));
         yield return new WaitForSeconds(0.5f);
         resetAll();
     }

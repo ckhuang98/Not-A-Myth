@@ -309,7 +309,7 @@ public class PlayerController : MonoBehaviour {
     {
         stats.currentHealth.Value = Math.Min(stats.currentHealth.Value + restoreHealthBy, stats.maxHealth.Value);
         // healthBar.SetValue(currentHealth);
-        StartCoroutine(UI.instance.displayerPlayerUpdate("Health Restored"));
+        //StartCoroutine(UI.instance.displayerPlayerUpdate("Health Restored"));
     }
 
     // Handles the player movements and animations.
