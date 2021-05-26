@@ -906,7 +906,7 @@ PrefabInstance:
     - target: {fileID: 7599509831077157195, guid: b3573d805370239499e77606ee87aa5c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7732973374959472458, guid: b3573d805370239499e77606ee87aa5c,
         type: 3}
@@ -1187,7 +1187,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 62963221
-  m_SortingLayer: -1
+  m_SortingLayer: -4
   m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.014285743, y: 0.014395595, z: 0}
@@ -2136,7 +2136,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 62963221
-  m_SortingLayer: -1
+  m_SortingLayer: -4
   m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.00019538403, y: 0, z: 0}
@@ -15936,7 +15936,7 @@ PrefabInstance:
     - target: {fileID: 2188179134601564883, guid: 0753267facfdad74398f4d58c715ccd3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0753267facfdad74398f4d58c715ccd3, type: 3}
@@ -16159,7 +16159,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 62963221
-  m_SortingLayer: -1
+  m_SortingLayer: -4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.00019538403, y: 0, z: 0}
@@ -23125,6 +23125,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8134334213111640738, guid: aaf35ebb4e3e6834e84284e0e5c58283,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 870fd86f2c78e634b93bbe70ec026d1f,
+        type: 3}
     - target: {fileID: 8438229448440691626, guid: aaf35ebb4e3e6834e84284e0e5c58283,
         type: 3}
       propertyPath: m_Pivot.x
