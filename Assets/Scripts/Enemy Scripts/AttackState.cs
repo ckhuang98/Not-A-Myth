@@ -119,10 +119,10 @@ public class AttackState : BaseState
             // UP
             if (xAttack == 0f && yAttack == 1f) {
                 AoE.transform.position = 
-                new Vector3(this.transform.position.x + 0.28f, this.transform.position.y + 5.04f, this.transform.position.z);
+                new Vector3(this.transform.position.x + 0.69f, this.transform.position.y + 2.97f, this.transform.position.z);
                 AoE.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
                 if (hammerDown == true && inAOEWarning == true) {
-                    target.StartCoroutine(target.HammerKnockBack(1f, 30f, this.transform));
+                    target.StartCoroutine(target.HammerKnockBack(.2f, 50f, this.transform));
                 }
                 //fireParticles.transform.position = 
                 //new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
@@ -130,10 +130,10 @@ public class AttackState : BaseState
             // RIGHT
             if (xAttack == 1f && yAttack == 0f) {
                 AoE.transform.position = 
-                new Vector3(this.transform.position.x + 6.84f, this.transform.position.y - 1.04f, this.transform.position.z);
+                new Vector3(this.transform.position.x + 6.46f, this.transform.position.y - 2.06f, this.transform.position.z);
                 AoE.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
                 if (hammerDown == true && inAOEWarning == true) {
-                    target.StartCoroutine(target.HammerKnockBack(1f, 30f, this.transform));
+                    target.StartCoroutine(target.HammerKnockBack(.2f, 50f, this.transform));
                 }
                 //fireParticles.transform.position = 
                 //new Vector3(this.transform.position.x + 2, this.transform.position.y - 0.5f, this.transform.position.z);
@@ -141,9 +141,9 @@ public class AttackState : BaseState
             // DOWN
             if (xAttack == 0f && yAttack == -1f) {
                 AoE.transform.position = 
-                new Vector3(this.transform.position.x - 0.2f, this.transform.position.y - 7.049995f, this.transform.position.z);
+                new Vector3(this.transform.position.x - 0.43f, this.transform.position.y - 6.99f, this.transform.position.z);
                 if (hammerDown == true && inAOEWarning == true) {
-                    target.StartCoroutine(target.HammerKnockBack(1f, 30f, this.transform));
+                    target.StartCoroutine(target.HammerKnockBack(.2f, 50f, this.transform));
                 }
                 //fireParticles.transform.position = 
                 //new Vector3(this.transform.position.x - 0.229f, this.transform.position.y - 1.59f, this.transform.position.z);
@@ -151,10 +151,10 @@ public class AttackState : BaseState
             // LEFT
             if (xAttack == -1f && yAttack == 0f) {
                 AoE.transform.position = 
-                new Vector3(this.transform.position.x - 6.71f, this.transform.position.y - 1.09f, this.transform.position.z);
+                new Vector3(this.transform.position.x - 6.27f, this.transform.position.y - 2.09f, this.transform.position.z);
                 AoE.transform.localRotation = Quaternion.Euler(0f, 0f, 270f);
                 if (hammerDown == true && inAOEWarning == true) {
-                    target.StartCoroutine(target.HammerKnockBack(1f, 30f, this.transform));
+                    target.StartCoroutine(target.HammerKnockBack(.2f, 50f, this.transform));
                 }
                 //fireParticles.transform.position = 
                 //new Vector3(this.transform.position.x - 2, this.transform.position.y - 0.5f, this.transform.position.z);
@@ -170,27 +170,27 @@ public class AttackState : BaseState
             if (xAttack == 0f && yAttack == 1f) {
                 //Debug.Log("Up");
                 AoEWarning.transform.position = 
-                new Vector3(this.transform.position.x + 0.28f, this.transform.position.y + 5.04f, this.transform.position.z);
+                new Vector3(this.transform.position.x + 0.81f, this.transform.position.y + 2.34f, this.transform.position.z);
                 AoEWarning.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
             } 
             // RIGHT
             if (xAttack == 1f && yAttack == 0f) {
                 //Debug.Log("Right");
                 AoEWarning.transform.position = 
-                new Vector3(this.transform.position.x + 6.84f, this.transform.position.y - 1.04f, this.transform.position.z);
+                new Vector3(this.transform.position.x + 5.71f, this.transform.position.y - 1.75f, this.transform.position.z);
                 AoEWarning.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
             }
             // DOWN
             if (xAttack == 0f && yAttack == -1f) {
                 //Debug.Log("Down");
                 AoEWarning.transform.position = 
-                new Vector3(this.transform.position.x - 0.2f, this.transform.position.y - 7.049995f, this.transform.position.z);
+                new Vector3(this.transform.position.x - 0.38f, this.transform.position.y - 6.12f, this.transform.position.z);
             } 
             // LEFT
             if (xAttack == -1f && yAttack == 0f) {
                 //Debug.Log("Left");
                 AoEWarning.transform.position = 
-                new Vector3(this.transform.position.x - 6.71f, this.transform.position.y - 1.09f, this.transform.position.z);
+                new Vector3(this.transform.position.x - 5.65f, this.transform.position.y - 1.87f, this.transform.position.z);
                 AoEWarning.transform.localRotation = Quaternion.Euler(0f, 0f, 270f);
             }
         }

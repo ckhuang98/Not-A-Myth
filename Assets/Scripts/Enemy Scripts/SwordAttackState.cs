@@ -127,24 +127,24 @@ public class SwordAttackState : BaseState
             // UP
             if (xAttack == 0f && yAttack == 1f) {
                 warning.transform.position = 
-                new Vector3(this.transform.position.x, this.transform.position.y + 3.7f, this.transform.position.z);
+                new Vector3(this.transform.position.x, this.transform.position.y + 3.5f, this.transform.position.z);
                 warning.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
             } 
             // RIGHT
             if (xAttack == 1f && yAttack == 0f) {
                 warning.transform.position = 
-                new Vector3(this.transform.position.x + 2.9f, this.transform.position.y - 0.1f, this.transform.position.z);
+                new Vector3(this.transform.position.x + 2.5f, this.transform.position.y - 0.1f, this.transform.position.z);
             } 
             // DOWN
             if (xAttack == 0f && yAttack == -1f) {
                 warning.transform.position = 
-                new Vector3(this.transform.position.x, this.transform.position.y - 3.7f, this.transform.position.z);
+                new Vector3(this.transform.position.x, this.transform.position.y - 3.5f, this.transform.position.z);
                 warning.transform.localRotation = Quaternion.Euler(0f, 0f, 270f);
             } 
             // LEFT
             if (xAttack == -1f && yAttack == 0f) {
                 warning.transform.position = 
-                new Vector3(this.transform.position.x - 2.9f, this.transform.position.y - 0.1f, this.transform.position.z);
+                new Vector3(this.transform.position.x - 2.5f, this.transform.position.y - 0.1f, this.transform.position.z);
                 warning.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
             }
         }

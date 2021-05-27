@@ -496,7 +496,7 @@ public class PlayerController : MonoBehaviour {
                 */
                 var AoE = withinAggroColliders.GetComponent<AreaofEffectTime>();
                 if (AoE.CanHit() && healthTimer >= 1) {
-                    //TakeDamage(10);
+                    TakeDamage(10);
                     healthTimer = 0;
                 }
                 /*

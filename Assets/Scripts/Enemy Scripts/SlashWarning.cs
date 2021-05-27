@@ -12,7 +12,7 @@ public class SlashWarning : MonoBehaviour
     {
         sr = gameObject.GetComponent<SpriteRenderer>();
         colorChange = gameObject.GetComponent<SpriteRenderer>().color;
-        StartCoroutine("TurnWhite");
+        StartCoroutine("TurnBlack");
     }
 
     // Update is called once per frame
@@ -25,17 +25,21 @@ public class SlashWarning : MonoBehaviour
         }
     }
 
-    private IEnumerator TurnWhite() {
-        colorChange = Color.white;
+    private IEnumerator TurnBlack() {
+        colorChange.r = .36862f;
+        colorChange.g = .36862f;
+        colorChange.b = .36862f;
         sr.color = colorChange;
         yield return new WaitForSeconds(.2f);
         StartCoroutine("TurnRed");
     }
 
     private IEnumerator TurnRed() {
-        colorChange = Color.red;
+        colorChange.r = .509803f;
+        colorChange.g = .305882f;
+        colorChange.b = .305882f;
         sr.color = colorChange;
         yield return new WaitForSeconds(.2f);
-        StartCoroutine("TurnWhite");
+        StartCoroutine("TurnBlack");
     }
 }

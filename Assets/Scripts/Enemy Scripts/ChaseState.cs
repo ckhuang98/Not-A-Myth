@@ -59,7 +59,7 @@ public class ChaseState : BaseState
             }
             _enemy.inBounds = false;
             transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
-            Debug.Log("In Chase State");
+            //Debug.Log("In Chase State");
 
             //Debug.DrawRay(transform.position, _enemy.moveDirections[_enemy.currMoveDirection] * 3.0f, Color.blue);
             

@@ -154,6 +154,8 @@ public class Enemy : MonoBehaviour
             DoFloat();
         }
 
+        Debug.Log(attackDir);
+
         isDead(GameMaster.instance.getGameOver());
         stateMachine.Update();
         DisplayRays();

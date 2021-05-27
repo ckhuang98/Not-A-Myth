@@ -16,8 +16,8 @@ public class BackIntoPlace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(x);
-        Debug.Log(y);
+        //Debug.Log(x);
+        //Debug.Log(y);
         if (this.transform.localPosition.x != x || this.transform.localPosition.y != y) {
             this.transform.localPosition = new Vector3(x, y, 1f);
         } 
