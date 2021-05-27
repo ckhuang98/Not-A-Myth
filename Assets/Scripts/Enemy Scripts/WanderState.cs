@@ -265,7 +265,7 @@ public class WanderState : BaseState
             if (_enemy.castList[i].collider != null && (_enemy.castList[i].collider.name == "Walls" 
             || _enemy.castList[i].collider.name == "Passable")) {
                 //Debug.Log(_enemy.castList[i].collider.name);                 
-                if (_enemy.castList[i].distance <= 1.25) {          
+                if (_enemy.castList[i].distance <= 1) {          
                     var about_face = i;
                     if (about_face >= 4) {
                         about_face -= 4;
