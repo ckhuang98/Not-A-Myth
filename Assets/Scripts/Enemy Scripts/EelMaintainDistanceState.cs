@@ -18,7 +18,7 @@ public class EelMaintainDistanceState : BaseState
     private bool choice;
     private bool stop = false;
     private bool attackDistance = false;
-    private float lungeAttackTimer = 2f;
+    private float lungeAttackTimer = 1f;
     private bool movingBack = false;
 
     public EelMaintainDistanceState(Enemy enemy) : base (enemy.gameObject)
@@ -71,7 +71,7 @@ public class EelMaintainDistanceState : BaseState
                 lungeAttackTimer -= Time.deltaTime;
             } else {
                 if (_enemy.attackDir != "Not Set" && _enemy.beenHit == false) {
-                    lungeAttackTimer = 2f;
+                    lungeAttackTimer = 1f;
                     _enemy.enemyAnimator.SetTrigger("FireEelAttacking");
                     return typeof(LungeAttackState);
                 }
