@@ -133,11 +133,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eceb024bf9894b4ab3de000f8a8182d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   healthAmount: 0
   target: {fileID: 0}
+  bossTransform: {fileID: 0}
   targetLastPos: 
-  slash: {fileID: 8948142391974225190, guid: e30f8c5b469cb064da8c1d09f134003a, type: 3}
-  shockWave: {fileID: 6051182861315708512, guid: e0eeca37b4e711247909398046b5d5b7,
+  slash: {fileID: 7839911384303720506, guid: 6be41b8d92db06549b4b7fb2108ff0ff, type: 3}
+  shockWave: {fileID: 7849177330986493946, guid: 089f44c9cc7131a48a2af0cfdf374e1f,
     type: 3}
   fireCone: {fileID: 99655992013598280}
   fireConeArea: {fileID: 7213976474225622838, guid: eb3736f152683954ba4ca4ef26c0984c,
@@ -146,6 +148,15 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   speechText: {fileID: 0}
   calledAnimationHandler: 0
+  attacking: 0
+  coneAttack: 0
+  goRight: 1
+  goLeft: 0
+  hammer: 0
+  sword: 0
+  shock: 0
+  smoothSpeed: 5
+  offSet: {x: 0, y: 0, z: 0}
 --- !u!70 &488365399027325284
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

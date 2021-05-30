@@ -104,50 +104,50 @@ public class LungeAttackState : BaseState
             //UP
             if (xAttack == 0f && yAttack == 1f) {
                 warning.transform.position = 
-                    new Vector3(this.transform.position.x - 0.18f, this.transform.position.y + 3.02f, this.transform.position.z);
-                warning.transform.localRotation = Quaternion.Euler(0f, 0f, -149.4f);
+                    new Vector3(this.transform.position.x - 0.02f, this.transform.position.y + 2.92f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, 270f);
             } 
             //UP RIGHT
             if (xAttack == 1f && yAttack == 1f) {
                 warning.transform.position = 
-                    new Vector3(this.transform.position.x + 1.55f, this.transform.position.y + 2.17f, this.transform.position.z);
-                warning.transform.localRotation = Quaternion.Euler(0f, 0f, -189.7f);
+                    new Vector3(this.transform.position.x + 1.62f, this.transform.position.y + 2.32f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, 225f);
             }
             // RIGHT
             if (xAttack == 1f && yAttack == 0f) {
                 warning.transform.position = 
-                    new Vector3(this.transform.position.x + 2.27f, this.transform.position.y + 0.49f, this.transform.position.z);
-                warning.transform.localRotation = Quaternion.Euler(0f, 0f, -241.3f);
+                    new Vector3(this.transform.position.x + 2.3f, this.transform.position.y + 0.51f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, 180f);
             }
             //DOWN RIGHT
             if (xAttack == 1f && yAttack == -1f) {
                 warning.transform.position = 
-                    new Vector3(this.transform.position.x + 1.45f, this.transform.position.y - 1.24f, this.transform.position.z);
-                warning.transform.localRotation = Quaternion.Euler(0f, 0f, -283.2f);
+                    new Vector3(this.transform.position.x + 1.87f, this.transform.position.y - 1.22f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, 135f);
             } 
             // DOWN
             if (xAttack == 0f && yAttack == -1f) {
                 warning.transform.position = 
-                    new Vector3(this.transform.position.x + 0.04f, this.transform.position.y - 1.7f, this.transform.position.z);
-                warning.transform.localRotation = Quaternion.Euler(0f, 0f, -329.7f);
+                    new Vector3(this.transform.position.x + 0.12f, this.transform.position.y - 1.69f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
             } 
             //DOWN LEFT
             if (xAttack == -1f && yAttack == -1f) {
                 warning.transform.position = 
-                    new Vector3(this.transform.position.x - 1.5f, this.transform.position.y - 1.21f, this.transform.position.z);
-                warning.transform.localRotation = Quaternion.Euler(0f, 0f, -6.48f);
+                    new Vector3(this.transform.position.x - 1.44f, this.transform.position.y - 1.18f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, 45f);
             }
             // LEFT
             if (xAttack == -1f && yAttack == 0f) {
                 warning.transform.position = 
-                    new Vector3(this.transform.position.x - 2.23f, this.transform.position.y + 0.26f, this.transform.position.z);
-                warning.transform.localRotation = Quaternion.Euler(0f, 0f, -61.11f);
+                    new Vector3(this.transform.position.x - 2.14f, this.transform.position.y + 0.37f, this.transform.position.z);
+                //warning.transform.localRotation = Quaternion.Euler(0f, 0f, -61.11f);
             }
             //UP LEFT
             if (xAttack == -1f && yAttack == 1f) {
                 warning.transform.position = 
-                    new Vector3(this.transform.position.x - 1.67f, this.transform.position.y + 1.85f, this.transform.position.z);
-                warning.transform.localRotation = Quaternion.Euler(0f, 0f, -105.99f);
+                    new Vector3(this.transform.position.x - 1.42f, this.transform.position.y + 2.08f, this.transform.position.z);
+                warning.transform.localRotation = Quaternion.Euler(0f, 0f, 315f);
             }
         }
     }

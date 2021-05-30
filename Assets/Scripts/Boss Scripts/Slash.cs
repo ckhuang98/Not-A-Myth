@@ -20,8 +20,8 @@ public class Slash : MonoBehaviour
     }
     private void FixedUpdate() {
         Vector3 newScale = transform.localScale;
-        newScale.x += .2f;
-        newScale.y += .05f;
+        newScale.x += .006f;
+        newScale.y += .003f;
         transform.localScale = newScale;
         
         Vector3 newPos = transform.position;
