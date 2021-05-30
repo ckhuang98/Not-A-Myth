@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AreaofEffectTime : MonoBehaviour
 {
-    private float destroyTime = 10f;
+    private float destroyTime = 3.5f;
     private float hitTimer = 0.25f;
     public bool canHit = true;
     //public PlayerStats stats;

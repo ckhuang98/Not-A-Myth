@@ -173,7 +173,7 @@ public class EelMaintainDistanceState : BaseState
     Returns: nothing
     */
     private void MaintainDistance() {
-        if (Vector2.Distance(transform.position, target.position) <= 2.5) {
+        if (Vector2.Distance(transform.position, target.position) <= 2f) {
             attackDistance = true;
             movingBack = true;
             stop = false;
@@ -185,7 +185,7 @@ public class EelMaintainDistanceState : BaseState
             }
             _enemy.weightList[about_face] = 1;
             _enemy.currMoveDirection = about_face;
-        } else if (Vector2.Distance(transform.position, target.position) >= 3.75) {
+        } else if (Vector2.Distance(transform.position, target.position) >= 3.25f) {
             stop = false;
             movingBack = false;
             attackDistance = false;
