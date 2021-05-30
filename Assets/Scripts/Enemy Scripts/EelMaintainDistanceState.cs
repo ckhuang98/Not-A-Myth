@@ -185,7 +185,7 @@ public class EelMaintainDistanceState : BaseState
             }
             _enemy.weightList[about_face] = 1;
             _enemy.currMoveDirection = about_face;
-        } else if (Vector2.Distance(transform.position, target.position) >= 3.25f) {
+        } else if (Vector2.Distance(transform.position, target.position) >= 3f) {
             stop = false;
             movingBack = false;
             attackDistance = false;
