@@ -40,19 +40,27 @@ public class Fader : MonoBehaviour
         if (player_y > tree_y) { renderer.sortingOrder = 10; }
         else { renderer.sortingOrder = 0; }
 
-        
-        // If the player is within 5 x-units of the tree,
+        // If the player is within 2 x-units of the tree,
         float player_x = player.position.x;
         float tree_x = gameObject.transform.position.x;
-        if ((player_x - 5 <= tree_x) && (tree_x <= player_x + 5))
+        if ((player_x - 2 <= tree_x) && (tree_x <= player_x + 2))
         {
-            /* Change the opacity of the tree if player is behind it
-            * While the player is between 0 and 8 units above the tree,
-            *  Decrease the opacity (0 = 255f, 8 = 0f)
-            * While the player is between 8 and 10 units above the tree,
-            *  Increase the opacity (8 = 0f, 10 = 255f) */
-            if (y_diff >= 0 && y_diff <= 8) tree_c.a = 1f - (0.125f * y_diff);
-            if (y_diff >= 8 && y_diff <= 10) tree_c.a = (0.5f * (y_diff - 8));
+            if ((renderer.sprite.name == "Spruce Tree 1") ||
+                (renderer.sprite.name == "Spruce Tree Snow 1"))
+            {
+                if (y_diff >= 0 && y_diff <= 12.5f) tree_c.a = 1f - (0.08f * y_diff);
+                if (y_diff >= 12.5f && y_diff <= 16.5f) tree_c.a = (0.25f * (y_diff - 12.5f));
+            }
+            else
+            {
+                /* Change the opacity of the tree if player is behind it
+                * While the player is between 0 and 5 units above the tree,
+                *  Decrease the opacity (0 = 255f, 5 = 0f)
+                * While the player is between 5 and 7 units above the tree,
+                *  Increase the opacity (5 = 0f, 7 = 255f) */
+                if (y_diff >= 0 && y_diff <= 5) tree_c.a = 1f - (0.2f * y_diff);
+                if (y_diff >= 5 && y_diff <= 7) tree_c.a = (0.5f * (y_diff - 5));
+            }
         }
         else { tree_c.a = 1f; }
 
