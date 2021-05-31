@@ -40,10 +40,7 @@ TagManager:
   - MainMenu_Instructions
   - Inventory
   - Gem
-  - SnowTreeSpawnPoint
-  - NormalTreeSpawnPoint
-  - IceTreeSpawnPoint
-  - AttackDetector
+  - Fire Spirit
   layers:
   - Default
   - TransparentFX
@@ -60,7 +57,7 @@ TagManager:
   - Hammer Layer
   - Sword Layer
   - Imp Layer
-  - 
+  - Fire Spirit Layer
   - 
   - 
   - 
@@ -80,15 +77,6 @@ TagManager:
   m_SortingLayers:
   - name: Background
     uniqueID: 62963221
-    locked: 0
-  - name: Passable
-    uniqueID: 1544773627
-    locked: 0
-  - name: Accents
-    uniqueID: 1846819167
-    locked: 0
-  - name: Walls
-    uniqueID: 2384278027
     locked: 0
   - name: Default
     uniqueID: 0

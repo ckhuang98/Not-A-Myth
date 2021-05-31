@@ -114,6 +114,10 @@ public class WanderState : BaseState
                 _enemy.resetWeightsToZero();
                 return typeof(MaintainDistanceState);
             }
+            if (_enemy.tag == "Fire Spirit") {
+                _enemy.resetWeightsToZero();
+                return typeof(LocateHostState);
+            }
         }
         return typeof(WanderState);
     }
@@ -332,6 +336,7 @@ public class WanderState : BaseState
         }
     }
 
+    
 
     /*
     Purpose: If another enemy if detected they will slowly avoid each other. Different

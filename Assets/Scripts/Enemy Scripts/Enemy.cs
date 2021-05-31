@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour
 {
     //Variables regarding enemy stats
     Rigidbody2D rb;
-    internal string attackDir = "Not Set";
     public float healthAmount;
     public float armorAmount;
     //GameObject armorBorderObject;
@@ -63,7 +62,13 @@ public class Enemy : MonoBehaviour
     private int layerMask;
     public RaycastHit2D[] castList = new RaycastHit2D[8];
     public int[] weightList = new int[8];
+
     internal int currMoveDirection;
+    internal Vector3[] moveDirections = new Vector3[] { Vector3.up, Vector3.Normalize(Vector3.right + Vector3.up), 
+        Vector3.right, Vector3.Normalize(Vector3.right + Vector3.down), Vector3.down,
+        Vector3.Normalize(Vector3.left + Vector3.down), Vector3.left, Vector3.Normalize(Vector3.left + Vector3.up) };
+    internal string attackDir = "Not Set";
+    internal Transform spiritParent;
     //internal float lookingAngle;
     public bool doInstantiate = false;
     public bool instantiateWarning = false;
@@ -86,10 +91,6 @@ public class Enemy : MonoBehaviour
     public Animator eelVFX;
 
     ////////////////////////////////////////////
-    
-    internal Vector3[] moveDirections = new Vector3[] { Vector3.up, Vector3.Normalize(Vector3.right + Vector3.up), 
-        Vector3.right, Vector3.Normalize(Vector3.right + Vector3.down), Vector3.down,
-        Vector3.Normalize(Vector3.left + Vector3.down), Vector3.left, Vector3.Normalize(Vector3.left + Vector3.up) };
 
     // Start is called before the first frame update
     void Start()
@@ -101,6 +102,9 @@ public class Enemy : MonoBehaviour
             healthAmount = 1f;
         } else if (this.tag == "Hammer Giant" || this.tag == "Sword Giant") {
             healthAmount = 1.8f;
+        } else if (this.tag == "Fire Spirit") {
+            healthAmount = 1.5f;
+            spiritParent = GetComponentInParent<Transform>();
         }
 
         if (this.tag == "Fire Imp") {
@@ -167,7 +171,13 @@ public class Enemy : MonoBehaviour
         }
         alpha = .2f;
         //Debug.Log(attackDir);
-        
+    /*
+        if (moveDirections[currMoveDirection].x < 0 && this.tag == "Fire Spirit") {
+            FlipLeft();
+        } else if (moveDirections[currMoveDirection].x > 0 && this.tag == "Fire Spirit") {
+            FlipRight();
+        } 
+    */
     }
 
 
@@ -381,7 +391,8 @@ public class Enemy : MonoBehaviour
             { typeof(LungeAttackState), new LungeAttackState(this) },
             { typeof(EelMaintainDistanceState), new EelMaintainDistanceState(this) },
             { typeof(SwordAttackState), new SwordAttackState(this) },
-            { typeof(DeathState), new DeathState(this)}
+            { typeof(DeathState), new DeathState(this) },
+            { typeof(LocateHostState), new LocateHostState(this) }
         };
 
         stateMachine.SetStates(states);
