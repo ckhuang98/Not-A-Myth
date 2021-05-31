@@ -46,10 +46,10 @@ public class Enemy : MonoBehaviour
     public bool inBounds = false;
     public bool hasCircled = false;
 
-    private GameObject[] hammerGiantList;
+    internal GameObject[] hammerGiantList;
     private GameObject[] fireImpList;
     private GameObject[] fireEelList;
-    private GameObject[] swordGiantList;
+    internal GameObject[] swordGiantList;
     public static int enemyAmount;
     public Animator enemyAnimator;
     ////////////////////////////////
@@ -154,7 +154,7 @@ public class Enemy : MonoBehaviour
             DoFloat();
         }
 
-        Debug.Log(attackDir);
+        //Debug.Log(attackDir);
 
         isDead(GameMaster.instance.getGameOver());
         stateMachine.Update();

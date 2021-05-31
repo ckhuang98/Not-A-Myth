@@ -12,6 +12,7 @@ public class ImpProjectile : MonoBehaviour
 
     private Transform hammerTarget;
     private GameObject[] hammerGiants;
+    private GameObject[] swordGiants;
     private SpriteRenderer sr;
     private Vector2 healMoveDirection;
     // Start is called before the first frame update
@@ -23,7 +24,8 @@ public class ImpProjectile : MonoBehaviour
         moveDirection = (hold - transform.position).normalized * projectileSpeed;
 
         hammerGiants = GameObject.FindGameObjectsWithTag("Hammer Giant");
-        hammerTarget = hammerGiants[0].transform;
+        swordGiants = GameObject.FindGameObjectsWithTag("Sword Giant");
+        //hammerTarget = hammerGiants[0].transform;
         sr = GetComponent<SpriteRenderer>();
 
     }
@@ -34,12 +36,7 @@ public class ImpProjectile : MonoBehaviour
         //Debug.Log(hold);
         if (this.tag == "Healing Projectile") {
             sr.color = Color.green;
-            if (hammerGiants.Length > 0) {
-                //transform.position = Vector2.MoveTowards(transform.position, hammerTarget.position, projectileSpeed * Time.deltaTime);
-                healMoveDirection = (hammerTarget.transform.position - transform.position).normalized * projectileSpeed;
-                rb.velocity = new Vector2(healMoveDirection.x, healMoveDirection.y);
-            } 
-        
+
             foreach (GameObject _hammerGiant in hammerGiants) {
                 if (_hammerGiant != null) {
                     var checkingDistance = Vector3.Distance(transform.position, _hammerGiant.transform.position);
@@ -50,6 +47,23 @@ public class ImpProjectile : MonoBehaviour
                     } 
                 }
             }
+
+            foreach (GameObject _swordGiant in swordGiants) {
+                if (_swordGiant != null) {
+                    var checkingDistance = Vector3.Distance(transform.position, _swordGiant.transform.position);
+                    var targetDistance = Vector3.Distance(transform.position, hammerTarget.position);
+                    if (checkingDistance < targetDistance)
+                    {
+                        hammerTarget = _swordGiant.transform;
+                    } 
+                }
+            }
+
+            if (hammerGiants.Length > 0 || swordGiants.Length > 0) {
+                //transform.position = Vector2.MoveTowards(transform.position, hammerTarget.position, projectileSpeed * Time.deltaTime);
+                healMoveDirection = (hammerTarget.transform.position - transform.position).normalized * projectileSpeed;
+                rb.velocity = new Vector2(healMoveDirection.x, healMoveDirection.y);
+            } 
         } else if (this.tag == "Imp Damage Projectile") {
             sr.color = Color.red;
             rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
