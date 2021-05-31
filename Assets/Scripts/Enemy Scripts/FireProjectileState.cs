@@ -20,6 +20,7 @@ public class FireProjectileState : BaseState
     private float pauseTimer = 1f;
     private float angle;
     private Transform target; 
+    bool canHeal = false;
 
     public FireProjectileState(Enemy enemy) : base(enemy.gameObject) {
         _enemy = enemy;
@@ -60,16 +61,41 @@ public class FireProjectileState : BaseState
     }
 
     private void ThrowProjectile(float angle) {
-        if (gotColor == false) {
+        foreach (GameObject _hammerGiant in _enemy.hammerGiantList) {
+            if (_hammerGiant != null) {
+                var checkingDistance = Vector3.Distance(transform.position, _hammerGiant.transform.position);
+                //var targetDistance = Vector3.Distance(transform.position, hammerTarget.position);
+                if (checkingDistance < 20)
+                {
+                    canHeal = true;
+                } 
+            }
+        }
+        foreach (GameObject _swordGiant in _enemy.swordGiantList) {
+            if (_swordGiant != null) {
+                var checkingDistance = Vector3.Distance(transform.position, _swordGiant.transform.position);
+                //var targetDistance = Vector3.Distance(transform.position, hammerTarget.position);
+                if (checkingDistance < 20)
+                {
+                    canHeal = true;
+                } 
+            }
+        }
+
+
+        if (gotColor == false && canHeal == true) {
             gotColor = true;
             if (UnityEngine.Random.value > 0.5) {
                 projectileType = "Healing Projectile";
             } else {
                 projectileType = "Imp Damage Projectile";
             }
+        } else if (gotColor == false && canHeal == false) {
+            gotColor = true;
+            projectileType = "Imp Damage Projectile";
         }
         if (instantiated == false) {
-            Debug.Log("Back here");
+            //Debug.Log("Back here");
             instantiated = true;
             warning = GameObject.Instantiate(_enemy.projectileWarning, this.transform) as GameObject;
             //otherProjectile = GameObject.Instantiate(_enemy.impProjectile, this.transform) as GameObject;

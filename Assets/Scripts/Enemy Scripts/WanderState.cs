@@ -267,7 +267,7 @@ public class WanderState : BaseState
     private void WallDetection() {
         for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
             if (_enemy.castList[i].collider != null && (_enemy.castList[i].collider.name == "Walls" 
-            || _enemy.castList[i].collider.name == "Passable")) {
+            || _enemy.castList[i].collider.name == "Passable" || _enemy.castList[i].collider.tag == "WanderWalls")) {
                 //Debug.Log(_enemy.castList[i].collider.name);                 
                 if (_enemy.castList[i].distance <= 2) {          
                     var about_face = i;
