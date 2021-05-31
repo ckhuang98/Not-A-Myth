@@ -33,6 +33,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 99655992013598326}
+  - {fileID: 6033778033448848232}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -173,6 +174,112 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 2.5638013, y: 2.5638015}
   m_Direction: 0
+--- !u!1001 &3631334279476550199
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5294693593410340259}
+    m_Modifications:
+    - target: {fileID: 7050770521077584208, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: m_Name
+      value: Squiggle Ripple
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050770521077584209, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050770521077584209, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050770521077584209, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050770521077584222, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: UVModule.mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050770521077584222, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: UVModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050770521077584222, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 89aa9561ae6233245aa739a40a64be92,
+        type: 3}
+    - target: {fileID: 7050770521077584223, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050770521077584223, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050770521077584223, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050770521077584223, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050770521077584223, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050770521077584223, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050770521077584223, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050770521077584223, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050770521077584223, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050770521077584223, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050770521077584223, guid: d0a064ca3eaf402469761cc6b053d645,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d0a064ca3eaf402469761cc6b053d645, type: 3}
+--- !u!4 &6033778033448848232 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7050770521077584223, guid: d0a064ca3eaf402469761cc6b053d645,
+    type: 3}
+  m_PrefabInstance: {fileID: 3631334279476550199}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7173620922354285905
 PrefabInstance:
   m_ObjectHideFlags: 0
