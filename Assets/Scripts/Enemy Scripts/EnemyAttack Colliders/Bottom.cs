@@ -9,6 +9,7 @@ public class Bottom : MonoBehaviour
     void Start()
     {
         enemyScript = GetComponentInParent<Enemy>();
+        //GetComponent<PolygonCollider2D>().attachedRigidbody = null;
     }
 
     void OnTriggerEnter2D(Collider2D col) {

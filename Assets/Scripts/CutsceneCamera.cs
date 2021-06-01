@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class CutsceneCamera : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class CutsceneCamera : MonoBehaviour
     public float zoomOutScale;
 
     public GameObject[] views;
+
+    public VideoPlayer videoPlayer;
 
     private int sceneNum = 0;
 
@@ -42,51 +45,55 @@ public class CutsceneCamera : MonoBehaviour
             timeRemaining -= Time.deltaTime;
         }
 
-        if (skipTimeRemaining > 0){
-            skipTimeRemaining -= Time.deltaTime;
-        } else {
-            skipReady = false;
-        }
+        // if (skipTimeRemaining > 0){
+        //     skipTimeRemaining -= Time.deltaTime;
+        // } else {
+        //     skipReady = false;
+        // }
 
-        if (skipReady) {
-            skipText.text = "Press Backspace To Skip";
-        } else {
-            skipText.text = "";
-        }
+        // if (skipReady) {
+        //     skipText.text = "Press Backspace To Skip";
+        // } else {
+        //     skipText.text = "";
+        // }
 
-        if(Input.GetKeyDown(KeyCode.Space) || timeRemaining <= 0){
-            if(sceneNum == views.Length - 1){
-                if(nextScene == 10){
-                    SceneManager.LoadScene(0);
-                } else{
-                    SceneManager.LoadScene(nextScene);
-                }
-            } else{
-                timeRemaining = sceneTimer;
-                sceneNum++;
-                resetZoom();
-            }
-        }
+        // if(Input.GetKeyDown(KeyCode.Space) || timeRemaining <= 0){
+        //     if(sceneNum == views.Length - 1){
+        //         if(nextScene == 10){
+        //             SceneManager.LoadScene(0);
+        //         } else{
+        //             SceneManager.LoadScene(nextScene);
+        //         }
+        //     } else{
+        //         timeRemaining = sceneTimer;
+        //         sceneNum++;
+        //         resetZoom();
+        //     }
+        // }
 
-        if(Input.GetKeyDown(KeyCode.Backspace) && skipReady){
+        if(Input.GetKeyDown(KeyCode.Backspace)){
             if(nextScene == 10){
                 SceneManager.LoadScene(0);
             } else{
                 SceneManager.LoadScene(nextScene);
             }
         }
-
-        if (Input.anyKeyDown){
-            Debug.Log("A key or mouse click has been detected");
-            skipReady = true;
-            skipTimeRemaining = skipTimer;
+        if(( videoPlayer.frame) > 0 && (videoPlayer.isPlaying == false))
+        {
+            SceneManager.LoadScene(nextScene);
         }
 
-        zoomOut();
+        // if (Input.anyKeyDown){
+        //     Debug.Log("A key or mouse click has been detected");
+        //     skipReady = true;
+        //     skipTimeRemaining = skipTimer;
+        // }
+
+        // zoomOut();
     }
 
     void LateUpdate(){
-        mainCam.transform.position = Vector3.Lerp(transform.position, views[sceneNum].transform.position, Time.deltaTime * 5f);
+        // mainCam.transform.position = Vector3.Lerp(transform.position, views[sceneNum].transform.position, Time.deltaTime * 2f);
     }
 
     void zoomOut(){

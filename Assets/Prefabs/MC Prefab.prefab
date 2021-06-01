@@ -246,6 +246,8 @@ MonoBehaviour:
   isInvincible: 0
   dashBox: {fileID: 1653344395945077056}
   magnet: {fileID: 0}
+  dashMeterFull: 1
+  dashMeterEmpty: 0
 --- !u!81 &1653344395945077468
 AudioListener:
   m_ObjectHideFlags: 0
@@ -725,7 +727,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 791bcd61facff7643bd7d4de166a2773, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 870fd86f2c78e634b93bbe70ec026d1f, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1

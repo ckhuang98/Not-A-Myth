@@ -28,6 +28,10 @@ public class UI : MonoBehaviour
     [SerializeField]
     private GameObject controlsMenu;
     [SerializeField]
+    private GameObject mainMenuConfirmationMenu;
+    [SerializeField]
+    private GameObject exitGameConfirmationMenu;
+    [SerializeField]
     private GameObject inventoryMenu;// this is the actual ui that appears
     [SerializeField]
     private InventoryUI inventoryUIComponent;// this is the script that controls the inventory ui
@@ -50,6 +54,7 @@ public class UI : MonoBehaviour
     private GameObject playerXpBar;
     [SerializeField]
     public GameObject menuBackground;
+    public Image icon;
 
     [SerializeField]
     private ObjectAudioManager oam;
@@ -111,6 +116,8 @@ public class UI : MonoBehaviour
         hideInventoryMenu();
         hideSkillTree();
         hideDevMenu();
+        hideMainMenuConfirmationMenu();
+        hideExitGameConfirmationMenu();
     }
 
     // pause menu
@@ -132,6 +139,26 @@ public class UI : MonoBehaviour
     public void hideControlsMenu()
     {
         controlsMenu.SetActive(false);
+    }
+
+    // confirmation windows
+    public void showMainMenuConfirmationMenu()
+    {
+        mainMenuConfirmationMenu.SetActive(true);
+    }
+
+    public void hideMainMenuConfirmationMenu()
+    {
+        mainMenuConfirmationMenu.SetActive(false);
+    }
+
+    public void showExitGameConfirmationMenu(){
+        exitGameConfirmationMenu.SetActive(true);
+        Debug.Log("HI");
+    }
+
+    public void hideExitGameConfirmationMenu(){
+        exitGameConfirmationMenu.SetActive(false);
     }
 
     //inventory
@@ -200,7 +227,7 @@ public class UI : MonoBehaviour
     }
 
     //display player update
-    public IEnumerator displayerPlayerUpdate(string message = "", float duration = 1.5f)
+    public IEnumerator displayerPlayerUpdate(string message = "", float duration = 2f)
     {
         playerUpdates.GetComponent<Text>().text = message;
         yield return new WaitForSecondsRealtime(duration); //realtime so it works when game is paused

@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class EelTrailAttack : MonoBehaviour
 {
-     ParticleSystem ps;
-     private GameObject pc;
-     PlayerController player;
+    ParticleSystem ps;
+    private GameObject pc;
+    PlayerController player;
+    float parentHealth;
+    private float stopTimer = 2f;
+    private bool startTimer = false;
 
     // these lists are used to contain the particles which match
     // the trigger conditions each frame.
     List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
     List<ParticleSystem.Particle> exit = new List<ParticleSystem.Particle>();
     void Start(){
+        parentHealth = GetComponentInParent<Enemy>().healthAmount;
         pc = GameObject.FindGameObjectWithTag("Player");
         var trigger = ps.trigger;
         trigger.enabled = true;
@@ -23,6 +27,25 @@ public class EelTrailAttack : MonoBehaviour
     void OnEnable()
     {
         ps = GetComponent<ParticleSystem>();
+    }
+
+    void Update() {
+        if (parentHealth <= 0) {
+            this.transform.parent = null;
+            
+            var main = ps.main;
+            main.loop = false;
+    
+        }
+        /*
+        if (startTimer == true) {
+            if (stopTimer >= 0) {
+                    stopTimer -= Time.deltaTime;
+            } else {
+                ps.Stop();
+            }
+        }
+        */
     }
 
     void OnParticleTrigger()

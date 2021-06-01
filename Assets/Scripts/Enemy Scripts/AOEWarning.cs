@@ -14,7 +14,7 @@ public class AOEWarning : MonoBehaviour
     {
         sr = gameObject.GetComponent<SpriteRenderer>();
         colorChange = gameObject.GetComponent<SpriteRenderer>().color;
-        StartCoroutine("TurnWhite");
+        StartCoroutine("TurnDark");
     }
 
     // Update is called once per frame
@@ -34,24 +34,34 @@ public class AOEWarning : MonoBehaviour
         
     }
 
-    void OnTriggerExit2D(Collider2D col) {
-        if (inWarning == true) {
-            inWarning = false;
+    void OnTriggerStay2D(Collider2D col) {
+        if (col.CompareTag("Player")) {
+            inWarning = true;
         }
     }
 
-    private IEnumerator TurnWhite() {
-        colorChange = Color.white;
+    void OnTriggerExit2D(Collider2D col) {
+        inWarning = false;
+    }
+
+    private IEnumerator TurnDark() {
+        colorChange.a = .51764f;
+        colorChange.r = .329411f;
+        colorChange.g = .062745f;
+        colorChange.b = .062745f;
         sr.color = colorChange;
         yield return new WaitForSeconds(.2f);
         StartCoroutine("TurnRed");
     }
 
     private IEnumerator TurnRed() {
-        colorChange = Color.red;
+        colorChange.a = .51764f;
+        colorChange.r = 1f;
+        colorChange.g = 0f;
+        colorChange.b = 0f;
         sr.color = colorChange;
         yield return new WaitForSeconds(.2f);
-        StartCoroutine("TurnWhite");
+        StartCoroutine("TurnDark");
     }
 
     public bool getWarning() { return inWarning; }

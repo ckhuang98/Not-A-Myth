@@ -69,11 +69,11 @@ public class SkillTree : MonoBehaviour
     {
         if (button.currentUses < button.maxUses){
 
-            if(button.ToString() == "Increase Max Strength Button (SkillTreeButton)"){
+            if(button.ToString() == "Increase Stun&Knockback Button (SkillTreeButton)"){
                 if(GameMaster.instance.getSkillPoints() > 0){
                     GameMaster.instance.spendSkillPoints();
                     updateSkillPoints();
-                    GameMaster.instance.gainStrength();
+                    GameMaster.instance.gainMoreKnockback();
                     button.currentUses++;
                     a1 = true;
                 }
@@ -90,7 +90,7 @@ public class SkillTree : MonoBehaviour
                     if(GameMaster.instance.getSkillPoints() > 0){
                         GameMaster.instance.spendSkillPoints();
                         updateSkillPoints();
-                        GameMaster.instance.gainMoreKnockback();
+                        GameMaster.instance.gainStrength();
                         button.currentUses++;
                         a3 = true;
                     }                     

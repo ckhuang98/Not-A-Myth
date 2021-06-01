@@ -186,8 +186,8 @@ public class GameMaster : MonoBehaviour
     }
 
     public void gainSpeed(){
-        playerStats.maxSpeed.Value += 1.5f;
-        playerStats.sprintSpeed.Value += 1.5f;
+        playerStats.maxSpeed.Value += 2f;
+        playerStats.sprintSpeed.Value += 2f;
     }
 
     public void reduceDashCooldown(){
@@ -322,7 +322,8 @@ public class GameMaster : MonoBehaviour
     }
 
     public void loadMainMenuScene(){
-        Destroy(gameObject);
+        DestroyImmediate(UI.instance, true);
+        DestroyImmediate(gameObject, true);
         SceneManager.LoadScene(0);
         resumeGame();
     }

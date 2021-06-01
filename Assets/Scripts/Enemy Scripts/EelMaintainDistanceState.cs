@@ -18,7 +18,7 @@ public class EelMaintainDistanceState : BaseState
     private bool choice;
     private bool stop = false;
     private bool attackDistance = false;
-    private float lungeAttackTimer = 3f;
+    private float lungeAttackTimer = 1f;
     private bool movingBack = false;
 
     public EelMaintainDistanceState(Enemy enemy) : base (enemy.gameObject)
@@ -70,8 +70,8 @@ public class EelMaintainDistanceState : BaseState
             if (lungeAttackTimer > 0) {
                 lungeAttackTimer -= Time.deltaTime;
             } else {
-                if (attackDistance == true && _enemy.beenHit == false) {
-                    lungeAttackTimer = 3f;
+                if (_enemy.attackDir != "Not Set" && _enemy.beenHit == false) {
+                    lungeAttackTimer = 1f;
                     _enemy.enemyAnimator.SetTrigger("FireEelAttacking");
                     return typeof(LungeAttackState);
                 }
@@ -145,7 +145,8 @@ public class EelMaintainDistanceState : BaseState
         // Adjust weight list: -1 for wall, 0 for non-wall
         for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
             //_enemy.weightList[i] = 0;
-            if (_enemy.castList[i].collider != null) {
+            if (_enemy.castList[i].collider != null && (_enemy.castList[i].collider.name == "Walls" 
+            || _enemy.castList[i].collider.name == "Passable")) {
                 if (_enemy.castList[i].distance <= 1.5) {  
                     _enemy.weightList[i] = -1;
                 } else {
@@ -172,7 +173,7 @@ public class EelMaintainDistanceState : BaseState
     Returns: nothing
     */
     private void MaintainDistance() {
-        if (Vector2.Distance(transform.position, target.position) <= 2.5) {
+        if (Vector2.Distance(transform.position, target.position) <= 2f) {
             attackDistance = true;
             movingBack = true;
             stop = false;
@@ -184,7 +185,7 @@ public class EelMaintainDistanceState : BaseState
             }
             _enemy.weightList[about_face] = 1;
             _enemy.currMoveDirection = about_face;
-        } else if (Vector2.Distance(transform.position, target.position) >= 3.75) {
+        } else if (Vector2.Distance(transform.position, target.position) >= 3f) {
             stop = false;
             movingBack = false;
             attackDistance = false;

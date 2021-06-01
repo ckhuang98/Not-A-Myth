@@ -30,20 +30,38 @@ public class Level1Decorator : MonoBehaviour {
 
         foreach (GameObject tree in NormalTrees) {
             SpriteRenderer renderer = tree.GetComponent<SpriteRenderer>();
+            BoxCollider2D box = tree.GetComponent<BoxCollider2D>();
+            renderer.enabled = true;
+            box.enabled = true;
             renderer.sprite = NormalTreeSprites[Random.Range(0, NormalTreeSprites.Length)];
-            renderer.enabled = (Random.Range(1, 11) <= 7);
+            if (Random.Range(1, 11) <= 5) {
+                renderer.enabled = false;
+                box.enabled = false;
+            }
         }
 
         foreach (GameObject tree in IceTrees) {
             SpriteRenderer renderer = tree.GetComponent<SpriteRenderer>();
+            BoxCollider2D box = tree.GetComponent<BoxCollider2D>();
+            renderer.enabled = true;
+            box.enabled = true;
             renderer.sprite = IceTreeSprites[Random.Range(0, IceTreeSprites.Length)];
-            renderer.enabled = (Random.Range(1, 11) <= 7);
+            if (Random.Range(1, 11) <= 5) {
+                renderer.enabled = false;
+                box.enabled = false;
+            }
         }
 
         foreach (GameObject tree in SnowTrees) {
             SpriteRenderer renderer = tree.GetComponent<SpriteRenderer>();
+            BoxCollider2D box = tree.GetComponent<BoxCollider2D>();
+            renderer.enabled = true;
+            box.enabled = true;
             renderer.sprite = SnowTreeSprites[Random.Range(0, SnowTreeSprites.Length)];
-            renderer.enabled = (Random.Range(1, 11) <= 7);
+            if (Random.Range(1, 11) <= 5) {
+                renderer.enabled = false;
+                box.enabled = false;
+            }
         }
 
 

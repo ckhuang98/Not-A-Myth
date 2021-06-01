@@ -114,6 +114,10 @@ public class WanderState : BaseState
                 _enemy.resetWeightsToZero();
                 return typeof(MaintainDistanceState);
             }
+            if (_enemy.tag == "Fire Spirit") {
+                _enemy.resetWeightsToZero();
+                return typeof(LocateHostState);
+            }
         }
         return typeof(WanderState);
     }
@@ -263,9 +267,9 @@ public class WanderState : BaseState
     private void WallDetection() {
         for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
             if (_enemy.castList[i].collider != null && (_enemy.castList[i].collider.name == "Walls" 
-            || _enemy.castList[i].collider.name == "Passable")) {
+            || _enemy.castList[i].collider.name == "Passable" || _enemy.castList[i].collider.tag == "WanderWalls")) {
                 //Debug.Log(_enemy.castList[i].collider.name);                 
-                if (_enemy.castList[i].distance <= 1.25) {          
+                if (_enemy.castList[i].distance <= 2) {          
                     var about_face = i;
                     if (about_face >= 4) {
                         about_face -= 4;
@@ -332,6 +336,7 @@ public class WanderState : BaseState
         }
     }
 
+    
 
     /*
     Purpose: If another enemy if detected they will slowly avoid each other. Different

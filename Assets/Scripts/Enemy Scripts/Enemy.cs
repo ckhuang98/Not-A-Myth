@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour
 {
     //Variables regarding enemy stats
     Rigidbody2D rb;
-    internal string attackDir = "Not Set";
     public float healthAmount;
     public float armorAmount;
     //GameObject armorBorderObject;
@@ -34,8 +33,9 @@ public class Enemy : MonoBehaviour
     public GameObject damageProjectile;
     public GameObject healingProjectile;
     public GameObject projectileWarning;
+    public GameObject lungeWarning;
     //public GameObject fireTrail;
-    private ParticleSystem fireTrail;
+    private Transform fireTrail;
     public GameObject slash;
     public GameObject slashWarning;
     
@@ -45,10 +45,10 @@ public class Enemy : MonoBehaviour
     public bool inBounds = false;
     public bool hasCircled = false;
 
-    private GameObject[] hammerGiantList;
+    internal GameObject[] hammerGiantList;
     private GameObject[] fireImpList;
     private GameObject[] fireEelList;
-    private GameObject[] swordGiantList;
+    internal GameObject[] swordGiantList;
     public static int enemyAmount;
     public Animator enemyAnimator;
     ////////////////////////////////
@@ -62,7 +62,13 @@ public class Enemy : MonoBehaviour
     private int layerMask;
     public RaycastHit2D[] castList = new RaycastHit2D[8];
     public int[] weightList = new int[8];
+
     internal int currMoveDirection;
+    internal Vector3[] moveDirections = new Vector3[] { Vector3.up, Vector3.Normalize(Vector3.right + Vector3.up), 
+        Vector3.right, Vector3.Normalize(Vector3.right + Vector3.down), Vector3.down,
+        Vector3.Normalize(Vector3.left + Vector3.down), Vector3.left, Vector3.Normalize(Vector3.left + Vector3.up) };
+    internal string attackDir = "Not Set";
+    internal Transform spiritParent;
     //internal float lookingAngle;
     public bool doInstantiate = false;
     public bool instantiateWarning = false;
@@ -80,26 +86,25 @@ public class Enemy : MonoBehaviour
     public bool deadState = false;
     ////////////////////////////////////////////
     // Animators for hit vfx
-    public Animator giantVFX;
-    public Animator impVFX;
-    public Animator eelVFX;
+    public LookAtPlayer giantVFX;
+    public LookAtPlayer impVFX;
+    public LookAtPlayer eelVFX;
 
     ////////////////////////////////////////////
-    
-    internal Vector3[] moveDirections = new Vector3[] { Vector3.up, Vector3.Normalize(Vector3.right + Vector3.up), 
-        Vector3.right, Vector3.Normalize(Vector3.right + Vector3.down), Vector3.down,
-        Vector3.Normalize(Vector3.left + Vector3.down), Vector3.left, Vector3.Normalize(Vector3.left + Vector3.up) };
 
     // Start is called before the first frame update
     void Start()
     {
         if (this.tag == "Fire Eel") {
-            fireTrail = gameObject.GetComponent<ParticleSystem>();
+            fireTrail = this.gameObject.transform.GetChild(4);
             healthAmount = 1.3f;
         } else if (this.tag == "Fire Imp") {
             healthAmount = 1f;
         } else if (this.tag == "Hammer Giant" || this.tag == "Sword Giant") {
             healthAmount = 1.8f;
+        } else if (this.tag == "Fire Spirit") {
+            healthAmount = 1.5f;
+            spiritParent = GetComponentInParent<Transform>();
         }
 
         if (this.tag == "Fire Imp") {
@@ -153,6 +158,8 @@ public class Enemy : MonoBehaviour
             DoFloat();
         }
 
+        //Debug.Log(attackDir);
+
         isDead(GameMaster.instance.getGameOver());
         stateMachine.Update();
         DisplayRays();
@@ -164,7 +171,13 @@ public class Enemy : MonoBehaviour
         }
         alpha = .2f;
         //Debug.Log(attackDir);
-        
+    /*
+        if (moveDirections[currMoveDirection].x < 0 && this.tag == "Fire Spirit") {
+            FlipLeft();
+        } else if (moveDirections[currMoveDirection].x > 0 && this.tag == "Fire Spirit") {
+            FlipRight();
+        } 
+    */
     }
 
 
@@ -188,14 +201,14 @@ public class Enemy : MonoBehaviour
                 }
             }            
         }
-        if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .5)
+        if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .4)
         {
             if(this.tag == "Hammer Giant" || this.tag == "Sword Giant"){
-                giantVFX.SetTrigger("Hit");
+                giantVFX.animator.SetTrigger("Hit");
             } else if (this.tag == "Fire Imp") {
-                impVFX.SetTrigger("Hit");
+                impVFX.animator.SetTrigger("Hit");
             } else if (this.tag == "Fire Eel" ) {
-                eelVFX.SetTrigger("Hit");
+                eelVFX.animator.SetTrigger("Hit");
             }
             if (this.tag == "Hammer Giant" && inAttackState == false) {
                 enemyAnimator.SetTrigger("HammerHit");
@@ -235,7 +248,7 @@ public class Enemy : MonoBehaviour
             if (thisColor.a < 1f && thisColor.a > 0f) {
                 thisColor.a -= .1f;
                 this.GetComponent<Renderer>().material.color = thisColor;
-                Debug.Log(thisColor.a);
+                //Debug.Log(thisColor.a);
             }
             
 
@@ -244,7 +257,7 @@ public class Enemy : MonoBehaviour
             freezer.Freeze();
         }
         // For the dash attack skill
-        if(collider.gameObject.name.Equals("DashBox") && timer >= .5 && healthAmount > 0){
+        if(collider.gameObject.name.Equals("DashBox") && timer >= .4 && healthAmount > 0){
             playHurtSFX();
             if (armorAmount > 0) {
                 armorAmount -= (GameMaster.instance.playerStats.attackPower.Value * .3f);
@@ -293,12 +306,12 @@ public class Enemy : MonoBehaviour
     void spawnCorpse(){
         GameObject go = (GameObject)Instantiate(corpse);
         Vector3 temp = this.transform.position;
-        temp.y += 0.5f;
+        // temp.y += 0.5f;
         go.transform.position = temp;
     }
 
     void spawnPlant(){
-        if(UnityEngine.Random.value > .66){
+        if(UnityEngine.Random.value > .2){
             GameObject go = (GameObject)Instantiate(plant);
             Vector3 temp = this.transform.position;
             temp.y += 1f;
@@ -317,6 +330,7 @@ public class Enemy : MonoBehaviour
                         enemyAnimator.SetFloat("HammerHitVertical", moveDirections[currMoveDirection].y);
                     }
                     if (beenHit == true && tag == "Fire Eel") {
+                        fireTrail.parent = null;
                         enemyAnimator.SetFloat("EelHitHorizontal", moveDirections[currMoveDirection].x);
                         enemyAnimator.SetFloat("EelHitVertical", moveDirections[currMoveDirection].y);
                     } 
@@ -377,7 +391,8 @@ public class Enemy : MonoBehaviour
             { typeof(LungeAttackState), new LungeAttackState(this) },
             { typeof(EelMaintainDistanceState), new EelMaintainDistanceState(this) },
             { typeof(SwordAttackState), new SwordAttackState(this) },
-            { typeof(DeathState), new DeathState(this)}
+            { typeof(DeathState), new DeathState(this) },
+            { typeof(LocateHostState), new LocateHostState(this) }
         };
 
         stateMachine.SetStates(states);
@@ -423,6 +438,10 @@ public class Enemy : MonoBehaviour
     } 
 
     public void SlashWarning() {
+        instantiateWarning = true;
+    }
+
+    public void LungeWarning() {
         instantiateWarning = true;
     }
 

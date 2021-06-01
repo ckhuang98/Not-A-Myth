@@ -59,7 +59,7 @@ public class ChaseState : BaseState
             }
             _enemy.inBounds = false;
             transform.position += _enemy.moveDirections[_enemy.currMoveDirection] * speed * Time.deltaTime;
-            Debug.Log("In Chase State");
+            //Debug.Log("In Chase State");
 
             //Debug.DrawRay(transform.position, _enemy.moveDirections[_enemy.currMoveDirection] * 3.0f, Color.blue);
             
@@ -160,7 +160,8 @@ public class ChaseState : BaseState
         // Adjust weight list: -1 for wall, 0 for non-wall
         for (int i = 0; i < _enemy.moveDirections.Count(); i ++) {
             //_enemy.weightList[i] = 0;
-            if (_enemy.castList[i].collider != null) {
+            if (_enemy.castList[i].collider != null && (_enemy.castList[i].collider.name == "Walls" 
+            || _enemy.castList[i].collider.name == "Passable")) {
                 if (_enemy.castList[i].distance <= 1.5) {  
                     _enemy.weightList[i] = -1;
                 } else {
