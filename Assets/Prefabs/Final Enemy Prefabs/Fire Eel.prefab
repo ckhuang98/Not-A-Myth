@@ -4990,6 +4990,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8594f339838c744a7bfa73cd639c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1153053202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4368860069553749069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8bd0625d64c6b478df116345da6592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playing: 0
 --- !u!1 &4634391876437152757
 GameObject:
   m_ObjectHideFlags: 0
@@ -5428,7 +5441,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e162dabb846f7b340b410bfc6ab23c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 4368860069553749070}
+  playing: 0
+  vfx: {fileID: 1153053202}
 --- !u!1 &7121169613751048311
 GameObject:
   m_ObjectHideFlags: 0
@@ -5738,7 +5753,7 @@ MonoBehaviour:
   deadState: 0
   giantVFX: {fileID: 0}
   impVFX: {fileID: 0}
-  eelVFX: {fileID: 4368860069553749070}
+  eelVFX: {fileID: 4397100962981005111}
 --- !u!50 &4634391877745089002
 Rigidbody2D:
   serializedVersion: 4
@@ -6233,6 +6248,12 @@ Animator:
 --- !u!4 &4368860069553749056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6395506266649230830, guid: 53648fdbe6b91f34a9e387d24d0ef25b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7232825010095309230}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4368860069553749069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6395506266649230819, guid: 53648fdbe6b91f34a9e387d24d0ef25b,
     type: 3}
   m_PrefabInstance: {fileID: 7232825010095309230}
   m_PrefabAsset: {fileID: 0}

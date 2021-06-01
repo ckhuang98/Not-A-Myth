@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e162dabb846f7b340b410bfc6ab23c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 4358759235416548297}
+  playing: 0
+  vfx: {fileID: 7887458808458586127}
 --- !u!1 &2209179086016876052
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +128,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7887458808458586127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4358759235416548296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8bd0625d64c6b478df116345da6592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playing: 0
 --- !u!1 &5494777218385843898
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,10 +344,9 @@ MonoBehaviour:
   deathSFXObject: {fileID: 6986382958281556572, guid: d9be9552e6357e541867aba52d80d88a,
     type: 3}
   deadState: 0
-  giantVFX: {fileID: 3550189715894261051, guid: 9f14ab3beee2f3746abe13d8f3c626e9,
-    type: 3}
-  impVFX: {fileID: 4358759235416548297}
-  eelVFX: {fileID: 6395506266649230816, guid: 53648fdbe6b91f34a9e387d24d0ef25b, type: 3}
+  giantVFX: {fileID: 0}
+  impVFX: {fileID: 6569274669008317252}
+  eelVFX: {fileID: 0}
 --- !u!114 &6568578558366793575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,6 +729,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19a77a1d614bd2b4d870c537314b82cb, type: 3}
+--- !u!1 &4358759235416548296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4358759234201521969, guid: 19a77a1d614bd2b4d870c537314b82cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1484647673}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4358759235416548299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4358759234201521970, guid: 19a77a1d614bd2b4d870c537314b82cb,

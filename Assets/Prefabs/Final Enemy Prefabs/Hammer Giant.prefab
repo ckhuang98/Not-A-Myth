@@ -703,7 +703,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e162dabb846f7b340b410bfc6ab23c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 8411410471519779762}
+  playing: 0
+  vfx: {fileID: 8029718408173092641}
 --- !u!1 &8310630408094940616
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,6 +781,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee73fb932b68954488306bce20494161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8029718408173092641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411410471519779765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf8bd0625d64c6b478df116345da6592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playing: 0
 --- !u!1 &8853464190746555227
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,7 +998,7 @@ MonoBehaviour:
   deathSFXObject: {fileID: 6986382958281556572, guid: eb55799b3883de04086c3f34a5f3c139,
     type: 3}
   deadState: 0
-  giantVFX: {fileID: 8411410471519779762}
+  giantVFX: {fileID: 8777993756558939610}
   impVFX: {fileID: 0}
   eelVFX: {fileID: 0}
 --- !u!114 &4355201318230920898
@@ -1286,6 +1301,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f14ab3beee2f3746abe13d8f3c626e9, type: 3}
+--- !u!1 &8411410471519779765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3550189715894261052, guid: 9f14ab3beee2f3746abe13d8f3c626e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 5043921626055356041}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8411410471519779760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3550189715894261049, guid: 9f14ab3beee2f3746abe13d8f3c626e9,

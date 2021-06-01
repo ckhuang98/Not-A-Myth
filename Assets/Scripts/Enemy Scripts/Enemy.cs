@@ -86,9 +86,9 @@ public class Enemy : MonoBehaviour
     public bool deadState = false;
     ////////////////////////////////////////////
     // Animators for hit vfx
-    public Animator giantVFX;
-    public Animator impVFX;
-    public Animator eelVFX;
+    public LookAtPlayer giantVFX;
+    public LookAtPlayer impVFX;
+    public LookAtPlayer eelVFX;
 
     ////////////////////////////////////////////
 
@@ -204,11 +204,11 @@ public class Enemy : MonoBehaviour
         if (collider.gameObject.name.Equals("SlashSpriteSheet_0") && timer >= .4)
         {
             if(this.tag == "Hammer Giant" || this.tag == "Sword Giant"){
-                giantVFX.SetTrigger("Hit");
+                giantVFX.animator.SetTrigger("Hit");
             } else if (this.tag == "Fire Imp") {
-                impVFX.SetTrigger("Hit");
+                impVFX.animator.SetTrigger("Hit");
             } else if (this.tag == "Fire Eel" ) {
-                eelVFX.SetTrigger("Hit");
+                eelVFX.animator.SetTrigger("Hit");
             }
             if (this.tag == "Hammer Giant" && inAttackState == false) {
                 enemyAnimator.SetTrigger("HammerHit");
@@ -257,7 +257,7 @@ public class Enemy : MonoBehaviour
             freezer.Freeze();
         }
         // For the dash attack skill
-        if(collider.gameObject.name.Equals("DashBox") && timer >= .5 && healthAmount > 0){
+        if(collider.gameObject.name.Equals("DashBox") && timer >= .4 && healthAmount > 0){
             playHurtSFX();
             if (armorAmount > 0) {
                 armorAmount -= (GameMaster.instance.playerStats.attackPower.Value * .3f);
@@ -306,7 +306,7 @@ public class Enemy : MonoBehaviour
     void spawnCorpse(){
         GameObject go = (GameObject)Instantiate(corpse);
         Vector3 temp = this.transform.position;
-        temp.y += 0.5f;
+        // temp.y += 0.5f;
         go.transform.position = temp;
     }
 
