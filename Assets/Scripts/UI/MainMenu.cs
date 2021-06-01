@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject credits;
+    public GameObject options;
     void Start()
     {
 
         //SetActive to false so the window doesn't cover the buttons.
         credits.SetActive(false);
+
+        options.SetActive(false);
     }
 
     //Assigned to the credits button.
@@ -21,6 +24,14 @@ public class MainMenu : MonoBehaviour
     //Assigned to the close button inside the instruction window.
     public void hideCredits(){
         credits.SetActive(false);
+    }
+
+    public void showOptions(){
+        options.SetActive(true);
+    }
+
+    public void hideOptions(){
+        options.SetActive(false);
     }
 
     //Assigned to the play button.
