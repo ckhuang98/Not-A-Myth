@@ -19,7 +19,7 @@ public class Boss : MonoBehaviour
     private float timer;
 
     BossStateMachine stateMachine; 
-    private ObjectAudioManager audioManager;
+    public ObjectAudioManager audioManager;
 
     public GameObject slash;
     public GameObject shockWave;
@@ -238,5 +238,18 @@ public class Boss : MonoBehaviour
         Vector3 temp = transform.position;
         temp.y = 6.5f;
         transform.position = temp;
+    }
+
+    public void playSwordSwingSFX(){
+        audioManager.PlayRandomSoundInGroup("swordSwings");
+    }
+
+    public void playHammerImpactSFX()
+    {
+        audioManager.PlayRandomSoundInGroup("hammerImpacts");
+    }
+
+    public void playFireSFX(){
+        audioManager.PlayRandomSoundInGroup("fireWooshes");
     }
 }
