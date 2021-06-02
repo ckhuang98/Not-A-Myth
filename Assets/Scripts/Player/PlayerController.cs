@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour {
 
     public LookAt lookAt;
 
-    public LookAt dashVFX;
+    public DashVFX dashVFX;
     // Start is called before the first frame update
     void Start() {
         //slashAnimation.enabled = false;
@@ -262,6 +262,8 @@ public class PlayerController : MonoBehaviour {
            canDashTwice = true; 
         }
         if(Input.GetKeyDown(KeyCode.Space) && canDash){
+            Debug.Log(lastMoveDirection.normalized);
+            dashVFX.playDashVFX(lastMoveDirection.normalized);
             state = State.Dashing;
             Physics2D.IgnoreLayerCollision(9, 4, true);
             dashSpeed = stats.sprintSpeed.Value * 4;
@@ -271,9 +273,7 @@ public class PlayerController : MonoBehaviour {
     private void handleDash(){
         dashMeterEmpty = true;
         rb.velocity = lastMoveDirection.normalized * dashSpeed;
-        if(dashSpeed > 3f && dashVFX != null){
-            dashVFX.updateTarget(lastMoveDirection);
-        }
+        
         
         dashSpeed -= dashSpeed * stats.maxSpeed.Value * Time.deltaTime;
         if(stats.unlockedDashMovement.Value){
@@ -288,6 +288,7 @@ public class PlayerController : MonoBehaviour {
             if(stats.unlockedDoubleDash.Value && canDashTwice && Input.GetKeyDown(KeyCode.Space)){
                 dashSpeed = stats.sprintSpeed.Value * 4f;
                 rb.velocity = lastMoveDirection.normalized * dashSpeed;
+                //dashVFX.playDashVFX(lastMoveDirection.normalized);
                 dashSpeed -= dashSpeed * stats.maxSpeed.Value * Time.deltaTime;
                 canDashTwice = false;
             }

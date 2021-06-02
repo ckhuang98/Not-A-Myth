@@ -38,7 +38,7 @@ public class ObjectAudioManager : MonoBehaviour
     public AudioRolloffMode rolloffMode;
 
     public float minDistance = 3;
-    public float maxDistance = 10;
+    public float maxDistance = 20;
 
     public bool isPlayerSfx = false;
 

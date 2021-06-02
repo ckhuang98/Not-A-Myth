@@ -14,8 +14,8 @@ public class AddRoom : MonoBehaviour
     private RoomTemplates templates;
 
     private void Start() {
-        templates = GameObject.FindGameObjectWithTag("RoomTemplates").GetComponent<RoomTemplates>();
-        templates.rooms.Add(this.gameObject);
+        //templates = GameObject.FindGameObjectWithTag("RoomTemplates").GetComponent<RoomTemplates>();
+        //templates.rooms.Add(this.gameObject);
         Decorate(this.gameObject);
     }
 
