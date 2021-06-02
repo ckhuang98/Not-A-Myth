@@ -9,6 +9,8 @@ public class PlayerXp : MonoBehaviour
 
     public GameObject[] yellowHighlight;
 
+    public ParticleEffects particleEffects;
+
     void Start(){
         resetAll();
     }
@@ -41,6 +43,7 @@ public class PlayerXp : MonoBehaviour
 
     private IEnumerator levelUp(){
         yellowHighlight[4].SetActive(true);
+        particleEffects.playLevelUp();
         StartCoroutine(UI.instance.displayerPlayerUpdate("Skill Point Earned. \nPress Tab to Open the Skill Tree!"));
         yield return new WaitForSeconds(0.5f);
         resetAll();

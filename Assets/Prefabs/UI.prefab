@@ -5628,7 +5628,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2666250989214459104}
+      - m_Target: {fileID: 0}
         m_MethodName: showMainMenuConfirmationMenu
         m_Mode: 1
         m_Arguments:
@@ -6758,7 +6758,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2666250989214459104}
+      - m_Target: {fileID: 0}
         m_MethodName: showExitGameConfirmationMenu
         m_Mode: 1
         m_Arguments:
@@ -13402,6 +13402,7 @@ MonoBehaviour:
   - {fileID: 351442552}
   - {fileID: 1105354675}
   - {fileID: 88786203}
+  particleEffects: {fileID: 0}
 --- !u!1 &7065356899796016839
 GameObject:
   m_ObjectHideFlags: 0

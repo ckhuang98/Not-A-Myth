@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using Vector3 = UnityEngine.Vector3;
@@ -94,6 +94,8 @@ public class PlayerController : MonoBehaviour {
     public LookAt lookAt;
 
     public DashVFX dashVFX;
+
+    public ParticleEffects particleEffects;
     // Start is called before the first frame update
     void Start() {
         //slashAnimation.enabled = false;
@@ -262,7 +264,6 @@ public class PlayerController : MonoBehaviour {
            canDashTwice = true; 
         }
         if(Input.GetKeyDown(KeyCode.Space) && canDash){
-            Debug.Log(lastMoveDirection.normalized);
             dashVFX.playDashVFX(lastMoveDirection.normalized);
             state = State.Dashing;
             Physics2D.IgnoreLayerCollision(9, 4, true);
@@ -317,6 +318,7 @@ public class PlayerController : MonoBehaviour {
     public void restoreHealth(float restoreHealthBy)
     {
         stats.currentHealth.Value = Math.Min(stats.currentHealth.Value + restoreHealthBy, stats.maxHealth.Value);
+        particleEffects.playHeal();
         // healthBar.SetValue(currentHealth);
         //StartCoroutine(UI.instance.displayerPlayerUpdate("Health Restored"));
     }
