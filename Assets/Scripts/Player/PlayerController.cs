@@ -90,6 +90,10 @@ public class PlayerController : MonoBehaviour {
 
     public bool dashMeterFull = true;
     public bool dashMeterEmpty = false;
+
+    public LookAt lookAt;
+
+    public LookAt dashVFX;
     // Start is called before the first frame update
     void Start() {
         //slashAnimation.enabled = false;
@@ -267,6 +271,10 @@ public class PlayerController : MonoBehaviour {
     private void handleDash(){
         dashMeterEmpty = true;
         rb.velocity = lastMoveDirection.normalized * dashSpeed;
+        if(dashSpeed > 3f && dashVFX != null){
+            dashVFX.updateTarget(lastMoveDirection);
+        }
+        
         dashSpeed -= dashSpeed * stats.maxSpeed.Value * Time.deltaTime;
         if(stats.unlockedDashMovement.Value){
             movementManager();
@@ -479,6 +487,7 @@ public class PlayerController : MonoBehaviour {
     {
         withinAggroColliders = Physics2D.OverlapBox(transform.position, transform.localScale, 1f, layerMask);
         healthTimer += Time.deltaTime;
+        
 
         //Tracks whether the enmemy has collided with the player. After initial
         //detection it will take damage from player per second
@@ -496,6 +505,7 @@ public class PlayerController : MonoBehaviour {
                 */
                 var AoE = withinAggroColliders.GetComponent<AreaofEffectTime>();
                 if (AoE.CanHit() && healthTimer >= 1) {
+                    
                     TakeDamage(10);
                     healthTimer = 0;
                 }
@@ -533,11 +543,11 @@ public class PlayerController : MonoBehaviour {
                 StartCoroutine(HammerKnockBack(GameMaster.instance.enemyKnockbackDuration, GameMaster.instance.enemyKnockbackPower, GameMaster.instance.boss.transform));
             }
 
-            if (withinAggroColliders.CompareTag("Fireball")) { TakeDamage(10); }
+            if (withinAggroColliders.CompareTag("Fireball")) { if(!isInvincible) lookAt.updateTarget(withinAggroColliders.transform.position);TakeDamage(10); }
 
-            if (withinAggroColliders.CompareTag("Eel Tendril")) { TakeDamage(10); }
+            if (withinAggroColliders.CompareTag("Eel Tendril")) { if(!isInvincible) lookAt.updateTarget(withinAggroColliders.transform.position);TakeDamage(10); }
 
-            if (withinAggroColliders.CompareTag("EnemySlash")) { TakeDamage(10); }
+            if (withinAggroColliders.CompareTag("EnemySlash")) { if(!isInvincible) lookAt.updateTarget(withinAggroColliders.transform.position);TakeDamage(10); }
             
 
             /* EXAMPLE for other types of damage
@@ -634,6 +644,8 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D col) {
         if (col.CompareTag("Imp Damage Projectile")) {
+            Vector3 temp = col.transform.position;
+            lookAt.updateTarget(temp);
             TakeDamage(10);
         }
     }
