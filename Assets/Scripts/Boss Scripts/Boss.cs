@@ -57,7 +57,7 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthAmount = 50f;
+        healthAmount = 30f;
 
         healthBar.SetMaxValue(healthAmount);
 
