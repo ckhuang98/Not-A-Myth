@@ -36,6 +36,7 @@ public class PlayerXp : MonoBehaviour
 
         if(xp >= 5){
             StartCoroutine(levelUp());
+            particleEffects.playLevelUp();
             playerStats.currentXp.Value -= 5;
             playerStats.skillPoints.Value++;
         }
@@ -43,7 +44,6 @@ public class PlayerXp : MonoBehaviour
 
     private IEnumerator levelUp(){
         yellowHighlight[4].SetActive(true);
-        particleEffects.playLevelUp();
         StartCoroutine(UI.instance.displayerPlayerUpdate("Skill Point Earned. \nPress Tab to Open the Skill Tree!"));
         yield return new WaitForSeconds(0.5f);
         resetAll();
