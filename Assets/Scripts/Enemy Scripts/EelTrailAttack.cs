@@ -7,8 +7,8 @@ public class EelTrailAttack : MonoBehaviour
     ParticleSystem ps;
     private GameObject pc;
     PlayerController player;
-    float parentHealth;
-    private float stopTimer = 2f;
+    bool parentGone;
+    private float stopTimer = 3f;
     private bool startTimer = false;
 
     // these lists are used to contain the particles which match
@@ -16,7 +16,7 @@ public class EelTrailAttack : MonoBehaviour
     List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
     List<ParticleSystem.Particle> exit = new List<ParticleSystem.Particle>();
     void Start(){
-        parentHealth = GetComponentInParent<Enemy>().healthAmount;
+        parentGone = GetComponentInParent<Enemy>().parentIsGone;
         pc = GameObject.FindGameObjectWithTag("Player");
         var trigger = ps.trigger;
         trigger.enabled = true;
@@ -30,22 +30,13 @@ public class EelTrailAttack : MonoBehaviour
     }
 
     void Update() {
-        if (parentHealth <= 0) {
-            this.transform.parent = null;
-            
+        if (this.transform.parent == null) {
+            Debug.Log("Please, for fucks sake");
             var main = ps.main;
             main.loop = false;
-    
         }
-        /*
-        if (startTimer == true) {
-            if (stopTimer >= 0) {
-                    stopTimer -= Time.deltaTime;
-            } else {
-                ps.Stop();
-            }
-        }
-        */
+
+        
     }
 
     void OnParticleTrigger()

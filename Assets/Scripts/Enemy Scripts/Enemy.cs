@@ -70,6 +70,7 @@ public class Enemy : MonoBehaviour
         Vector3.Normalize(Vector3.left + Vector3.down), Vector3.left, Vector3.Normalize(Vector3.left + Vector3.up) };
     internal string attackDir = "Not Set";
     internal Transform spiritParent;
+    internal bool parentIsGone = false;
     //internal float lookingAngle;
     public bool doInstantiate = false;
     public bool instantiateWarning = false;
@@ -357,6 +358,9 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator deathAnim(){
         deadState = true;
+        if (this.tag == "Fire Eel") {
+            parentIsGone = true;
+        }
         float fadeTime = 1f;
         var thisColor = this.GetComponent<Renderer>().material.color;
         while(thisColor.a > 0){
