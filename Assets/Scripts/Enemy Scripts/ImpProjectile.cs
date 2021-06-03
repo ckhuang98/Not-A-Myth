@@ -15,32 +15,45 @@ public class ImpProjectile : MonoBehaviour
     private GameObject[] swordGiants;
     private SpriteRenderer sr;
     private Vector2 healMoveDirection;
+    private bool lookForHeal = true;
     // Start is called before the first frame update
     void Awake() {
         hammerGiants = GameObject.FindGameObjectsWithTag("Hammer Giant");
         swordGiants = GameObject.FindGameObjectsWithTag("Sword Giant");
-        hammerTarget = hammerGiants[0].transform;
-        foreach (GameObject _hammerGiant in hammerGiants) {
-            if (_hammerGiant != null) {
-                var checkingDistance = Vector3.Distance(transform.position, _hammerGiant.transform.position);
-                var targetDistance = Vector3.Distance(transform.position, hammerTarget.position);
-                if (checkingDistance < targetDistance)
-                {
-                    hammerTarget = _hammerGiant.transform;
-                } 
-            }
+        if (hammerGiants.Length <= 0 && swordGiants.Length > 0) {
+            hammerTarget = swordGiants[0].transform;
+        } else if (swordGiants.Length <= 0 && hammerGiants.Length > 0) {
+            hammerTarget = hammerGiants[0].transform;
+        } else if (swordGiants.Length > 0 && hammerGiants.Length > 0) {
+            hammerTarget = hammerGiants[0].transform;
+        } else if (swordGiants.Length <= 0 && hammerGiants.Length <= 0) {
+            lookForHeal = false;
         }
 
-        foreach (GameObject _swordGiant in swordGiants) {
-            if (_swordGiant != null) {
-                var checkingDistance = Vector3.Distance(transform.position, _swordGiant.transform.position);
-                var targetDistance = Vector3.Distance(transform.position, hammerTarget.position);
-                if (checkingDistance < targetDistance)
-                {
-                    hammerTarget = _swordGiant.transform;
-                } 
+        if (lookForHeal == true) {
+            foreach (GameObject _hammerGiant in hammerGiants) {
+                if (_hammerGiant != null) {
+                    var checkingDistance = Vector3.Distance(transform.position, _hammerGiant.transform.position);
+                    var targetDistance = Vector3.Distance(transform.position, hammerTarget.position);
+                    if (checkingDistance < targetDistance)
+                    {
+                        hammerTarget = _hammerGiant.transform;
+                    } 
+                }
+            }
+
+            foreach (GameObject _swordGiant in swordGiants) {
+                if (_swordGiant != null) {
+                    var checkingDistance = Vector3.Distance(transform.position, _swordGiant.transform.position);
+                    var targetDistance = Vector3.Distance(transform.position, hammerTarget.position);
+                    if (checkingDistance < targetDistance)
+                    {
+                        hammerTarget = _swordGiant.transform;
+                    } 
+                }
             }
         }
+        
     }
     void Start()
     {
@@ -58,7 +71,7 @@ public class ImpProjectile : MonoBehaviour
     void Update()
     {
         //Debug.Log(hold);
-        if (this.tag == "Healing Projectile") {
+        if (this.tag == "Healing Projectile" && lookForHeal == true) {
             sr.color = Color.green;
 
             if (hammerGiants.Length > 0 || swordGiants.Length > 0) {
