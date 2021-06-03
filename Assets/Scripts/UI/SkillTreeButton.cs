@@ -9,6 +9,7 @@ public class SkillTreeButton : MonoBehaviour
     public int maxUses = 1;
     public int currentUses = 0;
     public string skillDescription;
+    private bool playedSound = false;
 
     public Image highlight;
 
@@ -19,6 +20,10 @@ public class SkillTreeButton : MonoBehaviour
     private void Update() {
         if(currentUses == maxUses){
             highlight.enabled = true;
+            if(!playedSound){
+               UI.instance.playMenuSound("addSkillPoint");
+               playedSound = true;
+            }
         }
     }
 

@@ -265,6 +265,7 @@ public class PlayerController : MonoBehaviour {
         }
         if(Input.GetKeyDown(KeyCode.Space) && canDash){
             dashVFX.playDashVFX(lastMoveDirection.normalized);
+            playerAudioManager.PlayRandomPlayerSoundInGroup("dash");
             state = State.Dashing;
             Physics2D.IgnoreLayerCollision(9, 4, true);
             dashSpeed = stats.sprintSpeed.Value * 4;
@@ -287,6 +288,7 @@ public class PlayerController : MonoBehaviour {
             Physics2D.IgnoreLayerCollision(9, 4, false);
         } else{
             if(stats.unlockedDoubleDash.Value && canDashTwice && Input.GetKeyDown(KeyCode.Space)){
+                playerAudioManager.PlayRandomPlayerSoundInGroup("dash");
                 dashSpeed = stats.sprintSpeed.Value * 4f;
                 rb.velocity = lastMoveDirection.normalized * dashSpeed;
                 //dashVFX.playDashVFX(lastMoveDirection.normalized);
@@ -550,7 +552,7 @@ public class PlayerController : MonoBehaviour {
 
             if (withinAggroColliders.CompareTag("Eel Tendril")) { if(!isInvincible) lookAt.updateTarget(withinAggroColliders.transform.position);TakeDamage(10); }
 
-            if (withinAggroColliders.CompareTag("EnemySlash")) { if(!isInvincible) lookAt.updateTarget(withinAggroColliders.transform.position);TakeDamage(10); }
+            if (withinAggroColliders.CompareTag("EnemySlash")) { if(!isInvincible) lookAt.updateTarget(withinAggroColliders.transform.position); if(!isInvincible) playerAudioManager.PlayRandomPlayerSoundInGroup("swordHit");TakeDamage(10); }
             
 
             /* EXAMPLE for other types of damage

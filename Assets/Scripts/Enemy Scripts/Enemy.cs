@@ -516,6 +516,7 @@ public class Enemy : MonoBehaviour
     private void playHurtSFX()
     {
         audioManager.PlayRandomSoundInGroup("hurt");
+        audioManager.PlayRandomSoundInGroup("playerSwordHit");
     }
 
     private void playGruntSFX()

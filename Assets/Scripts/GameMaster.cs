@@ -40,6 +40,8 @@ public class GameMaster : MonoBehaviour
     public CombatManager combatManager;
     public GameObject player;
 
+    public ParticleEffects particleEffects;
+
     public GameObject boss;
 
     public float enemyKnockbackDuration = 0.25f;
@@ -79,11 +81,14 @@ public class GameMaster : MonoBehaviour
     // since the GameManager carries over into all scenes
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        ui = UI.instance;
-        gameOver = false;
-        assignReferences();
-        ui.setUIForNewScene();
-        ui.updateInventoryUI();
+        if(UI.instance != null){
+            ui = UI.instance;
+            gameOver = false;
+            assignReferences();
+            ui.setUIForNewScene();
+            ui.updateInventoryUI();
+        }
+        
         enemyList = new List<GameObject>();
         if(player != null){
             combatManager.player = player.GetComponent<PlayerController>();
@@ -235,6 +240,7 @@ public class GameMaster : MonoBehaviour
     {
         //Debug.Log("Assigned Ref");
         player = GameObject.FindGameObjectWithTag("Player");
+        particleEffects = GameObject.FindGameObjectWithTag("ParticleEffect").GetComponent<ParticleEffects>();
         boss = GameObject.FindGameObjectWithTag("Boss");
     }
 
@@ -268,9 +274,12 @@ public class GameMaster : MonoBehaviour
         Time.timeScale = 1;
         AudioListener.pause = false;
         paused = false;
-        ui.hideAllPauseMenus();
-        ui.menuBackground.SetActive(false);
-        ui.showHotbar();
+        if(ui != null){
+            ui.hideAllPauseMenus();
+            ui.menuBackground.SetActive(false);
+            ui.showHotbar();
+        }
+        
 
         // OnGameResumed?.Invoke();
     }
@@ -322,7 +331,7 @@ public class GameMaster : MonoBehaviour
     }
 
     public void loadMainMenuScene(){
-        DestroyImmediate(UI.instance, true);
+        UI.instance.DestroyNow();
         DestroyImmediate(gameObject, true);
         SceneManager.LoadScene(0);
         resumeGame();

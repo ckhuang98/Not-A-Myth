@@ -2864,6 +2864,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3110040948114809936, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
+      propertyPath: soundGroups.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110040948114809936, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
+      propertyPath: soundGroups.Array.data[0].loopingClip
+      value: theme
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110040948114809936, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
+      propertyPath: soundGroups.Array.data[0].sounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110040948114809936, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
+      propertyPath: soundGroups.Array.data[0].sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e4efce62d191ed448bea77f04df56be0, type: 3}
+    - target: {fileID: 3110040948114809936, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
+      propertyPath: soundGroups.Array.data[0].sounds.Array.data[0].name
+      value: theme
+      objectReference: {fileID: 0}
     - target: {fileID: 5347535454852803138, guid: 05a9fabe763e72245a96751fa8d58aa3,
         type: 3}
       propertyPath: m_Name

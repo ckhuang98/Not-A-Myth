@@ -66,6 +66,7 @@ public class Shard : MonoBehaviour
             Destroy(this.gameObject);
             pickedUp = true;
             GameMaster.instance.pickUpShard();
+            UI.instance.playLevelUpSound("gemPickUp");
         }
 
         if(collider.gameObject.name.Equals("ItemMagnet")){

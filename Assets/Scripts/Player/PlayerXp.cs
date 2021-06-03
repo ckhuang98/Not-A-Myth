@@ -11,11 +11,13 @@ public class PlayerXp : MonoBehaviour
 
     public ParticleEffects particleEffects;
 
+
     void Start(){
         resetAll();
     }
 
     void Update() {
+        particleEffects = GameMaster.instance.particleEffects;
         updateProgress(playerStats.currentXp.Value);
     }
 
@@ -31,6 +33,7 @@ public class PlayerXp : MonoBehaviour
         for(int i = 0; i < xp; i++){
             if(i < 5){
                 yellowHighlight[i].SetActive(true);
+                
             }
         }
 
@@ -44,6 +47,7 @@ public class PlayerXp : MonoBehaviour
 
     private IEnumerator levelUp(){
         yellowHighlight[4].SetActive(true);
+        UI.instance.playLevelUpSound("LevelUp");
         StartCoroutine(UI.instance.displayerPlayerUpdate("Skill Point Earned. \nPress Tab to Open the Skill Tree!"));
         yield return new WaitForSeconds(0.5f);
         resetAll();

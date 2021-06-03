@@ -72,7 +72,7 @@ public class CutsceneCamera : MonoBehaviour
         // }
 
         if(Input.GetKeyDown(KeyCode.Backspace)){
-            if(nextScene == 10){
+            if(nextScene == SceneManager.sceneCount){
                 SceneManager.LoadScene(0);
             } else{
                 SceneManager.LoadScene(nextScene);

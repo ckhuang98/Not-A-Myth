@@ -75,6 +75,7 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         sceneName = SceneManager.GetActiveScene().name;
         if(sceneName.Substring(0,3) == "Cut"){
             playerHud.SetActive(false);
@@ -87,6 +88,10 @@ public class UI : MonoBehaviour
             playerXpBar.SetActive(true);
             hotbar.SetActive(true);
         }
+    }
+
+    public void DestroyNow(){
+        DestroyImmediate(gameObject, true);
     }
 
     private void testing_OnGameResumed()
@@ -237,5 +242,9 @@ public class UI : MonoBehaviour
     public void playMenuSound(string name){
         Debug.Log(name);
         oam.PlaySoundInGroup("buttons", name);
+    }
+
+    public void playLevelUpSound(string name){
+        oam.PlaySoundInGroup("LevelUp", name);
     }
 }
