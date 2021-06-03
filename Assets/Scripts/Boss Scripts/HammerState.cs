@@ -7,7 +7,7 @@ public class HammerState : BaseState
 {
     private Boss _boss;
     
-    private GameObject FCA;
+    //private GameObject FCA;
     private float timer  = 5.0f;
     private bool isCreated = false;
 
@@ -29,7 +29,7 @@ public class HammerState : BaseState
         _boss.attacking = true;
         _boss.coneAttack = true;
         if (isCreated == false) {
-            FCA = GameObject.Instantiate(_boss.fireConeArea) as GameObject;
+            //FCA = GameObject.Instantiate(_boss.fireConeArea) as GameObject;
 
             // if(_boss.targetLastPos == "Center"){
             //     FCA.transform.position = new Vector3(0, -1, 1);
@@ -45,7 +45,7 @@ public class HammerState : BaseState
             //     _boss.fireCone.transform.position = conePos;
             // }
 
-            FCA.transform.position = new Vector3(0, -1, 1);
+            //FCA.transform.position = new Vector3(0, -1, 1);
             conePos.x = transform.position.x;
             _boss.fireCone.transform.position = conePos;
             isCreated = true;
@@ -61,7 +61,7 @@ public class HammerState : BaseState
         } else {
             // Debug.Log("Done");
             //_boss.fireCone.Stop();
-            GameObject.Destroy(FCA.gameObject);
+            //GameObject.Destroy(FCA.gameObject);
             em.enabled = false;
             isCreated = false;
             timer = 1.25f;
