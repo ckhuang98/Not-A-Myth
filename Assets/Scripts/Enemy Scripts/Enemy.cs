@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
     private Transform target;
 
     public bool inBounds = false;
+    public bool impInBounds = false;
     public bool hasCircled = false;
 
     internal GameObject[] hammerGiantList;
@@ -289,6 +290,9 @@ public class Enemy : MonoBehaviour
         {
             inBounds = true;
         }   
+        if (collider.gameObject.name.Equals("ImpView")) {
+            impInBounds = true;
+        }
     }
 
 

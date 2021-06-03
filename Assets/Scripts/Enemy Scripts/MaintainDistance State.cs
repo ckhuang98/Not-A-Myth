@@ -17,7 +17,7 @@ public class MaintainDistanceState : BaseState
     private float retreatDistance = 2.5f;
     private int lookHere;
 
-    private float timeBtwShots = 2f;
+    private float timeBtwShots = 1.25f;
     private float shiftTime = 4f;
 
     public MaintainDistanceState(Enemy enemy) : base(enemy.gameObject) {
@@ -73,7 +73,7 @@ public class MaintainDistanceState : BaseState
 
 
             if (timeBtwShots <= 0 && _enemy.beenHit == false) {
-                timeBtwShots = 2f;
+                timeBtwShots = 1.25f;
                 _enemy.enemyAnimator.SetTrigger("ImpAttacking");
                 return typeof(FireProjectileState);
             } else {

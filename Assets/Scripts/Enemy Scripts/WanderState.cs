@@ -110,7 +110,7 @@ public class WanderState : BaseState
                 _enemy.resetWeightsToZero();
                 return typeof(EelMaintainDistanceState);
             }
-            if (_enemy.inBounds == true && _enemy.tag == "Fire Imp") {
+            if (_enemy.impInBounds == true && _enemy.tag == "Fire Imp") {
                 _enemy.resetWeightsToZero();
                 return typeof(MaintainDistanceState);
             }
