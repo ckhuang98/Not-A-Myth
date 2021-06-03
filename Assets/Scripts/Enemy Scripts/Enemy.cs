@@ -359,6 +359,7 @@ public class Enemy : MonoBehaviour
     private IEnumerator deathAnim(){
         deadState = true;
         if (this.tag == "Fire Eel") {
+            //Debug.Log("Try this");
             parentIsGone = true;
         }
         float fadeTime = 1f;
