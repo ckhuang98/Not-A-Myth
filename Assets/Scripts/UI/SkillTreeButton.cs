@@ -27,4 +27,10 @@ public class SkillTreeButton : MonoBehaviour
         }
     }
 
+    public void noSkillPoint(){
+        if(currentUses == 0 && GameMaster.instance.playerStats.skillPoints.Value == 0){
+            UI.instance.playMenuSound("noSkillPoint");
+        }
+    }
+
 }

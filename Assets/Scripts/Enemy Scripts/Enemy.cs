@@ -537,6 +537,10 @@ public class Enemy : MonoBehaviour
         audioManager.PlayRandomSoundInGroup("cracks");
     }
 
+    private void playThrowSFX(){
+        audioManager.PlayRandomSoundInGroup("throwProjectile");
+    }
+
     private void playDeathSFX()
     {
         // return gameObject.GetComponent<ObjectAudioManager>().PlayRandomSoundInGroup("Death");

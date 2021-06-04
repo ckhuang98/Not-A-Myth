@@ -548,9 +548,9 @@ public class PlayerController : MonoBehaviour {
                 StartCoroutine(HammerKnockBack(GameMaster.instance.enemyKnockbackDuration, GameMaster.instance.enemyKnockbackPower, GameMaster.instance.boss.transform));
             }
 
-            if (withinAggroColliders.CompareTag("Fireball")) { if(!isInvincible) lookAt.updateTarget(withinAggroColliders.transform.position);TakeDamage(10); }
+            if (withinAggroColliders.CompareTag("Fireball")) { if(!isInvincible) lookAt.updateTarget(withinAggroColliders.transform.position);if(!isInvincible) playerAudioManager.PlayRandomPlayerSoundInGroup("fireballHit");TakeDamage(10); }
 
-            if (withinAggroColliders.CompareTag("Eel Tendril")) { if(!isInvincible) lookAt.updateTarget(withinAggroColliders.transform.position);TakeDamage(10); }
+            if (withinAggroColliders.CompareTag("Eel Tendril")) { if(!isInvincible) lookAt.updateTarget(withinAggroColliders.transform.position);if(!isInvincible) playerAudioManager.PlayRandomPlayerSoundInGroup("eelHit");TakeDamage(10); }
 
             if (withinAggroColliders.CompareTag("EnemySlash")) { if(!isInvincible) lookAt.updateTarget(withinAggroColliders.transform.position); if(!isInvincible) playerAudioManager.PlayRandomPlayerSoundInGroup("swordHit");TakeDamage(10); }
             
@@ -651,6 +651,7 @@ public class PlayerController : MonoBehaviour {
         if (col.CompareTag("Imp Damage Projectile")) {
             Vector3 temp = col.transform.position;
             lookAt.updateTarget(temp);
+            if(!isInvincible) playerAudioManager.PlayRandomPlayerSoundInGroup("fireballHit");
             TakeDamage(10);
         }
     }

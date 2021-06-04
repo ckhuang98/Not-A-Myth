@@ -330,6 +330,7 @@ MonoBehaviour:
   slash: {fileID: 0}
   slashWarning: {fileID: 0}
   inBounds: 0
+  impInBounds: 0
   hasCircled: 0
   enemyAnimator: {fileID: 5494777218385843897}
   _rayDistance: 5
@@ -479,6 +480,60 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: 5
       clip: {fileID: 8300000, guid: d1b1832cbb138474389aaa8238d0c87f, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+  - name: throwProjectile
+    ignorePause: 0
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 1
+      clip: {fileID: 8300000, guid: b0da78ee19c0f3346aad4f8b8c876eac, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 2
+      clip: {fileID: 8300000, guid: 7ee5642eefa9355459df8df94c820888, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 3
+      clip: {fileID: 8300000, guid: d85f389b6fe647640a97fb9fce884099, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 4
+      clip: {fileID: 8300000, guid: 4d84f5cb981211842ba092f4b14984a0, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 5
+      clip: {fileID: 8300000, guid: 73426ec4b8b87cb42a12c201603f4b42, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 6
+      clip: {fileID: 8300000, guid: a7b1d64cb2e97a54b9ef8172a2495c21, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 7
+      clip: {fileID: 8300000, guid: dbe9cd6cb4f2ca547a2f581c88f96e0c, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 8
+      clip: {fileID: 8300000, guid: 3989ec436949b4043a17334d6c0a4f06, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 9
+      clip: {fileID: 8300000, guid: 67c7790ca05738c41b5f2bf3326bf5f8, type: 3}
       index: 0
       length: 0
       source: {fileID: 0}

@@ -5737,6 +5737,7 @@ MonoBehaviour:
   slash: {fileID: 0}
   slashWarning: {fileID: 0}
   inBounds: 0
+  impInBounds: 0
   hasCircled: 0
   enemyAnimator: {fileID: 7599509831077157198}
   _rayDistance: 5
@@ -5895,6 +5896,40 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: 
       clip: {fileID: 8300000, guid: f6182c6f1a61ca54684ac741641e1f3d, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+  - name: playerSwordHit
+    ignorePause: 0
+    overrideVolume: 0
+    volume: 0
+    loopingClip: 
+    overrideDistances: 0
+    minDistance: 0
+    maxDistance: 0
+    sounds:
+    - name: 
+      clip: {fileID: 8300000, guid: 7a568c2d487594245936f471a7de721c, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 9c5514dabd322ec449a1a75fdf7688d0, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 3d09fee8d53b9b442baf56f57304b8fe, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: d3b658389764a4542a3b32ff0c1d1815, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: d1b1832cbb138474389aaa8238d0c87f, type: 3}
       index: 0
       length: 0
       source: {fileID: 0}
@@ -6152,6 +6187,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6371223323117692771}
     m_Modifications:
+    - target: {fileID: 6395506266649230817, guid: 53648fdbe6b91f34a9e387d24d0ef25b,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.4325
+      objectReference: {fileID: 0}
     - target: {fileID: 6395506266649230817, guid: 53648fdbe6b91f34a9e387d24d0ef25b,
         type: 3}
       propertyPath: m_Sprite

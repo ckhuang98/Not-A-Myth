@@ -49,11 +49,11 @@ public class HealthPlant : MonoBehaviour
                 StartCoroutine(flashRed());
             }
         }
-        if(collider.gameObject.name.Equals("ItemMagnet") && Inventory.instance.count < 5){
-                timeStamp = Time.deltaTime;
-                player = GameObject.Find("MC Prefab");
-                moveToPlayer = true;
-        }
+        // if(collider.gameObject.name.Equals("ItemMagnet") && Inventory.instance.count < 5){
+        //         timeStamp = Time.deltaTime;
+        //         player = GameObject.Find("MC Prefab");
+        //         moveToPlayer = true;
+        // }
     }
 
     private IEnumerator flashRed(){

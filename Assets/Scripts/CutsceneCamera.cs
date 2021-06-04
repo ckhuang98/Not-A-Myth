@@ -39,23 +39,24 @@ public class CutsceneCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(nextScene);
+        //Debug.Log(nextScene);
 
         if (timeRemaining > 0){
             timeRemaining -= Time.deltaTime;
         }
 
-        // if (skipTimeRemaining > 0){
-        //     skipTimeRemaining -= Time.deltaTime;
-        // } else {
-        //     skipReady = false;
-        // }
+        if (skipTimeRemaining > 0){
+            skipTimeRemaining -= Time.deltaTime;
+        } else {
+            skipReady = false;
+        }
 
-        // if (skipReady) {
-        //     skipText.text = "Press Backspace To Skip";
-        // } else {
-        //     skipText.text = "";
-        // }
+        if (skipReady) {
+            if(nextScene != SceneManager.sceneCount)
+                skipText.text = "Press Backspace To Skip";
+        } else {
+            skipText.text = "";
+        }
 
         // if(Input.GetKeyDown(KeyCode.Space) || timeRemaining <= 0){
         //     if(sceneNum == views.Length - 1){
@@ -72,7 +73,7 @@ public class CutsceneCamera : MonoBehaviour
         // }
 
         if(Input.GetKeyDown(KeyCode.Backspace)){
-            if(nextScene == SceneManager.sceneCount){
+            if(nextScene == 11){
                 SceneManager.LoadScene(0);
             } else{
                 SceneManager.LoadScene(nextScene);
@@ -80,14 +81,19 @@ public class CutsceneCamera : MonoBehaviour
         }
         if(( videoPlayer.frame) > 0 && (videoPlayer.isPlaying == false))
         {
-            SceneManager.LoadScene(nextScene);
+            if(nextScene == 11){
+                SceneManager.LoadScene(0);
+            } else{
+                SceneManager.LoadScene(nextScene);
+            }
+            
         }
 
-        // if (Input.anyKeyDown){
-        //     Debug.Log("A key or mouse click has been detected");
-        //     skipReady = true;
-        //     skipTimeRemaining = skipTimer;
-        // }
+        if (Input.anyKeyDown){
+            Debug.Log("A key or mouse click has been detected");
+            skipReady = true;
+            skipTimeRemaining = skipTimer;
+        }
 
         // zoomOut();
     }

@@ -24,7 +24,7 @@ public class Boss : MonoBehaviour
     public GameObject slash;
     public GameObject shockWave;
     public ParticleSystem fireCone;
-    public GameObject fireConeArea;
+    // public GameObject fireConeArea;
 
     public Animator animator;
     public BarScript healthBar;

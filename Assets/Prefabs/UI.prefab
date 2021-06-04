@@ -268,6 +268,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 84014816}
+        m_MethodName: noSkillPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &84014814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,6 +628,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 125982430}
           m_ObjectArgumentAssemblyTypeName: SkillTreeButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 125982430}
+        m_MethodName: noSkillPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1310,7 +1332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &554552954
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1328,7 +1350,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.38, y: 110.6}
+  m_AnchoredPosition: {x: 555, y: 62}
   m_SizeDelta: {x: 247, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &554552957
@@ -1626,6 +1648,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 568151827}
           m_ObjectArgumentAssemblyTypeName: SkillTreeButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 568151827}
+        m_MethodName: noSkillPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2103,6 +2136,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 581519436}
+        m_MethodName: noSkillPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &581519434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2300,6 +2344,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 607791230}
           m_ObjectArgumentAssemblyTypeName: SkillTreeButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 607791230}
+        m_MethodName: noSkillPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2554,7 +2609,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.38, y: 4}
+  m_AnchoredPosition: {x: 12.38, y: 111}
   m_SizeDelta: {x: 247, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &817462655
@@ -3036,7 +3091,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Health Restored!
 --- !u!1 &1011848414
@@ -3182,6 +3237,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1011848418}
           m_ObjectArgumentAssemblyTypeName: SkillTreeButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1011848418}
+        m_MethodName: noSkillPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3389,6 +3455,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1029965313}
+        m_MethodName: noSkillPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1029965311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3586,6 +3663,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1102149339}
           m_ObjectArgumentAssemblyTypeName: SkillTreeButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1102149339}
+        m_MethodName: noSkillPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3945,6 +4033,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1269432552}
+        m_MethodName: noSkillPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1269432550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4220,6 +4319,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1352145006}
           m_ObjectArgumentAssemblyTypeName: SkillTreeButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1352145006}
+        m_MethodName: noSkillPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5454,6 +5564,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1859485568}
+        m_MethodName: noSkillPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1859485564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5545,8 +5666,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -764, y: 452}
-  m_SizeDelta: {x: 240, y: 45}
+  m_AnchoredPosition: {x: 12.947, y: -113.7}
+  m_SizeDelta: {x: 247, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1901745544
 CanvasRenderer:
@@ -6532,6 +6653,17 @@ MonoBehaviour:
           m_StringArgument: menuSelect
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1812211027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6675,7 +6807,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.38, y: -221.5}
+  m_AnchoredPosition: {x: 12.38, y: -220}
   m_SizeDelta: {x: 247, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &290801533379162466
@@ -6896,7 +7028,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Exit
+  m_Text: Exit Game
 --- !u!1 &290801533937406121
 GameObject:
   m_ObjectHideFlags: 0
@@ -7118,6 +7250,11 @@ MonoBehaviour:
       source: {fileID: 0}
     - name: addSkillPoint
       clip: {fileID: 8300000, guid: ae1fe03aa69b65c41b285565964438d5, type: 3}
+      index: 0
+      length: 0
+      source: {fileID: 0}
+    - name: noSkillPoint
+      clip: {fileID: 8300000, guid: e4c3cbce532180d4a86000f818e2877d, type: 3}
       index: 0
       length: 0
       source: {fileID: 0}
@@ -8824,6 +8961,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6790137757507505036}
+        m_MethodName: noSkillPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8897154081321959735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8989,7 +9137,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.38, y: -113}
+  m_AnchoredPosition: {x: 12.38, y: 4}
   m_SizeDelta: {x: 247, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &72766785355578630
@@ -9343,6 +9491,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1811774505653919506}
           m_ObjectArgumentAssemblyTypeName: SkillTreeButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1811774505653919506}
+        m_MethodName: noSkillPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11373,8 +11532,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5655418097560348885, guid: 7aaa8d7b05ae8de4492656f887f3fff0,
-          type: 3}
+      - m_Target: {fileID: 0}
         m_MethodName: loadMainMenuScene
         m_Mode: 1
         m_Arguments:
@@ -12460,8 +12618,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 10.75}
-  m_SizeDelta: {x: 1920, y: 1101.5}
+  m_AnchoredPosition: {x: 11.5, y: 26}
+  m_SizeDelta: {x: 1973.2734, y: 1132.063}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4674601990486187002
 CanvasRenderer:
@@ -13702,7 +13860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6369593527786718695
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14164,6 +14322,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4850749750396746278}
+        m_MethodName: noSkillPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &445135127026032035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14361,6 +14530,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 6249611839252804669}
           m_ObjectArgumentAssemblyTypeName: SkillTreeButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6249611839252804669}
+        m_MethodName: noSkillPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
