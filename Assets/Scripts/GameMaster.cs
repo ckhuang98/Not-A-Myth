@@ -240,7 +240,7 @@ public class GameMaster : MonoBehaviour
     {
         //Debug.Log("Assigned Ref");
         player = GameObject.FindGameObjectWithTag("Player");
-        particleEffects = GameObject.FindGameObjectWithTag("ParticleEffect").GetComponent<ParticleEffects>();
+        
         boss = GameObject.FindGameObjectWithTag("Boss");
     }
 

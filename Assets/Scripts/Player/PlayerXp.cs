@@ -39,7 +39,6 @@ public class PlayerXp : MonoBehaviour
 
         if(xp >= 5){
             StartCoroutine(levelUp());
-            particleEffects.playLevelUp();
             playerStats.currentXp.Value -= 5;
             playerStats.skillPoints.Value++;
         }

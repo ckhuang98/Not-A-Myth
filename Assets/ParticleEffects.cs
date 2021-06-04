@@ -20,6 +20,7 @@ public class ParticleEffects : MonoBehaviour
         em = levelUpPS2.emission;
         em.enabled = true;
         playerStats.currentXp.OnValueChanged += playGemPickUP;
+        playerStats.skillPoints.OnValueChanged += playLevelUp;
     }
 
     // Update is called once per frame
@@ -28,14 +29,19 @@ public class ParticleEffects : MonoBehaviour
     }
 
     void playGemPickUP(){
+        if(gemPS != null)
             gemPS.Play();
     }
 
     public void playHeal(){
-        healPS.Play();
+        if(healPS != null)
+            healPS.Play();
     }
     public void playLevelUp(){
-        levelUpPS1.Play();
-        levelUpPS2.Play();
+        if(!GameMaster.instance.isPaused() && levelUpPS1 != null){
+            levelUpPS1.Play();
+            levelUpPS2.Play();
+        }
+        
     }
 }
