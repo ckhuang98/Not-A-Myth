@@ -3251,6 +3251,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3110040948114809936, guid: 05a9fabe763e72245a96751fa8d58aa3,
         type: 3}
+      propertyPath: soundGroups.Array.data[0].volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110040948114809936, guid: 05a9fabe763e72245a96751fa8d58aa3,
+        type: 3}
       propertyPath: soundGroups.Array.data[0].loopingClip
       value: theme
       objectReference: {fileID: 0}

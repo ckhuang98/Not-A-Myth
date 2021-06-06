@@ -298,6 +298,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1558947555}
+    - target: {fileID: 290801533379162464, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 148125174}
+    - target: {fileID: 290801533379162464, guid: 9bc6f6206f5387c49b65d003f009bb84,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: showExitGameConfirmationMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 290801533937406121, guid: 9bc6f6206f5387c49b65d003f009bb84,
         type: 3}
       propertyPath: m_Name
@@ -411,7 +421,7 @@ PrefabInstance:
     - target: {fileID: 2891007349132076870, guid: 9bc6f6206f5387c49b65d003f009bb84,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3228769676823033361, guid: 9bc6f6206f5387c49b65d003f009bb84,
         type: 3}

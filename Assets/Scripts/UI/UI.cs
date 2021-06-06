@@ -232,7 +232,7 @@ public class UI : MonoBehaviour
     }
 
     //display player update
-    public IEnumerator displayerPlayerUpdate(string message = "", float duration = 2f)
+    public IEnumerator displayerPlayerUpdate(string message = "", float duration = 3f)
     {
         playerUpdates.GetComponent<Text>().text = message;
         yield return new WaitForSecondsRealtime(duration); //realtime so it works when game is paused

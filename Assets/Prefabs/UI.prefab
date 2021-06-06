@@ -9440,7 +9440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxUses: 1
   currentUses: 0
-  skillDescription: Dash Into Enemies Now Deals Damage
+  skillDescription: Dash Into Enemies To Deal Damage
   highlight: {fileID: 8609296409092141193}
 --- !u!114 &8563793302657975633
 MonoBehaviour:
@@ -10388,7 +10388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000018597, y: -12.5}
+  m_AnchoredPosition: {x: 0.000018597, y: -22.4}
   m_SizeDelta: {x: 50.000046, y: 25.000496}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6419758405710021163
@@ -10429,7 +10429,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 
 --- !u!1 &4062301418729422318
@@ -12145,7 +12145,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Q
 --- !u!1 &5921770126367041611
@@ -13259,7 +13259,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4e3db64b745978446b87c71b069156c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b04bc5bd5f57c364daea8d2eb6c5e0a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
