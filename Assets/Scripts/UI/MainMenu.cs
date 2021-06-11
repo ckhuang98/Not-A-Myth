@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject credits;
     public GameObject options;
+    public GameObject showcase;
     void Start()
     {
 
@@ -14,6 +15,8 @@ public class MainMenu : MonoBehaviour
         credits.SetActive(false);
 
         options.SetActive(false);
+
+        showcase.SetActive(false);
     }
 
     //Assigned to the credits button.
@@ -32,6 +35,14 @@ public class MainMenu : MonoBehaviour
 
     public void hideOptions(){
         options.SetActive(false);
+    }
+
+    public void showShowcase(){
+        showcase.SetActive(true);
+    }
+
+    public void hideShowcase(){
+        showcase.SetActive(false);
     }
 
     //Assigned to the play button.
