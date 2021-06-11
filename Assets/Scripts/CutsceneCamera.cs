@@ -74,7 +74,7 @@ public class CutsceneCamera : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Backspace)){
             if(nextScene == 11){
-                SceneManager.LoadScene(0);
+                GameMaster.instance.loadMainMenuScene();
             } else{
                 SceneManager.LoadScene(nextScene);
             }
@@ -90,7 +90,7 @@ public class CutsceneCamera : MonoBehaviour
         }
 
         if (Input.anyKeyDown){
-            Debug.Log("A key or mouse click has been detected");
+            //Debug.Log("A key or mouse click has been detected");
             skipReady = true;
             skipTimeRemaining = skipTimer;
         }

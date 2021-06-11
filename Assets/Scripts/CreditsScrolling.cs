@@ -22,6 +22,15 @@ public class CreditsScrolling : MonoBehaviour
 
     public GameObject writingCredits;
     Text writingText;
+
+    public Text skipText;
+    private bool skipReady = false;
+
+    public float skipTimer;
+    private float skipTimeRemaining;
+
+    public float sceneTimer;
+    private float timeRemaining;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +42,37 @@ public class CreditsScrolling : MonoBehaviour
         writingText = writingCredits.GetComponent<Text>();
 
         StartCoroutine(FadeinArtCredits(52, artText));
+
+        timeRemaining = sceneTimer;
+        skipTimeRemaining = 0;
+    }
+
+    void Update(){
+        if (timeRemaining > 0){
+            timeRemaining -= Time.deltaTime;
+        }
+
+        if (skipTimeRemaining > 0){
+            skipTimeRemaining -= Time.deltaTime;
+        } else {
+            skipReady = false;
+        }
+
+        if (skipReady) {
+            skipText.text = "Press Backspace To Skip";
+        } else {
+            skipText.text = "";
+        }
+
+        if(Input.GetKeyDown(KeyCode.Backspace)){
+            GameMaster.instance.loadMainMenuScene();
+        }
+
+        if (Input.anyKeyDown){
+            //Debug.Log("A key or mouse click has been detected");
+            skipReady = true;
+            skipTimeRemaining = skipTimer;
+        }
     }
 
     IEnumerator FadeinArtCredits(float delayTime, Text i)
@@ -49,7 +89,7 @@ public class CreditsScrolling : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(4f);
         StartCoroutine(FadeOutArtCredits(i));
         //Do the action after the delay time has finished.
     }
@@ -74,7 +114,7 @@ public class CreditsScrolling : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(3f);
         StartCoroutine(FadeOutProgramCredits(i));
         
         //Do the action after the delay time has finished.
@@ -192,6 +232,8 @@ public class CreditsScrolling : MonoBehaviour
             i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a - (Time.deltaTime / 1));
             yield return null;
         }
+
+        GameMaster.instance.loadMainMenuScene();
         
     }
 }

@@ -20342,8 +20342,8 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.92, y: 0.495}
-    newSize: {x: 0.92, y: 0.495}
+    oldSize: {x: 8.091429, y: 3.84}
+    newSize: {x: 8.091429, y: 3.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -20372,8 +20372,8 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.92, y: 0.495}
-    newSize: {x: 0.92, y: 0.495}
+    oldSize: {x: 8.091429, y: 3.84}
+    newSize: {x: 8.091429, y: 3.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -20776,6 +20776,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1653344395945077463, guid: 9f267558bd7f3954ebf71708323ecbdf,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1653344395945077483, guid: 9f267558bd7f3954ebf71708323ecbdf,
         type: 3}
       propertyPath: m_Size.x
@@ -20926,6 +20931,47 @@ PrefabInstance:
       propertyPath: particleEffects
       value: 
       objectReference: {fileID: 4954611514565227387}
+    - target: {fileID: 1653344395945077880, guid: 9f267558bd7f3954ebf71708323ecbdf,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653344395945077880, guid: 9f267558bd7f3954ebf71708323ecbdf,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: dfe646580de7d98429286ab1dad268fc,
+        type: 3}
+    - target: {fileID: 1653344395945077880, guid: 9f267558bd7f3954ebf71708323ecbdf,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653344395945077880, guid: 9f267558bd7f3954ebf71708323ecbdf,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653344395945077880, guid: 9f267558bd7f3954ebf71708323ecbdf,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653344395945077880, guid: 9f267558bd7f3954ebf71708323ecbdf,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653344395945077880, guid: 9f267558bd7f3954ebf71708323ecbdf,
+        type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653344395945077880, guid: 9f267558bd7f3954ebf71708323ecbdf,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1653344395945078008, guid: 9f267558bd7f3954ebf71708323ecbdf,
         type: 3}
       propertyPath: soundGroups.Array.size
@@ -21101,6 +21147,16 @@ PrefabInstance:
       propertyPath: soundGroups.Array.data[8].sounds.Array.data[5].clip
       value: 
       objectReference: {fileID: 8300000, guid: fcd8d79da029e504ba0a89695136c473, type: 3}
+    - target: {fileID: 1653344395945078225, guid: 9f267558bd7f3954ebf71708323ecbdf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653344395945078225, guid: 9f267558bd7f3954ebf71708323ecbdf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -160
+      objectReference: {fileID: 0}
     - target: {fileID: 1653344395945078236, guid: 9f267558bd7f3954ebf71708323ecbdf,
         type: 3}
       propertyPath: m_RootOrder

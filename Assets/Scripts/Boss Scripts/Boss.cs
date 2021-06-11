@@ -49,6 +49,8 @@ public class Boss : MonoBehaviour
     Vector2 movement;
     Vector2 velocity = new Vector2(1.75f, 1.1f);
 
+    public FadeTransistion fade;
+
     void Awake() {
         fireCone.GetComponent<ParticleSystem>();
         fireCone.Pause();
@@ -149,8 +151,8 @@ public class Boss : MonoBehaviour
         if (!gameOver) { 
             if (healthAmount <= 0)
             {
+                fade.doFade();
                 Destroy(this.gameObject);
-                GameMaster.instance.loadScene();
             }
             timer += Time.deltaTime; // Temporary
         }
