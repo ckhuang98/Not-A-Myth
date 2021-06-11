@@ -9,7 +9,7 @@ public class FadeTransistion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        image.enabled = false;
     }
 
     // Update is called once per frame
@@ -19,6 +19,7 @@ public class FadeTransistion : MonoBehaviour
     }
 
     public void doFade(){
+        image.enabled = true;
         StartCoroutine(Fade(image));
     }
 
