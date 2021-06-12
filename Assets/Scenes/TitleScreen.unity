@@ -469,7 +469,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: dfe646580de7d98429286ab1dad268fc, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -1067,7 +1067,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: dfe646580de7d98429286ab1dad268fc, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -1427,8 +1427,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300.8739, y: 217.38367}
+  m_AnchoredPosition: {x: 0.000024796, y: 31}
+  m_SizeDelta: {x: 1355.6635, y: 590.8075}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &394424737
 MonoBehaviour:
@@ -1456,13 +1456,18 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.9
-  m_Text: Text here
+  m_Text: "Hunting the Aurora is a 2D, Top-Down Action game. \nUse Mouse and Keyboard
+    to control your character. \nPressing \"esc\" will bring up the pause menu. \nPressing
+    \"g\" will skip the current level, and proceed to the next cutscene. \nYou can
+    press backspace on Windows and Delete on Mac to skip cutscenes. \nThere are three
+    levels in total and a boss fight.\nThanks for playing our game!\n\n\n-Version
+    1.15"
 --- !u!222 &394424738
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3290,7 +3295,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: dfe646580de7d98429286ab1dad268fc, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -3302,7 +3307,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Showcase
+  m_Text: 
 --- !u!222 &1359609131
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3416,7 +3421,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: dfe646580de7d98429286ab1dad268fc, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -3603,8 +3608,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -788.86, y: 150}
-  m_SizeDelta: {x: 240, y: 45}
+  m_AnchoredPosition: {x: -788.86, y: 124.08}
+  m_SizeDelta: {x: 240, y: 96.84863}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1597837027
 MonoBehaviour:
@@ -3679,7 +3684,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 92280be5cb0505541b6e4936f3752f89, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8c330efe6f40e54082d992e060222a4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3760,7 +3765,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: dfe646580de7d98429286ab1dad268fc, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -4054,8 +4059,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763388217}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -959.981, y: -540.03, z: 0}
-  m_LocalScale: {x: 2.780942, y: 2.780942, z: 2.780942}
+  m_LocalPosition: {x: -959.991, y: -539.995, z: 0}
+  m_LocalScale: {x: 2.8, y: 2.8, z: 1}
   m_Children: []
   m_Father: {fileID: 468221002}
   m_RootOrder: 6
@@ -4099,7 +4104,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9c6fcae107ae9e54fa64eb40ec8ab35c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0792feb73171d19499eddc19567bbc04, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
